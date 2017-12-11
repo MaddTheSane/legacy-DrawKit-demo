@@ -17,6 +17,10 @@
 			<string>Drawing</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>net.apptree.drawing</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSDocumentClass</key>
@@ -32,7 +36,7 @@
 	<key>CFBundleIconFile</key>
 	<string>dkicon</string>
 	<key>CFBundleIdentifier</key>
-	<string>BUNDLE_ID_</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -43,9 +47,33 @@
 	<string>DKDA</string>
 	<key>CFBundleVersion</key>
 	<string>${VISIBLE_VERSION_NUMBER} VERSION_POSTFIX_</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>DrawKit Drawing</string>
+			<key>UTTypeIconFile</key>
+			<string>dkdocument</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.apptree.drawing</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>drawing</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

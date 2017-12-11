@@ -1,0 +1,3 @@
+[submodule "DrawKit-1"]
+	path = DrawKit
+	url = https://github.com/MaddTheSane/DrawKit-1.git

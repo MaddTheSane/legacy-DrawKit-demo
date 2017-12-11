@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,9 +23,8 @@
 		AA7431EE0D81016B0013CA82 /* StyleInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7431EC0D81016B0013CA82 /* StyleInspector.xib */; };
 		AA7431F10D8101720013CA82 /* StyleManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7431EF0D8101720013CA82 /* StyleManager.xib */; };
 		AA7431F40D8101790013CA82 /* ToolPalette.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7431F20D8101790013CA82 /* ToolPalette.xib */; };
-		AA80733E0DA4951B005BCAA0 /* DrawDemo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */; };
-		AA89A4630D7E03E70092F050 /* GCDrawKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* GCDrawKit.framework */; };
-		AA89A4B10D7E0D2D0092F050 /* GCDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* GCDrawKit.framework */; };
+		AA89A4630D7E03E70092F050 /* DKDrawKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA89A4B10D7E0D2D0092F050 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
 		BF2866280E26ED05001CD43F /* GCExportOptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2866270E26ED05001CD43F /* GCExportOptionsController.m */; };
 		BF3579750DEE5F5C00C9B16D /* NSWindow+SheetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3579740DEE5F5C00C9B16D /* NSWindow+SheetAdditions.m */; };
 		BF58D0060C7526A6009B85CC /* DKGradientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58CFE20C7526A6009B85CC /* DKGradientCell.m */; };
@@ -99,6 +98,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		55EFF2131FDE4970007A4610 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 553CF02A1FDDC2EF003E9342;
+			remoteInfo = DrawKitSwift;
+		};
 		AA89A45D0D7E03B90092F050 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */;
@@ -129,7 +135,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA89A4630D7E03E70092F050 /* GCDrawKit.framework in CopyFiles */,
+				AA89A4630D7E03E70092F050 /* DKDrawKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,17 +143,17 @@
 
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A37F4ACFDCFA73011CA2CEA /* GCDrawDemoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDrawDemoDocument.m; path = Code/GCDrawDemoDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* GCDrawDemoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDrawDemoDocument.h; path = Code/GCDrawDemoDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Code/main.m; sourceTree = "<group>"; };
 		2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
-		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
-		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawDemo_Prefix.pch; path = Code/DrawDemo_Prefix.pch; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GCDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		96F5177A0B8A72760047BA96 /* GCDrawKitAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCDrawKitAppDelegate.h; path = Code/GCDrawKitAppDelegate.h; sourceTree = "<group>"; };
 		96F5177B0B8A72760047BA96 /* GCDrawKitAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCDrawKitAppDelegate.m; path = Code/GCDrawKitAppDelegate.m; sourceTree = "<group>"; };
 		AA206DD30D90A0E6003205BD /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GCDrawDemoDocument.xib; sourceTree = "<group>"; };
@@ -161,7 +167,7 @@
 		AA7431F30D8101790013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DrawDemo.xcconfig; sourceTree = "<group>"; };
 		AA8073650DA49912005BCAA0 /* DrawDemoInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DrawDemoInfo.plist; sourceTree = "<group>"; };
-		AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawKit.xcodeproj; path = ../../../DrawKit/Trunk/Source/DrawKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawKit.xcodeproj; path = DrawKit/DrawKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		BF2866260E26ED05001CD43F /* GCExportOptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCExportOptionsController.h; path = Code/GCExportOptionsController.h; sourceTree = "<group>"; };
 		BF2866270E26ED05001CD43F /* GCExportOptionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCExportOptionsController.m; path = Code/GCExportOptionsController.m; sourceTree = "<group>"; };
 		BF3579730DEE5F5C00C9B16D /* NSWindow+SheetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSWindow+SheetAdditions.h"; path = "Code/NSWindow+SheetAdditions.h"; sourceTree = "<group>"; };
@@ -277,7 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
-				AA89A4B10D7E0D2D0092F050 /* GCDrawKit.framework in Frameworks */,
+				AA89A4B10D7E0D2D0092F050 /* DKDrawKit.framework in Frameworks */,
 				965B6AD00C28ACDB00FFCC95 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,8 +465,9 @@
 		AA89A4560D7E03B90092F050 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA89A45E0D7E03B90092F050 /* GCDrawKit.framework */,
-				BFCFD4F80F69D7630027A583 /* DKUnitTests.octest */,
+				AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */,
+				BFCFD4F80F69D7630027A583 /* DKUnitTests.xctest */,
+				55EFF2141FDE4970007A4610 /* DrawKitSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -535,9 +542,16 @@
 /* Begin PBXProject section */
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "DrawDemo" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* GCDrawDemo */;
 			projectDirPath = "";
 			projectReferences = (
@@ -554,17 +568,24 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AA89A45E0D7E03B90092F050 /* GCDrawKit.framework */ = {
+		55EFF2141FDE4970007A4610 /* DrawKitSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = GCDrawKit.framework;
+			path = DrawKitSwift.framework;
+			remoteRef = 55EFF2131FDE4970007A4610 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DKDrawKit.framework;
 			remoteRef = AA89A45D0D7E03B90092F050 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		BFCFD4F80F69D7630027A583 /* DKUnitTests.octest */ = {
+		BFCFD4F80F69D7630027A583 /* DKUnitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = DKUnitTests.octest;
+			path = DKUnitTests.xctest;
 			remoteRef = BFCFD4F70F69D7630027A583 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -615,7 +636,6 @@
 				BFFC4F850DA0FF95003E1655 /* squarecorner.tif in Resources */,
 				BFFC4F860DA0FF95003E1655 /* roundcorner.tif in Resources */,
 				BFFC4F8F0DA1048B003E1655 /* bevelcorner.tif in Resources */,
-				AA80733E0DA4951B005BCAA0 /* DrawDemo.xcconfig in Resources */,
 				BFEAF52C0DAE31FB002972BC /* dkicon.icns in Resources */,
 				BFEAF5430DAE3586002972BC /* dkdocument.icns in Resources */,
 				BF9517A40DBCC4EE009E8CEC /* menu_triangle.tiff in Resources */,
@@ -787,10 +807,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -799,14 +815,8 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_3)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_4)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../DrawKit/Trunk/Source/build/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../../../../Library/Frameworks\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_3 = "\"$(SRCROOT)/../../../DrawKit/Trunk/Source/build/Release\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_4 = "\"$(SRCROOT)/../../../../../Shared/DevBuilds/Debug\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Code/DrawDemo_Prefix.pch;
 				HEADER_SEARCH_PATHS = "";
@@ -817,9 +827,9 @@
 					"VERSION_POSTFIX_=(Debug)",
 				);
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = net.apptree.gcdrawdemo;
 				PRODUCT_NAME = GCDrawDemo;
 				WRAPPER_EXTENSION = app;
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
@@ -827,21 +837,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../DrawKit/Trunk/Source/build/Release\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/../../../../../Shared/DevBuilds/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../DrawKit/Trunk/Source/build/Debug\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Code/DrawDemo_Prefix.pch;
 				HEADER_SEARCH_PATHS = "";
@@ -853,9 +855,8 @@
 				);
 				INSTALL_PATH = "$(HOME)/Applications";
 				KEEP_PRIVATE_EXTERNS = NO;
-				PREBINDING = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = net.apptree.gcdrawdemo;
 				PRODUCT_NAME = GCDrawDemo;
-				SYMROOT = ../../../DrawKit/Trunk/Source/build;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -864,15 +865,33 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
-				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_DEBUGGING_SYMBOLS = default;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					qDebug,
 					"$(GCC_PREPROCESSOR_DEFINITIONS)",
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -886,6 +905,7 @@
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -893,11 +913,9 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../../../DrawKit/Trunk/Source/build/Debug/GCDrawKit.framework/**";
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
-				SYMROOT = ../../../DrawKit/Trunk/Source/build;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 				VISIBLE_VERSION_NUMBER = 1.0b7;
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -920,8 +938,27 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(GCC_PREPROCESSOR_DEFINITIONS)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -935,6 +972,7 @@
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -942,11 +980,8 @@
 				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../../../DrawKit/Trunk/Source/build/Release/GCDrawKit.framework/**";
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
-				SYMROOT = ../../../DrawKit/Trunk/Source/build;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
 				VISIBLE_VERSION_NUMBER = 1.0b7;
 				WARNING_CFLAGS = (
 					"-Wall",
