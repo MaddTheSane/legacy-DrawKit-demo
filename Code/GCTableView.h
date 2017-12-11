@@ -30,7 +30,7 @@
 
 @interface NSObject (GCColourCellHack)
 
-- (void)				setTemporaryColour:(NSColor*) aColour forTableView:(NSTableView*) tView row:(int) row;
+- (void)				setTemporaryColour:(NSColor*) aColour forTableView:(NSTableView*) tView row:(NSInteger) row;
 
 @end
 

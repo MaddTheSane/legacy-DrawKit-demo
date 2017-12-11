@@ -8,6 +8,7 @@
 
 #import "DKGradientCell.h"
 #import "GCMiniControl.h"
+#import "GCGradientWell.h"
 
 @class GCMiniControl;
 @class GCMiniControlCluster;
@@ -25,7 +26,7 @@
 - (void)					setMiniControlBoundsWithCellFrame:(NSRect) cframe forMode:(int) mode;
 - (void)					setMiniControlBounds:(NSRect) br withIdentifier:(NSString*) key;
 - (void)					drawMiniControlsForMode:(int) mode;
-- (GCMiniControlCluster*)	controlClusterForMode:(int) mode;
+- (GCMiniControlCluster*)controlClusterForMode:(DKGradientWellMode) mode;
 - (GCMiniControl*)			miniControlForIdentifier:(NSString*) key;
 - (void)					updateMiniControlsForMode:(int) mode;
 

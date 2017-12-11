@@ -205,7 +205,7 @@ static unsigned		sMFlags = 0;
 }
 
 
-- (GCMiniControlCluster*)controlClusterForMode:(int) mode
+- (GCMiniControlCluster*)controlClusterForMode:(DKGradientWellMode) mode
 {
 	switch ( mode )
 	{
@@ -448,8 +448,8 @@ static unsigned		sMFlags = 0;
 	
 	if ([self startTrackingAt:p inView:controlView])
 	{
-		unsigned int	mask;
-		NSEvent*		event;
+		NSEventMask		mask;
+		NSEvent*		event = nil;
 		BOOL			loop = YES;
 		NSPoint			currentPoint, lastPoint;
 		

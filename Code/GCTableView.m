@@ -66,8 +66,8 @@
 	
 	// which column and cell has been hit?
 	
-	int column = [self columnAtPoint:p];
-	int row = [self rowAtPoint:p];
+	NSInteger column = [self columnAtPoint:p];
+	NSInteger row = [self rowAtPoint:p];
 	NSTableColumn* theColumn = [[self tableColumns] objectAtIndex:column];
 	id dataCell = [theColumn dataCellForRow:row];
 	

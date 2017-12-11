@@ -43,7 +43,7 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 	[sp setCanSelectHiddenExtension:YES];
 	
 	[sp beginSheetForDirectory:nil
-		file:[delegate displayName]
+		file:[(id)delegate displayName]
 		modalForWindow:parent
 		modalDelegate:self
 		didEndSelector:@selector(exportPanelDidEnd:returnCode:contextInfo:)
@@ -173,7 +173,7 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 			
 			[mOptionsDict setObject:[sp URL] forKey:kGCExportedFileURL];
 			
-			LogEvent_( kFileEvent, @"export controller completed (OK), type = %d, dict = %@", mFileType, mOptionsDict );
+			LogEvent_( kFileEvent, @"export controller completed (OK), type = %ld, dict = %@", (long)mFileType, mOptionsDict );
 
 			[mDelegate performExportType:mFileType withOptions:mOptionsDict];
 		}

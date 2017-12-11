@@ -54,7 +54,7 @@
 	BOOL result = NO;
 	
 	if (! [self fileExistsAtPath:path])
-		result = [self createDirectoryAtPath:path attributes:nil];
+		result = [self createDirectoryAtPath:path attributes:@{}];
 	
 	if ( ! result )
 		NSBeep();

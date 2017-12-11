@@ -111,7 +111,7 @@
 }
 
 
-- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (flags)
 	if ( part == kDKMiniSliderKnob )
@@ -120,7 +120,7 @@
 }
 
 
-- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 	// recalculate the value based on the position of the knob
 	

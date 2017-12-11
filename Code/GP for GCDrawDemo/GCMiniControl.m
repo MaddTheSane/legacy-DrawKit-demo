@@ -192,7 +192,7 @@
 }
 
 
-- (void)		flagsChanged:(NSEventModifierFlags) flags
+- (void)flagsChanged:(NSEventModifierFlags) flags
 {
 #pragma unused (flags)
 	// override to do something

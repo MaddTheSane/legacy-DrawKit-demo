@@ -198,7 +198,7 @@
 }
 
 
-- (void)flagsChanged:(int) flags
+- (void)flagsChanged:(NSEventModifierFlags) flags
 {
 	// propagate to all controls in the cluster
 
@@ -272,7 +272,7 @@
 }
 
 
-- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (part)
 	// determine which control was hit and what part. This will be used for subsequent
@@ -308,7 +308,7 @@
 }
 
 
-- (BOOL)				mouseDraggedAt:(NSPoint) currentPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (part)
 	// track the mouse in the current hit target with the part established by the mouse down. The
@@ -336,7 +336,7 @@
 }
 
 
-- (void)				mouseUpAt:(NSPoint) endPoint inPart:(int) part modifierFlags:(int) flags
+- (void)mouseUpAt:(NSPoint) endPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (part)
 	if ([self visible] && mHitTarget )
@@ -368,7 +368,7 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)				dealloc
+- (void)dealloc
 {
 	[mControlNames release];
 	[mControls release];

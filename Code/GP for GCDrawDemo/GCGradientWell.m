@@ -86,7 +86,7 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 
 
 #pragma mark -
-- (void)		setControlMode:(int) mode
+- (void)setControlMode:(DKGradientWellMode) mode
 {
 	if ( mControlMode != mode )
 	{
@@ -99,7 +99,7 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 }
 
 
-- (int)			controlMode
+- (DKGradientWellMode)controlMode
 {
 	return mControlMode;
 }

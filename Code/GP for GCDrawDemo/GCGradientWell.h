@@ -10,10 +10,16 @@
 
 @class DKGradient;
 
+typedef NS_ENUM(NSInteger, DKGradientWellMode) {
+	kDKGradientWellDisplayMode			= 0,
+	kDKGradientWellAngleMode			= 1,
+	kDKGradientWellRadialMode			= 2,
+	kDKGradientWellSweepMode			= 3
+};
 
 @interface GCGradientWell : NSControl
 {
-	int					mControlMode;
+	DKGradientWellMode	mControlMode;
 	NSTrackingRectTag	mTrackingTag;
 	BOOL				mForceSquare;
 	BOOL				mShowProxyIcon;
@@ -30,8 +36,8 @@
 - (void)				syncGradientToControlSettings;
 - (void)				initiateGradientDragWithEvent:(NSEvent*) theEvent;
 
-- (void)				setControlMode:(int) mode;
-- (int)					controlMode;
+- (void)setControlMode:(DKGradientWellMode) mode;
+- (DKGradientWellMode)controlMode;
 
 - (void)				setDisplaysProxyIcon:(BOOL) proxy;
 - (BOOL)				displaysProxyIcon;
@@ -58,11 +64,3 @@
 @end
 
 
-
-enum
-{
-	kDKGradientWellDisplayMode			= 0,
-	kDKGradientWellAngleMode			= 1,
-	kDKGradientWellRadialMode			= 2,
-	kDKGradientWellSweepMode			= 3
-};

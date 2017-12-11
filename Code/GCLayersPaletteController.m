@@ -90,7 +90,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	{
 		NSInteger row = [mLayersTable selectedRow];
 		
-		LogEvent_( kReactiveEvent, @"layer selection changed to %d", row );
+		LogEvent_( kReactiveEvent, @"layer selection changed to %ld", (long)row );
 		
 		if ( row != -1 )
 			[[self drawing] setActiveLayer:[[self drawing] objectInLayersAtIndex:row]];

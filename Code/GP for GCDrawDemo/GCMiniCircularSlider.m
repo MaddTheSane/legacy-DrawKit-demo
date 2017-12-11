@@ -115,7 +115,7 @@ static const CGFloat		sConstrainAngle = 0.261799387799; // 15 degrees
 }
 
 
-- (void)		flagsChanged:(int) flags
+- (void)flagsChanged:(NSEventModifierFlags) flags
 {
 	BOOL shift = ( flags & NSShiftKeyMask ) != 0;
 	[self setShowTickMarks:shift];
@@ -136,7 +136,7 @@ static const CGFloat		sConstrainAngle = 0.261799387799; // 15 degrees
 }
 
 
-- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (startPoint, flags)
 	if ( part == kDKMiniSliderKnob )

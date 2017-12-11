@@ -102,7 +102,7 @@ static NSSize				sGradientPasteboardImageSize = {256.0, 256.0};
 ///
 ///********************************************************************************************************************
 
-+ (BOOL)				canInitalizeFromPasteboard:(NSPasteboard*)pboard;
++ (BOOL)canInitalizeFromPasteboard:(NSPasteboard*)pboard
 {
 	NSString *bestType = [pboard availableTypeFromArray:[self readablePasteboardTypes]];
 	return (bestType != nil);

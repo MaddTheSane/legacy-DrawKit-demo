@@ -200,8 +200,8 @@
 	
 	if ([self startTrackingAt:p inView:controlView])
 	{
-		unsigned int	mask;
-		NSEvent*		event;
+		NSEventMask		mask;
+		NSEvent*		event = nil;
 		BOOL			loop = YES;
 		NSPoint			currentPoint, lastPoint;
 		

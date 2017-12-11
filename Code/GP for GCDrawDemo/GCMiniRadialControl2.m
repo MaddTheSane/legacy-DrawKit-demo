@@ -319,7 +319,7 @@
 }
 
 
-- (id)				initWithBounds:(NSRect) rect inCluster:(GCMiniControlCluster*) clust
+- (id)initWithBounds:(NSRect) rect inCluster:(GCMiniControlCluster*) clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
 	if (self != nil)
@@ -353,7 +353,7 @@
 }
 
 
-- (BOOL)mouseDownAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (flags)
 	if ( part == kDKRadial2HitIris )
@@ -373,7 +373,7 @@
 }
 
 
-- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (flags)
 	if ( part == kDKRadial2HitIris )

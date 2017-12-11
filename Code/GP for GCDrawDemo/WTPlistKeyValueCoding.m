@@ -102,7 +102,7 @@ WTKeyValueEncodeObject (id val)
 }
 	
 #pragma mark -
-+ archiveToPropertyListForRootObject: rob;
++ (id)archiveToPropertyListForRootObject:(id) rob
 {
 	if ([rob supportsSimpleDictionaryKeyValueCoding]) {
 		NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -116,7 +116,7 @@ WTKeyValueEncodeObject (id val)
 }
 
 
-- unarchiveFromPropertyListFormat;
+- (id)unarchiveFromPropertyListFormat
 {
 	NSString *type;
 
@@ -141,7 +141,7 @@ WTKeyValueEncodeObject (id val)
 }
 
 
-- archiveFromPropertyListFormat;
+- (id)archiveFromPropertyListFormat
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:[self count]];
 	NSEnumerator *curs = [self keyEnumerator];

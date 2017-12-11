@@ -202,7 +202,7 @@
 		
 	x = y = 0;
 	
-	LogEvent_(kReactiveEvent, @"setting up matrix for '%@' (%d items)", cat, num );
+	LogEvent_(kReactiveEvent, @"setting up matrix for '%@' (%ld items)", cat, (long)num );
 	
 	[mStyleIconMatrix renewRows:rows columns:cols];
 	[mStyleIconMatrix sizeToCells];
@@ -318,7 +318,7 @@
 		
 		NSInteger catItem = [mStyleCategoryList selectedRow];
 		
-		LogEvent_(kReactiveEvent, @"selection change: %d", catItem );
+		LogEvent_(kReactiveEvent, @"selection change: %ld", (long)catItem );
 		
 		if ( catItem != -1 )
 		{

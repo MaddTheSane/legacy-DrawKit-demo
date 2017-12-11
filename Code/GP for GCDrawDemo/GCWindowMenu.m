@@ -180,7 +180,7 @@
 	//[self setAcceptsMouseMovedEvents:YES];
 	[[self mainView] mouseDown:[self transmogrify:event]];
 	
-	NSEvent* theEvent;
+	NSEvent* theEvent = nil;
 	BOOL keepOn = YES;
 	NSEventMask mask;
 	BOOL invertedTracking = NO;
