@@ -16,8 +16,8 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 - (NSArray*)	unitNames
 {
 	NSMutableArray* arr = [NSMutableArray array];
-	NSString*		name;
-	int				i = 0;
+	NSString* name;
+	NSInteger i = 0;
 	
 	while( 1 )
 	{
@@ -33,7 +33,7 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 }
 
 
-- (void)		prepareDialogWithDrawing:(DKDrawing*) drawing
+- (void)prepareDialogWithDrawing:(DKDrawing*) drawing
 {
 	// set up the dialog elements with the current drawing settings
 
@@ -56,15 +56,15 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 	if ( grid )
 	{
 		[mGridSpanTextField setFloatValue:[grid spanDistance] / mUnitConversionFactor];
-		[mGridDivsTextField setIntValue:[grid divisions]];
-		[mGridDivsSpinControl setIntValue:[grid divisions]];
-		[mGridMajorsTextField setIntValue:[grid majors]];
-		[mGridMajorsSpinControl setIntValue:[grid majors]];
+		[mGridDivsTextField setIntegerValue:[grid divisions]];
+		[mGridDivsSpinControl setIntegerValue:[grid divisions]];
+		[mGridMajorsTextField setIntegerValue:[grid majors]];
+		[mGridMajorsSpinControl setIntegerValue:[grid majors]];
 		[mGridThemeColourWell setColor:[grid spanColour]];
 		[mGridPrintCheckbox setIntValue:[grid shouldDrawToPrinter]];
 		[mGridAbbrevUnitsText setStringValue:[drawing abbreviatedDrawingUnits]];
-		[mGridRulerStepsTextField setIntValue:[grid rulerSteps]];
-		[mGridRulerStepsSpinControl setIntValue:[grid rulerSteps]];
+		[mGridRulerStepsTextField setIntegerValue:[grid rulerSteps]];
+		[mGridRulerStepsSpinControl setIntegerValue:[grid rulerSteps]];
 				
 		[mGridPreviewCheckbox setIntValue:mLivePreview];
 	}
@@ -202,8 +202,8 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 	
 	if (mLivePreview && grid )
 	{
-		float	span;
-		int		majs;
+		CGFloat	span;
+		NSInteger majs;
 		
 		span = [grid spanDistance] / mUnitConversionFactor;
 		majs = [grid majors];
@@ -229,8 +229,8 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 	
 	if (mLivePreview && grid )
 	{
-		float	span;
-		int		divs;
+		CGFloat span;
+		NSInteger divs;
 		
 		span = [grid spanDistance] / mUnitConversionFactor;
 		divs = [grid divisions];
@@ -255,17 +255,17 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 	
 	if (mLivePreview && grid )
 	{
-		int		divs, majs;
+		NSInteger divs, majs;
 		
 		divs = [grid divisions];
 		majs = [grid majors];
 		
-		[grid	setDistanceForUnitSpan:mUnitConversionFactor
-				drawingUnits:[mDrawing drawingUnits]
-				span:[sender doubleValue]
-				divisions: divs
-				majors: majs
-				rulerSteps:[mGridRulerStepsTextField intValue]];
+		[grid setDistanceForUnitSpan:mUnitConversionFactor
+						drawingUnits:[mDrawing drawingUnits]
+								span:[sender doubleValue]
+						   divisions: divs
+							  majors: majs
+						  rulerSteps:[mGridRulerStepsTextField intValue]];
 	}
 }
 
@@ -317,7 +317,7 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 {
 //	LogEvent_(kStateEvent, @"units changing to: %@", [sender stringValue]);
 	
-	int indx = [mUnitsComboBox indexOfItemWithObjectValue:[sender stringValue]];
+	NSInteger indx = [mUnitsComboBox indexOfItemWithObjectValue:[sender stringValue]];
 	
 	if ( indx == NSNotFound )
 	{
@@ -342,7 +342,7 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 }
 
 
-- (IBAction)		conversionFactorAction:(id) sender
+- (IBAction)conversionFactorAction:(id) sender
 {
 	float oldUCF = mUnitConversionFactor;
 	
@@ -357,8 +357,8 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 	
 	if (mLivePreview && grid )
 	{
-		int		divs, majs;
-		float	span;
+		NSInteger divs, majs;
+		CGFloat span;
 		
 		divs = [grid divisions];
 		majs = [grid majors];
@@ -374,7 +374,7 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 }
 
 
-- (IBAction)		paperColourAction:(id) sender
+- (IBAction)paperColourAction:(id) sender
 {
 	if ( mLivePreview )
 		[mDrawing setPaperColour:[sender color]];

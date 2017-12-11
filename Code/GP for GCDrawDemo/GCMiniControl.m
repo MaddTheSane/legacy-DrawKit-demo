@@ -14,7 +14,7 @@
 
 @implementation GCMiniControl
 #pragma mark As a GCMiniControl
-+ (NSColor*)	miniControlThemeColor:(int) themeElementID withAlpha:(float) alpha
++ (NSColor*)miniControlThemeColor:(DKControlThemeElement) themeElementID withAlpha:(CGFloat) alpha
 {
 	switch( themeElementID )
 	{
@@ -75,18 +75,7 @@
 	return self;
 }
 
-
-- (void)				setCluster:(GCMiniControlCluster*) clust
-{
-	mClusterRef = clust;   // not retained; cluster retains this
-}
-
-
-- (GCMiniControlCluster*) cluster
-{
-	return mClusterRef;
-}
-
+@synthesize cluster=mClusterRef;
 
 - (NSView*)		view
 {
@@ -146,12 +135,12 @@
 	if ([self view])
 		[[self view] setNeedsDisplayInRect:rect];
 	else if ([self delegate] && [[self delegate] respondsToSelector:@selector(setNeedsDisplayInRect:)])
-		[[self delegate] setNeedsDisplayInRect:rect];
+		[(NSView*)[self delegate] setNeedsDisplayInRect:rect];
 }
 
 
 #pragma mark -
-- (NSColor*)	themeColour:(int) themeElementID
+- (NSColor*)	themeColour:(DKControlThemeElement) themeElementID
 {
 	// returns theme colour but applies local value of alpha
 	
@@ -160,14 +149,14 @@
 
 
 #pragma mark -
-- (int)			hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint) p
 {
 	return ( NSPointInRect( p, [self bounds]))? kDKMiniControlEntireControl : kDKMiniControlNoPart;
 }
 
 
 #pragma mark -
-- (BOOL)		mouseDownAt:(NSPoint) startPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (flags)
 	// override to do something, call super to handle info windows
@@ -184,7 +173,7 @@
 }
 
 
-- (BOOL)		mouseDraggedAt:(NSPoint) currentPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (part, flags)
 	// override to do something, call super to handle info windows
@@ -194,7 +183,7 @@
 }
 
 
-- (void)		mouseUpAt:(NSPoint) endPoint inPart:(int) part modifierFlags:(int) flags
+- (void)mouseUpAt:(NSPoint) endPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (endPoint, part, flags)
 	// override to do something, call super to handle info windows
@@ -213,13 +202,13 @@
 
 
 #pragma mark -
-- (void)		setInfoWindowMode:(int) mode
+- (void)setInfoWindowMode:(DKControlInfoWindowMode) mode
 {
 	mInfoWMode = mode;
 }
 
 
-- (void)		setupInfoWindowAtPoint:(NSPoint) p withValue:(float) val andFormat:(NSString*) format
+- (void)setupInfoWindowAtPoint:(NSPoint) p withValue:(CGFloat) val andFormat:(NSString*) format
 {
 	if ( mInfoWMode != kDKMiniControlNoInfoWindow )
 	{
@@ -236,7 +225,7 @@
 
 
 #pragma mark -
-- (void)		updateInfoWindowAtPoint:(NSPoint) p withValue:(float) val
+- (void)updateInfoWindowAtPoint:(NSPoint) p withValue:(CGFloat) val
 {
 	// let delegate have opportunity to set this value
 	
@@ -263,29 +252,26 @@
 }
 
 
-- (void)		hideInfoWindow
+- (void)hideInfoWindow
 {
 	[mInfoWin hide];
 }
 
 
-- (void)		setInfoWindowFormat:(NSString*) format
+- (void)setInfoWindowFormat:(NSString*) format
 {
 	[mInfoWin setFormat:format];
 }
 
 
-- (void)		setInfoWindowValue:(float) value
+- (void)setInfoWindowValue:(CGFloat) value
 {
 	[mInfoWin setFloatValue:value];
 }
 
 
 #pragma mark -
-- (void)		setDelegate:(id) del
-{
-	mDelegateRef = del;
-}
+@synthesize delegate=mDelegateRef;
 
 
 - (id)			delegate
@@ -332,7 +318,7 @@
 
 
 #pragma mark -
-- (void)		setValue:(float) v
+- (void)setValue:(CGFloat) v
 {
 	v = MAX( v, [self minValue]);
 	v = MIN( v, [self maxValue]);
@@ -346,14 +332,14 @@
 }
 
 
-- (float)		value
+- (CGFloat)value
 {
 	return mValue;
 }
 
 
 #pragma mark -
-- (void)		setMaxValue:(float) v
+- (void)setMaxValue:(CGFloat) v
 {
 	mMaxValue = v;
 	
@@ -362,14 +348,14 @@
 }
 
 
-- (float)		maxValue
+- (CGFloat)maxValue
 {
 	return mMaxValue;
 }
 
 
 #pragma mark -
-- (void)		setMinValue:(float) v
+- (void)setMinValue:(CGFloat) v
 {
 	mMinValue = v;
 	
@@ -378,7 +364,7 @@
 }
 
 
-- (float)		minValue
+- (CGFloat)minValue
 {
 	return mMinValue;
 }
@@ -386,7 +372,7 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)		dealloc
+- (void)dealloc
 {
 	[mInfoWin release];
 	[mIdent release];

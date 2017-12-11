@@ -236,10 +236,10 @@
 			
 			if ([hits count] > 1)
 			{
-				float height = swr.size.height / [hits count];
-				float yorigin = swr.origin.y;
+				CGFloat height = swr.size.height / [hits count];
+				CGFloat yorigin = swr.origin.y;
 			
-				int j;
+				NSInteger j;
 				
 				j = [hits firstIndex];
 				
@@ -278,7 +278,7 @@
 {
 	// returns the actual rect used for the given stop, taking into account overlaps, etc.
 	
-	int indx = [mUnsortedStops indexOfObject:stop];
+	NSInteger indx = [mUnsortedStops indexOfObject:stop];
 	
 	if ( indx != NSNotFound )
 		return [[[self allSwatchBoxes] objectAtIndex:indx] rectValue];

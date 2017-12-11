@@ -36,11 +36,11 @@
 	
 	DKDrawing*	mDrawing;
 	BOOL		mLivePreview;
-	float		mUnitConversionFactor;
-	float		mSavedSpan;
-	float		mSavedCF;
-	int			mSavedDivs;
-	int			mSavedMajors;
+	CGFloat		mUnitConversionFactor;
+	CGFloat		mSavedSpan;
+	CGFloat		mSavedCF;
+	NSInteger mSavedDivs;
+	NSInteger mSavedMajors;
 	NSString*	mSavedUnits;
 	NSColor*	mSavedGridColour;
 	NSColor*	mSavedPaperColour;

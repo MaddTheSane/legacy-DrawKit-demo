@@ -20,7 +20,7 @@
 #import "GCDashEditView.h"
 #import "GCBasicDialogController.h"
 
-#import <QuartzCore/CIFilter.h>
+#import <CoreImage/CIFilter.h>
 #import <DKDrawKit/NSShadow+Scaling.h>
 
 
@@ -71,9 +71,9 @@
 		[mOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 		
 		[mStyleLockCheckbox setEnabled:YES];
-		[mStyleSharedCheckbox setIntValue:[[self style] isStyleSharable]];
-		[mStyleLockCheckbox setIntValue:[[self style] locked]];
-		[mStyleClientCountText setIntValue:[[self style] countOfClients]];
+		[mStyleSharedCheckbox setState:[[self style] isStyleSharable]];
+		[mStyleLockCheckbox setState:[[self style] locked]];
+		[mStyleClientCountText setIntegerValue:[[self style] countOfClients]];
 		
 		if ([[self style] name])
 			[mStyleNameTextField setStringValue:[[self style] name]];
@@ -296,7 +296,7 @@
 
 	[mOutlineView reloadData];
 	
-	int row = [mOutlineView rowForItem:obj];
+	NSInteger row = [mOutlineView rowForItem:obj];
 	
 	if ( row != NSNotFound )
 		[mOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
@@ -320,7 +320,7 @@
 		[mStrokeDashPopUpButton selectItemWithTag:-1];	// None
 	else
 	{
-		int i = [mStrokeDashPopUpButton indexOfItemWithRepresentedObject:dash];
+		NSInteger i = [mStrokeDashPopUpButton indexOfItemWithRepresentedObject:dash];
 		
 		if( i != -1 )
 			[mStrokeDashPopUpButton selectItemAtIndex:i];
@@ -456,7 +456,7 @@
 		[mHatchDashPopUpButton selectItemWithTag:-1];
 	else
 	{
-		int i = [mHatchDashPopUpButton indexOfItemWithRepresentedObject:dash];
+		NSInteger i = [mHatchDashPopUpButton indexOfItemWithRepresentedObject:dash];
 		
 		if( i != -1 )
 			[mHatchDashPopUpButton selectItemAtIndex:i];
@@ -656,7 +656,7 @@
 
 - (IBAction)			strokeDashMenuAction:(id) sender
 {
-	int tag = [[sender selectedItem] tag];
+	NSInteger tag = [[sender selectedItem] tag];
 	
 	if ( tag == -1 )
 		[(DKStroke*) mSelectedRendererRef setDash:nil];
@@ -753,7 +753,7 @@
 }
 
 
-- (IBAction)			fillShadowCheckboxAction:(id) sender;
+- (IBAction)			fillShadowCheckboxAction:(id) sender
 {
 	[(DKFill*) mSelectedRendererRef setShadow:[sender intValue]? [DKStyle defaultShadow] : nil]; 
 }
@@ -856,7 +856,7 @@
 
 - (IBAction)			libraryMenuAction:(id) sender
 {
-	int tag = [sender tag];//[[sender selectedItem] tag];
+	NSInteger tag = [sender tag];//[[sender selectedItem] tag];
 	
 	if( tag == -1 )
 	{
@@ -985,7 +985,7 @@
 							informativeTextWithFormat:@"Editing a registered style can have unforseen consequences as such styles may become permanently changed. Are you sure you want to unlock the style '%@' for editing?",
 							[[self style] name]];
 
-		int result = [alert runModal];
+		NSModalResponse result = [alert runModal];
 		
 		if ( result == NSAlertAlternateReturn )
 			[[self style] setLocked:NO];
@@ -1005,7 +1005,7 @@
 #pragma mark -
 - (IBAction)			addRendererElementAction:(id) sender
 {
-	int tag = [[sender selectedItem] tag];
+	NSInteger tag = [[sender selectedItem] tag];
 
 	// tag maps to the type of renderer to add
 	
@@ -1104,7 +1104,7 @@
 
 	[mOutlineView reloadData];
 	
-	int row = [mOutlineView rowForItem:parent];
+	NSInteger row = [mOutlineView rowForItem:parent];
 	
 	if ( row != NSNotFound )
 		[mOutlineView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
@@ -1187,12 +1187,11 @@
 	
 	[op setAllowsMultipleSelection:NO];
 	[op setCanChooseDirectories:NO];
+	op.allowedFileTypes = NSImage.imageTypes;
+	NSInteger result = [op runModal];
 	
-	int result = [op runModalForTypes:[NSImage imageFileTypes]];
-	
-	if( result == NSOKButton )
-	{
-		NSImage* image = [[NSImage alloc] initByReferencingFile:[op filename]];
+	if (result == NSOKButton) {
+		NSImage* image = [[NSImage alloc] initByReferencingFile:[[op URL] path]];
 		
 		if ([mSelectedRendererRef respondsToSelector:@selector(setImage:)])
 			[(DKImageAdornment*)mSelectedRendererRef setImage:image];
@@ -1241,7 +1240,7 @@
 
 - (IBAction)			imageFittingMenuAction:(id) sender
 {
-	int option = [[sender selectedItem] tag];
+	NSInteger option = [[sender selectedItem] tag];
 	[(DKImageAdornment*)mSelectedRendererRef setFittingOption:option];
 }
 
@@ -1285,7 +1284,7 @@
 
 - (IBAction)			hatchDashMenuAction:(id) sender
 {
-	int tag = [[sender selectedItem] tag];
+	NSInteger tag = [[sender selectedItem] tag];
 	
 	if ( tag == -1 )
 		[(DKHatching*) mSelectedRendererRef setDash:nil];
@@ -1470,7 +1469,7 @@
 }
 
 
-- (IBAction)			pathDecoratorRampProportionAction:(id) sender;
+- (IBAction)			pathDecoratorRampProportionAction:(id) sender
 {
 	[(DKPathDecorator*) mSelectedRendererRef setLeadInAndOutLengthProportion:[sender floatValue]];
 }
@@ -1505,18 +1504,18 @@
 #pragma mark -
 - (IBAction)			blendModeAction:(id) sender
 {
-	int tag = [[sender selectedItem] tag];
+	NSInteger tag = [[sender selectedItem] tag];
 	[(DKQuartzBlendRastGroup*) mSelectedRendererRef setBlendMode:(CGBlendMode) tag];
 }
 
 
-- (IBAction)			blendGroupAlphaAction:(id) sender;
+- (IBAction)blendGroupAlphaAction:(id) sender
 {
 	[(DKQuartzBlendRastGroup*) mSelectedRendererRef setAlpha:[sender floatValue]];
 }
 
 
-- (IBAction)			blendGroupImagePasteAction:(id) sender;
+- (IBAction)blendGroupImagePasteAction:(id) sender
 {
 #pragma unused (sender)
 	NSPasteboard* pb = [NSPasteboard generalPasteboard];
@@ -1631,7 +1630,7 @@
 			{
 				[self setStyle:prevStyle];
 				[mTabView selectTabViewItemAtIndex:kDKInspectorStylePreviewTab];
-				[mStyleClientCountText setIntValue:[[self style] countOfClients]];
+				[mStyleClientCountText setIntegerValue:[[self style] countOfClients]];
 			}
 			else
 			{
@@ -1645,7 +1644,7 @@
 			
 			[self setStyle:[(DKDrawableObject*)[selection objectAtIndex:0] style]];
 			[mTabView selectTabViewItemAtIndex:kDKInspectorStylePreviewTab];
-			[mStyleClientCountText setIntValue:[[self style] countOfClients]];
+			[mStyleClientCountText setIntegerValue:[[self style] countOfClients]];
 		}
 		else
 		{
@@ -1731,7 +1730,7 @@
 
 #pragma mark -
 #pragma mark As a GCDashEditorDelegate delegate
-- (void)				dashDidChange:(id) sender
+- (void)dashDidChange:(id) sender
 {
 	// called if live preview is set - set the target's dash to the sender's
 	
@@ -1741,7 +1740,7 @@
 
 #pragma mark -
 #pragma mark As part of NSOutlineViewDataSource Protocol
-- (BOOL)			outlineView:(NSOutlineView*) olv acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(int) childIndex
+- (BOOL)outlineView:(NSOutlineView*) olv acceptDrop:(id <NSDraggingInfo>)info item:(id)targetItem childIndex:(NSInteger) childIndex
 {
 #pragma unused (info)
 	// the item being moved is already stored as mDragItem, so simply move it to the new place
@@ -1753,7 +1752,7 @@
 	else
 		group = targetItem;
 		
-	int srcIndex, row;
+	NSInteger srcIndex, row;
 	
 	srcIndex = [[group renderList] indexOfObject:mDragItem];
 	
@@ -1809,14 +1808,14 @@
 }
 
 
-- (id)				outlineView:(NSOutlineView*) outlineView child:(int) childIndex ofItem:(id) item
+- (id)outlineView:(NSOutlineView*) outlineView child:(NSInteger) childIndex ofItem:(id) item
 {
 #pragma unused (outlineView)
     return (item == nil) ? [self style] : [item rendererAtIndex:childIndex];
 }
  
  
-- (BOOL)			outlineView:(NSOutlineView*) outlineView isItemExpandable:(id) item 
+- (BOOL)outlineView:(NSOutlineView*) outlineView isItemExpandable:(id) item
 {
 #pragma unused (outlineView)
     if([self style] == nil)
@@ -1826,14 +1825,14 @@
 }
 
 
-- (int)				outlineView:(NSOutlineView*) outlineView numberOfChildrenOfItem:(id) item
+- (NSInteger)outlineView:(NSOutlineView*) outlineView numberOfChildrenOfItem:(id) item
 {
 #pragma unused (outlineView)
     return (item == nil) ? 1 : [item countOfRenderList];
 }
 
 
-- (id)				outlineView:(NSOutlineView*) outlineView objectValueForTableColumn:(NSTableColumn*) tableColumn byItem:(id) item
+- (id)outlineView:(NSOutlineView*) outlineView objectValueForTableColumn:(NSTableColumn*) tableColumn byItem:(id) item
 {
 #pragma unused (outlineView)
     if([[tableColumn identifier] isEqualToString:@"class"])
@@ -1845,7 +1844,7 @@
 }
 
 
-- (void)			outlineView:(NSOutlineView*) outlineView setObjectValue:(id) object forTableColumn:(NSTableColumn*) tableColumn byItem:(id) item
+- (void)outlineView:(NSOutlineView*) outlineView setObjectValue:(id) object forTableColumn:(NSTableColumn*) tableColumn byItem:(id) item
 {
 #pragma unused (outlineView)
 	if([[tableColumn identifier] isEqualToString:@"enabled"])
@@ -1853,7 +1852,7 @@
 }
 
 
-- (NSDragOperation)	outlineView:(NSOutlineView*) olv validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(int) childIndex
+- (NSDragOperation)	outlineView:(NSOutlineView*) olv validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger) childIndex
 {
 #pragma unused (info)
 //	LogEvent_(kInfoEvent, @"proposing drop on %@, childIndex = %d", item, childIndex );
@@ -1872,7 +1871,7 @@
 }
 
 
-- (BOOL)			outlineView:(NSOutlineView*) oView writeItems:(NSArray*) rows toPasteboard:(NSPasteboard*) pboard
+- (BOOL)outlineView:(NSOutlineView*) oView writeItems:(NSArray*) rows toPasteboard:(NSPasteboard*) pboard
 {
 #pragma unused (oView)
 //	LogEvent_(kInfoEvent, @"starting drag in outline view, array = %@", rows );
@@ -1898,7 +1897,7 @@
 #pragma unused (notification)
 	// select the appropriate tab for the selected item and set up its contents
 	
-	int row = [mOutlineView selectedRow];
+	NSInteger row = [mOutlineView selectedRow];
 	
 	if ( row != - 1 )
 	{
@@ -1914,16 +1913,16 @@
 }
 
 
-- (NSString*)	outlineView:(NSOutlineView *)ov toolTipForCell:(NSCell*) cell rect:(NSRectPointer) rect
-					tableColumn:(NSTableColumn*) tc item:(id) item mouseLocation:(NSPoint) mouseLocation
+- (NSString*)outlineView:(NSOutlineView *)ov toolTipForCell:(NSCell*) cell rect:(NSRectPointer) rect
+			 tableColumn:(NSTableColumn*) tc item:(id) item mouseLocation:(NSPoint) mouseLocation
 {
 #pragma unused (ov, cell, rect, tc, mouseLocation)
 	return [item styleScript];
 }
 
 
-- (void)		outlineView:(NSOutlineView*) outlineView willDisplayCell:(id) cell
-					forTableColumn:(NSTableColumn*) tableColumn item:(id) item
+- (void)outlineView:(NSOutlineView*) outlineView willDisplayCell:(id) cell
+	 forTableColumn:(NSTableColumn*) tableColumn item:(id) item
 {
 #pragma unused (outlineView, item)
 	if([[tableColumn identifier] isEqualToString:@"class"])
@@ -1943,7 +1942,7 @@
 #pragma mark -
 #pragma mark As part of the NSMenuValidation protocol
 
-- (BOOL)		validateMenuItem:(NSMenuItem*) item
+- (BOOL)validateMenuItem:(NSMenuItem*) item
 {
 	SEL		action = [item action];
 	BOOL	enable = YES;
@@ -1989,15 +1988,14 @@
 
 
 #pragma mark -
-@implementation NSObject (ImageResources)
+@implementation NSImage (ImageResources)
 
-- (NSImage*)		imageNamed:(NSString*) name fromBundleForClass:(Class) class
++ (NSImage*)imageNamed:(NSString*) name fromBundleForClass:(Class) class
 {
-	NSString *path = [[NSBundle bundleForClass:class] pathForImageResource:name];
-	NSImage *image = [[NSImage alloc] initByReferencingFile:path];
+	NSImage *image = [[NSBundle bundleForClass:class] imageForResource:name];
 	if (image == nil)
 		LogEvent_(kWheneverEvent, @"ERROR: Unable to locate image resource '%@'", name);
-	return [image autorelease];
+	return image;
 }
 
 
@@ -2039,7 +2037,7 @@
 @implementation NSView (TagEnablingAdditions)
 
 
-- (void)	setSubviewsWithTag:(int) tag hidden:(BOOL) hide
+- (void)setSubviewsWithTag:(NSInteger) tag hidden:(BOOL) hide
 {
 	// recursively checks the tags of all subviews below this, and sets any that match <tag> to the hidden state <hide>
 	
@@ -2056,7 +2054,7 @@
 }
 
 
-- (void)	setSubviewsWithTag:(int) tag enabled:(BOOL) enable
+- (void)setSubviewsWithTag:(NSInteger) tag enabled:(BOOL) enable
 {
 	// recursively checks the tags of all subviews below this, and sets any that match <tag> to the enabled state <enable>
 	// provided that the object actually implements setEnabled: (i.e. it's a control)

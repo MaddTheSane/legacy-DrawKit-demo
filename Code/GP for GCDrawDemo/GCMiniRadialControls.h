@@ -11,7 +11,7 @@
 
 @interface GCMiniRadialControls : GCMiniControl
 {
-	float			mRadius;
+	CGFloat			mRadius;
 	NSPoint			mCentre;
 }
 
@@ -19,8 +19,8 @@
 - (void)			setCentre:(NSPoint) p;
 - (NSPoint)			centre;
 
-- (void)			setRadius:(float) radius;
-- (float)			radius;
+- (void)			setRadius:(CGFloat) radius;
+- (CGFloat)			radius;
 
 
 - (NSRect)			targetRect;
@@ -30,7 +30,7 @@
 
 // hit part codes:
 
-enum
+NS_ENUM(GCControlHitTest)
 {
 	kDKHitRadialTarget	= 24,
 	kDKHitRadialRadius	= 42

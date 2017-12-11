@@ -29,14 +29,14 @@
 }
 
 
-- (DKStrokeDash*)		dash;
+- (DKStrokeDash*)dash
 {
 	return mDash;
 }
 
 
 #pragma mark -
-- (void)			setLineWidth:(float) width;
+- (void)setLineWidth:(CGFloat) width
 {
 	[mPath setLineWidth:width];
 	[self setNeedsDisplay:YES];
@@ -67,17 +67,7 @@
 
 
 #pragma mark -
-- (void)			setDelegate:(id) del
-{
-	mDelegateRef = del;
-}
-
-
-- (id)				delegate
-{
-	return mDelegateRef;
-}
-
+@synthesize delegate=mDelegateRef;
 
 #pragma mark -
 - (void)			calcHandles
@@ -85,10 +75,10 @@
 	// calculates where the handle rects are given the current dash
 	
 	NSRect	hr, br;
-	int		i, c;
-	float	scale = [[self dash] scalesToLineWidth]? [mPath lineWidth] : 1.0;
-	float	d[8];
-	float	phase;
+	NSInteger i, c;
+	CGFloat	scale = [[self dash] scalesToLineWidth]? [mPath lineWidth] : 1.0;
+	CGFloat	d[8];
+	CGFloat	phase;
 	
 	hr.size = kDKStandardHandleRectSize;
 	br = [self bounds];
@@ -127,9 +117,9 @@
 }
 
 
-- (int)				mouseInHandle:(NSPoint) mp
+- (NSInteger)mouseInHandle:(NSPoint) mp
 {
-	int	i, c;
+	NSInteger i, c;
 	
 	c = [mHandles count];
 	
@@ -146,11 +136,11 @@
 }
 
 
-- (void)			drawHandles
+- (void)drawHandles
 {
 	NSBezierPath* temp = [NSBezierPath bezierPath];
 	
-	int		i, c;
+	NSInteger i, c;
 	NSRect	hr, br;
 	NSPoint	a, b;
 	c = [mHandles count];

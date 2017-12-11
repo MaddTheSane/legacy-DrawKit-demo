@@ -18,8 +18,8 @@
 	GCMiniControl*			mHitTarget;
 	NSTimeInterval			mFadeStartTime;
 	
-	float					mControlAlpha;
-	int						mHitPart;
+	CGFloat mControlAlpha;
+	GCControlHitTest mHitPart;
 	int						mLinkPart;
 	int						mLinkModFlagsMask;
 	BOOL					mVisible;

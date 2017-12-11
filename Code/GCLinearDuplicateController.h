@@ -26,7 +26,7 @@
 - (IBAction)		cancelAction:(id) sender;
 
 - (void)			beginLinearDuplicationDialog:(NSWindow*) parentWindow linearDelegate:(id) delegate;
-- (void)			sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo;
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void  *)contextInfo;
 
 - (void)			conditionallyEnableOKButton;
 
@@ -35,8 +35,8 @@
 
 @interface NSObject (LinearDuplicationDelegate)
 
-- (void)	doLinearDuplicateCopies:(int) copies offset:(NSSize) offset;
-- (int)		countOfItemsInSelection;
+- (void)doLinearDuplicateCopies:(NSInteger)copies offset:(NSSize)offset;
+- (NSInteger)countOfItemsInSelection;
 
 @end
 

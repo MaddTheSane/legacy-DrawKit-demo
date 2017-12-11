@@ -59,32 +59,32 @@
 
 
 #pragma mark -
-- (void)				setLineWidth:(float) width;
+- (void)setLineWidth:(CGFloat) width
 {
 	[mDashPreviewEditView setLineWidth:width];
 }
 
 
-- (void)				setLineCapStyle:(NSLineCapStyle) lcs
+- (void)setLineCapStyle:(NSLineCapStyle) lcs
 {
 	[mDashPreviewEditView setLineCapStyle:lcs];
 }
 
 
-- (void)				setLineJoinStyle:(NSLineJoinStyle) ljs
+- (void)setLineJoinStyle:(NSLineJoinStyle) ljs
 {
 	[mDashPreviewEditView setLineJoinStyle:ljs];
 }
 
 
-- (void)				setLineColour:(NSColor*) colour
+- (void)setLineColour:(NSColor*) colour
 {
 	[mDashPreviewEditView setLineColour:colour];
 }
 
 
 #pragma mark -
-- (void)				setDashCount:(int) c
+- (void)setDashCount:(NSInteger) c
 {
 	// enable the relevant number of fields for the count <c>
 	
@@ -171,7 +171,7 @@
 
 - (IBAction)			dashCountMatrixAction:(id) sender
 {
-	int count = ([sender selectedColumn] + 1) * 2;
+	NSInteger count = ([sender selectedColumn] + 1) * 2;
 	[self setDashCount:count];
 	[self notifyDelegate];
 	[mDashPreviewEditView setNeedsDisplay:YES];

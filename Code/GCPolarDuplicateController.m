@@ -72,13 +72,13 @@
 			didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
 			contextInfo:@"polar_duplication"];
 
-	int items = [delegate countOfItemsInSelection];
+	NSInteger items = [delegate countOfItemsInSelection];
 	[mAutoFitCircleCheckbox setEnabled:(items == 1)];
 	[self conditionallyEnableOKButton];
 }
 
 
-- (void)			sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void  *)contextInfo
 {
 #pragma unused (sheet, contextInfo)
 	if ( returnCode == NSOKButton )

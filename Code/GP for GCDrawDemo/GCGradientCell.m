@@ -205,7 +205,7 @@ static unsigned		sMFlags = 0;
 }
 
 
-- (GCMiniControlCluster*)	controlClusterForMode:(int) mode;
+- (GCMiniControlCluster*)controlClusterForMode:(int) mode
 {
 	switch ( mode )
 	{

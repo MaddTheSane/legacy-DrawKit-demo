@@ -351,7 +351,7 @@
 }
 
 
-- (void)		updateInfoAtPoint:(NSPoint) p;
+- (void)updateInfoAtPoint:(NSPoint) p
 {
 	if ( ! NSEqualPoints( NSMakePoint( -1, -1 ), p ))
 		[mInfoWin positionNearPoint:p inView:self];
@@ -461,7 +461,7 @@
 {
 	if ( mShowsInfo )
 	{
-		int wn = [[self window] windowNumber];
+		NSInteger wn = [[self window] windowNumber];
 		
 		[mInfoWin orderWindow:NSWindowAbove relativeTo:wn];
 		[self updateInfoAtPoint:NSZeroPoint];

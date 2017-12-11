@@ -344,7 +344,7 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 }
 
 
-- (NSMenu*) menuForEvent:(NSEvent*) theEvent;
+- (NSMenu*) menuForEvent:(NSEvent*) theEvent
 {
 #pragma unused (theEvent)
 	NSMenu*		contextualMenu = [[NSMenu alloc] initWithTitle:@"GradientWell"];
@@ -493,7 +493,7 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 }
 
 
-- (unsigned int)draggingSourceOperationMaskForLocal:(BOOL) isLocal
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL) isLocal
 {
 #pragma unused (isLocal)
 	return NSDragOperationGeneric;

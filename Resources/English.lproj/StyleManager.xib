@@ -268,7 +268,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="fPY-zp-5sR">
                                                 <rect key="frame" x="1" y="0.0" width="262" height="228"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView toolTip="Select a style to edit its name and choose which categories it appears in." verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" headerView="137" id="136">
                                                         <rect key="frame" x="0.0" y="0.0" width="262" height="205"/>

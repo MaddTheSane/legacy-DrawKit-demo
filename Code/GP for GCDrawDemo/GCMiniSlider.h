@@ -16,8 +16,7 @@
 }
 
 
-- (void)		setShowTickMarks:(BOOL) ticks;
-- (BOOL)		showTickMarks;
+@property (nonatomic) BOOL showTickMarks;
 
 - (NSRect)		knobRect;
 

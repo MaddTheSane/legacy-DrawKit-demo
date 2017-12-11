@@ -211,7 +211,7 @@ static BOOL		sDefaultQualityMod = NO;
 
 #pragma mark -
 #pragma mark As a PolarDuplication delegate
-- (int)				countOfItemsInSelection
+- (NSInteger)countOfItemsInSelection
 {
 	DKObjectDrawingLayer* odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
 	
@@ -222,7 +222,7 @@ static BOOL		sDefaultQualityMod = NO;
 }
 
 
-- (void)	doPolarDuplicateCopies:(int) copies centre:(NSPoint) cp incAngle:(float) angle rotateCopies:(BOOL) rotCopies
+- (void)doPolarDuplicateCopies:(NSInteger) copies centre:(NSPoint) cp incAngle:(CGFloat) angle rotateCopies:(BOOL) rotCopies
 {
 	// callback from dialog. Locate the selection and use the object drawing layer method to do the deed. Note - centre is passed
 	// in grid coordinates so needs converting to the drawing, and the angle is in degrees and needs converting to radians.
@@ -265,7 +265,7 @@ static BOOL		sDefaultQualityMod = NO;
 }
 
 
-- (void)				doAutoPolarDuplicateWithCentre:(NSPoint) cp
+- (void)doAutoPolarDuplicateWithCentre:(NSPoint) cp
 {
 	DKObjectDrawingLayer* odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
 	
@@ -299,7 +299,7 @@ static BOOL		sDefaultQualityMod = NO;
 #pragma mark -
 #pragma mark As a LinearDuplication delegate
 
-- (void)	doLinearDuplicateCopies:(int) copies offset:(NSSize) offset
+- (void)doLinearDuplicateCopies:(NSInteger)copies offset:(NSSize)offset
 {
 	DKObjectDrawingLayer* odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
 	
@@ -340,7 +340,7 @@ static BOOL		sDefaultQualityMod = NO;
 #pragma mark -
 #pragma mark As part of NSMenuValidation  Protocol
 
-- (BOOL)			validateMenuItem:(NSMenuItem*) menuItem
+- (BOOL)validateMenuItem:(NSMenuItem*) menuItem
 {
 	BOOL enable = YES;
 	SEL action = [menuItem action];

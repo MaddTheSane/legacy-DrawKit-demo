@@ -16,14 +16,15 @@
 
 
 @class DKStrokeDash;
+@protocol DashEditViewDelegate;
 
 @interface GCDashEditView : NSView
 {
 	DKStrokeDash*		mDash;
 	NSMutableArray*	mHandles;
 	NSBezierPath*	mPath;
-	int				mSelected;
-	id				mDelegateRef;
+	NSInteger mSelected;
+	id<DashEditViewDelegate> mDelegateRef;
 	NSColor*		mLineColour;
 	NSRect			mPhaseHandle;
 }
@@ -32,22 +33,21 @@
 - (void)			setDash:(DKStrokeDash*) dash;
 - (DKStrokeDash*)		dash;
 
-- (void)			setLineWidth:(float) width;
+- (void)			setLineWidth:(CGFloat) width;
 - (void)			setLineCapStyle:(NSLineCapStyle) lcs;
 - (void)			setLineJoinStyle:(NSLineJoinStyle) ljs;
 - (void)			setLineColour:(NSColor*) colour;
 
-- (void)			setDelegate:(id) del;
-- (id)				delegate;
+@property (assign) id<DashEditViewDelegate> delegate;
 
 - (void)			calcHandles;
-- (int)				mouseInHandle:(NSPoint) mp;
+- (NSInteger)mouseInHandle:(NSPoint) mp;
 - (void)			drawHandles;
 - (void)			calcDashForPoint:(NSPoint) mp;
 
 @end
 
-@interface NSObject	(DashEditViewDelegate)
+@protocol DashEditViewDelegate <NSObject>
 
 - (void)			dashDidChange:(id) sender;
 

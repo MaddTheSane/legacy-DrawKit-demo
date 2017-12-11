@@ -20,9 +20,9 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	[mLayersTable reloadData];
 	if ( drawing != nil )
 	{
-		int row = [drawing indexOfLayer:[drawing activeLayer]];
+		NSInteger row = [drawing indexOfLayer:[drawing activeLayer]];
 		
-		LogEvent_( kReactiveEvent, @"index of active layer = %d", row );
+		LogEvent_( kReactiveEvent, @"index of active layer = %ld", (long)row );
 
 		[mLayersTable selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
 		[mLayersTable scrollRowToVisible:row];
@@ -88,7 +88,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 {
 	if ([aNotification object] == mLayersTable)
 	{
-		int row = [mLayersTable selectedRow];
+		NSInteger row = [mLayersTable selectedRow];
 		
 		LogEvent_( kReactiveEvent, @"layer selection changed to %d", row );
 		
@@ -98,7 +98,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 }
 
 
-- (void)	tableView:(NSTableView*) tableView willDisplayCell:(id) cell forTableColumn:(NSTableColumn*) tableColumn row:(int) row
+- (void)tableView:(NSTableView*) tableView willDisplayCell:(id) cell forTableColumn:(NSTableColumn*) tableColumn row:(NSInteger) row
 {
 	if([[tableColumn identifier] isEqualToString:@"name"])
 	{
@@ -137,21 +137,21 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 
 #pragma mark -
 #pragma mark As part of NSTableDataSource Protocol
-- (int)					numberOfRowsInTableView:(NSTableView*) aTableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView*) aTableView
 {
 #pragma unused (aTableView)
 	return [[self drawing] countOfLayers];
 }
 
 
-- (BOOL)				tableView:(NSTableView*) aTableView acceptDrop:(id <NSDraggingInfo>) info row:(int)row dropOperation:(NSTableViewDropOperation) operation
+- (BOOL)tableView:(NSTableView*) aTableView acceptDrop:(id <NSDraggingInfo>) info row:(NSInteger)row dropOperation:(NSTableViewDropOperation) operation
 {
 #pragma unused (aTableView, operation)
     NSPasteboard* pboard = [info draggingPasteboard];
     NSData* rowData = [pboard dataForType:kDKTableRowInternalDragPasteboardType];
     NSIndexSet* rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
     
-	int dragRow = [rowIndexes firstIndex];
+	NSInteger dragRow = [rowIndexes firstIndex];
 	
 	DKLayer* layer = [[self drawing] objectInLayersAtIndex:dragRow];
 	
@@ -166,7 +166,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 }
 
 
-- (id)					tableView:(NSTableView*) aTableView objectValueForTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (id)tableView:(NSTableView*) aTableView objectValueForTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 #pragma unused (aTableView)
 	DKLayer* layer = [[self drawing] objectInLayersAtIndex:rowIndex];
@@ -185,7 +185,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 }
 
 
-- (void)				tableView:(NSTableView*) aTableView setObjectValue:(id) anObject forTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (void)tableView:(NSTableView*) aTableView setObjectValue:(id) anObject forTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 #pragma unused (aTableView)
 	DKLayer* layer = [[self drawing] objectInLayersAtIndex:rowIndex];
@@ -204,7 +204,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 }
 
 
-- (NSDragOperation)		tableView:(NSTableView*) aTableView validateDrop:(id <NSDraggingInfo>) info proposedRow:(int) row proposedDropOperation:(NSTableViewDropOperation) op 
+- (NSDragOperation)tableView:(NSTableView*)aTableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)op
 {
 #pragma unused (aTableView, info, row, op)
     return NSDragOperationEvery;    
@@ -212,7 +212,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 
 
 
-- (void)				setTemporaryColour:(NSColor*) aColour forTableView:(NSTableView*) tView row:(int) row
+- (void)setTemporaryColour:(NSColor*) aColour forTableView:(NSTableView*) tView row:(NSInteger) row
 {
 	#pragma unused(tView)
 	
@@ -274,7 +274,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 
 #pragma mark -
 #pragma mark As an NSWindowController
-- (void)				windowDidLoad
+- (void)windowDidLoad
 {
 	[(NSPanel*)[self window] setFloatingPanel:YES];
 	[(NSPanel*)[self window] setBecomesKeyOnlyIfNeeded:YES];
@@ -306,7 +306,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	
 	if([self drawing] != nil )
 	{
-		int row = [[self drawing] indexOfLayer:[[self drawing] activeLayer]];
+		NSInteger row = [[self drawing] indexOfLayer:[[self drawing] activeLayer]];
 	
 		if ( row != NSNotFound )
 			[mLayersTable selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];

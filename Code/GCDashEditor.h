@@ -13,12 +13,13 @@
 ///**********************************************************************************************************************************
 
 #import <Cocoa/Cocoa.h>
-
+#import "GCDashEditView.h"
 
 @class DKStrokeDash;
+@class GCDashEditView;
+@protocol GCDashEditorDelegate;
 
-
-@interface GCDashEditor : NSWindowController
+@interface GCDashEditor : NSWindowController <DashEditViewDelegate>
 {
 	IBOutlet	id		mDashMarkTextField1;
 	IBOutlet	id		mDashSpaceTextField1;
@@ -30,7 +31,7 @@
 	IBOutlet	id		mDashSpaceTextField4;
 	IBOutlet	id		mDashCountButtonMatrix;
 	IBOutlet	id		mDashScaleCheckbox;
-	IBOutlet	id		mDashPreviewEditView;
+	IBOutlet GCDashEditView *mDashPreviewEditView;
 	IBOutlet	id		mPreviewCheckbox;
 	IBOutlet	id		mPhaseSlider;
 	DKStrokeDash*			mDash;
@@ -39,17 +40,17 @@
 }
 
 
-- (void)				openDashEditorInParentWindow:(NSWindow*) pw modalDelegate:(id) del;
+- (void)				openDashEditorInParentWindow:(NSWindow*) pw modalDelegate:(id<GCDashEditorDelegate>) del;
 - (void)				updateForDash;
 - (void)				setDash:(DKStrokeDash*) dash;
-- (DKStrokeDash*)			dash;
+- (DKStrokeDash*)		dash;
 
-- (void)				setLineWidth:(float) width;
+- (void)				setLineWidth:(CGFloat) width;
 - (void)				setLineCapStyle:(NSLineCapStyle) lcs;
 - (void)				setLineJoinStyle:(NSLineJoinStyle) ljs;
 - (void)				setLineColour:(NSColor*) colour;
 
-- (void)				setDashCount:(int) c;
+- (void)				setDashCount:(NSInteger) c;
 - (void)				notifyDelegate;
 
 - (IBAction)			ok:(id) sender;
@@ -65,9 +66,9 @@
 
 #pragma mark -
 
-@interface NSObject (GCDashEditorDelegate)
+@protocol GCDashEditorDelegate <NSObject>
 
-- (void)				dashDidChange:(id) sender;
+- (void)dashDidChange:(id) sender;
 
 @end
 

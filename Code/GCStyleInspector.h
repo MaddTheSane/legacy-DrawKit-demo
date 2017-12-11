@@ -14,8 +14,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import <DKDrawKit/DKDrawkit.h>
+#import "GCDashEditor.h"
 
-@interface GCStyleInspector : DKDrawkitInspectorBase
+@class GCDashEditor;
+
+@interface GCStyleInspector : DKDrawkitInspectorBase <NSOutlineViewDelegate, NSOutlineViewDataSource, GCDashEditorDelegate>
 {
 	IBOutlet	id		mOutlineView;
 	IBOutlet	id		mTabView;
@@ -23,19 +26,19 @@
 	IBOutlet	id		mRemoveRendererButton;
 	IBOutlet	id		mActionsPopUpButton;
 	
-	IBOutlet	id		mDashEditController;
+	IBOutlet GCDashEditor *mDashEditController;
 	IBOutlet	id		mScriptEditController;
 	
-	IBOutlet	id		mStyleCloneButton;
-	IBOutlet	id		mStyleLibraryPopUpButton;
-	IBOutlet	id		mStyleLockCheckbox;
-	IBOutlet	id		mStyleNameTextField;
-	IBOutlet	id		mStylePreviewImageWell;
+	IBOutlet NSButton *mStyleCloneButton;
+	IBOutlet NSPopUpButton *mStyleLibraryPopUpButton;
+	IBOutlet NSButton *mStyleLockCheckbox;
+	IBOutlet NSTextField *mStyleNameTextField;
+	IBOutlet NSImageView *mStylePreviewImageWell;
 	IBOutlet	id		mStyleRegisteredIndicatorText;
-	IBOutlet	id		mStyleAddToLibraryButton;
-	IBOutlet	id		mStyleRemoveFromLibraryButton;
-	IBOutlet	id		mStyleSharedCheckbox;
-	IBOutlet	id		mStyleClientCountText;
+	IBOutlet NSButton *mStyleAddToLibraryButton;
+	IBOutlet NSButton *mStyleRemoveFromLibraryButton;
+	IBOutlet NSButton *mStyleSharedCheckbox;
+	IBOutlet NSTextField *mStyleClientCountText;
 	
 	IBOutlet	id		mStrokeControlsTabView;
 	IBOutlet	id		mStrokeColourWell;
@@ -87,8 +90,8 @@
 	IBOutlet	id		mImageClipToPathCheckbox;
 	IBOutlet	id		mImageFittingPopUpMenu;
 	
-	IBOutlet	id		mCIFilterPopUpMenu;
-	IBOutlet	id		mCIFilterClipToPathCheckbox;
+	IBOutlet NSPopUpButton *mCIFilterPopUpMenu;
+	IBOutlet NSButton *mCIFilterClipToPathCheckbox;
 	
 	IBOutlet	id		mTextLabelTextField;
 	IBOutlet	id		mTextIdentifierTextField;
@@ -102,7 +105,7 @@
 	IBOutlet	id		mTextColourWell;
 	IBOutlet	id		mFlowedTextInsetSlider;
 	
-	IBOutlet	id		mHatchColourWell;
+	IBOutlet NSColorWell *mHatchColourWell;
 	IBOutlet	id		mHatchSpacingSlider;
 	IBOutlet	id		mHatchSpacingTextField;
 	IBOutlet	id		mHatchLineWidthSlider;
@@ -307,17 +310,16 @@
 @end
 
 
-@interface NSObject (ImageResources)
+@interface NSImage (ImageResources)
 
-- (NSImage*)		imageNamed:(NSString*) name fromBundleForClass:(Class) class;
++ (NSImage*)imageNamed:(NSImageName)name fromBundleForClass:(Class)aClass;
 
 @end
 
 
 // tab indexes for main tab view
 
-enum
-{
+typedef NS_ENUM(NSInteger, DKInspectorTabs) {
 	kDKInspectorStrokeTab			= 0,
 	kDKInspectorFillTab				= 1,
 	kDKInspectorMultipleItemsTab	= 2,
@@ -334,8 +336,7 @@ enum
 
 // tab indexes for fill type tab view
 
-enum
-{
+typedef NS_ENUM(NSInteger, DKInspectorFillTypes) {
 	kDKInspectorFillTypeSolid		= 0,
 	kDKInspectorFillTypeGradient	= 1,
 	kDKInspectorFillTypePattern		= 2
@@ -343,8 +344,7 @@ enum
 
 // tags in Add Renderer menu
 
-enum
-{
+typedef NS_ENUM(NSInteger, DKRendererTags) {
 	kDKAddStrokeRendererTag			= 0,
 	kDKAddFillRendererTag			= 1,
 	kDKAddGroupRendererTag			= 2,
@@ -365,8 +365,7 @@ enum
 // tags used to selectively hide or disable particular items in the UI (such as labels) without needing
 // an explicit outlet to them. The tags are deliberately set to arbitrary numbers that are unlikely to be accidentally set.
 
-enum
-{
+typedef NS_ENUM(NSInteger, DKParameterItemsTags) {
 	kDKZigZagParameterItemsTag			= 145,
 	kDKPathDecoratorParameterItemsTag	= 146,
 	kDKPatternFillParameterItemsTag		= 147,
@@ -392,8 +391,8 @@ extern NSString*		kDKTableRowInternalDragPasteboardType;
 
 @interface NSView (TagEnablingAdditions)
 
-- (void)	setSubviewsWithTag:(int) tag hidden:(BOOL) hide;
-- (void)	setSubviewsWithTag:(int) tag enabled:(BOOL) enable;
+- (void)setSubviewsWithTag:(NSInteger) tag hidden:(BOOL) hide;
+- (void)setSubviewsWithTag:(NSInteger) tag enabled:(BOOL) enable;
 
 @end
 

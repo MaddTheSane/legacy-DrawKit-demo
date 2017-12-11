@@ -18,7 +18,7 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 @implementation GCExportOptionsController
 
 
-- (void)		beginExportDialogWithParentWindow:(NSWindow*) parent delegate:(id) delegate
+- (void)beginExportDialogWithParentWindow:(NSWindow*)parent delegate:(id<ExportControllerDelegate>)delegate
 {
 	// allows export of the drawing as PDF, etc.
 	
@@ -35,7 +35,7 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 	
 	[sp setAccessoryView:mExportAccessoryView];
 	mSavePanel = sp;
-	mFileType = NSPDFFileType;
+	mFileType = GCExportFileTypePDF;
 	[self displayOptionsForFileType:mFileType];
 	
 	[sp setPrompt:NSLocalizedString(@"Export", @"")];
@@ -53,11 +53,11 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 
 
 
-- (IBAction)	formatPopUpAction:(id) sender
+- (IBAction)formatPopUpAction:(id) sender
 {
-	int tag = [[sender selectedItem] tag];
+	NSInteger tag = [[sender selectedItem] tag];
 	
-	mFileType = (NSBitmapImageFileType) tag;
+	mFileType = tag;
 	
 	[self displayOptionsForFileType:tag];
 }
@@ -65,38 +65,38 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 
 - (IBAction)	resolutionPopUpAction:(id) sender
 {
-	int tag = [[sender selectedItem] tag];
-	[mOptionsDict setObject:[NSNumber numberWithInt:tag] forKey:kDKExportPropertiesResolution];
+	NSInteger tag = [[sender selectedItem] tag];
+	[mOptionsDict setObject:@(tag) forKey:kDKExportPropertiesResolution];
 }
 
 
 
-- (IBAction)	formatIncludeGridAction:(id) sender
+- (IBAction)formatIncludeGridAction:(id) sender
 {
 	[mOptionsDict setObject:[NSNumber numberWithBool:[sender intValue]] forKey:kGCIncludeGridInExportedFile];
 }
 
 
 
-- (IBAction)	jpegQualityAction:(id) sender
+- (IBAction)jpegQualityAction:(id) sender
 {
 	[mOptionsDict setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:NSImageCompressionFactor];
 }
 
 
 
-- (IBAction)	jpegProgressiveAction:(id) sender
+- (IBAction)jpegProgressiveAction:(id) sender
 {
 	[mOptionsDict setObject:[NSNumber numberWithBool:[sender intValue]] forKey:NSImageProgressive];
 }
 
 
 
-- (IBAction)	tiffCompressionAction:(id) sender
+- (IBAction)tiffCompressionAction:(id) sender
 {
-	int tag = [[sender selectedItem] tag];
+	NSInteger tag = [[sender selectedItem] tag];
 
-	[mOptionsDict setObject:[NSNumber numberWithInt:tag] forKey:NSImageCompressionMethod];
+	[mOptionsDict setObject:@(tag) forKey:NSImageCompressionMethod];
 }
 
 
@@ -115,11 +115,11 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 
 
 
-- (void)		displayOptionsForFileType:(int) type
+- (void)displayOptionsForFileType:(GCExportFileTypes) type
 {
 	[mExportFormatPopUpButton selectItemWithTag:type];
 	
-	if( type == NSPDFFileType )
+	if( type == GCExportFileTypePDF )
 		[mExportResolutionPopUpButton setEnabled:NO];
 	else
 		[mExportResolutionPopUpButton setEnabled:YES];
@@ -135,34 +135,33 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 	
 	NSString* rft;
 	
-	switch (type)
-	{
+	switch (type) {
 		default:
-		case NSPDFFileType:
+		case GCExportFileTypePDF:
 			[mExportOptionsTabView selectTabViewItemAtIndex:0];
-			rft = @"pdf";
+			rft = (NSString*)kUTTypePDF;
 			break;
 		
 		case NSJPEGFileType:
 			[mExportOptionsTabView selectTabViewItemAtIndex:1];
-			rft = @"jpg";
+			rft = (NSString*)kUTTypeJPEG;
 			break;
 
 		case NSPNGFileType:
 			[mExportOptionsTabView selectTabViewItemAtIndex:2];
-			rft = @"png";
+			rft = (NSString*)kUTTypePNG;
 			break;
 
 		case NSTIFFFileType:
 			[mExportOptionsTabView selectTabViewItemAtIndex:3];
-			rft = @"tiff";
+			rft = (NSString*)kUTTypeTIFF;
 			break;
 	}
-	[mSavePanel setRequiredFileType:rft];
+	mSavePanel.allowedFileTypes = @[rft];
 }
 
 
-- (void)		exportPanelDidEnd:(NSSavePanel*) sp returnCode:(int) returnCode contextInfo:(void*) contextInfo
+- (void)exportPanelDidEnd:(NSSavePanel*) sp returnCode:(NSInteger) returnCode contextInfo:(void*) contextInfo
 {
 	#pragma unused(contextInfo)
 	

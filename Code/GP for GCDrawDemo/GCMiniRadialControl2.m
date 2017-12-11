@@ -298,7 +298,7 @@
 }
 
 
-- (int)				hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint) p
 {
 	if ([super hitTestPoint:p] == kDKMiniControlEntireControl )
 	{

@@ -7,12 +7,12 @@
 
 
 
-@interface GCLayersPaletteController : DKDrawkitInspectorBase
+@interface GCLayersPaletteController : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate>
 {
-    IBOutlet id		mLayersTable;
+    IBOutlet NSTableView *mLayersTable;
 	IBOutlet id		mAutoActivateCheckbox;
 	NSColor*		mTemporaryColour;
-	int				mTemporaryColourRow;
+	NSInteger				mTemporaryColourRow;
 }
 
 
@@ -23,7 +23,7 @@
 - (IBAction)		removeLayerButtonAction:(id)sender;
 - (IBAction)		autoActivationAction:(id) sender;
 
-- (void)			setTemporaryColour:(NSColor*) aColour forTableView:(NSTableView*) tView row:(int) row;
+- (void)			setTemporaryColour:(NSColor*) aColour forTableView:(NSTableView*) tView row:(NSInteger) row;
 @end
 
 

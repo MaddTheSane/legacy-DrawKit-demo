@@ -7,9 +7,10 @@
 //
 
 #import <DKDrawKit/DKDrawingDocument.h>
+#import "GCPolarDuplicateController.h"
+#import "GCExportOptionsController.h"
 
-
-@interface GCDrawDemoDocument : DKDrawingDocument
+@interface GCDrawDemoDocument : DKDrawingDocument <PolarDuplicationDelegate, ExportControllerDelegate>
 {
 	IBOutlet	id		mToolNamePanelController;
 	IBOutlet	id		mPolarDuplicateController;
@@ -20,6 +21,7 @@
 
 + (void)				setDefaultQualityModulation:(BOOL) dqm;
 + (BOOL)				defaultQualityModulation;
+@property (class) BOOL defaultQualityModulation;
 
 
 - (NSString*)			askUserForToolName;

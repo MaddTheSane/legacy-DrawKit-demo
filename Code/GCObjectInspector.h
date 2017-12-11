@@ -1,5 +1,6 @@
 /* GCObjectInspector */
 
+#import <Cocoa/Cocoa.h>
 #import <DKDrawKit/DKDrawkitInspectorBase.h>
 
 
@@ -7,7 +8,7 @@
 @class DKShapeGroup;
 
 
-@interface GCObjectInspector : DKDrawkitInspectorBase
+@interface GCObjectInspector : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate>
 {
     IBOutlet id mGenInfoAngleField;
     IBOutlet id mGenInfoHeightField;
@@ -26,14 +27,14 @@
     IBOutlet id mMetaTableView;
     IBOutlet id mObjectTabView;
 	
-	IBOutlet id	mLockIconImageWell;
+	IBOutlet NSImageView *mLockIconImageWell;
 	
 	DKDrawableObject*	mSel;
 	BOOL				mConvertCoordinates;
 }
 
 
-- (void)			updateTabAtIndex:(int) tab withSelection:(NSArray*) sel;
+- (void)			updateTabAtIndex:(NSInteger) tab withSelection:(NSArray*) sel;
 - (void)			updateGroupTabWithObject:(DKShapeGroup*) group;
 - (void)			updateSingleItemTabWithObject:(DKDrawableObject*) obj;
 

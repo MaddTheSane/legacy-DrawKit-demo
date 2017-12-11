@@ -25,7 +25,7 @@
 }
 
 
-- (int)			runModal;
+- (NSModalResponse)runModal;
 - (void)		runAsSheetInParentWindow:(NSWindow*) parent modalDelegate:(id) delegate;
 
 - (id)			primaryItem;
@@ -44,6 +44,6 @@ Basic controller handles dialogs with OK, Cancel and one primary item.
 
 When running as a sheet, modal delegate should implement:
 
-- (void)		sheetDidEnd:(NSWindow*) sheet returnCode:(int) returnCode  contextInfo:(void*) contextInfo;
+- (void)		sheetDidEnd:(NSWindow*) sheet returnCode:(NSInteger) returnCode  contextInfo:(void*) contextInfo;
 
 */

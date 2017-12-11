@@ -2,6 +2,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol PolarDuplicationDelegate;
+
 @interface GCPolarDuplicateController : NSWindowController
 {
     IBOutlet id mAngleIncrementTextField;
@@ -14,7 +16,7 @@
 	IBOutlet id	mCancelButton;
 	IBOutlet id	mManualSettingsBox;
 	
-	id			mDelegateRef;
+	id<PolarDuplicationDelegate> mDelegateRef;
 }
 
 
@@ -27,8 +29,8 @@
 - (IBAction)	autoFitAction:(id) sender;
 
 
-- (void)	beginPolarDuplicationDialog:(NSWindow*) parentWindow polarDelegate:(id) delegate;
-- (void)	sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void  *)contextInfo;
+- (void)	beginPolarDuplicationDialog:(NSWindow*) parentWindow polarDelegate:(id<PolarDuplicationDelegate>) delegate;
+- (void)	sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void  *)contextInfo;
 
 - (void)	conditionallyEnableOKButton;
 
@@ -36,10 +38,10 @@
 
 
 
-@interface NSObject (PolarDuplicationDelegate)
+@protocol PolarDuplicationDelegate <NSObject>
 
-- (void)	doPolarDuplicateCopies:(int) copies centre:(NSPoint) cp incAngle:(float) angle rotateCopies:(BOOL) rotCopies;
-- (void)	doAutoPolarDuplicateWithCentre:(NSPoint) cp;
-- (int)		countOfItemsInSelection;
+- (void)doPolarDuplicateCopies:(NSInteger) copies centre:(NSPoint) cp incAngle:(CGFloat) angle rotateCopies:(BOOL) rotCopies;
+- (void)doAutoPolarDuplicateWithCentre:(NSPoint) cp;
+- (NSInteger)countOfItemsInSelection;
 
 @end

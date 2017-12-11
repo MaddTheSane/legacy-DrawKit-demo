@@ -6,7 +6,7 @@
 @class DKStyleRegistry, DKStyle;
 
 
-@interface GCStyleManagerDialog : NSWindowController
+@interface GCStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
 {
     IBOutlet id mAddCategoryButton;
     IBOutlet id mDeleteCategoryButton;
@@ -36,7 +36,7 @@
 - (void)				updateUIForStyle:(DKStyle*) style;
 - (void)				updateUIForCategory:(NSString*) category;
 
-- (void)		sheetDidEnd:(NSWindow*) sheet returnCode:(int) returnCode  contextInfo:(void*) contextInfo;
-- (void)		alertDidEnd:(NSAlert*) alert returnCode:(int) returnCode contextInfo:(void*) contextInfo;
+- (void)		sheetDidEnd:(NSWindow*) sheet returnCode:(NSInteger) returnCode  contextInfo:(void*) contextInfo;
+- (void)		alertDidEnd:(NSAlert*) alert returnCode:(NSInteger) returnCode contextInfo:(void*) contextInfo;
 
 @end

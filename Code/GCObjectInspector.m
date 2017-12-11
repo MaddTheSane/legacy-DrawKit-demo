@@ -5,7 +5,7 @@
 
 @implementation GCObjectInspector
 #pragma mark As a GCObjectInspector
-- (void)		updateTabAtIndex:(int) tab withSelection:(NSArray*) sel
+- (void)updateTabAtIndex:(NSInteger) tab withSelection:(NSArray*) sel
 {
 	mSel = nil;
 	
@@ -15,7 +15,7 @@
 			break;
 			
 		case kDKObjectInspectorTabMultipleItems:
-			[mMultiInfoItemCountField setIntValue:[sel count]];
+			[mMultiInfoItemCountField setIntegerValue:[sel count]];
 			break;
 			
 		case kDKObjectInspectorTabGroupItem:
@@ -32,9 +32,9 @@
 }
 
 
-- (void)		updateGroupTabWithObject:(DKShapeGroup*) group
+- (void)updateGroupTabWithObject:(DKShapeGroup*) group
 {
-	[mGroupInfoItemCountField setIntValue:[[group groupObjects] count]];
+	[mGroupInfoItemCountField setIntegerValue:[[group groupObjects] count]];
 }
 
 
@@ -90,7 +90,7 @@
 	}
 	
 	if([obj isKindOfClass:[DKShapeGroup class]])
-		[mGroupInfoItemCountField setIntValue:[[(DKShapeGroup*)obj groupObjects] count]];
+		[mGroupInfoItemCountField setIntegerValue:[[(DKShapeGroup*)obj groupObjects] count]];
 	else
 		[mGroupInfoItemCountField setStringValue:@"n/a"];
 	
@@ -131,11 +131,11 @@
 #pragma mark -
 - (IBAction)	addMetaItemAction:(id)sender
 {
-	static int keySeed = 1;
+	static NSInteger keySeed = 1;
 	
-	int tag = [[sender selectedItem] tag];
+	NSInteger tag = [[sender selectedItem] tag];
 	
-	NSString* key = [NSString stringWithFormat:@"** change me %d **", keySeed++];
+	NSString* key = [NSString stringWithFormat:@"** change me %ld **", (long)(keySeed++)];
 	
 	switch( tag )
 	{
@@ -161,7 +161,7 @@
 - (IBAction)	removeMetaItemAction:(id)sender
 {
 #pragma unused (sender)
-	int			sel = [mMetaTableView selectedRow];
+	NSInteger			sel = [mMetaTableView selectedRow];
 	NSArray*	keys = [[[mSel userInfo] allKeys] sortedArrayUsingSelector:@selector(compare:)];
 	NSString*	oldKey = [keys objectAtIndex:sel];
 	
@@ -238,7 +238,7 @@
 		selection = [[(DKObjectDrawingLayer*)layer selection] allObjects];
 	}
 	
-	int tab, oc = [selection count];
+	NSInteger tab, oc = [selection count];
 	
 	if ( oc == 0 )
 	{
@@ -279,7 +279,7 @@
 #pragma mark -
 #pragma mark As part of NSTableDataSource Protocol
 
-- (int)			numberOfRowsInTableView:(NSTableView*) aTableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView*) aTableView
 {
 	#pragma unused (aTableView)
 
@@ -287,7 +287,7 @@
 }
 
 
-- (id)			tableView:(NSTableView*) aTableView objectValueForTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (id)tableView:(NSTableView*) aTableView objectValueForTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 	#pragma unused (aTableView)
 
@@ -301,7 +301,7 @@
 }
 
 
-- (void)		tableView:(NSTableView*) aTableView setObjectValue:(id) anObject forTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (void)tableView:(NSTableView*) aTableView setObjectValue:(id) anObject forTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 	#pragma unused (aTableView)
 
@@ -322,7 +322,7 @@
 }
 
 
-- (BOOL)		tableView:(NSTableView*) aTableView shouldEditTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (BOOL)tableView:(NSTableView*) aTableView shouldEditTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 	#pragma unused(aTableView)
 	#pragma unused(aTableColumn)

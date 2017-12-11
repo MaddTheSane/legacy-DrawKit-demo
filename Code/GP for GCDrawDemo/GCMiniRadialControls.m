@@ -16,7 +16,7 @@
 
 @implementation GCMiniRadialControls
 #pragma mark As a GCMiniRadialControls
-- (void)			setCentre:(NSPoint) p
+- (void)setCentre:(NSPoint) p
 {
 	if ( ! NSEqualPoints( p, mCentre ))
 	{
@@ -27,13 +27,13 @@
 }
 
 
-- (NSPoint)			centre
+- (NSPoint)centre
 {
 	return mCentre;
 }
 
 #pragma mark -
-- (void)			setRadius:(float) radius
+- (void)setRadius:(CGFloat) radius
 {
 	if (  radius != mRadius )
 	{
@@ -44,7 +44,7 @@
 }
 
 
-- (float)			radius
+- (CGFloat)radius
 {
 	return mRadius;
 }
@@ -80,7 +80,7 @@
 }
 
 
-- (void)			drawRadControlInRect:(NSRect) rr radius:(float) rad colorValue:(float) u
+- (void)drawRadControlInRect:(NSRect) rr radius:(CGFloat) rad colorValue:(CGFloat) u
 {
 #pragma unused (u)
 	//NSBezierPath* path = [NSBezierPath bezierPathWithOffsetTargetInRect:rr offset:( u < 0.5 )? -1 : 1];
@@ -101,7 +101,7 @@
 	if ( rad > 0.0 )
 	{
 		NSRect		radr;
-		float		dash[2] = { 5.0, 5.0 };
+		CGFloat		dash[2] = { 5.0, 5.0 };
 		
 		radr.origin.x = NSMidX( rr ) - rad;
 		radr.origin.y = NSMidY( rr ) - rad;
@@ -130,7 +130,7 @@
 }
 
 
-- (int)				hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint) p
 {
 	if ([super hitTestPoint:p] == kDKMiniControlEntireControl )
 	{
@@ -171,7 +171,7 @@
 }
 
 
-- (BOOL)			mouseDraggedAt:(NSPoint) currentPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)			mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (flags)
 	if ( part == kDKHitRadialTarget )

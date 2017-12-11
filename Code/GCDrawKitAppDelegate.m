@@ -105,11 +105,11 @@
 #pragma unused (note)
 	// a new tool was registered. Add it to the tool menu if it's not known already.
 	
-	NSArray*			names = [DKDrawingTool toolNames];
-	NSMenu*				menu = mUserToolMenu;
-	int					i, m;
-	NSMenuItem*			item;
-	DKDrawingTool*		tool;
+	NSArray*		names = [DKDrawingTool toolNames];
+	NSMenu*			menu = mUserToolMenu;
+	NSInteger 		i, m;
+	NSMenuItem*		item;
+	DKDrawingTool*	tool;
 	
 	m = [menu numberOfItems];
 	

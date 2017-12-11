@@ -18,7 +18,7 @@
 	[[self styles] addCategory:newCat];
 	[mStyleCategoryList reloadData];
 	
-	int indx = [[[self styles] allCategories] indexOfObject:newCat];
+	NSInteger indx = [[[self styles] allCategories] indexOfObject:newCat];
 	
 	[mStyleCategoryList selectRow:indx byExtendingSelection:NO];
 	[mStyleCategoryList editColumn:1 row:indx withEvent:nil select:YES];	// TO DO - !! look up column in case user has reordered them
@@ -51,7 +51,7 @@
 }
 
 
-- (void)				sheetDidEnd:(NSWindow*) sheet returnCode:(int) returnCode  contextInfo:(void*) contextInfo
+- (void)sheetDidEnd:(NSWindow*) sheet returnCode:(NSInteger) returnCode  contextInfo:(void*) contextInfo
 {
 #pragma unused (returnCode)
 	NSString* context = (NSString*)contextInfo;
@@ -77,7 +77,7 @@
 }
 
 
-- (void)		alertDidEnd:(NSAlert*) alert returnCode:(int) returnCode contextInfo:(void*) contextInfo
+- (void)alertDidEnd:(NSAlert*) alert returnCode:(NSInteger) returnCode contextInfo:(void*) contextInfo
 {
 #pragma unused (alert)
 	if(returnCode == NSAlertDefaultReturn )
@@ -187,7 +187,7 @@
 	DKStyle*	style;
 	NSImage*		swatch;
 	NSImageCell*	cell;
-	int				rows, cols, x, y, num;
+	NSInteger		rows, cols, x, y, num;
 	NSSize			cellSize;
 	
 	for( cols = 0; cols < [mStyleIconMatrix numberOfColumns]; ++cols )
@@ -213,7 +213,6 @@
 		while( (style = [iter nextObject]) != nil)
 		{
 			swatch = [[style standardStyleSwatch] copy];
-			[swatch setScalesWhenResized:YES];
 			[swatch setSize:cellSize];
 						
 			cell = [mStyleIconMatrix cellAtRow:y column:x];
@@ -299,7 +298,7 @@
 #pragma mark As an NSWindowController 
 - (void)				windowDidLoad
 {
-	int row = [mStyleCategoryList selectedRow];
+	NSInteger row = [mStyleCategoryList selectedRow];
 	
 	if ( row == -1 )
 	{
@@ -311,13 +310,13 @@
 
 #pragma mark -
 #pragma mark As an NSTableView delegate
-- (void)				tableViewSelectionDidChange:(NSNotification*) aNotification
+- (void)tableViewSelectionDidChange:(NSNotification*) aNotification
 {
 	if([aNotification object] == mStyleCategoryList)
 	{
 		// when the user selects a different category in the list, the matrix is repopulated with the styles in that category
 		
-		int			catItem = [mStyleCategoryList selectedRow];
+		NSInteger catItem = [mStyleCategoryList selectedRow];
 		
 		LogEvent_(kReactiveEvent, @"selection change: %d", catItem );
 		
@@ -329,7 +328,7 @@
 	}
 	else if([aNotification object] == mStyleBrowserList)
 	{
-		int rowIndex = [mStyleBrowserList selectedRow];
+		NSInteger rowIndex = [mStyleBrowserList selectedRow];
 		NSArray* sortedKeys = [[self styles] allSortedKeysInCategory:mSelectedCategory];
 		
 		if ( rowIndex >= 0 && rowIndex < (int)[sortedKeys count])
@@ -343,7 +342,7 @@
 }
 
 
-- (void)			tableView:(NSTableView*) aTableView willDisplayCell:(id) aCell forTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (void)tableView:(NSTableView*) aTableView willDisplayCell:(id) aCell forTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 #pragma unused (aTableColumn)
 	if ( aTableView == mStyleCategoryList )
@@ -354,7 +353,7 @@
 }
 
 
-- (BOOL)			tableView:(NSTableView*) aTableView shouldEditTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (BOOL)tableView:(NSTableView*) aTableView shouldEditTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 #pragma unused (aTableColumn)
 	if ( aTableView == mStyleCategoryList )
@@ -369,7 +368,7 @@
 
 #pragma mark -
 #pragma mark As part of NSTableDataSource Protocol
-- (int)					numberOfRowsInTableView:(NSTableView*) aTableView
+- (NSInteger)numberOfRowsInTableView:(NSTableView*) aTableView
 {
 	if ( aTableView == mStyleCategoryList )
 	{
@@ -384,7 +383,7 @@
 }
 
 
-- (id)					tableView:(NSTableView*) aTableView objectValueForTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (id)tableView:(NSTableView*) aTableView objectValueForTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 	id identifier = [aTableColumn identifier];
 	
@@ -431,7 +430,7 @@
 }
 
 
-- (void)				tableView:(NSTableView*) aTableView setObjectValue:(id) anObject forTableColumn:(NSTableColumn*) aTableColumn row:(int) rowIndex
+- (void)tableView:(NSTableView*) aTableView setObjectValue:(id) anObject forTableColumn:(NSTableColumn*) aTableColumn row:(NSInteger) rowIndex
 {
 	id identifier = [aTableColumn identifier];
 	
@@ -447,7 +446,7 @@
 			
 			[aTableView reloadData];
 			
-			int indx = [[[self styles] allCategories] indexOfObject:anObject];
+			NSInteger indx = [[[self styles] allCategories] indexOfObject:anObject];
 			[aTableView selectRow:indx byExtendingSelection:NO];
 			[mStyleBrowserList reloadData];
 		}

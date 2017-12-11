@@ -63,7 +63,7 @@
 ///
 ///********************************************************************************************************************
 
-+ (void)	popUpWindowMenu:(GCWindowMenu*) menu atPoint:(NSPoint) loc withEvent:(NSEvent*) event forView:(NSView*) view;
++ (void)popUpWindowMenu:(GCWindowMenu*) menu atPoint:(NSPoint) loc withEvent:(NSEvent*) event forView:(NSView*) view
 {
 	// pop up a window menu, and track it until the mouse goes up. Implements standard menu behaviour
 	// but uses a completely custom view. If <menu> is nil creates a default window. <loc> is the point in window
@@ -432,7 +432,7 @@ static	NSTimeInterval sFadeStartTime = 0.0;
 
 
 - (id)	initWithContentRect:(NSRect) contentRect
-		styleMask:(unsigned int) styleMask
+		styleMask:(NSWindowStyleMask) styleMask
 		backing:(NSBackingStoreType) bufferingType
 		defer:(BOOL) deferCreation
 {

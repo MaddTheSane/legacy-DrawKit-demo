@@ -14,7 +14,8 @@
 
 @implementation GCMiniSlider
 #pragma mark As a GCMiniSlider
-- (void)		setShowTickMarks:(BOOL) ticks
+@synthesize showTickMarks=mShowTicks;
+- (void)setShowTickMarks:(BOOL) ticks
 {
 	if ( ticks != mShowTicks )
 	{
@@ -23,19 +24,12 @@
 	}
 }
 
-
-- (BOOL)		showTickMarks
-{
-	return mShowTicks;
-}
-
-
 #pragma mark -
-- (NSRect)		knobRect
+- (NSRect)knobRect
 {
 	NSRect	kr = NSInsetRect([self bounds], kMiniSliderEndCapWidth, 1 );
 	
-	float length = [self bounds].size.width - ( kMiniSliderEndCapWidth * 2 );
+	CGFloat length = [self bounds].size.width - ( kMiniSliderEndCapWidth * 2 );
 	
 	kr.size = [mKnobImage size];
 	kr.origin.x += ([self value] * length ) - ( kr.size.width / 2.0 );
@@ -44,10 +38,9 @@
 	return kr;
 }
 
-
 #pragma mark -
 #pragma mark As a GCMiniControl
-- (void)		draw
+- (void)draw
 {
 	NSBezierPath* path = [NSBezierPath bezierPathWithRoundEndedRectInRect:[self bounds]];
 	
@@ -82,12 +75,11 @@
 }
 
 
-- (int)			hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint) p
 {
-	int ph = [super hitTestPoint:p];
+	GCControlHitTest ph = [super hitTestPoint:p];
 	
-	if ( ph == kDKMiniControlEntireControl )
-	{
+	if ( ph == kDKMiniControlEntireControl ) {
 		if ( NSPointInRect( p, [self knobRect]))
 			ph = kDKMiniSliderKnob;
 	}
@@ -103,25 +95,23 @@
 	{
 		//mKnobImage = [[NSImage imageNamed:@"smallBlueKnob"] retain];
 		
-		mKnobImage = [[self imageNamed:@"smallBlueKnob" fromBundleForClass:[self class]] retain];
+		mKnobImage = [[NSImage imageNamed:@"smallBlueKnob" fromBundleForClass:[self class]] retain];
 
 		NSAssert(!mShowTicks, @"Expected init to zero");
 		
 		if (mKnobImage == nil)
 		{
 			[self autorelease];
-			self = nil;
+			return nil;
 		}
-	}
-	if (self != nil)
-	{
 		[mKnobImage setFlipped:YES];
+
 	}
 	return self;
 }
 
 
-- (BOOL)		mouseDownAt:(NSPoint) startPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (flags)
 	if ( part == kDKMiniSliderKnob )
@@ -130,7 +120,7 @@
 }
 
 
-- (BOOL)		mouseDraggedAt:(NSPoint) currentPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 	// recalculate the value based on the position of the knob
 	

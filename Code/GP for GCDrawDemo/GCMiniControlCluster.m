@@ -198,7 +198,7 @@
 }
 
 
-- (void)				flagsChanged:(int) flags
+- (void)flagsChanged:(int) flags
 {
 	// propagate to all controls in the cluster
 
@@ -210,7 +210,7 @@
 }
 
 
-- (void)				draw
+- (void)draw
 {
 	// draws all the controls if visible
 	
@@ -219,14 +219,14 @@
 }
 
 
-- (int)					hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint) p
 {
 	// hit test all owned controls, returning the partcode resulting. If this is not 0, this also
 	// sets mHitTarget to the control hit. This hit tests in reverse order in case controls overlap.
 	
 	NSEnumerator*   iter = [[self controls] reverseObjectEnumerator];
 	GCMiniControl*  ctl;
-	int				pc;
+	GCControlHitTest pc;
 	
 	while( (ctl = [iter nextObject]) != nil)
 	{
@@ -272,7 +272,7 @@
 }
 
 
-- (BOOL)				mouseDownAt:(NSPoint) startPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (part)
 	// determine which control was hit and what part. This will be used for subsequent

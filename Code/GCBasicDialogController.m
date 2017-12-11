@@ -14,14 +14,18 @@
 
 #import "GCBasicDialogController.h"
 
+@interface NSObject (SDEMethod)
+- (void)sheetDidEnd:(NSWindow*) sheet returnCode:(NSInteger) returnCode  contextInfo:(void*) contextInfo;
+
+@end
 
 @implementation GCBasicDialogController
 #pragma mark As a GCBasicDialogController
-- (int)			runModal
+- (NSModalResponse)runModal
 {
 	mRunningAsSheet = NO;
 	
-	int result = [NSApp runModalForWindow:[self window]];
+	NSModalResponse result = [NSApp runModalForWindow:[self window]];
 	
 	[[self window] orderOut:self];
 	

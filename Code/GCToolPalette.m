@@ -77,8 +77,8 @@
 #pragma mark -
 - (void)		selectToolWithName:(NSString*) name
 {
-	int				row, col, rr, cc;
-	NSCell*			cell;
+	NSInteger row, col, rr, cc;
+	NSCell* cell;
 	DKStyle* style = [DKObjectCreationTool styleForCreatedObjects];
 	
 	[mToolMatrix getNumberOfRows:&row columns:&col];
