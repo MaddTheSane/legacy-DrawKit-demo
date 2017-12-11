@@ -13,22 +13,29 @@
 @class GCMiniControl;
 @class GCMiniControlCluster;
 
+//! internal "partcodes" for where a mouse hit occurred
+typedef NS_ENUM(NSInteger, DKHitGCGradientCell) {
+	kDKHitNone				= 0,
+	kDKHitMiniControl		= 5,
+	kDKHitProxyIcon			= 7,
+	kDKHitOther				= 999
+};
 
 @interface GCGradientCell : DKGradientCell <GCMiniControlDelegate>
 {
 	NSRect					mControlBoundsRect;
 	GCMiniControlCluster*	mMiniControls;
 	BOOL					mUpdatingControls;
-	int						mHitPart;
+	DKHitGCGradientCell		mHitPart;
 }
 
-
-- (void)					setMiniControlBoundsWithCellFrame:(NSRect) cframe forMode:(int) mode;
+- (void)setMiniControlBoundsWithCellFrame:(NSRect) cframe forMode:(DKGradientWellMode) mode;
 - (void)					setMiniControlBounds:(NSRect) br withIdentifier:(NSString*) key;
-- (void)					drawMiniControlsForMode:(int) mode;
+- (void)					drawMiniControlsForMode:(DKGradientWellMode) mode;
 - (GCMiniControlCluster*)controlClusterForMode:(DKGradientWellMode) mode;
 - (GCMiniControl*)			miniControlForIdentifier:(NSString*) key;
-- (void)					updateMiniControlsForMode:(int) mode;
+//! Sets the minicontrol values in \c mode cluster to match the current gradient.
+- (void)updateMiniControlsForMode:(DKGradientWellMode) mode;
 
 - (NSRect)					proxyIconRectInCellFrame:(NSRect) rect;
 
@@ -36,20 +43,4 @@
 
 @end
 
-
-
-
-
 #define kDKDefaultGradientCellInset		(NSMakeSize( 8.0, 8.0 ))
-
-
-// internal "partcodes" for where a mouse hit occurred
-
-enum
-{
-	kDKHitNone				= 0,
-	kDKHitMiniControl		= 5,
-	kDKHitProxyIcon			= 7,
-	kDKHitOther				= 999
-};
-

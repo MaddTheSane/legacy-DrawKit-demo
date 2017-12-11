@@ -36,7 +36,7 @@ static NSString*	kSweepControlsClusterID		= @"kSweepControlsClusterID";
 
 
 #pragma mark Static Vars
-static unsigned		sMFlags = 0;
+static NSInteger		sMFlags = 0;
 
 
 @implementation GCGradientCell
@@ -146,7 +146,7 @@ static unsigned		sMFlags = 0;
 
 
 #pragma mark -
-- (void)		setMiniControlBoundsWithCellFrame:(NSRect) cellframe forMode:(int) mode
+- (void)		setMiniControlBoundsWithCellFrame:(NSRect) cellframe forMode:(DKGradientWellMode) mode
 {
 	// sets up the mini controls' bounds from the cellFrame. Each one is individually calculated as appropriate. Note
 	// that some types, notably the circular slider, position themselves centrally in their bounds so this method need
@@ -197,7 +197,7 @@ static unsigned		sMFlags = 0;
 }
 
 
-- (void)				drawMiniControlsForMode:(int) mode
+- (void)drawMiniControlsForMode:(DKGradientWellMode) mode
 {
 	// given the mode which is set by the owning GCGradientWell, this draws the controls in the appropriate cluster.
 	
@@ -207,8 +207,7 @@ static unsigned		sMFlags = 0;
 
 - (GCMiniControlCluster*)controlClusterForMode:(DKGradientWellMode) mode
 {
-	switch ( mode )
-	{
+	switch (mode) {
 		default:
 		case kDKGradientWellDisplayMode:
 			return nil;
@@ -224,56 +223,61 @@ static unsigned		sMFlags = 0;
 	}
 }
 
-
-- (GCMiniControl*)		miniControlForIdentifier:(NSString*) key
+- (GCMiniControl*)miniControlForIdentifier:(NSString*) key
 {
 	return [mMiniControls controlForKey:key];
 }
 
-
-- (void)				updateMiniControlsForMode:(int) mode
+- (void)updateMiniControlsForMode:(DKGradientWellMode) mode
 {
 	// sets the minicontrol values in <mode> cluster to match the current gradient
 	
 	mUpdatingControls = YES;
 	
-	if ( mode == kDKGradientWellAngleMode )
-	{
-		[[self miniControlForIdentifier:kLinearAngleControlID] setValue:[[self gradient] angle]];
-	}
-	else if ( mode == kDKGradientWellRadialMode )
-	{
-	//	LogEvent_(kStateEvent, @"setting up radial controls");
-		
-		GCMiniRadialControl2* rc = (GCMiniRadialControl2*)[mMiniControls controlForKey:kRadialStartControlID];
-		
-		[rc setRingRadiusScale:0.85];
-		[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect]];
-		[rc setRadius:[[self gradient] radialStartingRadius] * mControlBoundsRect.size.width];
-		[rc setTabColor:[[self gradient] colorAtValue:0.0]];
-		
-		rc = (GCMiniRadialControl2*)[mMiniControls controlForKey:kRadialEndControlID];
-
-		[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialEndingPoint] toRect:mControlBoundsRect]];
-		[rc setRadius:[[self gradient] radialEndingRadius] * mControlBoundsRect.size.width];
-		[rc setTabColor:[[self gradient] colorAtValue:1.0]];
-	}
-	else if ( mode == kDKGradientWellSweepMode )
-	{
-		// sweep controls:
-
-		GCMiniRadialControls* rc = (GCMiniRadialControls*)[mMiniControls controlForKey:kSweepCentreControlID];
-		
-		[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect]];
-		
-		int		seg = 100;//[[self gradient] numberOfAngularSegments];
-		CGFloat	v = (CGFloat) seg / 50.0;
-					
-		if ( seg < 4 )
-			v = 0.0;
-
-		[[self miniControlForIdentifier:kSweepSegmentsControlID] setValue:v];
-		[[self miniControlForIdentifier:kSweepAngleControlID] setValue:[[self gradient] angle]];
+	switch (mode) {
+		case kDKGradientWellAngleMode:
+			[[self miniControlForIdentifier:kLinearAngleControlID] setValue:[[self gradient] angle]];
+			break;
+			
+		case kDKGradientWellRadialMode:
+			//	LogEvent_(kStateEvent, @"setting up radial controls");
+		{
+			GCMiniRadialControl2* rc = (GCMiniRadialControl2*)[mMiniControls controlForKey:kRadialStartControlID];
+			
+			[rc setRingRadiusScale:0.85];
+			[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect]];
+			[rc setRadius:[[self gradient] radialStartingRadius] * mControlBoundsRect.size.width];
+			[rc setTabColor:[[self gradient] colorAtValue:0.0]];
+			
+			rc = (GCMiniRadialControl2*)[mMiniControls controlForKey:kRadialEndControlID];
+			
+			[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialEndingPoint] toRect:mControlBoundsRect]];
+			[rc setRadius:[[self gradient] radialEndingRadius] * mControlBoundsRect.size.width];
+			[rc setTabColor:[[self gradient] colorAtValue:1.0]];
+		}
+			break;
+			
+		case kDKGradientWellSweepMode:
+		{
+			// sweep controls:
+			
+			GCMiniRadialControls* rc = (GCMiniRadialControls*)[mMiniControls controlForKey:kSweepCentreControlID];
+			
+			[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect]];
+			
+			NSInteger seg = 100;//[[self gradient] numberOfAngularSegments];
+			CGFloat	v = (CGFloat) seg / 50.0;
+			
+			if ( seg < 4 )
+				v = 0.0;
+			
+			[[self miniControlForIdentifier:kSweepSegmentsControlID] setValue:v];
+			[[self miniControlForIdentifier:kSweepAngleControlID] setValue:[[self gradient] angle]];
+		}
+			break;
+			
+		default:
+			break;
 	}
 	
 	mUpdatingControls = NO;
@@ -370,7 +374,7 @@ static unsigned		sMFlags = 0;
 	{
 		if ( mHitPart == kDKHitMiniControl )
 		{
-			int cmode = [(GCGradientWell*)controlView controlMode];
+			DKGradientWellMode cmode = [(GCGradientWell*)controlView controlMode];
 			GCMiniControlCluster*	cc = [self controlClusterForMode:cmode];
 		
 			return [cc mouseDraggedAt:currentPoint inPart:0 modifierFlags:[self mouseDownFlags]];

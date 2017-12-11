@@ -27,31 +27,26 @@
 }
 
 
-- (void)			setCentre:(NSPoint) p;
-- (NSPoint)			centre;
+@property (nonatomic) NSPoint centre;
 
-- (void)			setRadius:(CGFloat) radius;
-- (CGFloat)			radius;
+@property (nonatomic) CGFloat radius;
 
-- (void)			setRingRadius:(CGFloat) radius;
-- (CGFloat)			ringRadius;
-- (void)			setRingRadiusScale:(CGFloat) rsc;
+@property (nonatomic) CGFloat ringRadius;
+- (void)setRingRadiusScale:(CGFloat)rsc;
 
-- (void)			setTabColor:(NSColor*) colour;
-- (NSColor*)		tabColor;
+@property (nonatomic, copy) NSColor* tabColor;
 
-- (void)			setTabAngle:(CGFloat) ta;
-- (CGFloat)			tabAngle;
+@property (nonatomic) CGFloat tabAngle;
 
-- (NSBezierPath*)   irisPath;
-- (NSBezierPath*)   tabPath;
+@property (readonly, copy) NSBezierPath *irisPath;
+@property (readonly, copy) NSBezierPath *tabPath;
 - (void)			invalidatePathCache;
 
 
 @end
 
 
-enum
+NS_ENUM(GCControlHitTest)
 {
 	kDKRadial2HitIris   = 17,
 	kDKRadial2HitTab	= 18

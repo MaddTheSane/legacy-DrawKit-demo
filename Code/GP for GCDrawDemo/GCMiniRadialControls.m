@@ -27,11 +27,7 @@
 	}
 }
 
-
-- (NSPoint)centre
-{
-	return mCentre;
-}
+@synthesize centre=mCentre;
 
 #pragma mark -
 - (void)setRadius:(CGFloat) radius
@@ -44,12 +40,7 @@
 	}
 }
 
-
-- (CGFloat)radius
-{
-	return mRadius;
-}
-
+@synthesize radius=mRadius;
 
 #pragma mark -
 - (NSRect)			targetRect

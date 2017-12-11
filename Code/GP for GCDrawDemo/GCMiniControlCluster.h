@@ -9,56 +9,50 @@
 #import "GCMiniControl.h"
 
 
+/**
+ 
+ The mini-control cluster owns one or more mini controls, and manages them as a group. The cluster of
+ controls shares common attributes such as visibility and alpha value.
+ 
+ A cluster may be owned by further clusters, or it may be owned by another object. Ultimately clusters
+ must be owned by some sort of view and are drawn into that view.
+ */
 @interface GCMiniControlCluster : GCMiniControl
 {
-	NSMutableArray*			mControls;
-	NSMutableDictionary*	mControlNames;
+	NSMutableArray<GCMiniControl*>*			mControls;
+	NSMutableDictionary<NSString*,GCMiniControl*>*	mControlNames;
 	NSTimer*				mCATimerRef;
-	NSView*					mViewRef;
+	__unsafe_unretained NSView *mViewRef;
 	GCMiniControl*			mHitTarget;
 	NSTimeInterval			mFadeStartTime;
 	
 	CGFloat mControlAlpha;
 	GCControlHitTest mHitPart;
 	int						mLinkPart;
-	int						mLinkModFlagsMask;
+	NSEventModifierFlags	mLinkModFlagsMask;
 	BOOL					mVisible;
 }
 
 
-- (void)					addMiniControl:(GCMiniControl*) mc;
-- (void)					removeMiniControl:(GCMiniControl*) mc;
-- (NSArray*)				controls;
-- (GCMiniControl*)			controlAtIndex:(int) n;
+- (void)addMiniControl:(GCMiniControl*) mc;
+- (void)removeMiniControl:(GCMiniControl*) mc;
+- (NSArray<GCMiniControl*>*)controls;
+- (GCMiniControl*)controlAtIndex:(NSInteger) n;
 
 - (void)					setControl:(GCMiniControl*) ctrl forKey:(NSString*) key;
 - (GCMiniControl*)			controlForKey:(NSString*) key;
 
-- (void)					setVisible:(BOOL) vis;
-- (void)					forceVisible:(BOOL) vis;
-- (BOOL)					visible;
+- (void)forceVisible:(BOOL) vis;
+@property (nonatomic) BOOL visible;
 
-- (void)					setView:(NSView*) view;
+@property (readwrite, nonatomic, assign) NSView *view;
 
-- (void)setAlpha:(CGFloat) alpha;
-- (CGFloat)alpha;
+@property (nonatomic) CGFloat alpha;
 - (void)					fadeControlAlphaWithTimeInterval:(NSTimeInterval) t;
 - (void)					timerFadeCallback:(NSTimer*) timer;
 
-- (void)					setLinkControlPart:(int) partcode modifierKeyMask:(int) mask;
+- (void)					setLinkControlPart:(int) partcode modifierKeyMask:(NSEventModifierFlags) mask;
 
 
 @end
 
-
-
-/*
-
-The mini-control cluster owns one or more mini controls, and manages them as a group. The cluster of
-controls shares common attributes such as visibility and alpha value.
-
-A cluster may be owned by further clusters, or it may be owned by another object. Ultimately clusters
-must be owned by some sort of view and are drawn into that view.
-
-
-*/

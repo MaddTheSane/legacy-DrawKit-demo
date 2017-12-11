@@ -23,7 +23,7 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 #pragma mark -
 @implementation GCGradientWell
 #pragma mark As a GCGradientWell
-+ (void)	setActiveWell:(GCGradientWell*) well
++ (void)setActiveWell:(GCGradientWell*) well
 {
 	if ( well != sCurrentActiveWell && [well canBecomeActiveWell])
 	{
@@ -40,14 +40,14 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 }
 
 
-+ (void)	clearAllActiveWells
++ (void)clearAllActiveWells
 {
 	[self setActiveWell:nil];
 }
 
 
 #pragma mark -
-- (void)		setGradient:(DKGradient*) aGradient
+- (void)setGradient:(DKGradient*) aGradient
 {
 	if([self gradient] != aGradient )
 	{
@@ -57,14 +57,12 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 	}
 }
 
-
 - (DKGradient*) gradient
 {
 	return [(GCGradientCell*)[self cell] gradient];
 }
 
-
-- (void)		syncGradientToControlSettings
+- (void)syncGradientToControlSettings
 {
 	//LogEvent_(kReactiveEvent, @"synching target/action, target = %@, action = %@", [self target], NSStringFromSelector([self action]));
 	
@@ -77,13 +75,11 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 	}
 }
 
-
-- (void)		initiateGradientDragWithEvent:(NSEvent*) theEvent
+- (void)initiateGradientDragWithEvent:(NSEvent*) theEvent
 {
 	[[self gradient] writeFileToPasteboard:[NSPasteboard pasteboardWithName:NSDragPboard]];
 	[self dragStandardSwatchGradient:[self gradient] slideBack:YES event:theEvent];	
 }
-
 
 #pragma mark -
 - (void)setControlMode:(DKGradientWellMode) mode
@@ -98,28 +94,14 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 	//[(GCGradientCell*)[self cell] updateMiniControlsForMode:mode];
 }
 
-
-- (DKGradientWellMode)controlMode
-{
-	return mControlMode;
-}
+@synthesize controlMode = mControlMode;
 
 
 #pragma mark -
-- (void)		setDisplaysProxyIcon:(BOOL) proxy
-{
-	mShowProxyIcon = proxy;
-}
-
-
-- (BOOL)		displaysProxyIcon
-{
-	return mShowProxyIcon;
-}
-
+@synthesize displaysProxyIcon=mShowProxyIcon;
 
 #pragma mark -
-- (void)		setupTrackingRect
+- (void)setupTrackingRect
 {
 //	LogEvent_(kStateEvent, @"setting tracking rect");
 	
@@ -141,33 +123,17 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 	}
 }
 
-
-- (void)		setForceSquare:(BOOL) fsq
-{
-	mForceSquare = fsq;
-}
-
+@synthesize forceSquare=mForceSquare;
 
 #pragma mark -
-- (void)		setCanBecomeActiveWell:(BOOL) canbecome
-{
-	mCanBecomeActive = canbecome;
-}
+@synthesize canBecomeActiveWell=mCanBecomeActive;
 
-
-- (BOOL)		canBecomeActiveWell
-{
-	return mCanBecomeActive;
-}
-
-
-- (BOOL)		isActiveWell
+- (BOOL)isActiveWell
 {
 	return ([GCGradientWell activeWell] == self);
 }
 
-
-- (void)		wellDidBecomeActive
+- (void)wellDidBecomeActive
 {
 	[self setNeedsDisplay:YES];
 	

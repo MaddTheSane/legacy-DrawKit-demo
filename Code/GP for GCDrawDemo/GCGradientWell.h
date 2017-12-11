@@ -27,27 +27,22 @@ typedef NS_ENUM(NSInteger, DKGradientWellMode) {
 	BOOL				mIsSendingAction;
 }
 
-+ (void)				setActiveWell:(GCGradientWell*) well;
-+ (GCGradientWell*)		activeWell;
+@property (class, nonatomic, assign) GCGradientWell *activeWell;
 + (void)				clearAllActiveWells;
 
-- (void)				setGradient:(DKGradient*) aGradient;
-- (DKGradient*)			gradient;
+@property (retain) DKGradient *gradient;
 - (void)				syncGradientToControlSettings;
 - (void)				initiateGradientDragWithEvent:(NSEvent*) theEvent;
 
-- (void)setControlMode:(DKGradientWellMode) mode;
-- (DKGradientWellMode)controlMode;
+@property (nonatomic) DKGradientWellMode controlMode;
 
-- (void)				setDisplaysProxyIcon:(BOOL) proxy;
-- (BOOL)				displaysProxyIcon;
+@property BOOL displaysProxyIcon;
 
 - (void)				setupTrackingRect;
-- (void)				setForceSquare:(BOOL) fsq;
+@property BOOL forceSquare;
 
-- (void)				setCanBecomeActiveWell:(BOOL) canbecome;
-- (BOOL)				canBecomeActiveWell;
-- (BOOL)				isActiveWell;
+@property BOOL canBecomeActiveWell;
+@property (readonly, getter=isActiveWell) BOOL activeWell;
 - (void)				wellDidBecomeActive;
 - (void)				wellWillResignActive;
 - (void)				toggleActiveWell;
@@ -62,5 +57,3 @@ typedef NS_ENUM(NSInteger, DKGradientWellMode) {
 - (IBAction)			resetRadial:(id) sender;
 
 @end
-
-

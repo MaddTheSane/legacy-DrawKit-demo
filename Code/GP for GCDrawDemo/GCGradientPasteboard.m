@@ -15,9 +15,9 @@
 
 #pragma mark Contants (Non-localized)
 // Pasteboard and file types
-NSString*	GPGradientPasteboardType	= @"GPGradientPasteboardType";
-NSString*	GPGradientLibPasteboardType	= @"GPGradientLibPasteboardType";
-NSString*	GradientFileExtension		= @"gradient";
+NSString*const GPGradientPasteboardType	= @"GPGradientPasteboardType";
+NSString*const GPGradientLibPasteboardType	= @"GPGradientLibPasteboardType";
+NSString*const GradientFileExtension		= @"gradient";
 
 NSString*	GCGradientInfoKey			= @"info";
 NSString*	GCGradientsKey				= @"gradients";
@@ -29,20 +29,6 @@ static NSSize				sGradientPasteboardImageSize = {256.0, 256.0};
 
 @implementation DKGradient (GCGradientPasteboard)
 #pragma mark As a DKGradient
-///*********************************************************************************************************************
-///
-/// method:			readablePasteboardTypes
-/// scope:			public class method
-/// overrides:		
-/// description:	returns the list of types this class is able to read from a pasteboard
-/// 
-/// parameters:		none
-/// result:			an NSArray containing the pasteboard types 
-///
-/// notes:			
-///
-///********************************************************************************************************************
-
 + (NSArray*)			readablePasteboardTypes
 {
 	static NSArray *types = nil;
@@ -59,28 +45,12 @@ static NSSize				sGradientPasteboardImageSize = {256.0, 256.0};
 	return types;
 }
 
-///*********************************************************************************************************************
-///
-/// method:			writablePasteboardTypes
-/// scope:			public class method
-/// overrides:		
-/// description:	returns the list of types this class is able to write to a pasteboard
-/// 
-/// parameters:		none
-/// result:			an NSArray containing the pasteboard types
-///
-/// notes:			in fact this only declares one type - the native type. When writing to a pasteboard using
-///					writeType:toPasteboard: each additional type is added as a type on demand. Normally you will
-///					decalrea the writeable type so that the pasteboard is initially cleared.
-///
-///********************************************************************************************************************
-
 + (NSArray*)			writablePasteboardTypes
 {
 	static NSArray *types = nil;
 	if (types == nil)
 	{
-		types = [[NSArray arrayWithObject:GPGradientPasteboardType] retain];
+		types = [@[GPGradientPasteboardType] retain];
 	}
 	
 	return types;
@@ -126,6 +96,11 @@ static NSSize				sGradientPasteboardImageSize = {256.0, 256.0};
 + (void)				setPasteboardImageSize:(NSSize) pbiSize
 {
 	sGradientPasteboardImageSize = pbiSize;
+}
+
++ (NSSize)pasteboardImageSize
+{
+	return sGradientPasteboardImageSize;
 }
 
 ///*********************************************************************************************************************

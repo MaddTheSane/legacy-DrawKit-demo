@@ -26,11 +26,7 @@
 	}
 }
 
-
-- (NSPoint)centre
-{
-	return mCentre;
-}
+@synthesize centre=mCentre;
 
 #pragma mark -
 - (void)setRadius:(CGFloat) radius
@@ -54,12 +50,7 @@
 	}
 }
 
-
-- (CGFloat)radius
-{
-	return mRadius;
-}
-
+@synthesize radius=mRadius;
 
 #pragma mark -
 - (void)setRingRadius:(CGFloat) radius
@@ -68,21 +59,18 @@
 	[self invalidatePathCache];
 }
 
-
 - (CGFloat)ringRadius
 {
 	return mRingRadius * mRingScale;
 }
-
 
 - (void)setRingRadiusScale:(CGFloat) rsc
 {
 	mRingScale = rsc;
 }
 
-
 #pragma mark -
-- (void)			setTabColor:(NSColor*) colour
+- (void)setTabColor:(NSColor*) colour
 {
 	[colour retain];
 	[mTabColour release];
@@ -91,7 +79,7 @@
 }
 
 
-- (NSColor*)		tabColor
+- (NSColor*)tabColor
 {
 	return [mTabColour colorWithAlphaComponent:[[self cluster] alpha] * 1.0];
 }

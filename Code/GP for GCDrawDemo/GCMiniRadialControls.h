@@ -15,16 +15,12 @@
 	NSPoint			mCentre;
 }
 
+@property (nonatomic) NSPoint centre;
 
-- (void)			setCentre:(NSPoint) p;
-- (NSPoint)			centre;
+@property (nonatomic) CGFloat radius;
 
-- (void)			setRadius:(CGFloat) radius;
-- (CGFloat)			radius;
-
-
-- (NSRect)			targetRect;
-- (NSRect)			rectForRadius;
+@property (readonly) NSRect targetRect;
+@property (readonly) NSRect rectForRadius;
 
 @end
 

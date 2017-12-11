@@ -15,15 +15,22 @@
 #import <DKDrawKit/DKGradient.h>
 
 
+//! Pasteboard Support
 @interface DKGradient (GCGradientPasteboard)
+
+//! An NSArray containing the pasteboard types that DKGradient can read.
+@property (class, readonly, copy) NSArray<NSPasteboardType> *readablePasteboardTypes;
+/** @brief an NSArray containing the pasteboard types that DKGradient can write.
+ @discussion in fact this only declares one type - the native type. When writing to a pasteboard using
+ \c writeType:toPasteboard: each additional type is added as a type on demand. Normally you will
+ decalre the writeable type so that the pasteboard is initially cleared.
+ */
+@property (class, readonly, copy) NSArray<NSPasteboardType> *writablePasteboardTypes;
 
 // Pasteboard Support
 
-+ (NSArray*)			readablePasteboardTypes;
-+ (NSArray*)			writablePasteboardTypes;
-
 + (BOOL)				canInitalizeFromPasteboard:(NSPasteboard*)pboard;
-+ (void)				setPasteboardImageSize:(NSSize) pbiSize;
+@property (class) NSSize pasteboardImageSize;
 + (DKGradient*)			gradientWithPasteboard:(NSPasteboard*) pboard;
 + (DKGradient*)			gradientWithPlist:(NSDictionary*) plist;
 
@@ -50,6 +57,6 @@ extern NSString*	GCGradientInfoKey;
 extern NSString*	GCGradientsKey;
 
 // Pasteboard and file types
-extern NSString*	GPGradientPasteboardType;
-extern NSString*	GPGradientLibPasteboardType;
-extern NSString*	GradientFileExtension;
+extern NSString*const GPGradientPasteboardType;
+extern NSString*const GPGradientLibPasteboardType;
+extern NSString*const GradientFileExtension;

@@ -11,7 +11,7 @@
 
 @implementation GCMiniControlCluster
 #pragma mark As a GCMiniControlCluster
-- (void)				addMiniControl:(GCMiniControl*) mc
+- (void)addMiniControl:(GCMiniControl*) mc
 {
 	if (! [mControls containsObject:mc])
 	{
@@ -21,51 +21,47 @@
 }
 
 
-- (void)				removeMiniControl:(GCMiniControl*) mc
+- (void)removeMiniControl:(GCMiniControl*) mc
 {
 	[mControls removeObject:mc];
 }
 
 
-- (NSArray*)			controls
+- (NSArray*)controls
 {
 	return mControls;
 }
 
 
-- (GCMiniControl*)		controlAtIndex:(int) n
+- (GCMiniControl*)controlAtIndex:(NSInteger) n
 {
 	return [[self controls] objectAtIndex:n];
 }
 
 
 #pragma mark -
-- (void)				setControl:(GCMiniControl*) ctrl forKey:(NSString*) key
+- (void)setControl:(GCMiniControl*) ctrl forKey:(NSString*) key
 {
 	[mControlNames setObject:ctrl forKey:key];
 }
 
 
-- (GCMiniControl*)		controlForKey:(NSString*) key
+- (GCMiniControl*)controlForKey:(NSString*) key
 {
 	// looks for the key in local dict. If not there, looks for subclusters and asks them to look
 	
 	GCMiniControl*	mc = [mControlNames objectForKey:key];
 	
-	if ( mc == nil )
-	{
-		NSEnumerator* iter = [[self controls] objectEnumerator];
-		 
-		 while( (mc = [iter nextObject]) != nil)
-		 {
-			if ([mc isKindOfClass:[GCMiniControlCluster class]])
-			{
+	if (mc == nil) {
+		for (mc in [self controls]) {
+			if ([mc isKindOfClass:[GCMiniControlCluster class]]) {
 				mc = [(GCMiniControlCluster*)mc controlForKey:key];
 				
-				if ( mc )
+				if (mc) {
 					break;
+				}
 			}
-		 }
+		}
 	}
 
 	return mc;
@@ -73,17 +69,14 @@
 
 
 #pragma mark -
-- (void)				setVisible:(BOOL) vis
+- (void)setVisible:(BOOL) vis
 {
-	if ( vis )
-	{
+	if (vis) {
 		[mCATimerRef invalidate];
 		mCATimerRef = nil;
 		[self setAlpha:1.0];
 		mVisible = YES;
-	}
-	else if ( mVisible )
-	{
+	} else if (mVisible) {
 		// trigger a fadeout which will set visible to NO at the end
 		
 		[self fadeControlAlphaWithTimeInterval:0.15];
@@ -91,7 +84,7 @@
 }
 
 
-- (void)				forceVisible:(BOOL) vis
+- (void)forceVisible:(BOOL) vis
 {
 	// sets visible state directly without fade effect
 	
@@ -101,7 +94,7 @@
 }
 
 
-- (BOOL)				visible
+- (BOOL)visible
 {
 	if ([self cluster])
 		return [[self cluster] visible];
@@ -134,11 +127,9 @@
 }
 
 
-- (void)				fadeControlAlphaWithTimeInterval:(NSTimeInterval) t
+- (void)fadeControlAlphaWithTimeInterval:(NSTimeInterval) t
 {
-	
-	if ( mCATimerRef == nil )
-	{
+	if (mCATimerRef == nil) {
 		mFadeStartTime = [NSDate timeIntervalSinceReferenceDate];
 		
 		mCATimerRef = [NSTimer scheduledTimerWithTimeInterval:1/30.0
@@ -150,15 +141,14 @@
 }
 
 
-- (void)				timerFadeCallback:(NSTimer*) timer
+- (void)timerFadeCallback:(NSTimer*) timer
 {
 	NSTimeInterval total = [[timer userInfo] doubleValue];
 	NSTimeInterval elapsed = [NSDate timeIntervalSinceReferenceDate] - mFadeStartTime;
 	
 	[self setAlpha:1.0 - ( elapsed / total )];
 	
-	if ( elapsed >= total )
-	{
+	if (elapsed >= total) {
 		[timer invalidate];
 		mCATimerRef = nil;
 		mVisible = NO;
@@ -167,7 +157,7 @@
 
 
 #pragma mark -
-- (void)				setLinkControlPart:(int) partcode modifierKeyMask:(int) mask
+- (void)setLinkControlPart:(int) partcode modifierKeyMask:(NSEventModifierFlags) mask
 {
 	// this allows certain special behaviours when modifier keys are pressed for mouse operations on the cluster.
 	// If the partcode is detected as being hit and the modifier flags match mask, all controls in the cluster will
