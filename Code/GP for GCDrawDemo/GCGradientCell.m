@@ -14,8 +14,8 @@
 #import "GCMiniRadialControl2.h"
 #import "GCMiniRadialControls.h"
 
-#import "GCDrawKit/DKGradientExtensions.h"
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKGradientExtensions.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 #pragma mark Contants (Non-localized)
@@ -380,7 +380,7 @@ static unsigned		sMFlags = 0;
 }
 
 
-- (int)			mouseDownFlags
+- (NSInteger) mouseDownFlags
 {
 	return sMFlags;
 }

@@ -1,8 +1,8 @@
 #import "DrawingSizeController.h"
 
-#import <GCDrawKit/DKDrawing.h>
-#import <GCDrawKit/DKGridLayer.h>
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKDrawing.h>
+#import <DKDrawKit/DKGridLayer.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 #pragma mark Static Vars

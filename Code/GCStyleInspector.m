@@ -21,7 +21,7 @@
 #import "GCBasicDialogController.h"
 
 #import <QuartzCore/CIFilter.h>
-#import <GCDrawKit/NSShadow+Scaling.h>
+#import <DKDrawKit/NSShadow+Scaling.h>
 
 
 @implementation GCStyleInspector
@@ -2009,7 +2009,7 @@
 
 - (void)	disableItemsWithTag:(int) tag
 {
-	int i, m = [self numberOfItems];
+	NSInteger i, m = [self numberOfItems];
 	NSMenuItem*	item;
 	
 	for( i = 0; i < m; ++i )
@@ -2022,18 +2022,9 @@
 }
 
 
-- (void)			removeAllItems
-{
-	int i, m = [self numberOfItems];
-	
-	for( i = m - 1; i >= 0; --i )
-		[self removeItemAtIndex:i];
-}
-
-
 - (void)			uncheckAllItems
 {
-	int i, m = [self numberOfItems];
+	NSInteger i, m = [self numberOfItems];
 	
 	for( i = 0; i < m; ++i )
 		[[self itemAtIndex:i] setState:NSOffState];

@@ -13,7 +13,7 @@
 #import "DrawingSizeController.h"
 #import "GCBasicDialogController.h"
 #import "GCExportOptionsController.h"
-#import <GCDrawKit/DKDrawKit.h>
+#import <DKDrawKit/DKDrawKit.h>
 
 
 @implementation GCDrawDemoDocument

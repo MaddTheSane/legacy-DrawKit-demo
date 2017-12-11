@@ -23,7 +23,7 @@
 		AA7431EE0D81016B0013CA82 /* StyleInspector.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7431EC0D81016B0013CA82 /* StyleInspector.xib */; };
 		AA7431F10D8101720013CA82 /* StyleManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7431EF0D8101720013CA82 /* StyleManager.xib */; };
 		AA7431F40D8101790013CA82 /* ToolPalette.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7431F20D8101790013CA82 /* ToolPalette.xib */; };
-		AA89A4630D7E03E70092F050 /* DKDrawKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA89A4630D7E03E70092F050 /* DKDrawKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA89A4B10D7E0D2D0092F050 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
 		BF2866280E26ED05001CD43F /* GCExportOptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2866270E26ED05001CD43F /* GCExportOptionsController.m */; };
 		BF3579750DEE5F5C00C9B16D /* NSWindow+SheetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3579740DEE5F5C00C9B16D /* NSWindow+SheetAdditions.m */; };
@@ -129,14 +129,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AA89A27A0D7DCB800092F050 /* CopyFiles */ = {
+		AA89A27A0D7DCB800092F050 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA89A4630D7E03E70092F050 /* DKDrawKit.framework in CopyFiles */,
+				AA89A4630D7E03E70092F050 /* DKDrawKit.framework in Copy Frameworks */,
 			);
+			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -524,7 +525,7 @@
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
-				AA89A27A0D7DCB800092F050 /* CopyFiles */,
+				AA89A27A0D7DCB800092F050 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -817,8 +818,12 @@
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = Code/DrawDemo_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					qUseLogEvent,
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DrawDemoInfo.plist;
 				INFOPLIST_PREPROCESS = YES;
@@ -844,8 +849,12 @@
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = Code/DrawDemo_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					qUseLogEvent,
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DrawDemoInfo.plist;
 				INFOPLIST_PREPROCESS = YES;
@@ -865,6 +874,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -938,6 +949,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;

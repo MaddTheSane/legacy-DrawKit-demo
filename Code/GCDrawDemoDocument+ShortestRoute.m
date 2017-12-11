@@ -7,7 +7,7 @@
 //
 
 #import "GCDrawDemoDocument+ShortestRoute.h"
-#import <GCDrawKit/DKDrawkit.h>
+#import <DKDrawKit/DKDrawkit.h>
 
 @implementation GCDrawDemoDocument (ShortestRoute)
 

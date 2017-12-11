@@ -12,8 +12,8 @@
 #import "GCGradientPasteboard.h"
 #import "NSFolderManagerAdditions.h"
 
-#import "GCDrawKit/DKGradientExtensions.h"
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKGradientExtensions.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 #pragma mark Static Vars

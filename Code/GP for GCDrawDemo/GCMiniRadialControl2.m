@@ -9,7 +9,7 @@
 #import "GCMiniRadialControl2.h"
 
 #import "NSBezierPath+GCAdditions.h"
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 @implementation GCMiniRadialControl2

@@ -14,7 +14,7 @@
 
 #import "GCSpecialColorWell.h"
 
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 #pragma mark Contants (Non-localized)
@@ -72,7 +72,7 @@ static	GCSpecialColorWell* sCurrentActiveWell = nil;
 #pragma mark As an NSObject
 + (void)		load
 {
-	[GCSpecialColorWell poseAsClass:[NSColorWell class]];
+	//[GCSpecialColorWell poseAsClass:[NSColorWell class]];
 }
 
 

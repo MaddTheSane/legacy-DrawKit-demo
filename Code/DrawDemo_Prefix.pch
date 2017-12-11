@@ -13,7 +13,7 @@
 	#warning Verifying symbol availability in minimum OS. All warnings besides this one indicate use of something beyond what is available in the project's minimum OS. You should not see this warning when building a release version for customers.
 #endif
 
-#define qUseLogEvent
+//#define qUseLogEvent
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>

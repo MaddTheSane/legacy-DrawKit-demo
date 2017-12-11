@@ -7,13 +7,14 @@
 //
 
 #import "GCDrawDemoDocument.h"
+#import <DKDrawKit/DKRouteFinder.h>
 
 
 @class DKDrawablePath;
 
 
 
-@interface GCDrawDemoDocument (ShortestRoute)
+@interface GCDrawDemoDocument (ShortestRoute) <DKRouteFinderProgressDelegate>
 
 
 - (IBAction)		computeShortestRoute:(id) sender;

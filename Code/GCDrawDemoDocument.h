@@ -6,7 +6,7 @@
 //  Copyright __MyCompanyName__ 2007 . All rights reserved.
 //
 
-#import <GCDrawKit/DKDrawingDocument.h>
+#import <DKDrawKit/DKDrawingDocument.h>
 
 
 @interface GCDrawDemoDocument : DKDrawingDocument

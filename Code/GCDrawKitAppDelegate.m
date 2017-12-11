@@ -8,7 +8,7 @@
 #import "GCDrawDemoPrefsController.h"
 #import "GCDrawDemoDocument.h"
 
-#import <GCDrawKit/DKDrawkit.h>
+#import <DKDrawKit/DKDrawkit.h>
 
 
 @implementation GCDrawKitAppDelegate

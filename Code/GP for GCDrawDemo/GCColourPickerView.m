@@ -8,9 +8,9 @@
 
 #import "GCColourPickerView.h"
 
-#import "GCDrawKit/NSColor+DKAdditions.h"
-#import "GCDrawKit/GCInfoFloater.h"
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/NSColor+DKAdditions.h>
+#import <DKDrawKit/GCInfoFloater.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 #define ROWS	16

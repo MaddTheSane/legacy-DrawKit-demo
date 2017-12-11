@@ -1,9 +1,9 @@
 #import "GCStyleManagerDialog.h"
 #import "GCBasicDialogController.h"
 
-#import <GCDrawKit/DKStyle.h>
-#import <GCDrawKit/DKStyleRegistry.h>
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKStyle.h>
+#import <DKDrawKit/DKStyleRegistry.h>
+#import <DKDrawKit/LogEvent.h>
 
 @implementation GCStyleManagerDialog
 #pragma mark As a GCStyleManagerDialog

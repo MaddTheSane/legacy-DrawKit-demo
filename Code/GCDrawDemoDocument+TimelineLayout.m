@@ -14,18 +14,18 @@
 
 #import "GCDrawDemoDocument+TimelineLayout.h"
 
-#import <GCDrawKit/DKObjectDrawingLayer.h>
-#import <GCDrawKit/DKDrawableObject+Metadata.h>
-#import <GCDrawKit/DKGridLayer.h>
-#import <GCDrawKit/DKDrawing.h>
-#import <GCDrawKit/DKDrawablePath.h>
-#import <GCDrawKit/DKStyle.h>
-#import <GCDrawKit/DKTextShape.h>
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKObjectDrawingLayer.h>
+#import <DKDrawKit/DKDrawableObject+Metadata.h>
+#import <DKDrawKit/DKGridLayer.h>
+#import <DKDrawKit/DKDrawing.h>
+#import <DKDrawKit/DKDrawablePath.h>
+#import <DKDrawKit/DKStyle.h>
+#import <DKDrawKit/DKTextShape.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 #pragma mark Static Functions
-static int metaDataSortFunction( id a, id b, void* context)
+static NSComparisonResult metaDataSortFunction( id a, id b, void* context)
 {
 	// context is NSString key of metadata item to compare
 	

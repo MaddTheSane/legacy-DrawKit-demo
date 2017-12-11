@@ -8,8 +8,8 @@
 
 #import "GCMiniControl.h"
 #import "GCMiniControlCluster.h"
-#import "GCDrawKit/GCInfoFloater.h"
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/GCInfoFloater.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 @implementation GCMiniControl

@@ -1,6 +1,6 @@
 #import "GCObjectInspector.h"
 
-#import <GCDrawKit/DKDrawKit.h>
+#import <DKDrawKit/DKDrawKit.h>
 
 
 @implementation GCObjectInspector

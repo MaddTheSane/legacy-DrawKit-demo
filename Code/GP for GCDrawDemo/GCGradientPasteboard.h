@@ -12,7 +12,7 @@
 //
 //***********************************************************************************************
 
-#import "GCDrawKit/DKGradient.h"
+#import <DKDrawKit/DKGradient.h>
 
 
 @interface DKGradient (GCGradientPasteboard)

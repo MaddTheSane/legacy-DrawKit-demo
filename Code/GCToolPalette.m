@@ -14,7 +14,7 @@
 
 #import "GCToolPalette.h"
 
-#import <GCDrawKit/DKDrawkit.h>
+#import <DKDrawKit/DKDrawkit.h>
 
 
 @implementation GCToolPalette

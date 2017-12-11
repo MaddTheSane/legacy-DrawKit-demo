@@ -7,7 +7,7 @@
 //
 
 #import "GCOutlineView.h"
-#import <GCDrawKit/DKGradient+UISupport.h>
+#import <DKDrawKit/DKGradient+UISupport.h>
 
 
 @implementation GCOutlineView

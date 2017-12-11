@@ -15,7 +15,7 @@
 #import "GCDashEditor.h"
 #import "GCDashEditView.h"
 
-#import <GCDrawKit/DKStrokeDash.h>
+#import <DKDrawKit/DKStrokeDash.h>
 
 
 @implementation GCDashEditor
@@ -90,8 +90,8 @@
 	
 	int i;
 	
-	float	d[8] = {1,1,1,1,1,1,1,1};
-	int		count;
+	CGFloat	d[8] = {1,1,1,1,1,1,1,1};
+	NSInteger		count;
 	
 	[[self dash] getDashPattern:d count:&count];
 	
@@ -146,8 +146,8 @@
 - (IBAction)			dashValueAction:(id) sender
 {
 #pragma unused (sender)
-	float	d[8];
-	int		i, c;
+	CGFloat	d[8];
+	NSInteger		i, c;
 	
 	c = [[self dash] count];
 	

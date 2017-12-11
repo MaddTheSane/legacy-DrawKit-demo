@@ -1,10 +1,10 @@
 #import "GCLayersPaletteController.h"
 #import "GCTableView.h"
-#import <GCDrawKit/DKDrawing.h>
-#import <GCDrawKit/DKObjectDrawingLayer.h>
-#import <GCDrawKit/DKViewController.h>
-#import <GCDrawKit/DKDrawingView.h>
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKDrawing.h>
+#import <DKDrawKit/DKObjectDrawingLayer.h>
+#import <DKDrawKit/DKViewController.h>
+#import <DKDrawKit/DKDrawingView.h>
+#import <DKDrawKit/LogEvent.h>
 
 #pragma mark Contants (Non-localized)
 NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPasteboardType";

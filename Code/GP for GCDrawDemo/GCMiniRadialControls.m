@@ -8,9 +8,9 @@
 
 #import "GCMiniRadialControls.h"
 
-#import "GCDrawKit/NSColor+DKAdditions.h"
+#import <DKDrawKit/NSColor+DKAdditions.h>
 #import "NSBezierPath+GCAdditions.h"
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 

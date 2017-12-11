@@ -12,7 +12,7 @@
 ///
 ///**********************************************************************************************************************************
 
-#import <GCDrawKit/DKDrawkitInspectorBase.h>
+#import <DKDrawKit/DKDrawkitInspectorBase.h>
 
 
 @class DKStyle;

@@ -1,7 +1,7 @@
 #import "GCDrawDemoPrefsController.h"
 #import "GCDrawDemoDocument.h"
-#import <GCDrawKit/DKObjectDrawingLayer.h>
-#import <GCDrawKit/DKBSPObjectStorage.h>
+#import <DKDrawKit/DKObjectDrawingLayer.h>
+#import <DKDrawKit/DKBSPObjectStorage.h>
 
 @implementation GCDrawDemoPrefsController
 

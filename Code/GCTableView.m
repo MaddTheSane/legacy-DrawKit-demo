@@ -2,8 +2,8 @@
 #import "GCColourPickerView.h"
 #import "GCWindowMenu.h"
 
-#import <GCDrawKit/DKGradient+UISupport.h>
-#import <GCDrawKit/NSColor+DKAdditions.h>
+#import <DKDrawKit/DKGradient+UISupport.h>
+#import <DKDrawKit/NSColor+DKAdditions.h>
 
 @implementation GCTableView
 #pragma mark As an NSTableView
@@ -17,7 +17,7 @@
 	//NSLog(@"column = %d, string = %@", [self editedColumn], theString);
 	
 	NSTableColumn* theColumn = [[self tableColumns] objectAtIndex:[self editedColumn]];
-	[[self delegate] tableView:self setObjectValue:theString forTableColumn:theColumn row:[self selectedRow]];
+	[(id<NSTableViewDataSource>)[self delegate] tableView:self setObjectValue:theString forTableColumn:theColumn row:[self selectedRow]];
 	[self abortEditing];
 	[[self window] makeFirstResponder:self];
 }

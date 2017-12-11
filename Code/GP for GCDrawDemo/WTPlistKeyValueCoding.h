@@ -18,9 +18,9 @@
 
 @interface NSDictionary (WTPlistKeyValueCoding)
 
-+ archiveToPropertyListForRootObject: rob;
-- unarchiveFromPropertyListFormat;
-- archiveFromPropertyListFormat;
++ (id)archiveToPropertyListForRootObject:(id)rob;
+- (id)unarchiveFromPropertyListFormat;
+- (id)archiveFromPropertyListFormat;
 
 - (BOOL)	decodeBoolForKey:(NSString *)key;
 - (float)	decodeFloatForKey:(NSString *)key;

@@ -8,10 +8,10 @@
 
 #import "DKGradientCell.h"
 
-#import "GCDrawKit/DKGradient.h"
+#import <DKDrawKit/DKGradient.h>
 #import "GCGradientWell.h"
 #import "NSBezierPath+GCAdditions.h"
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 @implementation DKGradientCell

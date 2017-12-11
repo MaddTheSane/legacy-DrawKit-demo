@@ -7,8 +7,8 @@
 //
 
 #import "GCExportOptionsController.h"
-#import <GCDrawKit/DKDrawing+Export.h>
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKDrawing+Export.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 NSString* kGCIncludeGridInExportedFile = @"kGCIncludeGridInExportedFile";

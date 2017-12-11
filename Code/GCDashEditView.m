@@ -14,8 +14,8 @@
 
 #import "GCDashEditView.h"
 
-#import <GCDrawKit/DKStrokeDash.h>
-#import <GCDrawKit/LogEvent.h>
+#import <DKDrawKit/DKStrokeDash.h>
+#import <DKDrawKit/LogEvent.h>
 
 
 @implementation GCDashEditView
@@ -189,11 +189,11 @@
 {
 	// sets the dash element indexed by mSelected to the right size for the given mouse point
 	
-	float	d[8];
-	float	scale = [[self dash] scalesToLineWidth]? [mPath lineWidth] : 1.0;
-	float	phase = [[self dash] phase] * scale;
-	float	fixedAmount = kDKDashEditInset;
-	int		i, c;
+	CGFloat d[8];
+	CGFloat scale = [[self dash] scalesToLineWidth]? [mPath lineWidth] : 1.0;
+	CGFloat phase = [[self dash] phase] * scale;
+	CGFloat fixedAmount = kDKDashEditInset;
+	NSInteger i, c;
 	
 	if ( mSelected == 99 )
 	{

@@ -13,7 +13,7 @@
 ///**********************************************************************************************************************************
 
 #import <Cocoa/Cocoa.h>
-#import <GCDrawKit/DKDrawkit.h>
+#import <DKDrawKit/DKDrawkit.h>
 
 @interface GCStyleInspector : DKDrawkitInspectorBase
 {
@@ -384,7 +384,6 @@ extern NSString*		kDKTableRowInternalDragPasteboardType;
 @interface NSMenu (GCAdditions)
 
 - (void)	disableItemsWithTag:(int) tag;
-- (void)	removeAllItems;
 - (void)	uncheckAllItems;
 
 @end
