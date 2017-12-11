@@ -29,21 +29,25 @@
 	NSRect			mPhaseHandle;
 }
 
+@property (nonatomic, retain) DKStrokeDash *dash;
 
-- (void)			setDash:(DKStrokeDash*) dash;
-- (DKStrokeDash*)		dash;
+@property CGFloat lineWidth;
+@property NSLineCapStyle lineCapStyle;
+@property NSLineJoinStyle lineJoinStyle;
+@property (nonatomic, retain) NSColor *lineColour;
 
-- (void)			setLineWidth:(CGFloat) width;
-- (void)			setLineCapStyle:(NSLineCapStyle) lcs;
-- (void)			setLineJoinStyle:(NSLineJoinStyle) ljs;
-- (void)			setLineColour:(NSColor*) colour;
+
 
 @property (assign) id<DashEditViewDelegate> delegate;
 
-- (void)			calcHandles;
+//! calculates where the handle rects are given the current dash
+- (void)calcHandles;
+
 - (NSInteger)mouseInHandle:(NSPoint) mp;
-- (void)			drawHandles;
-- (void)			calcDashForPoint:(NSPoint) mp;
+- (void)drawHandles;
+
+//! sets the dash element indexed by mSelected to the right size for the given mouse point
+- (void)calcDashForPoint:(NSPoint) mp;
 
 @end
 

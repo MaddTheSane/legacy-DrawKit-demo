@@ -22,16 +22,16 @@ typedef NS_ENUM(NSInteger, GCExportFileTypes) {
 
 @interface GCExportOptionsController : NSObject
 {
-	IBOutlet	id			mExportAccessoryView;
-	IBOutlet	id			mExportFormatPopUpButton;
-	IBOutlet	id			mExportResolutionPopUpButton;
-	IBOutlet	id			mExportIncludeGridCheckbox;
-	IBOutlet	id			mExportOptionsTabView;
-	IBOutlet	id			mJPEGQualitySlider;
-	IBOutlet	id			mJPEGProgressiveCheckbox;
-	IBOutlet	id			mPNGInterlaceCheckbox;
-	IBOutlet	id			mTIFFCompressionTypePopUpButton;
-	IBOutlet	id			mTIFFAlphaCheckbox;
+	IBOutlet NSView *mExportAccessoryView;
+	IBOutlet NSPopUpButton *mExportFormatPopUpButton;
+	IBOutlet NSPopUpButton *mExportResolutionPopUpButton;
+	IBOutlet NSButton *mExportIncludeGridCheckbox;
+	IBOutlet NSTabView *mExportOptionsTabView;
+	IBOutlet NSSlider *mJPEGQualitySlider;
+	IBOutlet NSButton *mJPEGProgressiveCheckbox;
+	IBOutlet NSButton *mPNGInterlaceCheckbox;
+	IBOutlet NSPopUpButton *mTIFFCompressionTypePopUpButton;
+	IBOutlet NSButton *mTIFFAlphaCheckbox;
 	
 	NSSavePanel*			mSavePanel;
 	id<ExportControllerDelegate> mDelegate;
@@ -61,7 +61,7 @@ typedef NS_ENUM(NSInteger, GCExportFileTypes) {
 
 @protocol ExportControllerDelegate <NSObject>
 
-- (void)	performExportType:(GCExportFileTypes) fileType withOptions:(NSDictionary*) options;	
+- (void)performExportType:(GCExportFileTypes) fileType withOptions:(NSDictionary<NSString*,id>*) options;	
 
 @end
 

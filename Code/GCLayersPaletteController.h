@@ -1,6 +1,7 @@
 /* GCLayersPaletteController */
 
 #import <DKDrawKit/DKDrawkitInspectorBase.h>
+#import <DKDrawKit/DKDrawing.h>
 
 
 @class DKDrawing;
@@ -10,14 +11,12 @@
 @interface GCLayersPaletteController : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate>
 {
     IBOutlet NSTableView *mLayersTable;
-	IBOutlet id		mAutoActivateCheckbox;
-	NSColor*		mTemporaryColour;
-	NSInteger				mTemporaryColourRow;
+	IBOutlet NSButton *mAutoActivateCheckbox;
+	NSColor *mTemporaryColour;
+	NSInteger mTemporaryColourRow;
 }
 
-
-- (void)			setDrawing:(DKDrawing*) drawing;
-- (DKDrawing*)		drawing;
+@property (retain) DKDrawing *drawing;
 
 - (IBAction)		addLayerButtonAction:(id)sender;
 - (IBAction)		removeLayerButtonAction:(id)sender;

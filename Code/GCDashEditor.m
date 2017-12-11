@@ -42,7 +42,7 @@
 }
 
 
-- (void)				setDash:(DKStrokeDash*) dash
+- (void)setDash:(DKStrokeDash*) dash
 {
 	[dash retain];
 	[mDash release];
@@ -51,12 +51,7 @@
 	[self updateForDash];
 }
 
-
-- (DKStrokeDash*)			dash
-{
-	return mDash;
-}
-
+@synthesize dash=mDash;
 
 #pragma mark -
 - (void)setLineWidth:(CGFloat) width
@@ -64,30 +59,44 @@
 	[mDashPreviewEditView setLineWidth:width];
 }
 
+- (CGFloat)lineWidth
+{
+	return mDashPreviewEditView.lineWidth;
+}
 
 - (void)setLineCapStyle:(NSLineCapStyle) lcs
 {
 	[mDashPreviewEditView setLineCapStyle:lcs];
 }
 
+- (NSLineCapStyle)lineCapStyle
+{
+	return mDashPreviewEditView.lineCapStyle;
+}
 
 - (void)setLineJoinStyle:(NSLineJoinStyle) ljs
 {
 	[mDashPreviewEditView setLineJoinStyle:ljs];
 }
 
+- (NSLineJoinStyle)lineJoinStyle
+{
+	return mDashPreviewEditView.lineJoinStyle;
+}
 
 - (void)setLineColour:(NSColor*) colour
 {
 	[mDashPreviewEditView setLineColour:colour];
 }
 
+- (NSColor *)lineColour
+{
+	return mDashPreviewEditView.lineColour;
+}
 
 #pragma mark -
 - (void)setDashCount:(NSInteger) c
 {
-	// enable the relevant number of fields for the count <c>
-	
 	int i;
 	
 	CGFloat	d[8] = {1,1,1,1,1,1,1,1};
@@ -115,6 +124,15 @@
 	[mPhaseSlider setMaxValue:[[self dash] length]];
 }
 
+- (NSInteger)dashCount
+{
+	NSInteger count;
+	CGFloat	d[8] = {1,1,1,1,1,1,1,1};
+
+	[[self dash] getDashPattern:d count:&count];
+	
+	return count;
+}
 
 - (void)				notifyDelegate
 {
@@ -198,8 +216,9 @@
 
 #pragma mark -
 #pragma mark As part of NSNibAwaking  Protocol
-- (void)				awakeFromNib
+- (void)awakeFromNib
 {
+	[super awakeFromNib];
 	// copy the text fields to an array so we can access them from a loop
 	
 	mEF[0] = mDashMarkTextField1;

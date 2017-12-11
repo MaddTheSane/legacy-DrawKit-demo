@@ -19,7 +19,7 @@
 {
 	IBOutlet NSButton*		mOK;
 	IBOutlet NSButton*		mCancel;
-	IBOutlet id				mPrimaryItem;
+	IBOutlet NSTextField*	mPrimaryItem;
 	
 	BOOL					mRunningAsSheet;
 }

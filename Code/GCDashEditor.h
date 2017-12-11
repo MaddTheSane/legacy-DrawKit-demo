@@ -21,19 +21,19 @@
 
 @interface GCDashEditor : NSWindowController <DashEditViewDelegate>
 {
-	IBOutlet	id		mDashMarkTextField1;
-	IBOutlet	id		mDashSpaceTextField1;
-	IBOutlet	id		mDashMarkTextField2;
-	IBOutlet	id		mDashSpaceTextField2;
-	IBOutlet	id		mDashMarkTextField3;
-	IBOutlet	id		mDashSpaceTextField3;
-	IBOutlet	id		mDashMarkTextField4;
-	IBOutlet	id		mDashSpaceTextField4;
-	IBOutlet	id		mDashCountButtonMatrix;
-	IBOutlet	id		mDashScaleCheckbox;
+	IBOutlet NSTextField *mDashMarkTextField1;
+	IBOutlet NSTextField *mDashSpaceTextField1;
+	IBOutlet NSTextField *mDashMarkTextField2;
+	IBOutlet NSTextField *mDashSpaceTextField2;
+	IBOutlet NSTextField *mDashMarkTextField3;
+	IBOutlet NSTextField *mDashSpaceTextField3;
+	IBOutlet NSTextField *mDashMarkTextField4;
+	IBOutlet NSTextField *mDashSpaceTextField4;
+	IBOutlet NSMatrix *mDashCountButtonMatrix;
+	IBOutlet NSButton *mDashScaleCheckbox;
 	IBOutlet GCDashEditView *mDashPreviewEditView;
-	IBOutlet	id		mPreviewCheckbox;
-	IBOutlet	id		mPhaseSlider;
+	IBOutlet NSButton *mPreviewCheckbox;
+	IBOutlet NSSlider *mPhaseSlider;
 	DKStrokeDash*			mDash;
 	NSTextField*		mEF[8];
 	id					mDelegateRef;
@@ -42,15 +42,15 @@
 
 - (void)				openDashEditorInParentWindow:(NSWindow*) pw modalDelegate:(id<GCDashEditorDelegate>) del;
 - (void)				updateForDash;
-- (void)				setDash:(DKStrokeDash*) dash;
-- (DKStrokeDash*)		dash;
+@property (nonatomic, retain) DKStrokeDash *dash;
 
-- (void)				setLineWidth:(CGFloat) width;
-- (void)				setLineCapStyle:(NSLineCapStyle) lcs;
-- (void)				setLineJoinStyle:(NSLineJoinStyle) ljs;
-- (void)				setLineColour:(NSColor*) colour;
+@property CGFloat lineWidth;
+@property NSLineCapStyle lineCapStyle;
+@property NSLineJoinStyle lineJoinStyle;
+@property (retain) NSColor *lineColour;
 
-- (void)				setDashCount:(NSInteger) c;
+//! The relevant number of fields.
+@property NSInteger dashCount;
 - (void)				notifyDelegate;
 
 - (IBAction)			ok:(id) sender;

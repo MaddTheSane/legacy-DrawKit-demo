@@ -18,7 +18,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -505,13 +505,13 @@ Gw
                         <tabViewItem label="PDF" identifier="1" id="381">
                             <view key="view" id="384">
                                 <rect key="frame" x="0.0" y="0.0" width="418" height="23"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </tabViewItem>
                         <tabViewItem label="JPEG" identifier="2" id="382">
                             <view key="view" id="383">
                                 <rect key="frame" x="0.0" y="0.0" width="418" height="23"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <slider verticalHuggingPriority="750" id="391">
                                         <rect key="frame" x="84" y="2" width="169" height="17"/>
@@ -567,7 +567,7 @@ Gw
                         <tabViewItem label="PNG" identifier="Item 2" id="385">
                             <view key="view" id="386">
                                 <rect key="frame" x="0.0" y="0.0" width="418" height="23"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button imageHugsTitle="YES" id="416">
                                         <rect key="frame" x="312" y="7" width="75" height="18"/>

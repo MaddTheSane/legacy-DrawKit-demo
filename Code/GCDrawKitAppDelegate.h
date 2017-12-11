@@ -2,15 +2,21 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class GCStyleInspector;
+@class GCToolPalette;
+@class GCObjectInspector;
+@class GCLayersPaletteController;
+@class GCStyleManagerDialog;
+@class GCDrawDemoPrefsController;
 
 @interface GCDrawKitAppDelegate : NSObject <NSApplicationDelegate>
 {
-	id					mStyleInspector;
-	id					mToolPalette;
-	id					mObjectInspector;
-	id					mLayersController;
-	id					mStyleManager;
-	id					mPrefsController;
+	GCStyleInspector *mStyleInspector;
+	GCToolPalette *mToolPalette;
+	GCObjectInspector *mObjectInspector;
+	GCLayersPaletteController *mLayersController;
+	GCStyleManagerDialog *mStyleManager;
+	GCDrawDemoPrefsController *mPrefsController;
 	IBOutlet NSMenu*	mUserToolMenu;
 }
 

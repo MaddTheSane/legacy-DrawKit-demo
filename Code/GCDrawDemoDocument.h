@@ -8,15 +8,14 @@
 
 #import <DKDrawKit/DKDrawingDocument.h>
 #import "GCPolarDuplicateController.h"
+#import "GCLinearDuplicateController.h"
 #import "GCExportOptionsController.h"
 
 @class GCBasicDialogController;
-@class GCPolarDuplicateController;
-@class GCLinearDuplicateController;
 @class GCExportOptionsController;
 @class DrawingSizeController;
 
-@interface GCDrawDemoDocument : DKDrawingDocument <PolarDuplicationDelegate, ExportControllerDelegate>
+@interface GCDrawDemoDocument : DKDrawingDocument <PolarDuplicationDelegate, ExportControllerDelegate, LinearDuplicationDelegate>
 {
 	IBOutlet GCBasicDialogController *mToolNamePanelController;
 	IBOutlet GCPolarDuplicateController *mPolarDuplicateController;

@@ -10,22 +10,22 @@
 
 @interface GCObjectInspector : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate>
 {
-    IBOutlet id mGenInfoAngleField;
-    IBOutlet id mGenInfoHeightField;
-    IBOutlet id mGenInfoLocationXField;
-    IBOutlet id mGenInfoLocationYField;
-    IBOutlet id mGenInfoStyleNameField;
-    IBOutlet id mGenInfoTypeField;
-    IBOutlet id mGenInfoWidthField;
-	IBOutlet id mGenInfoCoordinateRadioButtons;
+    IBOutlet NSTextField *mGenInfoAngleField;
+    IBOutlet NSTextField *mGenInfoHeightField;
+    IBOutlet NSTextField *mGenInfoLocationXField;
+    IBOutlet NSTextField *mGenInfoLocationYField;
+    IBOutlet NSTextField *mGenInfoStyleNameField;
+    IBOutlet NSTextField *mGenInfoTypeField;
+    IBOutlet NSTextField *mGenInfoWidthField;
+	IBOutlet NSMatrix *mGenInfoCoordinateRadioButtons;
 	
-	IBOutlet id	mMultiInfoItemCountField;
-	IBOutlet id mGroupInfoItemCountField;
-    IBOutlet id mMainTabView;
-    IBOutlet id mMetaAddItemButton;
-    IBOutlet id mMetaRemoveItemButton;
-    IBOutlet id mMetaTableView;
-    IBOutlet id mObjectTabView;
+	IBOutlet NSTextField *mMultiInfoItemCountField;
+	IBOutlet NSTextField *mGroupInfoItemCountField;
+    IBOutlet NSTabView *mMainTabView;
+    IBOutlet NSPopUpButton *mMetaAddItemButton;
+    IBOutlet NSButton *mMetaRemoveItemButton;
+    IBOutlet NSTableView *mMetaTableView;
+    IBOutlet NSTabView *mObjectTabView;
 	
 	IBOutlet NSImageView *mLockIconImageWell;
 	

@@ -8,15 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol LinearDuplicationDelegate;
 
 @interface GCLinearDuplicateController : NSWindowController
 {
-	IBOutlet id		mNumberOfCopiesTextField;
-	IBOutlet id		mXOffsetTextField;
-	IBOutlet id		mYOffsetTextField;
-	IBOutlet id		mOKButton;
+	IBOutlet NSTextField *mNumberOfCopiesTextField;
+	IBOutlet NSTextField *mXOffsetTextField;
+	IBOutlet NSTextField *mYOffsetTextField;
+	IBOutlet NSButton *mOKButton;
 	
-	id				mDelegateRef;
+	id<LinearDuplicationDelegate> mDelegateRef;
 }
 
 
@@ -25,7 +26,7 @@
 - (IBAction)		okAction:(id) sender;
 - (IBAction)		cancelAction:(id) sender;
 
-- (void)			beginLinearDuplicationDialog:(NSWindow*) parentWindow linearDelegate:(id) delegate;
+- (void)			beginLinearDuplicationDialog:(NSWindow*) parentWindow linearDelegate:(id<LinearDuplicationDelegate>) delegate;
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void  *)contextInfo;
 
 - (void)			conditionallyEnableOKButton;
@@ -33,7 +34,7 @@
 @end
 
 
-@interface NSObject (LinearDuplicationDelegate)
+@protocol LinearDuplicationDelegate <NSObject>
 
 - (void)doLinearDuplicateCopies:(NSInteger)copies offset:(NSSize)offset;
 - (NSInteger)countOfItemsInSelection;

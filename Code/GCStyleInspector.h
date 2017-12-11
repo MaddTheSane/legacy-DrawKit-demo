@@ -19,6 +19,7 @@
 @class GCDashEditor;
 @class GCOutlineView;
 @class GCBasicDialogController;
+@class WTGradientControl;
 
 @interface GCStyleInspector : DKDrawkitInspectorBase <NSOutlineViewDelegate, NSOutlineViewDataSource, GCDashEditorDelegate>
 {
@@ -42,70 +43,70 @@
 	IBOutlet NSButton *mStyleSharedCheckbox;
 	IBOutlet NSTextField *mStyleClientCountText;
 	
-	IBOutlet	id		mStrokeControlsTabView;
-	IBOutlet	id		mStrokeColourWell;
-	IBOutlet	id		mStrokeSlider;
-	IBOutlet	id		mStrokeTextField;
-	IBOutlet	id		mStrokeShadowCheckbox;
+	IBOutlet NSView *mStrokeControlsTabView;
+	IBOutlet NSColorWell *mStrokeColourWell;
+	IBOutlet NSSlider *mStrokeSlider;
+	IBOutlet NSTextField *mStrokeTextField;
+	IBOutlet NSButton *mStrokeShadowCheckbox;
 	IBOutlet	id		mStrokeShadowGroup;
-	IBOutlet	id		mStrokeShadowColourWell;
-	IBOutlet	id		mStrokeShadowAngle;
-	IBOutlet	id		mStrokeShadowBlur;
-	IBOutlet	id		mStrokeShadowDistance;
-	IBOutlet	id		mStrokeDashPopUpButton;
-	IBOutlet	id		mStrokeArrowDimensionOptions;
-	IBOutlet	id		mStrokeArrowStartPopUpButton;
-	IBOutlet	id		mStrokeArrowEndPopUpButton;
-	IBOutlet	id		mStrokeArrowPreviewImageWell;
-	IBOutlet	id		mStrokeZZLength;
-	IBOutlet	id		mStrokeZZAmp;
-	IBOutlet	id		mStrokeZZSpread;
-	IBOutlet	id		mStrokeLineJoinSelector;
-	IBOutlet	id		mStrokeLineCapSelector;
-	IBOutlet	id		mStrokeRoughnessSlider;
+	IBOutlet NSColorWell *mStrokeShadowColourWell;
+	IBOutlet NSSlider *mStrokeShadowAngle;
+	IBOutlet NSSlider *mStrokeShadowBlur;
+	IBOutlet NSSlider *mStrokeShadowDistance;
+	IBOutlet NSPopUpButton *mStrokeDashPopUpButton;
+	IBOutlet NSPopUpButton *mStrokeArrowDimensionOptions;
+	IBOutlet NSPopUpButton *mStrokeArrowStartPopUpButton;
+	IBOutlet NSPopUpButton *mStrokeArrowEndPopUpButton;
+	IBOutlet NSImageView *mStrokeArrowPreviewImageWell;
+	IBOutlet NSSlider *mStrokeZZLength;
+	IBOutlet NSSlider *mStrokeZZAmp;
+	IBOutlet NSSlider *mStrokeZZSpread;
+	IBOutlet NSSegmentedControl *mStrokeLineJoinSelector;
+	IBOutlet NSSegmentedControl *mStrokeLineCapSelector;
+	IBOutlet NSSlider *mStrokeRoughnessSlider;
 	
-	IBOutlet	id		mFillControlsTabView;
-	IBOutlet	id		mFillGradientControlBar;
-	IBOutlet	id		mFillGradientAddButton;
-	IBOutlet	id		mFillGradientRemoveButton;
-	IBOutlet	id		mFillGradientAngleSlider;
-	IBOutlet	id		mFillGradientAngleTextField;
-	IBOutlet	id		mFillGradientAngleLittleArrows;
-	IBOutlet	id		mFillGradientRelativeToObject;
-	IBOutlet	id		mFillColourWell;
-	IBOutlet	id		mFillShadowCheckbox;
+	IBOutlet NSView *mFillControlsTabView;
+	IBOutlet WTGradientControl *mFillGradientControlBar;
+	IBOutlet NSButton *mFillGradientAddButton;
+	IBOutlet NSButton *mFillGradientRemoveButton;
+	IBOutlet NSSlider *mFillGradientAngleSlider;
+	IBOutlet NSTextField *mFillGradientAngleTextField;
+	IBOutlet NSStepper *mFillGradientAngleLittleArrows;
+	IBOutlet NSButton *mFillGradientRelativeToObject;
+	IBOutlet NSColorWell *mFillColourWell;
+	IBOutlet NSButton *mFillShadowCheckbox;
 	IBOutlet	id		mFillShadowGroup;
-	IBOutlet	id		mFillShadowColourWell;
-	IBOutlet	id		mFillShadowAngle;
-	IBOutlet	id		mFillShadowBlur;
-	IBOutlet	id		mFillShadowDistance;
-	IBOutlet	id		mFillPatternImagePreview;
-	IBOutlet	id		mFillZZLength;
-	IBOutlet	id		mFillZZAmp;
-	IBOutlet	id		mFillZZSpread;
+	IBOutlet NSColorWell *mFillShadowColourWell;
+	IBOutlet NSSlider *mFillShadowAngle;
+	IBOutlet NSSlider *mFillShadowBlur;
+	IBOutlet NSSlider *mFillShadowDistance;
+	IBOutlet NSImageView *mFillPatternImagePreview;
+	IBOutlet NSSlider *mFillZZLength;
+	IBOutlet NSSlider *mFillZZAmp;
+	IBOutlet NSSlider *mFillZZSpread;
 	
 	IBOutlet NSImageView *mImageWell;
-	IBOutlet	id		mImageIdentifierTextField;
-	IBOutlet	id		mImageOpacitySlider;
-	IBOutlet	id		mImageScaleSlider;
-	IBOutlet	id		mImageAngleSlider;
-	IBOutlet	id		mImageClipToPathCheckbox;
-	IBOutlet	id		mImageFittingPopUpMenu;
+	IBOutlet NSTextField *mImageIdentifierTextField;
+	IBOutlet NSSlider *mImageOpacitySlider;
+	IBOutlet NSSlider *mImageScaleSlider;
+	IBOutlet NSSlider *mImageAngleSlider;
+	IBOutlet NSButton *mImageClipToPathCheckbox;
+	IBOutlet NSPopUpButton *mImageFittingPopUpMenu;
 	
 	IBOutlet NSPopUpButton *mCIFilterPopUpMenu;
 	IBOutlet NSButton *mCIFilterClipToPathCheckbox;
 	
-	IBOutlet	id		mTextLabelTextField;
-	IBOutlet	id		mTextIdentifierTextField;
-	IBOutlet	id		mTextLayoutPopUpButton;
-	IBOutlet	id		mTextAlignmentPopUpButton;
-	IBOutlet	id		mTextLabelPlacementPopUpButton;
-	IBOutlet	id		mTextWrapLinesCheckbox;
-	IBOutlet	id		mTextClipToPathCheckbox;
-	IBOutlet	id		mTextRelativeAngleCheckbox;
-	IBOutlet	id		mTextAngleSlider;
-	IBOutlet	id		mTextColourWell;
-	IBOutlet	id		mFlowedTextInsetSlider;
+	IBOutlet NSTextField *mTextLabelTextField;
+	IBOutlet NSTextField *mTextIdentifierTextField;
+	IBOutlet NSPopUpButton *mTextLayoutPopUpButton;
+	IBOutlet NSPopUpButton *mTextAlignmentPopUpButton;
+	IBOutlet NSPopUpButton *mTextLabelPlacementPopUpButton;
+	IBOutlet NSButton *mTextWrapLinesCheckbox;
+	IBOutlet NSButton *mTextClipToPathCheckbox;
+	IBOutlet NSButton *mTextRelativeAngleCheckbox;
+	IBOutlet NSSlider *mTextAngleSlider;
+	IBOutlet NSColorWell *mTextColourWell;
+	IBOutlet NSSlider *mFlowedTextInsetSlider;
 	
 	IBOutlet NSColorWell *mHatchColourWell;
 	IBOutlet NSSlider *mHatchSpacingSlider;
@@ -120,18 +121,18 @@
 	IBOutlet NSButton *mHatchRelativeAngleCheckbox;
 	IBOutlet NSSegmentedControl *mHatchLineCapButton;
 	
-	IBOutlet	id		mPDControlsTabView;
-	IBOutlet	id		mPDIntervalSlider;
-	IBOutlet	id		mPDScaleSlider;
-	IBOutlet	id		mPDNormalToPathCheckbox;
-	IBOutlet	id		mPDLeaderSlider;
-	IBOutlet	id		mPDPreviewImage;
-	IBOutlet	id		mPDPatAltOffsetSlider;
-	IBOutlet	id		mPDRampProportionSlider;
-	IBOutlet	id		mPDAngleSlider;
-	IBOutlet	id		mPDRelativeAngleCheckbox;
-	IBOutlet	id		mMotifAngleSlider;
-	IBOutlet	id		mMotifRelativeAngleCheckbox;
+	IBOutlet NSView *mPDControlsTabView;
+	IBOutlet NSSlider *mPDIntervalSlider;
+	IBOutlet NSSlider *mPDScaleSlider;
+	IBOutlet NSButton *mPDNormalToPathCheckbox;
+	IBOutlet NSSlider *mPDLeaderSlider;
+	IBOutlet NSImageView *mPDPreviewImage;
+	IBOutlet NSSlider *mPDPatAltOffsetSlider;
+	IBOutlet NSSlider *mPDRampProportionSlider;
+	IBOutlet NSSlider *mPDAngleSlider;
+	IBOutlet NSButton *mPDRelativeAngleCheckbox;
+	IBOutlet NSSlider *mMotifAngleSlider;
+	IBOutlet NSButton *mMotifRelativeAngleCheckbox;
 	
 	IBOutlet NSPopUpButton *mBlendModePopUpButton;
 	IBOutlet NSSlider *mBlendGroupAlphaSlider;
@@ -319,8 +320,7 @@
 @end
 
 
-// tab indexes for main tab view
-
+//! tab indexes for main tab view
 typedef NS_ENUM(NSInteger, DKInspectorTabs) {
 	kDKInspectorStrokeTab			= 0,
 	kDKInspectorFillTab				= 1,
@@ -336,16 +336,14 @@ typedef NS_ENUM(NSInteger, DKInspectorTabs) {
 };
 
 
-// tab indexes for fill type tab view
-
+//! tab indexes for fill type tab view
 typedef NS_ENUM(NSInteger, DKInspectorFillTypes) {
 	kDKInspectorFillTypeSolid		= 0,
 	kDKInspectorFillTypeGradient	= 1,
 	kDKInspectorFillTypePattern		= 2
 };
 
-// tags in Add Renderer menu
-
+//! tags in Add Renderer menu
 typedef NS_ENUM(NSInteger, DKRendererTags) {
 	kDKAddStrokeRendererTag			= 0,
 	kDKAddFillRendererTag			= 1,
@@ -364,9 +362,8 @@ typedef NS_ENUM(NSInteger, DKRendererTags) {
 };
 
 
-// tags used to selectively hide or disable particular items in the UI (such as labels) without needing
-// an explicit outlet to them. The tags are deliberately set to arbitrary numbers that are unlikely to be accidentally set.
-
+//! tags used to selectively hide or disable particular items in the UI (such as labels) without needing
+//! an explicit outlet to them. The tags are deliberately set to arbitrary numbers that are unlikely to be accidentally set.
 typedef NS_ENUM(NSInteger, DKParameterItemsTags) {
 	kDKZigZagParameterItemsTag			= 145,
 	kDKPathDecoratorParameterItemsTag	= 146,

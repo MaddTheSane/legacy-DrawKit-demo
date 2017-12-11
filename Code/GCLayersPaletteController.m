@@ -44,7 +44,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	DKLayer* layer = [[DKObjectDrawingLayer alloc] init];
 	[[self drawing] addLayer:layer andActivateIt:YES];
 	
-	NSString* action = [NSString stringWithFormat:@"%@ %C%@%C", NSLocalizedString(@"Add Layer", @""), 0x201C, [layer layerName], 0x201D];
+	NSString* action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Add Layer", @""), [layer layerName]];
 
 	[[[self drawing] undoManager] setActionName:action];
 }
@@ -56,7 +56,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 
 	DKLayer* active = [[self drawing] activeLayer];
 
-	NSString* action = [NSString stringWithFormat:@"%@ %C%@%C", NSLocalizedString(@"Delete Layer", @""), 0x201C, [active layerName], 0x201D];
+	NSString* action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Delete Layer", @""), [active layerName]];
 	[[self drawing] removeLayer:active andActivateLayer:nil];
 
 	[[[self drawing] undoManager] setActionName:action];

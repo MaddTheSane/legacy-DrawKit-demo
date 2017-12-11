@@ -9,30 +9,30 @@
 
 @interface DrawingSizeController : NSWindowController
 {
-    IBOutlet id mBottomMarginTextField;
-    IBOutlet id mGridDivsTextField;
-    IBOutlet id mGridMajorsTextField;
-    IBOutlet id mGridPreviewCheckbox;
-    IBOutlet id mGridSpanTextField;
-    IBOutlet id mGridThemeColourWell;
-    IBOutlet id mHeightTextField;
-    IBOutlet id mLeftMarginTextField;
-    IBOutlet id mRightMarginTextField;
-    IBOutlet id mTopMarginTextField;
-    IBOutlet id mTweakMarginsCheckbox;
-    IBOutlet id mUnitsComboBox;
-    IBOutlet id mWidthTextField;
-	IBOutlet id	mGridControlsBox;
-	IBOutlet id	mGridDivsSpinControl;
-	IBOutlet id	mGridMajorsSpinControl;
-	IBOutlet id	mGridAbbrevUnitsText;
-	IBOutlet id	mGridPrintCheckbox;
-	IBOutlet id mGridRulerStepsTextField;
-	IBOutlet id mGridRulerStepsSpinControl;
-	IBOutlet id	mConversionFactorTextField;
-	IBOutlet id mConversionFactorSpinControl;
-	IBOutlet id mConversionFactorLabelText;
-	IBOutlet id	mPaperColourWell;
+    IBOutlet NSTextField *mBottomMarginTextField;
+    IBOutlet NSTextField *mGridDivsTextField;
+    IBOutlet NSTextField *mGridMajorsTextField;
+    IBOutlet NSButton *mGridPreviewCheckbox;
+    IBOutlet NSTextField *mGridSpanTextField;
+    IBOutlet NSColorWell *mGridThemeColourWell;
+    IBOutlet NSTextField *mHeightTextField;
+    IBOutlet NSTextField *mLeftMarginTextField;
+    IBOutlet NSTextField *mRightMarginTextField;
+    IBOutlet NSTextField *mTopMarginTextField;
+    IBOutlet NSButton *mTweakMarginsCheckbox;
+    IBOutlet NSComboBox *mUnitsComboBox;
+    IBOutlet NSTextField *mWidthTextField;
+	IBOutlet NSBox *mGridControlsBox;
+	IBOutlet NSStepper *mGridDivsSpinControl;
+	IBOutlet NSStepper *mGridMajorsSpinControl;
+	IBOutlet NSTextField *mGridAbbrevUnitsText;
+	IBOutlet NSButton *mGridPrintCheckbox;
+	IBOutlet NSTextField *mGridRulerStepsTextField;
+	IBOutlet NSStepper *mGridRulerStepsSpinControl;
+	IBOutlet NSTextField *mConversionFactorTextField;
+	IBOutlet NSStepper *mConversionFactorSpinControl;
+	IBOutlet NSTextField *mConversionFactorLabelText;
+	IBOutlet NSColorWell *mPaperColourWell;
 	
 	DKDrawing*	mDrawing;
 	BOOL		mLivePreview;

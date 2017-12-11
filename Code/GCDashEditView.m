@@ -20,7 +20,7 @@
 
 @implementation GCDashEditView
 #pragma mark As a GCDashEditView
-- (void)			setDash:(DKStrokeDash*) dash
+- (void)setDash:(DKStrokeDash*) dash
 {
 	[dash retain];
 	[mDash release];
@@ -28,12 +28,7 @@
 	[self setNeedsDisplay:YES];
 }
 
-
-- (DKStrokeDash*)dash
-{
-	return mDash;
-}
-
+@synthesize dash=mDash;
 
 #pragma mark -
 - (void)setLineWidth:(CGFloat) width
@@ -42,22 +37,34 @@
 	[self setNeedsDisplay:YES];
 }
 
+- (CGFloat)lineWidth
+{
+	return mPath.lineWidth;
+}
 
-- (void)			setLineCapStyle:(NSLineCapStyle) lcs
+- (void)setLineCapStyle:(NSLineCapStyle) lcs
 {
 	[mPath setLineCapStyle:lcs];
 	[self setNeedsDisplay:YES];
 }
 
+- (NSLineCapStyle)lineCapStyle
+{
+	return mPath.lineCapStyle;
+}
 
-- (void)			setLineJoinStyle:(NSLineJoinStyle) ljs
+- (void)setLineJoinStyle:(NSLineJoinStyle) ljs
 {
 	[mPath setLineJoinStyle:ljs];
 	[self setNeedsDisplay:YES];
 }
 
+- (NSLineJoinStyle)lineJoinStyle
+{
+	return mPath.lineJoinStyle;
+}
 
-- (void)			setLineColour:(NSColor*) colour
+- (void)setLineColour:(NSColor*) colour
 {
 	[colour retain];
 	[mLineColour release];
@@ -65,15 +72,15 @@
 	[self setNeedsDisplay:YES];
 }
 
+@synthesize lineColour=mLineColour;
+
 
 #pragma mark -
 @synthesize delegate=mDelegateRef;
 
 #pragma mark -
-- (void)			calcHandles
+- (void)calcHandles
 {
-	// calculates where the handle rects are given the current dash
-	
 	NSRect	hr, br;
 	NSInteger i, c;
 	CGFloat	scale = [[self dash] scalesToLineWidth]? [mPath lineWidth] : 1.0;
@@ -175,10 +182,8 @@
 }
 
 
-- (void)			calcDashForPoint:(NSPoint) mp
+- (void)calcDashForPoint:(NSPoint) mp
 {
-	// sets the dash element indexed by mSelected to the right size for the given mouse point
-	
 	CGFloat d[8];
 	CGFloat scale = [[self dash] scalesToLineWidth]? [mPath lineWidth] : 1.0;
 	CGFloat phase = [[self dash] phase] * scale;
@@ -225,14 +230,14 @@
 
 #pragma mark -
 #pragma mark As an NSView
-- (BOOL)			acceptsFirstMouse:(NSEvent*) event
+- (BOOL)acceptsFirstMouse:(NSEvent*) event
 {
 #pragma unused (event)
 	return YES;
 }
 
 
-- (void)			drawRect:(NSRect) rect
+- (void)drawRect:(NSRect) rect
 {
 	[[NSColor whiteColor] set];
 	NSRectFill( rect );
@@ -271,7 +276,7 @@
 }
 
 
-- (id)				initWithFrame:(NSRect) frame
+- (id)initWithFrame:(NSRect) frame
 {
     self = [super initWithFrame:frame];
     if (self != nil)
@@ -300,7 +305,7 @@
 }
 
 
-- (BOOL)			isFlipped
+- (BOOL)isFlipped
 {
 	return YES;
 }
@@ -308,7 +313,7 @@
 
 #pragma mark -
 #pragma mark As an NSResponder
-- (void)			mouseDown:(NSEvent*) event
+- (void)mouseDown:(NSEvent*) event
 {
 	NSPoint mp = [self convertPoint:[event locationInWindow] fromView:nil];
 	mSelected = [self mouseInHandle:mp];
@@ -318,7 +323,7 @@
 }
 
 
-- (void)			mouseDragged:(NSEvent*) event
+- (void)mouseDragged:(NSEvent*) event
 {
 	NSPoint mp = [self convertPoint:[event locationInWindow] fromView:nil];
 	
@@ -330,7 +335,7 @@
 }
 
 
-- (void)			mouseUp:(NSEvent*) event
+- (void)mouseUp:(NSEvent*) event
 {
 #pragma unused (event)
 	mSelected = -1;
@@ -340,7 +345,7 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)			dealloc
+- (void)dealloc
 {
 	[mLineColour release];
 	[mPath release];

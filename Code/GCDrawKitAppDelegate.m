@@ -10,7 +10,6 @@
 
 #import <DKDrawKit/DKDrawkit.h>
 
-
 @implementation GCDrawKitAppDelegate
 #pragma mark As a GCDrawKitAppDelegate
 - (IBAction)	showStyleInspector:(id) sender
@@ -107,7 +106,7 @@
 	
 	NSArray*		names = [DKDrawingTool toolNames];
 	NSMenu*			menu = mUserToolMenu;
-	NSInteger 		i, m;
+	NSInteger 		m;
 	NSMenuItem*		item;
 	DKDrawingTool*	tool;
 	
@@ -115,20 +114,17 @@
 	
 	if ( menu == nil || m == 0 )
 		return;
-		
-	do
-	{
+	
+	do {
 		[menu removeItemAtIndex:--m];
-	}
-	while( m );
+	} while( m );
 		
 	m = [names count];
 	
-	for( i = 0; i < m; ++i )
-	{
-		tool = [DKDrawingTool drawingToolWithName:[names objectAtIndex:i]];
+	for (NSString *name in names) {
+		tool = [DKDrawingTool drawingToolWithName:name];
 		
-		item = [menu addItemWithTitle:[names objectAtIndex:i] action:@selector(selectDrawingTool:) keyEquivalent:@""];
+		item = [menu addItemWithTitle:name action:@selector(selectDrawingToolByName:) keyEquivalent:@""];
 		[item setTarget:nil];
 		
 		//if( tool && [tool respondsToSelector:@selector(image)])

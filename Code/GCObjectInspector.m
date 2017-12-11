@@ -74,7 +74,7 @@
 	{
 		[mGenInfoLocationXField setEnabled:NO];
 		[mGenInfoLocationYField setEnabled:NO];
-		[mLockIconImageWell setImage:[NSImage imageNamed:@"locked_symbol"]];
+		[mLockIconImageWell setImage:[NSImage imageNamed:NSImageNameLockLockedTemplate]];
 		[mMetaTableView setEnabled:NO];
 		[mMetaAddItemButton setEnabled:NO];
 		[mMetaRemoveItemButton setEnabled:NO];
@@ -83,7 +83,7 @@
 	{
 		[mGenInfoLocationXField setEnabled:YES];
 		[mGenInfoLocationYField setEnabled:YES];
-		[mLockIconImageWell setImage:nil];
+		[mLockIconImageWell setImage:[NSImage imageNamed:NSImageNameLockUnlockedTemplate]];
 		[mMetaTableView setEnabled:YES];
 		[mMetaAddItemButton setEnabled:YES];
 		[mMetaRemoveItemButton setEnabled:YES];
