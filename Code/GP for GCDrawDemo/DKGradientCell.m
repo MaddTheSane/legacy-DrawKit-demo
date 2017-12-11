@@ -128,8 +128,7 @@
 		
 		if ( pat == nil )
 		{
-			NSString *imres = [[NSBundle bundleForClass:[self class]] pathForImageResource:@"chequered"];
-			pat = [[NSImage alloc] initByReferencingFile:imres];
+			pat = [[[NSBundle bundleForClass:[self class]] imageForResource:@"chequered"] retain];
 		}
 		
 		if ( pat )

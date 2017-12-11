@@ -81,8 +81,7 @@
 	
 	if ( specImage == nil )
 	{
-		NSString* iname = [[NSBundle bundleForClass:[self class]] pathForImageResource:@"NSColorWheelImage"];
-		specImage = [[NSImage alloc] initWithContentsOfFile:iname];
+		specImage = [[[NSBundle bundleForClass:[self class]] imageForResource:@"NSColorWheelImage"] retain];
 		
 		[specImage setFlipped:YES];
 		[specImage setScalesWhenResized:YES];

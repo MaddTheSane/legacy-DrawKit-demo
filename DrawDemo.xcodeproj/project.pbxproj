@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55EFF2231FDE8DE0007A4610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EFF2221FDE8DE0007A4610 /* Assets.xcassets */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* GCDrawDemoDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* GCDrawDemoDocument.m */; settings = {ATTRIBUTES = (); }; };
@@ -45,42 +46,16 @@
 		BF58D0260C7526A6009B85CC /* WTGradientControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58D0020C7526A6009B85CC /* WTGradientControl.m */; };
 		BF58D0280C7526A6009B85CC /* WTPlistKeyValueCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58D0040C7526A6009B85CC /* WTPlistKeyValueCoding.m */; };
 		BF700E1F0BF6B59F00080B21 /* GCStyleInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = BF700E1D0BF6B59F00080B21 /* GCStyleInspector.m */; };
-		BF7010AE0BF7122600080B21 /* smallBlueKnob.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BF7010AD0BF7122600080B21 /* smallBlueKnob.tiff */; };
-		BF7010B00BF7122E00080B21 /* NSColorWheelImage.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BF7010AF0BF7122E00080B21 /* NSColorWheelImage.tiff */; };
-		BF7012C00BF7FDB800080B21 /* plus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7012BE0BF7FDB800080B21 /* plus-8.png */; };
-		BF7012C10BF7FDB800080B21 /* minus-8.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7012BF0BF7FDB800080B21 /* minus-8.png */; };
 		BF7019420BFD8A3900080B21 /* GCDashEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7019400BFD8A3900080B21 /* GCDashEditor.m */; };
 		BF701A0C0BFDAAD800080B21 /* GCDashEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF701A0A0BFDAAD800080B21 /* GCDashEditView.m */; };
-		BF701D520C002C2E00080B21 /* gear.tif in Resources */ = {isa = PBXBuildFile; fileRef = BF701D510C002C2E00080B21 /* gear.tif */; };
 		BF8726580D91E3FC001F09AC /* GCDrawDemoPrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8726560D91E3FC001F09AC /* GCDrawDemoPrefsController.m */; };
 		BF87265B0D91E53B001F09AC /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8726590D91E53B001F09AC /* Preferences.xib */; };
 		BF88FC9D0C1D0CA100A23755 /* GCToolPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = BF88FC9B0C1D0CA100A23755 /* GCToolPalette.m */; };
-		BF88FD6F0C1D5FB100A23755 /* Rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD6E0C1D5FB100A23755 /* Rectangle.png */; };
-		BF88FD720C1D606300A23755 /* Oval.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD710C1D606300A23755 /* Oval.png */; };
-		BF88FD780C1D618800A23755 /* Round Rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD770C1D618800A23755 /* Round Rectangle.png */; };
-		BF88FD7B0C1D621B00A23755 /* Round End Rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD7A0C1D621B00A23755 /* Round End Rectangle.png */; };
-		BF88FD7E0C1D62A000A23755 /* Polygon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD7D0C1D62A000A23755 /* Polygon.png */; };
-		BF88FD800C1D630A00A23755 /* Line.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD7F0C1D630A00A23755 /* Line.png */; };
-		BF88FD830C1D63CC00A23755 /* Path.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD820C1D63CC00A23755 /* Path.png */; };
-		BF88FD860C1D645200A23755 /* Ring.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD850C1D645200A23755 /* Ring.png */; };
-		BF88FD890C1D64F200A23755 /* Text.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD880C1D64F200A23755 /* Text.png */; };
-		BF88FD8C0C1D655900A23755 /* Speech Balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD8B0C1D655900A23755 /* Speech Balloon.png */; };
-		BF88FD8F0C1D662100A23755 /* Freehand.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD8E0C1D662100A23755 /* Freehand.png */; };
-		BF88FD920C1D670400A23755 /* Select.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD910C1D670400A23755 /* Select.png */; };
-		BF88FD950C1D67F600A23755 /* Insert Path Point.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD940C1D67F600A23755 /* Insert Path Point.png */; };
-		BF88FD970C1D680500A23755 /* Delete Path Point.png in Resources */ = {isa = PBXBuildFile; fileRef = BF88FD960C1D680500A23755 /* Delete Path Point.png */; };
 		BF8C00B30E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8C00B20E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.m */; };
 		BF95157B0DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF95157A0DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.m */; };
-		BF9517A40DBCC4EE009E8CEC /* menu_triangle.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BF9517A30DBCC4EE009E8CEC /* menu_triangle.tiff */; };
-		BF9517D40DBCCA07009E8CEC /* locked_symbol.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BF9517D30DBCCA07009E8CEC /* locked_symbol.tiff */; };
 		BFA9670A0D7580BC00D976CB /* GCBasicDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA967080D7580BC00D976CB /* GCBasicDialogController.m */; };
 		BFAA66490DBEDDE500EE8236 /* GCOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAA66480DBEDDE500EE8236 /* GCOutlineView.m */; };
-		BFBFD0A00D9A4B2000680E6B /* mag_minus.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BFBFD09E0D9A4B2000680E6B /* mag_minus.tiff */; };
-		BFBFD0A10D9A4B2000680E6B /* mag_plus.tiff in Resources */ = {isa = PBXBuildFile; fileRef = BFBFD09F0D9A4B2000680E6B /* mag_plus.tiff */; };
-		BFDB10EE0C2AACC20034C27C /* Arc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = BFDB10ED0C2AACC20034C27C /* Arc.pdf */; };
 		BFDB12450C2B81630034C27C /* GCPolarDuplicateController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDB12430C2B81630034C27C /* GCPolarDuplicateController.m */; };
-		BFEAF52C0DAE31FB002972BC /* dkicon.icns in Resources */ = {isa = PBXBuildFile; fileRef = BFEAF52B0DAE31FB002972BC /* dkicon.icns */; };
-		BFEAF5430DAE3586002972BC /* dkdocument.icns in Resources */ = {isa = PBXBuildFile; fileRef = BFEAF5420DAE3586002972BC /* dkdocument.icns */; };
 		BFF06B200C3892F3008D427F /* DrawingSizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF06B1E0C3892F3008D427F /* DrawingSizeController.m */; };
 		BFF06D350C3B5204008D427F /* GCObjectInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF06D330C3B5204008D427F /* GCObjectInspector.m */; };
 		BFF071670C3FAE8D008D427F /* GCDrawDemoDocument+TimelineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF071650C3FAE8D008D427F /* GCDrawDemoDocument+TimelineLayout.m */; };
@@ -88,12 +63,6 @@
 		BFF08EC60C58CE4A008D427F /* GCStyleManagerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF08EC40C58CE4A008D427F /* GCStyleManagerDialog.m */; };
 		BFF090960C5C4ECF008D427F /* GCCheckboxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF090940C5C4ECF008D427F /* GCCheckboxCell.m */; };
 		BFF090B50C5C53C6008D427F /* GCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF090B30C5C53C6008D427F /* GCTableView.m */; };
-		BFFC4F710DA0F9E1003E1655 /* square.tif in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4F6E0DA0F9E1003E1655 /* square.tif */; };
-		BFFC4F720DA0F9E1003E1655 /* round.tif in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4F6F0DA0F9E1003E1655 /* round.tif */; };
-		BFFC4F730DA0F9E1003E1655 /* butt.tif in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4F700DA0F9E1003E1655 /* butt.tif */; };
-		BFFC4F850DA0FF95003E1655 /* squarecorner.tif in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4F820DA0FF95003E1655 /* squarecorner.tif */; };
-		BFFC4F860DA0FF95003E1655 /* roundcorner.tif in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4F830DA0FF95003E1655 /* roundcorner.tif */; };
-		BFFC4F8F0DA1048B003E1655 /* bevelcorner.tif in Resources */ = {isa = PBXBuildFile; fileRef = BFFC4F8E0DA1048B003E1655 /* bevelcorner.tif */; };
 		BFFC4FC30DA19786003E1655 /* GCLinearDuplicateController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFC4FC20DA19786003E1655 /* GCLinearDuplicateController.m */; };
 /* End PBXBuildFile section */
 
@@ -143,7 +112,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A37F4ACFDCFA73011CA2CEA /* GCDrawDemoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawDemoDocument.m; sourceTree = "<group>"; };
@@ -153,6 +122,7 @@
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawDemo_Prefix.pch; path = Code/DrawDemo_Prefix.pch; sourceTree = "<group>"; };
+		55EFF2221FDE8DE0007A4610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GCDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		96F5177A0B8A72760047BA96 /* GCDrawKitAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCDrawKitAppDelegate.h; sourceTree = "<group>"; };
@@ -209,51 +179,25 @@
 		BF58D0040C7526A6009B85CC /* WTPlistKeyValueCoding.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = WTPlistKeyValueCoding.m; sourceTree = "<group>"; };
 		BF700E1C0BF6B59F00080B21 /* GCStyleInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStyleInspector.h; sourceTree = "<group>"; };
 		BF700E1D0BF6B59F00080B21 /* GCStyleInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStyleInspector.m; sourceTree = "<group>"; };
-		BF7010AD0BF7122600080B21 /* smallBlueKnob.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = smallBlueKnob.tiff; sourceTree = "<group>"; };
-		BF7010AF0BF7122E00080B21 /* NSColorWheelImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = NSColorWheelImage.tiff; sourceTree = "<group>"; };
-		BF7012BE0BF7FDB800080B21 /* plus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-8.png"; sourceTree = "<group>"; };
-		BF7012BF0BF7FDB800080B21 /* minus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minus-8.png"; sourceTree = "<group>"; };
 		BF70193F0BFD8A3900080B21 /* GCDashEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDashEditor.h; sourceTree = "<group>"; };
 		BF7019400BFD8A3900080B21 /* GCDashEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDashEditor.m; sourceTree = "<group>"; };
 		BF701A090BFDAAD800080B21 /* GCDashEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDashEditView.h; sourceTree = "<group>"; };
 		BF701A0A0BFDAAD800080B21 /* GCDashEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDashEditView.m; sourceTree = "<group>"; };
-		BF701D510C002C2E00080B21 /* gear.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = gear.tif; sourceTree = "<group>"; };
 		BF8726560D91E3FC001F09AC /* GCDrawDemoPrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawDemoPrefsController.m; sourceTree = "<group>"; };
 		BF8726570D91E3FC001F09AC /* GCDrawDemoPrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDrawDemoPrefsController.h; sourceTree = "<group>"; };
 		BF87265A0D91E53B001F09AC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
 		BF88FC9A0C1D0CA100A23755 /* GCToolPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCToolPalette.h; sourceTree = "<group>"; };
 		BF88FC9B0C1D0CA100A23755 /* GCToolPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCToolPalette.m; sourceTree = "<group>"; };
-		BF88FD6E0C1D5FB100A23755 /* Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rectangle.png; sourceTree = "<group>"; };
-		BF88FD710C1D606300A23755 /* Oval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Oval.png; sourceTree = "<group>"; };
-		BF88FD770C1D618800A23755 /* Round Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Round Rectangle.png"; sourceTree = "<group>"; };
-		BF88FD7A0C1D621B00A23755 /* Round End Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Round End Rectangle.png"; sourceTree = "<group>"; };
-		BF88FD7D0C1D62A000A23755 /* Polygon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Polygon.png; sourceTree = "<group>"; };
-		BF88FD7F0C1D630A00A23755 /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line.png; sourceTree = "<group>"; };
-		BF88FD820C1D63CC00A23755 /* Path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Path.png; sourceTree = "<group>"; };
-		BF88FD850C1D645200A23755 /* Ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ring.png; sourceTree = "<group>"; };
-		BF88FD880C1D64F200A23755 /* Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Text.png; sourceTree = "<group>"; };
-		BF88FD8B0C1D655900A23755 /* Speech Balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Speech Balloon.png"; sourceTree = "<group>"; };
-		BF88FD8E0C1D662100A23755 /* Freehand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Freehand.png; sourceTree = "<group>"; };
-		BF88FD910C1D670400A23755 /* Select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Select.png; sourceTree = "<group>"; };
-		BF88FD940C1D67F600A23755 /* Insert Path Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Insert Path Point.png"; sourceTree = "<group>"; };
-		BF88FD960C1D680500A23755 /* Delete Path Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delete Path Point.png"; sourceTree = "<group>"; };
 		BF8C00B10E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCDrawDemoDocument+ShortestRoute.h"; sourceTree = "<group>"; };
 		BF8C00B20E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCDrawDemoDocument+ShortestRoute.m"; sourceTree = "<group>"; };
 		BF9515790DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
 		BF95157A0DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
-		BF9517A30DBCC4EE009E8CEC /* menu_triangle.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = menu_triangle.tiff; sourceTree = "<group>"; };
-		BF9517D30DBCCA07009E8CEC /* locked_symbol.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = locked_symbol.tiff; sourceTree = "<group>"; };
 		BFA967080D7580BC00D976CB /* GCBasicDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBasicDialogController.m; sourceTree = "<group>"; };
 		BFA967090D7580BC00D976CB /* GCBasicDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBasicDialogController.h; sourceTree = "<group>"; };
 		BFAA66470DBEDDE500EE8236 /* GCOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCOutlineView.h; sourceTree = "<group>"; };
 		BFAA66480DBEDDE500EE8236 /* GCOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCOutlineView.m; sourceTree = "<group>"; };
-		BFBFD09E0D9A4B2000680E6B /* mag_minus.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mag_minus.tiff; sourceTree = "<group>"; };
-		BFBFD09F0D9A4B2000680E6B /* mag_plus.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mag_plus.tiff; sourceTree = "<group>"; };
-		BFDB10ED0C2AACC20034C27C /* Arc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Arc.pdf; sourceTree = "<group>"; };
 		BFDB12430C2B81630034C27C /* GCPolarDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCPolarDuplicateController.m; sourceTree = "<group>"; };
 		BFDB12440C2B81630034C27C /* GCPolarDuplicateController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCPolarDuplicateController.h; sourceTree = "<group>"; };
-		BFEAF52B0DAE31FB002972BC /* dkicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dkicon.icns; sourceTree = "<group>"; };
-		BFEAF5420DAE3586002972BC /* dkdocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dkdocument.icns; sourceTree = "<group>"; };
 		BFF06B1D0C3892F3008D427F /* DrawingSizeController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DrawingSizeController.h; sourceTree = "<group>"; };
 		BFF06B1E0C3892F3008D427F /* DrawingSizeController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DrawingSizeController.m; sourceTree = "<group>"; };
 		BFF06D330C3B5204008D427F /* GCObjectInspector.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCObjectInspector.m; sourceTree = "<group>"; };
@@ -268,12 +212,6 @@
 		BFF090940C5C4ECF008D427F /* GCCheckboxCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCCheckboxCell.m; sourceTree = "<group>"; };
 		BFF090B20C5C53C6008D427F /* GCTableView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCTableView.h; sourceTree = "<group>"; };
 		BFF090B30C5C53C6008D427F /* GCTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCTableView.m; sourceTree = "<group>"; };
-		BFFC4F6E0DA0F9E1003E1655 /* square.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = square.tif; sourceTree = "<group>"; };
-		BFFC4F6F0DA0F9E1003E1655 /* round.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = round.tif; sourceTree = "<group>"; };
-		BFFC4F700DA0F9E1003E1655 /* butt.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = butt.tif; sourceTree = "<group>"; };
-		BFFC4F820DA0FF95003E1655 /* squarecorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = squarecorner.tif; sourceTree = "<group>"; };
-		BFFC4F830DA0FF95003E1655 /* roundcorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = roundcorner.tif; sourceTree = "<group>"; };
-		BFFC4F8E0DA1048B003E1655 /* bevelcorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = bevelcorner.tif; sourceTree = "<group>"; };
 		BFFC4FC10DA19786003E1655 /* GCLinearDuplicateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLinearDuplicateController.h; sourceTree = "<group>"; };
 		BFFC4FC20DA19786003E1655 /* GCLinearDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLinearDuplicateController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -399,7 +337,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA89A4430D7E02810092F050 /* Images */,
+				55EFF2221FDE8DE0007A4610 /* Assets.xcassets */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
 				AA7431D20D80FF3D0013CA82 /* DKGraphicInspector.xib */,
 				AA7431D60D80FF830013CA82 /* Drawingsize.xib */,
@@ -423,45 +361,6 @@
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AA89A4430D7E02810092F050 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				BFEAF52B0DAE31FB002972BC /* dkicon.icns */,
-				BFEAF5420DAE3586002972BC /* dkdocument.icns */,
-				BFBFD09E0D9A4B2000680E6B /* mag_minus.tiff */,
-				BFBFD09F0D9A4B2000680E6B /* mag_plus.tiff */,
-				BFDB10ED0C2AACC20034C27C /* Arc.pdf */,
-				BF88FD960C1D680500A23755 /* Delete Path Point.png */,
-				BF88FD8E0C1D662100A23755 /* Freehand.png */,
-				BF701D510C002C2E00080B21 /* gear.tif */,
-				BF88FD940C1D67F600A23755 /* Insert Path Point.png */,
-				BF88FD7F0C1D630A00A23755 /* Line.png */,
-				BF7012BF0BF7FDB800080B21 /* minus-8.png */,
-				BF7010AF0BF7122E00080B21 /* NSColorWheelImage.tiff */,
-				BF88FD710C1D606300A23755 /* Oval.png */,
-				BF88FD820C1D63CC00A23755 /* Path.png */,
-				BF7012BE0BF7FDB800080B21 /* plus-8.png */,
-				BF88FD7D0C1D62A000A23755 /* Polygon.png */,
-				BF88FD6E0C1D5FB100A23755 /* Rectangle.png */,
-				BF88FD850C1D645200A23755 /* Ring.png */,
-				BF88FD7A0C1D621B00A23755 /* Round End Rectangle.png */,
-				BF88FD770C1D618800A23755 /* Round Rectangle.png */,
-				BF88FD910C1D670400A23755 /* Select.png */,
-				BF7010AD0BF7122600080B21 /* smallBlueKnob.tiff */,
-				BF88FD8B0C1D655900A23755 /* Speech Balloon.png */,
-				BF88FD880C1D64F200A23755 /* Text.png */,
-				BFFC4F6E0DA0F9E1003E1655 /* square.tif */,
-				BFFC4F6F0DA0F9E1003E1655 /* round.tif */,
-				BFFC4F700DA0F9E1003E1655 /* butt.tif */,
-				BFFC4F820DA0FF95003E1655 /* squarecorner.tif */,
-				BFFC4F830DA0FF95003E1655 /* roundcorner.tif */,
-				BFFC4F8E0DA1048B003E1655 /* bevelcorner.tif */,
-				BF9517D30DBCCA07009E8CEC /* locked_symbol.tiff */,
-				BF9517A30DBCC4EE009E8CEC /* menu_triangle.tiff */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		AA89A4560D7E03B90092F050 /* Products */ = {
@@ -599,26 +498,6 @@
 			files = (
 				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
-				BF7010AE0BF7122600080B21 /* smallBlueKnob.tiff in Resources */,
-				BF7010B00BF7122E00080B21 /* NSColorWheelImage.tiff in Resources */,
-				BF7012C00BF7FDB800080B21 /* plus-8.png in Resources */,
-				BF7012C10BF7FDB800080B21 /* minus-8.png in Resources */,
-				BF701D520C002C2E00080B21 /* gear.tif in Resources */,
-				BF88FD6F0C1D5FB100A23755 /* Rectangle.png in Resources */,
-				BF88FD720C1D606300A23755 /* Oval.png in Resources */,
-				BF88FD780C1D618800A23755 /* Round Rectangle.png in Resources */,
-				BF88FD7B0C1D621B00A23755 /* Round End Rectangle.png in Resources */,
-				BF88FD7E0C1D62A000A23755 /* Polygon.png in Resources */,
-				BF88FD800C1D630A00A23755 /* Line.png in Resources */,
-				BF88FD830C1D63CC00A23755 /* Path.png in Resources */,
-				BF88FD860C1D645200A23755 /* Ring.png in Resources */,
-				BF88FD890C1D64F200A23755 /* Text.png in Resources */,
-				BF88FD8C0C1D655900A23755 /* Speech Balloon.png in Resources */,
-				BF88FD8F0C1D662100A23755 /* Freehand.png in Resources */,
-				BF88FD920C1D670400A23755 /* Select.png in Resources */,
-				BF88FD950C1D67F600A23755 /* Insert Path Point.png in Resources */,
-				BF88FD970C1D680500A23755 /* Delete Path Point.png in Resources */,
-				BFDB10EE0C2AACC20034C27C /* Arc.pdf in Resources */,
 				AA7431D40D80FF3D0013CA82 /* DKGraphicInspector.xib in Resources */,
 				AA7431D80D80FF830013CA82 /* Drawingsize.xib in Resources */,
 				AA7431E20D8101230013CA82 /* LayersPalette.xib in Resources */,
@@ -629,18 +508,7 @@
 				AA7431F40D8101790013CA82 /* ToolPalette.xib in Resources */,
 				AA206DD40D90A0E6003205BD /* GCDrawDemoDocument.xib in Resources */,
 				BF87265B0D91E53B001F09AC /* Preferences.xib in Resources */,
-				BFBFD0A00D9A4B2000680E6B /* mag_minus.tiff in Resources */,
-				BFBFD0A10D9A4B2000680E6B /* mag_plus.tiff in Resources */,
-				BFFC4F710DA0F9E1003E1655 /* square.tif in Resources */,
-				BFFC4F720DA0F9E1003E1655 /* round.tif in Resources */,
-				BFFC4F730DA0F9E1003E1655 /* butt.tif in Resources */,
-				BFFC4F850DA0FF95003E1655 /* squarecorner.tif in Resources */,
-				BFFC4F860DA0FF95003E1655 /* roundcorner.tif in Resources */,
-				BFFC4F8F0DA1048B003E1655 /* bevelcorner.tif in Resources */,
-				BFEAF52C0DAE31FB002972BC /* dkicon.icns in Resources */,
-				BFEAF5430DAE3586002972BC /* dkdocument.icns in Resources */,
-				BF9517A40DBCC4EE009E8CEC /* menu_triangle.tiff in Resources */,
-				BF9517D40DBCCA07009E8CEC /* locked_symbol.tiff in Resources */,
+				55EFF2231FDE8DE0007A4610 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,14 +676,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = dkicon;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_3)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_4)",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -824,7 +686,6 @@
 					"$(inherited)",
 					qUseLogEvent,
 				);
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DrawDemoInfo.plist;
 				INFOPLIST_PREPROCESS = YES;
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = (
@@ -842,12 +703,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = dkicon;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = Code/DrawDemo_Prefix.pch;
@@ -855,7 +711,6 @@
 					"$(inherited)",
 					qUseLogEvent,
 				);
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = DrawDemoInfo.plist;
 				INFOPLIST_PREPROCESS = YES;
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = (
@@ -894,6 +749,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DEBUGGING_SYMBOLS = default;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -917,7 +773,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
@@ -968,6 +824,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(GCC_PREPROCESSOR_DEFINITIONS)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -986,7 +843,7 @@
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
