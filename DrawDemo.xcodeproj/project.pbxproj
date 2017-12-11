@@ -143,36 +143,36 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2A37F4ACFDCFA73011CA2CEA /* GCDrawDemoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDrawDemoDocument.m; path = Code/GCDrawDemoDocument.m; sourceTree = "<group>"; };
-		2A37F4AEFDCFA73011CA2CEA /* GCDrawDemoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDrawDemoDocument.h; path = Code/GCDrawDemoDocument.h; sourceTree = "<group>"; };
+		2A37F4ACFDCFA73011CA2CEA /* GCDrawDemoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawDemoDocument.m; sourceTree = "<group>"; };
+		2A37F4AEFDCFA73011CA2CEA /* GCDrawDemoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDrawDemoDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Code/main.m; sourceTree = "<group>"; };
-		2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawDemo_Prefix.pch; path = Code/DrawDemo_Prefix.pch; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GCDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		96F5177A0B8A72760047BA96 /* GCDrawKitAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCDrawKitAppDelegate.h; path = Code/GCDrawKitAppDelegate.h; sourceTree = "<group>"; };
-		96F5177B0B8A72760047BA96 /* GCDrawKitAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCDrawKitAppDelegate.m; path = Code/GCDrawKitAppDelegate.m; sourceTree = "<group>"; };
-		AA206DD30D90A0E6003205BD /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/GCDrawDemoDocument.xib; sourceTree = "<group>"; };
-		AA7431D30D80FF3D0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/DKGraphicInspector.xib; sourceTree = "<group>"; };
-		AA7431D70D80FF830013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/Drawingsize.xib; sourceTree = "<group>"; };
-		AA7431E10D8101230013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/LayersPalette.xib; sourceTree = "<group>"; };
-		AA7431E40D81015B0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		AA7431EA0D8101660013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/ObjectInspector.xib; sourceTree = "<group>"; };
-		AA7431ED0D81016B0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/StyleInspector.xib; sourceTree = "<group>"; };
-		AA7431F00D8101720013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/StyleManager.xib; sourceTree = "<group>"; };
-		AA7431F30D8101790013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/ToolPalette.xib; sourceTree = "<group>"; };
+		96F5177A0B8A72760047BA96 /* GCDrawKitAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCDrawKitAppDelegate.h; sourceTree = "<group>"; };
+		96F5177B0B8A72760047BA96 /* GCDrawKitAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCDrawKitAppDelegate.m; sourceTree = "<group>"; };
+		AA206DD30D90A0E6003205BD /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GCDrawDemoDocument.xib; sourceTree = "<group>"; };
+		AA7431D30D80FF3D0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/DKGraphicInspector.xib; sourceTree = "<group>"; };
+		AA7431D70D80FF830013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Drawingsize.xib; sourceTree = "<group>"; };
+		AA7431E10D8101230013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LayersPalette.xib; sourceTree = "<group>"; };
+		AA7431E40D81015B0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AA7431EA0D8101660013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ObjectInspector.xib; sourceTree = "<group>"; };
+		AA7431ED0D81016B0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StyleInspector.xib; sourceTree = "<group>"; };
+		AA7431F00D8101720013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StyleManager.xib; sourceTree = "<group>"; };
+		AA7431F30D8101790013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DrawDemo.xcconfig; sourceTree = "<group>"; };
 		AA8073650DA49912005BCAA0 /* DrawDemoInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DrawDemoInfo.plist; sourceTree = "<group>"; };
 		AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawKit.xcodeproj; path = DrawKit/DrawKit.xcodeproj; sourceTree = SOURCE_ROOT; };
-		BF2866260E26ED05001CD43F /* GCExportOptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCExportOptionsController.h; path = Code/GCExportOptionsController.h; sourceTree = "<group>"; };
-		BF2866270E26ED05001CD43F /* GCExportOptionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCExportOptionsController.m; path = Code/GCExportOptionsController.m; sourceTree = "<group>"; };
-		BF3579730DEE5F5C00C9B16D /* NSWindow+SheetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSWindow+SheetAdditions.h"; path = "Code/NSWindow+SheetAdditions.h"; sourceTree = "<group>"; };
-		BF3579740DEE5F5C00C9B16D /* NSWindow+SheetAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+SheetAdditions.m"; path = "Code/NSWindow+SheetAdditions.m"; sourceTree = "<group>"; };
+		BF2866260E26ED05001CD43F /* GCExportOptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCExportOptionsController.h; sourceTree = "<group>"; };
+		BF2866270E26ED05001CD43F /* GCExportOptionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCExportOptionsController.m; sourceTree = "<group>"; };
+		BF3579730DEE5F5C00C9B16D /* NSWindow+SheetAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+SheetAdditions.h"; sourceTree = "<group>"; };
+		BF3579740DEE5F5C00C9B16D /* NSWindow+SheetAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+SheetAdditions.m"; sourceTree = "<group>"; };
 		BF58CFE10C7526A6009B85CC /* DKGradientCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DKGradientCell.h; sourceTree = "<group>"; };
 		BF58CFE20C7526A6009B85CC /* DKGradientCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DKGradientCell.m; sourceTree = "<group>"; };
 		BF58CFE30C7526A6009B85CC /* GCColourPickerView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCColourPickerView.h; sourceTree = "<group>"; };
@@ -207,75 +207,75 @@
 		BF58D0020C7526A6009B85CC /* WTGradientControl.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = WTGradientControl.m; sourceTree = "<group>"; };
 		BF58D0030C7526A6009B85CC /* WTPlistKeyValueCoding.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = WTPlistKeyValueCoding.h; sourceTree = "<group>"; };
 		BF58D0040C7526A6009B85CC /* WTPlistKeyValueCoding.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = WTPlistKeyValueCoding.m; sourceTree = "<group>"; };
-		BF700E1C0BF6B59F00080B21 /* GCStyleInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCStyleInspector.h; path = Code/GCStyleInspector.h; sourceTree = "<group>"; };
-		BF700E1D0BF6B59F00080B21 /* GCStyleInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCStyleInspector.m; path = Code/GCStyleInspector.m; sourceTree = "<group>"; };
-		BF7010AD0BF7122600080B21 /* smallBlueKnob.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = smallBlueKnob.tiff; path = Resources/Images/smallBlueKnob.tiff; sourceTree = "<group>"; };
-		BF7010AF0BF7122E00080B21 /* NSColorWheelImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = NSColorWheelImage.tiff; path = Resources/Images/NSColorWheelImage.tiff; sourceTree = "<group>"; };
-		BF7012BE0BF7FDB800080B21 /* plus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plus-8.png"; path = "Resources/Images/plus-8.png"; sourceTree = "<group>"; };
-		BF7012BF0BF7FDB800080B21 /* minus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "minus-8.png"; path = "Resources/Images/minus-8.png"; sourceTree = "<group>"; };
-		BF70193F0BFD8A3900080B21 /* GCDashEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDashEditor.h; path = Code/GCDashEditor.h; sourceTree = "<group>"; };
-		BF7019400BFD8A3900080B21 /* GCDashEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDashEditor.m; path = Code/GCDashEditor.m; sourceTree = "<group>"; };
-		BF701A090BFDAAD800080B21 /* GCDashEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDashEditView.h; path = Code/GCDashEditView.h; sourceTree = "<group>"; };
-		BF701A0A0BFDAAD800080B21 /* GCDashEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDashEditView.m; path = Code/GCDashEditView.m; sourceTree = "<group>"; };
-		BF701D510C002C2E00080B21 /* gear.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = gear.tif; path = Resources/Images/gear.tif; sourceTree = "<group>"; };
-		BF8726560D91E3FC001F09AC /* GCDrawDemoPrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDrawDemoPrefsController.m; path = Code/GCDrawDemoPrefsController.m; sourceTree = "<group>"; };
-		BF8726570D91E3FC001F09AC /* GCDrawDemoPrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDrawDemoPrefsController.h; path = Code/GCDrawDemoPrefsController.h; sourceTree = "<group>"; };
-		BF87265A0D91E53B001F09AC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = Resources/English.lproj/Preferences.xib; sourceTree = "<group>"; };
-		BF88FC9A0C1D0CA100A23755 /* GCToolPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCToolPalette.h; path = Code/GCToolPalette.h; sourceTree = "<group>"; };
-		BF88FC9B0C1D0CA100A23755 /* GCToolPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCToolPalette.m; path = Code/GCToolPalette.m; sourceTree = "<group>"; };
-		BF88FD6E0C1D5FB100A23755 /* Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Rectangle.png; path = Resources/Images/Rectangle.png; sourceTree = "<group>"; };
-		BF88FD710C1D606300A23755 /* Oval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Oval.png; path = Resources/Images/Oval.png; sourceTree = "<group>"; };
-		BF88FD770C1D618800A23755 /* Round Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Round Rectangle.png"; path = "Resources/Images/Round Rectangle.png"; sourceTree = "<group>"; };
-		BF88FD7A0C1D621B00A23755 /* Round End Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Round End Rectangle.png"; path = "Resources/Images/Round End Rectangle.png"; sourceTree = "<group>"; };
-		BF88FD7D0C1D62A000A23755 /* Polygon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Polygon.png; path = Resources/Images/Polygon.png; sourceTree = "<group>"; };
-		BF88FD7F0C1D630A00A23755 /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Line.png; path = Resources/Images/Line.png; sourceTree = "<group>"; };
-		BF88FD820C1D63CC00A23755 /* Path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Path.png; path = Resources/Images/Path.png; sourceTree = "<group>"; };
-		BF88FD850C1D645200A23755 /* Ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ring.png; path = Resources/Images/Ring.png; sourceTree = "<group>"; };
-		BF88FD880C1D64F200A23755 /* Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Text.png; path = Resources/Images/Text.png; sourceTree = "<group>"; };
-		BF88FD8B0C1D655900A23755 /* Speech Balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Speech Balloon.png"; path = "Resources/Images/Speech Balloon.png"; sourceTree = "<group>"; };
-		BF88FD8E0C1D662100A23755 /* Freehand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Freehand.png; path = Resources/Images/Freehand.png; sourceTree = "<group>"; };
-		BF88FD910C1D670400A23755 /* Select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Select.png; path = Resources/Images/Select.png; sourceTree = "<group>"; };
-		BF88FD940C1D67F600A23755 /* Insert Path Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Insert Path Point.png"; path = "Resources/Images/Insert Path Point.png"; sourceTree = "<group>"; };
-		BF88FD960C1D680500A23755 /* Delete Path Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Delete Path Point.png"; path = "Resources/Images/Delete Path Point.png"; sourceTree = "<group>"; };
-		BF8C00B10E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GCDrawDemoDocument+ShortestRoute.h"; path = "Code/GCDrawDemoDocument+ShortestRoute.h"; sourceTree = "<group>"; };
-		BF8C00B20E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GCDrawDemoDocument+ShortestRoute.m"; path = "Code/GCDrawDemoDocument+ShortestRoute.m"; sourceTree = "<group>"; };
-		BF9515790DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSVerticallyCenteredTextFieldCell.h; path = Code/RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
-		BF95157A0DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSVerticallyCenteredTextFieldCell.m; path = Code/RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
-		BF9517A30DBCC4EE009E8CEC /* menu_triangle.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = menu_triangle.tiff; path = Resources/Images/menu_triangle.tiff; sourceTree = "<group>"; };
-		BF9517D30DBCCA07009E8CEC /* locked_symbol.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = locked_symbol.tiff; path = Resources/Images/locked_symbol.tiff; sourceTree = "<group>"; };
-		BFA967080D7580BC00D976CB /* GCBasicDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCBasicDialogController.m; path = Code/GCBasicDialogController.m; sourceTree = "<group>"; };
-		BFA967090D7580BC00D976CB /* GCBasicDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCBasicDialogController.h; path = Code/GCBasicDialogController.h; sourceTree = "<group>"; };
-		BFAA66470DBEDDE500EE8236 /* GCOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCOutlineView.h; path = Code/GCOutlineView.h; sourceTree = "<group>"; };
-		BFAA66480DBEDDE500EE8236 /* GCOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCOutlineView.m; path = Code/GCOutlineView.m; sourceTree = "<group>"; };
-		BFBFD09E0D9A4B2000680E6B /* mag_minus.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = mag_minus.tiff; path = Resources/Images/mag_minus.tiff; sourceTree = "<group>"; };
-		BFBFD09F0D9A4B2000680E6B /* mag_plus.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = mag_plus.tiff; path = Resources/Images/mag_plus.tiff; sourceTree = "<group>"; };
-		BFDB10ED0C2AACC20034C27C /* Arc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Arc.pdf; path = Resources/Images/Arc.pdf; sourceTree = "<group>"; };
-		BFDB12430C2B81630034C27C /* GCPolarDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCPolarDuplicateController.m; path = Code/GCPolarDuplicateController.m; sourceTree = "<group>"; };
-		BFDB12440C2B81630034C27C /* GCPolarDuplicateController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCPolarDuplicateController.h; path = Code/GCPolarDuplicateController.h; sourceTree = "<group>"; };
-		BFEAF52B0DAE31FB002972BC /* dkicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = dkicon.icns; path = Resources/Images/dkicon.icns; sourceTree = "<group>"; };
-		BFEAF5420DAE3586002972BC /* dkdocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = dkdocument.icns; path = Resources/Images/dkdocument.icns; sourceTree = "<group>"; };
-		BFF06B1D0C3892F3008D427F /* DrawingSizeController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = DrawingSizeController.h; path = Code/DrawingSizeController.h; sourceTree = "<group>"; };
-		BFF06B1E0C3892F3008D427F /* DrawingSizeController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = DrawingSizeController.m; path = Code/DrawingSizeController.m; sourceTree = "<group>"; };
-		BFF06D330C3B5204008D427F /* GCObjectInspector.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCObjectInspector.m; path = Code/GCObjectInspector.m; sourceTree = "<group>"; };
-		BFF06D340C3B5204008D427F /* GCObjectInspector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCObjectInspector.h; path = Code/GCObjectInspector.h; sourceTree = "<group>"; };
-		BFF071640C3FAE8D008D427F /* GCDrawDemoDocument+TimelineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GCDrawDemoDocument+TimelineLayout.h"; path = "Code/GCDrawDemoDocument+TimelineLayout.h"; sourceTree = "<group>"; };
-		BFF071650C3FAE8D008D427F /* GCDrawDemoDocument+TimelineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GCDrawDemoDocument+TimelineLayout.m"; path = "Code/GCDrawDemoDocument+TimelineLayout.m"; sourceTree = "<group>"; };
-		BFF08D5A0C583808008D427F /* GCLayersPaletteController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCLayersPaletteController.h; path = Code/GCLayersPaletteController.h; sourceTree = "<group>"; };
-		BFF08D5B0C583808008D427F /* GCLayersPaletteController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCLayersPaletteController.m; path = Code/GCLayersPaletteController.m; sourceTree = "<group>"; };
-		BFF08EC30C58CE4A008D427F /* GCStyleManagerDialog.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCStyleManagerDialog.h; path = Code/GCStyleManagerDialog.h; sourceTree = "<group>"; };
-		BFF08EC40C58CE4A008D427F /* GCStyleManagerDialog.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCStyleManagerDialog.m; path = Code/GCStyleManagerDialog.m; sourceTree = "<group>"; };
-		BFF090930C5C4ECF008D427F /* GCCheckboxCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCCheckboxCell.h; path = Code/GCCheckboxCell.h; sourceTree = "<group>"; };
-		BFF090940C5C4ECF008D427F /* GCCheckboxCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCCheckboxCell.m; path = Code/GCCheckboxCell.m; sourceTree = "<group>"; };
-		BFF090B20C5C53C6008D427F /* GCTableView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = GCTableView.h; path = Code/GCTableView.h; sourceTree = "<group>"; };
-		BFF090B30C5C53C6008D427F /* GCTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = GCTableView.m; path = Code/GCTableView.m; sourceTree = "<group>"; };
-		BFFC4F6E0DA0F9E1003E1655 /* square.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = square.tif; path = Resources/Images/square.tif; sourceTree = "<group>"; };
-		BFFC4F6F0DA0F9E1003E1655 /* round.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = round.tif; path = Resources/Images/round.tif; sourceTree = "<group>"; };
-		BFFC4F700DA0F9E1003E1655 /* butt.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = butt.tif; path = Resources/Images/butt.tif; sourceTree = "<group>"; };
-		BFFC4F820DA0FF95003E1655 /* squarecorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = squarecorner.tif; path = Resources/Images/squarecorner.tif; sourceTree = "<group>"; };
-		BFFC4F830DA0FF95003E1655 /* roundcorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = roundcorner.tif; path = Resources/Images/roundcorner.tif; sourceTree = "<group>"; };
-		BFFC4F8E0DA1048B003E1655 /* bevelcorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = bevelcorner.tif; path = Resources/Images/bevelcorner.tif; sourceTree = "<group>"; };
-		BFFC4FC10DA19786003E1655 /* GCLinearDuplicateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCLinearDuplicateController.h; path = Code/GCLinearDuplicateController.h; sourceTree = "<group>"; };
-		BFFC4FC20DA19786003E1655 /* GCLinearDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCLinearDuplicateController.m; path = Code/GCLinearDuplicateController.m; sourceTree = "<group>"; };
+		BF700E1C0BF6B59F00080B21 /* GCStyleInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStyleInspector.h; sourceTree = "<group>"; };
+		BF700E1D0BF6B59F00080B21 /* GCStyleInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStyleInspector.m; sourceTree = "<group>"; };
+		BF7010AD0BF7122600080B21 /* smallBlueKnob.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = smallBlueKnob.tiff; sourceTree = "<group>"; };
+		BF7010AF0BF7122E00080B21 /* NSColorWheelImage.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = NSColorWheelImage.tiff; sourceTree = "<group>"; };
+		BF7012BE0BF7FDB800080B21 /* plus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-8.png"; sourceTree = "<group>"; };
+		BF7012BF0BF7FDB800080B21 /* minus-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minus-8.png"; sourceTree = "<group>"; };
+		BF70193F0BFD8A3900080B21 /* GCDashEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDashEditor.h; sourceTree = "<group>"; };
+		BF7019400BFD8A3900080B21 /* GCDashEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDashEditor.m; sourceTree = "<group>"; };
+		BF701A090BFDAAD800080B21 /* GCDashEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDashEditView.h; sourceTree = "<group>"; };
+		BF701A0A0BFDAAD800080B21 /* GCDashEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDashEditView.m; sourceTree = "<group>"; };
+		BF701D510C002C2E00080B21 /* gear.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = gear.tif; sourceTree = "<group>"; };
+		BF8726560D91E3FC001F09AC /* GCDrawDemoPrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawDemoPrefsController.m; sourceTree = "<group>"; };
+		BF8726570D91E3FC001F09AC /* GCDrawDemoPrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDrawDemoPrefsController.h; sourceTree = "<group>"; };
+		BF87265A0D91E53B001F09AC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
+		BF88FC9A0C1D0CA100A23755 /* GCToolPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCToolPalette.h; sourceTree = "<group>"; };
+		BF88FC9B0C1D0CA100A23755 /* GCToolPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCToolPalette.m; sourceTree = "<group>"; };
+		BF88FD6E0C1D5FB100A23755 /* Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rectangle.png; sourceTree = "<group>"; };
+		BF88FD710C1D606300A23755 /* Oval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Oval.png; sourceTree = "<group>"; };
+		BF88FD770C1D618800A23755 /* Round Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Round Rectangle.png"; sourceTree = "<group>"; };
+		BF88FD7A0C1D621B00A23755 /* Round End Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Round End Rectangle.png"; sourceTree = "<group>"; };
+		BF88FD7D0C1D62A000A23755 /* Polygon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Polygon.png; sourceTree = "<group>"; };
+		BF88FD7F0C1D630A00A23755 /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line.png; sourceTree = "<group>"; };
+		BF88FD820C1D63CC00A23755 /* Path.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Path.png; sourceTree = "<group>"; };
+		BF88FD850C1D645200A23755 /* Ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ring.png; sourceTree = "<group>"; };
+		BF88FD880C1D64F200A23755 /* Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Text.png; sourceTree = "<group>"; };
+		BF88FD8B0C1D655900A23755 /* Speech Balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Speech Balloon.png"; sourceTree = "<group>"; };
+		BF88FD8E0C1D662100A23755 /* Freehand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Freehand.png; sourceTree = "<group>"; };
+		BF88FD910C1D670400A23755 /* Select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Select.png; sourceTree = "<group>"; };
+		BF88FD940C1D67F600A23755 /* Insert Path Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Insert Path Point.png"; sourceTree = "<group>"; };
+		BF88FD960C1D680500A23755 /* Delete Path Point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delete Path Point.png"; sourceTree = "<group>"; };
+		BF8C00B10E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCDrawDemoDocument+ShortestRoute.h"; sourceTree = "<group>"; };
+		BF8C00B20E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCDrawDemoDocument+ShortestRoute.m"; sourceTree = "<group>"; };
+		BF9515790DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
+		BF95157A0DBB6E03009E8CEC /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
+		BF9517A30DBCC4EE009E8CEC /* menu_triangle.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = menu_triangle.tiff; sourceTree = "<group>"; };
+		BF9517D30DBCCA07009E8CEC /* locked_symbol.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = locked_symbol.tiff; sourceTree = "<group>"; };
+		BFA967080D7580BC00D976CB /* GCBasicDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBasicDialogController.m; sourceTree = "<group>"; };
+		BFA967090D7580BC00D976CB /* GCBasicDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBasicDialogController.h; sourceTree = "<group>"; };
+		BFAA66470DBEDDE500EE8236 /* GCOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCOutlineView.h; sourceTree = "<group>"; };
+		BFAA66480DBEDDE500EE8236 /* GCOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCOutlineView.m; sourceTree = "<group>"; };
+		BFBFD09E0D9A4B2000680E6B /* mag_minus.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mag_minus.tiff; sourceTree = "<group>"; };
+		BFBFD09F0D9A4B2000680E6B /* mag_plus.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = mag_plus.tiff; sourceTree = "<group>"; };
+		BFDB10ED0C2AACC20034C27C /* Arc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Arc.pdf; sourceTree = "<group>"; };
+		BFDB12430C2B81630034C27C /* GCPolarDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCPolarDuplicateController.m; sourceTree = "<group>"; };
+		BFDB12440C2B81630034C27C /* GCPolarDuplicateController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCPolarDuplicateController.h; sourceTree = "<group>"; };
+		BFEAF52B0DAE31FB002972BC /* dkicon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dkicon.icns; sourceTree = "<group>"; };
+		BFEAF5420DAE3586002972BC /* dkdocument.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dkdocument.icns; sourceTree = "<group>"; };
+		BFF06B1D0C3892F3008D427F /* DrawingSizeController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DrawingSizeController.h; sourceTree = "<group>"; };
+		BFF06B1E0C3892F3008D427F /* DrawingSizeController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DrawingSizeController.m; sourceTree = "<group>"; };
+		BFF06D330C3B5204008D427F /* GCObjectInspector.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCObjectInspector.m; sourceTree = "<group>"; };
+		BFF06D340C3B5204008D427F /* GCObjectInspector.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCObjectInspector.h; sourceTree = "<group>"; };
+		BFF071640C3FAE8D008D427F /* GCDrawDemoDocument+TimelineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCDrawDemoDocument+TimelineLayout.h"; sourceTree = "<group>"; };
+		BFF071650C3FAE8D008D427F /* GCDrawDemoDocument+TimelineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCDrawDemoDocument+TimelineLayout.m"; sourceTree = "<group>"; };
+		BFF08D5A0C583808008D427F /* GCLayersPaletteController.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCLayersPaletteController.h; sourceTree = "<group>"; };
+		BFF08D5B0C583808008D427F /* GCLayersPaletteController.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCLayersPaletteController.m; sourceTree = "<group>"; };
+		BFF08EC30C58CE4A008D427F /* GCStyleManagerDialog.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCStyleManagerDialog.h; sourceTree = "<group>"; };
+		BFF08EC40C58CE4A008D427F /* GCStyleManagerDialog.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCStyleManagerDialog.m; sourceTree = "<group>"; };
+		BFF090930C5C4ECF008D427F /* GCCheckboxCell.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCCheckboxCell.h; sourceTree = "<group>"; };
+		BFF090940C5C4ECF008D427F /* GCCheckboxCell.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCCheckboxCell.m; sourceTree = "<group>"; };
+		BFF090B20C5C53C6008D427F /* GCTableView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCTableView.h; sourceTree = "<group>"; };
+		BFF090B30C5C53C6008D427F /* GCTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCTableView.m; sourceTree = "<group>"; };
+		BFFC4F6E0DA0F9E1003E1655 /* square.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = square.tif; sourceTree = "<group>"; };
+		BFFC4F6F0DA0F9E1003E1655 /* round.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = round.tif; sourceTree = "<group>"; };
+		BFFC4F700DA0F9E1003E1655 /* butt.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = butt.tif; sourceTree = "<group>"; };
+		BFFC4F820DA0FF95003E1655 /* squarecorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = squarecorner.tif; sourceTree = "<group>"; };
+		BFFC4F830DA0FF95003E1655 /* roundcorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = roundcorner.tif; sourceTree = "<group>"; };
+		BFFC4F8E0DA1048B003E1655 /* bevelcorner.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = bevelcorner.tif; sourceTree = "<group>"; };
+		BFFC4FC10DA19786003E1655 /* GCLinearDuplicateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLinearDuplicateController.h; sourceTree = "<group>"; };
+		BFFC4FC20DA19786003E1655 /* GCLinearDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLinearDuplicateController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +384,7 @@
 				BF2866270E26ED05001CD43F /* GCExportOptionsController.m */,
 			);
 			name = Classes;
+			path = Code;
 			sourceTree = "<group>";
 		};
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
@@ -412,7 +413,7 @@
 				AA7431F20D8101790013CA82 /* ToolPalette.xib */,
 				BF8726590D91E53B001F09AC /* Preferences.xib */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
@@ -460,7 +461,7 @@
 				BF9517D30DBCCA07009E8CEC /* locked_symbol.tiff */,
 				BF9517A30DBCC4EE009E8CEC /* menu_triangle.tiff */,
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		AA89A4560D7E03B90092F050 /* Products */ = {
@@ -511,8 +512,7 @@
 				BF58D0030C7526A6009B85CC /* WTPlistKeyValueCoding.h */,
 				BF58D0040C7526A6009B85CC /* WTPlistKeyValueCoding.m */,
 			);
-			name = "GP for GCDrawDemo";
-			path = "Code/GP for GCDrawDemo";
+			path = "GP for GCDrawDemo";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
