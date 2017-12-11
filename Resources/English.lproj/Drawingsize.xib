@@ -561,9 +561,5 @@ Gw
                 <menuItem title="Other" id="57"/>
             </items>
         </menu>
-        <view id="49">
-            <rect key="frame" x="0.0" y="0.0" width="125" height="1"/>
-            <autoresizingMask key="autoresizingMask"/>
-        </view>
     </objects>
 </document>

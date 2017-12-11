@@ -498,7 +498,7 @@ Gw
                         <action selector="resolutionPopUpAction:" target="376" id="430"/>
                     </connections>
                 </popUpButton>
-                <tabView autoresizesSubviews="NO" drawsBackground="NO" controlSize="small" type="noTabsNoBorder" initialItem="381" id="380">
+                <tabView drawsBackground="NO" controlSize="small" type="noTabsNoBorder" initialItem="381" id="380">
                     <rect key="frame" x="19" y="21" width="418" height="23"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <tabViewItems>
@@ -586,7 +586,7 @@ Gw
                         <tabViewItem label="TIFF" identifier="Item 3" id="387">
                             <view key="view" id="388">
                                 <rect key="frame" x="0.0" y="0.0" width="418" height="23"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="407">
                                         <rect key="frame" x="103" y="2" width="102" height="22"/>

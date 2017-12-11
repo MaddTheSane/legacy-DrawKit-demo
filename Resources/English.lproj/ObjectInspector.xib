@@ -48,7 +48,7 @@
                             <tabViewItem label="No Selection" identifier="1" id="12">
                                 <view key="view" id="13">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="319"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" id="40">
                                             <rect key="frame" x="17" y="151" width="222" height="17"/>
@@ -65,7 +65,7 @@
                             <tabViewItem label="Multiple Selection" identifier="2" id="10">
                                 <view key="view" id="11">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="319"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" id="41">
                                             <rect key="frame" x="17" y="282" width="222" height="17"/>
@@ -347,14 +347,14 @@
                                                 <tabViewItem label="User Info" identifier="2" id="22">
                                                     <view key="view" id="23">
                                                         <rect key="frame" x="10" y="25" width="210" height="265"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <scrollView horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="26">
                                                                 <rect key="frame" x="10" y="30" width="190" height="229"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <clipView key="contentView" id="PRe-Ed-oyX">
                                                                     <rect key="frame" x="1" y="23" width="188" height="205"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="14" headerView="174" id="27">
                                                                             <rect key="frame" x="0.0" y="0.0" width="188" height="205"/>
@@ -413,7 +413,7 @@
                                                             <button imageHugsTitle="YES" id="31">
                                                                 <rect key="frame" x="41" y="5" width="32" height="22"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="minus-8" imagePosition="only" controlSize="small" borderStyle="border" inset="2" id="149">
+                                                                <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="149">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
@@ -424,12 +424,12 @@
                                                             <popUpButton imageHugsTitle="YES" id="84">
                                                                 <rect key="frame" x="10" y="5" width="32" height="22"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="86" id="150">
+                                                                <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="86" id="150">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <menu key="menu" title="OtherViews" id="85">
                                                                         <items>
-                                                                            <menuItem image="plus-8" hidden="YES" id="86"/>
+                                                                            <menuItem image="NSAddTemplate" hidden="YES" id="86"/>
                                                                             <menuItem title="String" id="88"/>
                                                                             <menuItem title="Integer" tag="1" id="87"/>
                                                                             <menuItem title="Real Number" tag="2" id="89"/>
@@ -451,7 +451,7 @@
                             <tabViewItem label="Group" identifier="" id="19">
                                 <view key="view" id="20">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="319"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" id="42">
                                             <rect key="frame" x="17" y="289" width="222" height="17"/>
@@ -508,7 +508,7 @@
         </window>
     </objects>
     <resources>
-        <image name="minus-8" width="8" height="8"/>
-        <image name="plus-8" width="8" height="8"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

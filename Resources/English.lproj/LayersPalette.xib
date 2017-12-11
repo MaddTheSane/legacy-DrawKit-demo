@@ -96,7 +96,7 @@
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
-                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="imageCell:19:image" id="19"/>
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="NSApplicationIcon" id="19"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                     </tableColumns>
@@ -122,7 +122,7 @@
                     <button toolTip="Add a new drawing layer to the drawing" verticalHuggingPriority="750" imageHugsTitle="YES" id="13">
                         <rect key="frame" x="11" y="8" width="33" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="plus-8" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="49">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="49">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -133,7 +133,7 @@
                     <button toolTip="Delete the selected layer" verticalHuggingPriority="750" imageHugsTitle="YES" id="14">
                         <rect key="frame" x="43" y="8" width="33" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="minus-8" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" inset="2" id="50">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="50">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -161,129 +161,8 @@
         </window>
     </objects>
     <resources>
-        <image name="imageCell:19:image" width="28" height="28">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
-GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
-c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7MjgsIDI4fdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
-HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPERkqTU0AKgAADEgAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAABAAAABAEBAQgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-ABALB0o5KhmDAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdiUDOynmgf
-9AEAAA8AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwAAABkdISNmwKF27LFxKPkgGBN6Gxwg
-bBQVFk0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA
-EwcHBywRERJLGRodYyEiJHwoLDCQMDM3oz9ESbhKUlvMiYiC8t6tgf/HfUP/m4Z6/5ehrP88QEXAAAAA
-CwAAAAAAAAAAAAAAAAAAAAAAAAAFAAICGgsNDjUXGRlXIyYmci0vMY06PD+jQkhKtlJWXMljaG3YfYGH
-5JKXne2oq7D3ub3C/8jLzv/W19v/uLzC/9LCqP/ts3D/4ppQ/9Cwmf/Q1t7/Q0pS1QAAACQAAAAAAAAA
-AAAAAAApKipmWVxfxWxwdN54fILokpWZ76irr/W8wMT7ztHU/9vc3//k5ej/6uzt//Hx8//29/j/+vr7
-//39/f///////f39/8jIxP/ozJf/9L1n/+ynUv/Pon3/2t3j/2FpcekFBQc9AAAAAAAAAAAAAAAAKywt
-gYmMkfXk6Oz/9vf3//n5+v/5+fr/+/v7//38/f/+/v7////////////m5+j/2NbW//f39//n6un/5efo
-/9nb3v/WzLT/8c9+//C+Xf/vslX/z5Zk/93c3v+Hj5f6CAgLUgAAAAAAAAAAAAAAABMUFVZvcXbj4uTo
-//7+/v/49/f/8vLy/+/v7v/r6+v/8fHy//r6+v/+/v7/9vj4/6ycnv+/sbL/9ff3//j6+v/Oz9D/4s+d
-//jUc//vwVz/8LhV/9eaVv/a0s//pKy1/woOEm4AAAACAAAAAAAAAAAKCgo3XV5jz9DV2f/6+vn/5ufn
-/+bn5//s7O3/8fHx//Pz9P/9/f3////////////h3d7/tYyN/8Oys//o6+3/09DF//HZi//102r/8Mhg
-//G+WP/fo1D/1sO5/7rCy/8ZHSKXAAAAEwAAAAAAAAAAAgICHUlLTrfCxsz//Pz8//X19f/09PX/9vf4
-//n5+v/9/f7//v7+//n7+//n3uD/48XI/8Wsq//Di4v/saeo/83Fq//84YP/89Bp//HMZP/yxFv/5axN
-/9Gznv/K0dj/LjQ5uwACAiUAAAAAAAAAAAAAABM1NjiZrrK4//n5+f/6+vn/+fn5//v7/f/8/f7///7/
-///////q7O3/t7S7/5aFiv/h4OD/3cXI/7WEfv/q2Zz/+t53//XWbf/yzWX/8MBV/+qwSP/No3z/1Nje
-/05UXOQDAwQ7AAAAAAAAAAAAAAAPJikrf6Cmqv/x8vT/8fHx//P09P/19ff////////////9/v//3N3d
-/6isrP+Ai5L/8PX2/8DGy/+qkn7//uiX//HQYP/ou1b/6Lhb/+q1SP/tt0v/059l/9nY2/9mbnX8AgQG
-TwAAAAAAAAAAAAAAChscHWWSmJ7/6+3w//39/f/t7e7/0NPW/+Di4//OztH/qKis/7Wtjv++r4X/gXp3
-/5OPif+Jg3j/2seW///khP/412v/v5VQ/9iua//zyV7/8b1P/9qiWP/b0M7/foaQ/wsOEHcAAAAIAAAA
-AAAAAAYREhJLgoiO/uLk6f/09fX/3d/g/6Cfnv+qoZL/squf/6iciv/WxoL/zruT/9PEtP/Sv6P/uaiK
-//7rpf/7333/5r1b/66Oav/FoXL/9Mpk//K9T//epU3/0Lux/5Wep/8cISWjAAAAFgAAAAAAAAADCwsL
-OXJ4fPPY2+L///////v7+v/ExMP/8eLL//Hn0v/Owpj/38p4/76ul//ZzLz/vq6a/9bGm///6Zj//uKD
-/8edU/+XiX//spZ8//PNa//1w1T/5KlF/9CvmP+ss7z/MjY7zAAAACMAAAAAAAAAAgcJCTJjaW3jzdHX
-///////5+fr/v7/D/8vBtP/Guqj/xLFn/8mwbv/Cv7//0NDQ/6qopf/56av//eiP//reg//Lq37/oJGG
-/6iHbf/yzm//98la/+mrQf/Sp37/wcbN/0dOVewAAQEvAAAAAAAAAAAFBgYpUVVazb/Eyv//////9PX4
-/+Dk5//T1t//vLaV/97Jd//EtqH//v7//+Dj5P/b0rT//u6n//7plv/qyXf/38y6/+Ti4v+0j3L/675k
-//bFWv/urUD/1Jpi/9XX2/9haXP+AgQFUwAAAAQAAAABAwMDIEBESLextbz//v3+//39/v/9/v//xMbJ
-/8u7e//axYr/0s/P//n6/P/DwsH/8ua1///sof/85ZT/3Lh2/+La1//6/v//wqyg/9+qWf/1wlr/8rFC
-/9eWUP/b1tb/eICK/w4QFX4AAAAKAAAAAQAAABgwMzifoaau//r6+//8/f3/+/3+/76/wf+2qpD/kIZ6
-/+Pk6P/n6Oz/0Mm2//nvsv//7aP/89qP/86shP/r6+//9fj6/97W1v/aqWz/+ctf//WyQ//blT3/3dDK
-/5Scpf8eIyisAAAAEwAAAAAAAAARIiYph5Saof/29/j//P39/+/w8f/Kycn/t66n/8jJy//v8fT/xsfK
-/+vgsv//8av//+yh/+PCe//Fqpj/3tfR/9LEt//LtZ7/37Zs//nEWv/1r0L/3I0u/9a/sv+cpKz/MTg+
-1wAAAhsAAAABAAAACRsdH26FipH/7e7w//n5+f/49/n/ycjK/9PT1v/8/P7/7/Dx/8rDtf/06a///+6l
-//zonf/oyn//4MB5//DQff/303j/+c1x//G8Xv/opU//45VB/9B6J/90UD79SVBd8jM5QdUDAwMiAAAA
-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
-EwEZAR8BJQErATIBOAE+AUUBTAFSAVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB0QHZAeEB
-6QHyAfoCAwIMAhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywLVAuAC6wL1AwAD
-CwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQTBCAELQQ7BEgEVQRjBHEE
-fgSMBJoEqAS2BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVnBXcFhgWWBaYFtQXFBdUF5QX2BgYGFgYnBjcG
-SAZZBmoGewaMBp0GrwbABtEG4wb1BwcHGQcrBz0HTwdhB3QHhgeZB6wHvwfSB+UH+AgLCB8IMghGCFoI
-bgiCCJYIqgi+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7ChEKJwo9ClQKagqBCpgKrgrFCtwK
-8wsLCyILOQtRC2kLgAuYC7ALyAvhC/kMEgwqDEMMXAx1DI4MpwzADNkM8w0NDSYNQA1aDXQNjg2pDcMN
-3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+WD7MPzw/sEAkQJhBDEGEQfhCbELkQ1xD1ERMR
-MRFPEW0RjBGqEckR6BIHEiYSRRJkEoQSoxLDEuMTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U
-8BUSFTQVVhV4FZsVvRXgFgMWJhZJFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjVGPoZ
-IBlFGWsZkRm3Gd0aBBoqGlEadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7HKMczBz1HR4dRx1wHZkd
-wx3sHhYeQB5qHpQevh7pHxMfPh9pH5Qfvx/qIBUgQSBsIJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i
-3SMKIzgjZiOUI8Ij8CQfJE0kfCSrJNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8o
-cSiiKNQpBik4KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4WLkwu
-gi63Lu4vJC9aL5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNGM38zuDPxNCs0ZTSeNNg1
-EzVNNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjIOQU5Qjl/Obw5+To2OnQ6sjrvOy07azuqO+g8
-JzxlPKQ84z0iPWE9oT3gPiA+YD6gPuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5CMEJyQrVC90M6Q31D
-wEQDREdEikTORRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBKN0p9SsRLDEtTS5pL
-4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIxUnxSx1MTU19TqlP2VEJU
-j1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllpWbhaB1pWWqZa9VtFW5Vb5Vw1XIZc1l0nXXhd
-yV4aXmxevV8PX2Ffs2AFYFdgqmD8YU9homH1YklinGLwY0Njl2PrZEBklGTpZT1lkmXnZj1mkmboZz1n
-k2fpaD9olmjsaUNpmmnxakhqn2r3a09rp2v/bFdsr20IbWBtuW4SbmtuxG8eb3hv0XArcIZw4HE6cZVx
-8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabdvh3VnezeBF4bnjMeSp5iXnnekZ6pXsEe2N7wnwhfIF8
-4X1BfaF+AX5ifsJ/I3+Ef+WAR4CogQqBa4HNgjCCkoL0g1eDuoQdhICE44VHhauGDoZyhteHO4efiASI
-aYjOiTOJmYn+imSKyoswi5aL/IxjjMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiSEZJ6kuOTTZO2lCCU
-ipT0lV+VyZY0lp+XCpd1l+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBpoNih
-R6G2oiailqMGo3aj5qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sCq3Wr6axcrNCtRK24ri2u
-oa8Wr4uwALB1sOqxYLHWskuywrM4s660JbSctRO1irYBtnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8
-m70VvY++Cr6Evv+/er/1wHDA7MFnwePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/IPci8yTrJuco4yrfL
-Nsu2zDXMtc01zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls2fHa
-dtr724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN5pbnH+ep6DLovOlG6dDq
-W+rl63Dr++yG7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ86f0NPTC9VD13vZt9vv3ivgZ+Kj5OPnH+lf6
-5/t3/Af8mP0p/br+S/7c/23//3BhcmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAArAdmNndAAAAAAA
-AAABAAEAAAAAAAAAAQAAAAEAAAAAAAAAAQAAAAEAAAAAAAAAAQAAbmRpbgAAAAAAAAA2AACjwAAAVIAA
-AEzAAACZgAAAJoAAAA9AAABQQAAAVEAAAjMzAAIzMwACMzMAAAAAAAAAAHNmMzIAAAAAAAELtwAABZb/
-//NXAAAHKQAA/df///u3///9pgAAA9oAAMD2bW1vZAAAAAAAAEwtAAACHkhBMjDAjCOAAAAAAAAAAAAA
-AAAAAAAAANIlJicoWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoycpKlpOU0lt
-YWdlUmVwWE5TT2JqZWN00iUmLC1XTlNBcnJheaIsKtIlJi8wXk5TTXV0YWJsZUFycmF5oy8sKtMyMwo0
-NTZXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAzSJSY4OVdOU0NvbG9yojgq0iUmOzxXTlNJbWFn
-ZaI7Kl8QD05TS2V5ZWRBcmNoaXZlctE/QFRyb290gAEACAARABoAIwAtADIANwBGAEwAVwBeAGUAcgB5
-AIEAgwCFAIoAjACOAJcAnACnAKkAqwCtALIAtQC3ALkAuwC9AMIA2QDbAN0aCxoQGhsaJBo3GjsaRhpP
-GlQaXBpfGmQacxp3Gn4ahhqTGpgamhqcGqEaqRqsGrEauRq8Gs4a0RrWAAAAAAAAAgEAAAAAAAAAQQAA
-AAAAAAAAAAAAAAAAGtg
-</mutableData>
-        </image>
-        <image name="minus-8" width="8" height="8"/>
-        <image name="plus-8" width="8" height="8"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>

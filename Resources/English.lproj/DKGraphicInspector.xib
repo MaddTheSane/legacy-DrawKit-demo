@@ -150,14 +150,14 @@
                             <tabViewItem label="Style" identifier="" id="152">
                                 <view key="view" id="154">
                                     <rect key="frame" x="10" y="33" width="300" height="408"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="112">
                                             <rect key="frame" x="20" y="197" width="260" height="191"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                             <clipView key="contentView" id="s1F-oL-H7N">
                                                 <rect key="frame" x="1" y="1" width="258" height="189"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveColumns="NO" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="115" id="113">
                                                         <rect key="frame" x="0.0" y="0.0" width="258" height="189"/>

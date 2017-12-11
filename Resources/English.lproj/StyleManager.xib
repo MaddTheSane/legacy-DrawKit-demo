@@ -22,7 +22,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Styles Registry Manager" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="style_manager" animationBehavior="default" id="7" userLabel="Panel" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -37,7 +37,7 @@
                         <rect key="frame" x="20" y="50" width="192" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" id="txK-3Y-xfK">
-                            <rect key="frame" x="1" y="23" width="190" height="246"/>
+                            <rect key="frame" x="1" y="0.0" width="190" height="269"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="16" headerView="117" id="12" customClass="GCTableView">
@@ -55,7 +55,7 @@
                                             </tableHeaderCell>
                                             <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="right" controlSize="small" inset="2" id="15" customClass="GCCheckboxCell">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="cellTitle"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
                                         </tableColumn>
                                         <tableColumn identifier="catName" width="163.96039999999999" minWidth="64.960449999999994" maxWidth="1000" id="14">
@@ -96,7 +96,7 @@
                     <button toolTip="Add a new category." verticalHuggingPriority="750" imageHugsTitle="YES" id="16">
                         <rect key="frame" x="20" y="19" width="31" height="23"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="plus-8" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="111">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="111">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -107,7 +107,7 @@
                     <button toolTip="Delete the selected category." verticalHuggingPriority="750" imageHugsTitle="YES" id="17">
                         <rect key="frame" x="51" y="19" width="31" height="23"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="minus-8" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="112">
+                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="112">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -146,14 +146,14 @@
                             <tabViewItem label="Icons" identifier="1" id="128">
                                 <view key="view" id="129">
                                     <rect key="frame" x="10" y="33" width="298" height="249"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView toolTip="Select a style to edit it. Checkboxes show which categories include it." autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="84">
                                             <rect key="frame" x="17" y="17" width="264" height="233"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <clipView key="contentView" autoresizesSubviews="NO" id="eWq-fJ-yTZ">
                                                 <rect key="frame" x="1" y="1" width="262" height="231"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="68">
                                                         <rect key="frame" x="0.0" y="0.0" width="244" height="230"/>
@@ -161,79 +161,79 @@
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <size key="cellSize" width="58" height="56"/>
                                                         <size key="intercellSpacing" width="4" height="2"/>
-                                                        <buttonCell key="prototype" type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="-1" inset="2" id="114">
+                                                        <buttonCell key="prototype" type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="-1" inset="2" id="114">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system" size="10"/>
                                                         </buttonCell>
                                                         <cells>
                                                             <column>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" state="on" inset="2" id="67">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" state="on" inset="2" id="67">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="4" inset="2" id="72">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="4" inset="2" id="72">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="8" inset="2" id="76">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="8" inset="2" id="76">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="12" inset="2" id="80">
-                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                                    <font key="font" metaFont="system" size="10"/>
-                                                                </buttonCell>
-                                                            </column>
-                                                            <column>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="1" inset="2" id="69">
-                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                                    <font key="font" metaFont="system" size="10"/>
-                                                                </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="5" inset="2" id="73">
-                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                                    <font key="font" metaFont="system" size="10"/>
-                                                                </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="9" inset="2" id="77">
-                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                                    <font key="font" metaFont="system" size="10"/>
-                                                                </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="13" inset="2" id="81">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="12" inset="2" id="80">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
                                                             </column>
                                                             <column>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="2" inset="2" id="70">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="1" inset="2" id="69">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="6" inset="2" id="74">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="5" inset="2" id="73">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="10" inset="2" id="78">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="9" inset="2" id="77">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="14" inset="2" id="82">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="13" inset="2" id="81">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
                                                             </column>
                                                             <column>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="3" inset="2" id="71">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="2" inset="2" id="70">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="7" inset="2" id="75">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="6" inset="2" id="74">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="11" inset="2" id="79">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="10" inset="2" id="78">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
-                                                                <buttonCell type="bevel" bezelStyle="regularSquare" image="buttonCell:114:image" imagePosition="only" alignment="center" tag="15" inset="2" id="83">
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="14" inset="2" id="82">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                    <font key="font" metaFont="system" size="10"/>
+                                                                </buttonCell>
+                                                            </column>
+                                                            <column>
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="3" inset="2" id="71">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                    <font key="font" metaFont="system" size="10"/>
+                                                                </buttonCell>
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="7" inset="2" id="75">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                    <font key="font" metaFont="system" size="10"/>
+                                                                </buttonCell>
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="11" inset="2" id="79">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                                    <font key="font" metaFont="system" size="10"/>
+                                                                </buttonCell>
+                                                                <buttonCell type="bevel" bezelStyle="regularSquare" imagePosition="only" alignment="center" tag="15" inset="2" id="83">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
@@ -267,8 +267,8 @@
                                             <rect key="frame" x="17" y="17" width="264" height="229"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="fPY-zp-5sR">
-                                                <rect key="frame" x="1" y="23" width="262" height="205"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <rect key="frame" x="1" y="0.0" width="262" height="228"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView toolTip="Select a style to edit its name and choose which categories it appears in." verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" headerView="137" id="136">
                                                         <rect key="frame" x="0.0" y="0.0" width="262" height="205"/>
@@ -283,7 +283,7 @@
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </tableHeaderCell>
-                                                                <imageCell key="dataCell" controlSize="small" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="imageCell:142:image" id="142"/>
+                                                                <imageCell key="dataCell" controlSize="small" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="142"/>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             </tableColumn>
                                                             <tableColumn identifier="name" width="201" minWidth="40" maxWidth="1000" id="139">
@@ -311,7 +311,7 @@
                                                 <rect key="frame" x="-100" y="-100" width="247" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" horizontal="NO" id="134">
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="134">
                                                 <rect key="frame" x="248" y="17" width="15" height="211"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -496,172 +496,8 @@ Styles should be named appropriately when they are first registered to avoid thi
         </window>
     </objects>
     <resources>
-        <image name="buttonCell:114:image" width="1" height="1">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
-GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
-c1dOU0NvbG9ygAKADRIgwwAAgAOAC1Z7MSwgMX3SFQoWGFpOUy5vYmplY3RzoReABIAK0hUKGh2iGxyA
-BYAGgAkQANIgCiEiXxAUTlNUSUZGUmVwcmVzZW50YXRpb26AB4AITxESOE1NACoAAAAKAAAAEAEAAAMA
-AAABAAEAAAEBAAMAAAABAAEAAAECAAMAAAACAAgACAEDAAMAAAABAAEAAAEGAAMAAAABAAEAAAEKAAMA
-AAABAAEAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEVAAMAAAABAAIAAAEWAAMAAAABAAEAAAEXAAQA
-AAABAAAAAgEcAAMAAAABAAEAAAEoAAMAAAABAAIAAAFSAAMAAAABAAEAAAFTAAMAAAACAAEAAYdzAAcA
-ABFoAAAA0AAAAAAAABFoYXBwbAIAAABtbnRyR1JBWVhZWiAH3AAIABcADwAuAA9hY3NwQVBQTAAAAABu
-b25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVkZXNjAAAAwAAAAHlkc2NtAAABPAAAB+hjcHJ0AAAJJAAAACN3
-dHB0AAAJSAAAABRrVFJDAAAJXAAACAxkZXNjAAAAAAAAAB9HZW5lcmljIEdyYXkgR2FtbWEgMi4yIFBy
-b2ZpbGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbWx1YwAAAAAAAAAfAAAADHNrU0sAAAAuAAABhGRhREsA
-AAA4AAABsmNhRVMAAAA4AAAB6nZpVk4AAABAAAACInB0QlIAAABKAAACYnVrVUEAAAAsAAACrGZyRlUA
-AAA+AAAC2Gh1SFUAAAA0AAADFnpoVFcAAAAeAAADSm5iTk8AAAA6AAADaGNzQ1oAAAAoAAADomhlSUwA
-AAAkAAADyml0SVQAAABOAAAD7nJvUk8AAAAqAAAEPGRlREUAAABOAAAEZmtvS1IAAAAiAAAEtHN2U0UA
-AAA4AAABsnpoQ04AAAAeAAAE1mphSlAAAAAmAAAE9GVsR1IAAAAqAAAFGnB0UE8AAABSAAAFRG5sTkwA
-AABAAAAFlmVzRVMAAABMAAAF1nRoVEgAAAAyAAAGInRyVFIAAAAkAAAGVGZpRkkAAABGAAAGeGhySFIA
-AAA+AAAGvnBsUEwAAABKAAAG/HJ1UlUAAAA6AAAHRmVuVVMAAAA8AAAHgGFyRUcAAAAsAAAHvABWAWEA
-ZQBvAGIAZQBjAG4A4QAgAHMAaQB2AOEAIABnAGEAbQBhACAAMgAsADIARwBlAG4AZQByAGkAcwBrACAA
-ZwByAOUAIAAyACwAMgAgAGcAYQBtAG0AYQBwAHIAbwBmAGkAbABHAGEAbQBtAGEAIABkAGUAIABnAHIA
-aQBzAG8AcwAgAGcAZQBuAOgAcgBpAGMAYQAgADIALgAyAEMepQB1ACAAaADsAG4AaAAgAE0A4AB1ACAA
-eADhAG0AIABDAGgAdQBuAGcAIABHAGEAbQBtAGEAIAAyAC4AMgBQAGUAcgBmAGkAbAAgAEcAZQBuAOkA
-cgBpAGMAbwAgAGQAYQAgAEcAYQBtAGEAIABkAGUAIABDAGkAbgB6AGEAcwAgADIALAAyBBcEMAQzBDAE
-OwRMBD0EMAAgAEcAcgBhAHkALQQzBDAEPAQwACAAMgAuADIAUAByAG8AZgBpAGwAIABnAOkAbgDpAHIA
-aQBxAHUAZQAgAGcAcgBpAHMAIABnAGEAbQBtAGEAIAAyACwAMgDBAGwAdABhAGwA4QBuAG8AcwAgAHMA
-egD8AHIAawBlACAAZwBhAG0AbQBhACAAMgAuADKQGnUocHCWjlFJXqYAIAAyAC4AMgAggnJfaWPPj/AA
-RwBlAG4AZQByAGkAcwBrACAAZwByAOUAIABnAGEAbQBtAGEAIAAyACwAMgAtAHAAcgBvAGYAaQBsAE8A
-YgBlAGMAbgDhACABYQBlAGQA4QAgAGcAYQBtAGEAIAAyAC4AMgXSBdAF3gXUACAF0AXkBdUF6AAgBdsF
-3AXcBdkAIAAyAC4AMgBQAHIAbwBmAGkAbABvACAAZwByAGkAZwBpAG8AIABnAGUAbgBlAHIAaQBjAG8A
-IABkAGUAbABsAGEAIABnAGEAbQBtAGEAIAAyACwAMgBHAGEAbQBhACAAZwByAGkAIABnAGUAbgBlAHIA
-aQBjAQMAIAAyACwAMgBBAGwAbABnAGUAbQBlAGkAbgBlAHMAIABHAHIAYQB1AHMAdAB1AGYAZQBuAC0A
-UAByAG8AZgBpAGwAIABHAGEAbQBtAGEAIAAyACwAMsd8vBgAINaMwMkAIKwQucgAIAAyAC4AMgAg1QS4
-XNMMx3xmbpAacHBepnz7ZXAAIAAyAC4AMgAgY8+P8GWHTvZOAIIsMLAw7DCkMKww8zDeACAAMgAuADIA
-IDDXMO0w1TChMKQw6wOTA7UDvQO5A7oDzAAgA5MDugPBA7kAIAOTA6wDvAO8A7EAIAAyAC4AMgBQAGUA
-cgBmAGkAbAAgAGcAZQBuAOkAcgBpAGMAbwAgAGQAZQAgAGMAaQBuAHoAZQBuAHQAbwBzACAAZABhACAA
-RwBhAG0AbQBhACAAMgAsADIAQQBsAGcAZQBtAGUAZQBuACAAZwByAGkAagBzACAAZwBhAG0AbQBhACAA
-MgAsADIALQBwAHIAbwBmAGkAZQBsAFAAZQByAGYAaQBsACAAZwBlAG4A6QByAGkAYwBvACAAZABlACAA
-ZwBhAG0AbQBhACAAZABlACAAZwByAGkAcwBlAHMAIAAyACwAMg4jDjEOBw4qDjUOQQ4BDiEOIQ4yDkAO
-AQ4jDiIOTA4XDjEOSA4nDkQOGwAgADIALgAyAEcAZQBuAGUAbAAgAEcAcgBpACAARwBhAG0AYQAgADIA
-LAAyAFkAbABlAGkAbgBlAG4AIABoAGEAcgBtAGEAYQBuACAAZwBhAG0AbQBhACAAMgAsADIAIAAtAHAA
-cgBvAGYAaQBpAGwAaQBHAGUAbgBlAHIAaQENAGsAaQAgAEcAcgBhAHkAIABHAGEAbQBtAGEAIAAyAC4A
-MgAgAHAAcgBvAGYAaQBsAFUAbgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAcwB6AGEA
-cgBvAVsAYwBpACAAZwBhAG0AbQBhACAAMgAsADIEHgQxBEkEMARPACAEQQQ1BEAEMARPACAEMwQwBDwE
-PAQwACAAMgAsADIALQQ/BEAEPgREBDgEOwRMAEcAZQBuAGUAcgBpAGMAIABHAHIAYQB5ACAARwBhAG0A
-bQBhACAAMgAuADIAIABQAHIAbwBmAGkAbABlBjoGJwZFBicAIAAyAC4AMgAgBkQGSAZGACAGMQZFBicG
-LwZKACAGOQYnBkV0ZXh0AAAAAENvcHlyaWdodCBBcHBsZSBJbmMuLCAyMDEyAABYWVogAAAAAAAA81EA
-AQAAAAEWzGN1cnYAAAAAAAAEAAAAAAUACgAPABQAGQAeACMAKAAtADIANwA7AEAARQBKAE8AVABZAF4A
-YwBoAG0AcgB3AHwAgQCGAIsAkACVAJoAnwCkAKkArgCyALcAvADBAMYAywDQANUA2wDgAOUA6wDwAPYA
-+wEBAQcBDQETARkBHwElASsBMgE4AT4BRQFMAVIBWQFgAWcBbgF1AXwBgwGLAZIBmgGhAakBsQG5AcEB
-yQHRAdkB4QHpAfIB+gIDAgwCFAIdAiYCLwI4AkECSwJUAl0CZwJxAnoChAKOApgCogKsArYCwQLLAtUC
-4ALrAvUDAAMLAxYDIQMtAzgDQwNPA1oDZgNyA34DigOWA6IDrgO6A8cD0wPgA+wD+QQGBBMEIAQtBDsE
-SARVBGMEcQR+BIwEmgSoBLYExATTBOEE8AT+BQ0FHAUrBToFSQVYBWcFdwWGBZYFpgW1BcUF1QXlBfYG
-BgYWBicGNwZIBlkGagZ7BowGnQavBsAG0QbjBvUHBwcZBysHPQdPB2EHdAeGB5kHrAe/B9IH5Qf4CAsI
-HwgyCEYIWghuCIIIlgiqCL4I0gjnCPsJEAklCToJTwlkCXkJjwmkCboJzwnlCfsKEQonCj0KVApqCoEK
-mAquCsUK3ArzCwsLIgs5C1ELaQuAC5gLsAvIC+EL+QwSDCoMQwxcDHUMjgynDMAM2QzzDQ0NJg1ADVoN
-dA2ODakNww3eDfgOEw4uDkkOZA5/DpsOtg7SDu4PCQ8lD0EPXg96D5YPsw/PD+wQCRAmEEMQYRB+EJsQ
-uRDXEPURExExEU8RbRGMEaoRyRHoEgcSJhJFEmQShBKjEsMS4xMDEyMTQxNjE4MTpBPFE+UUBhQnFEkU
-ahSLFK0UzhTwFRIVNBVWFXgVmxW9FeAWAxYmFkkWbBaPFrIW1hb6Fx0XQRdlF4kXrhfSF/cYGxhAGGUY
-ihivGNUY+hkgGUUZaxmRGbcZ3RoEGioaURp3Gp4axRrsGxQbOxtjG4obshvaHAIcKhxSHHscoxzMHPUd
-Hh1HHXAdmR3DHeweFh5AHmoelB6+HukfEx8+H2kflB+/H+ogFSBBIGwgmCDEIPAhHCFIIXUhoSHOIfsi
-JyJVIoIiryLdIwojOCNmI5QjwiPwJB8kTSR8JKsk2iUJJTglaCWXJccl9yYnJlcmhya3JugnGCdJJ3on
-qyfcKA0oPyhxKKIo1CkGKTgpaymdKdAqAio1KmgqmyrPKwIrNitpK50r0SwFLDksbiyiLNctDC1BLXYt
-qy3hLhYuTC6CLrcu7i8kL1ovkS/HL/4wNTBsMKQw2zESMUoxgjG6MfIyKjJjMpsy1DMNM0YzfzO4M/E0
-KzRlNJ402DUTNU01hzXCNf02NzZyNq426TckN2A3nDfXOBQ4UDiMOMg5BTlCOX85vDn5OjY6dDqyOu87
-LTtrO6o76DwnPGU8pDzjPSI9YT2hPeA+ID5gPqA+4D8hP2E/oj/iQCNAZECmQOdBKUFqQaxB7kIwQnJC
-tUL3QzpDfUPARANER0SKRM5FEkVVRZpF3kYiRmdGq0bwRzVHe0fASAVIS0iRSNdJHUljSalJ8Eo3Sn1K
-xEsMS1NLmkviTCpMcky6TQJNSk2TTdxOJU5uTrdPAE9JT5NP3VAnUHFQu1EGUVBRm1HmUjFSfFLHUxNT
-X1OqU/ZUQlSPVNtVKFV1VcJWD1ZcVqlW91dEV5JX4FgvWH1Yy1kaWWlZuFoHWlZaplr1W0VblVvlXDVc
-hlzWXSddeF3JXhpebF69Xw9fYV+zYAVgV2CqYPxhT2GiYfViSWKcYvBjQ2OXY+tkQGSUZOllPWWSZedm
-PWaSZuhnPWeTZ+loP2iWaOxpQ2maafFqSGqfavdrT2una/9sV2yvbQhtYG25bhJua27Ebx5veG/RcCtw
-hnDgcTpxlXHwcktypnMBc11zuHQUdHB0zHUodYV14XY+dpt2+HdWd7N4EXhueMx5KnmJeed6RnqlewR7
-Y3vCfCF8gXzhfUF9oX4BfmJ+wn8jf4R/5YBHgKiBCoFrgc2CMIKSgvSDV4O6hB2EgITjhUeFq4YOhnKG
-14c7h5+IBIhpiM6JM4mZif6KZIrKizCLlov8jGOMyo0xjZiN/45mjs6PNo+ekAaQbpDWkT+RqJIRknqS
-45NNk7aUIJSKlPSVX5XJljSWn5cKl3WX4JhMmLiZJJmQmfyaaJrVm0Kbr5wcnImc951kndKeQJ6unx2f
-i5/6oGmg2KFHobaiJqKWowajdqPmpFakx6U4pammGqaLpv2nbqfgqFKoxKk3qamqHKqPqwKrdavprFys
-0K1ErbiuLa6hrxavi7AAsHWw6rFgsdayS7LCszizrrQltJy1E7WKtgG2ebbwt2i34LhZuNG5SrnCuju6
-tbsuu6e8IbybvRW9j74KvoS+/796v/XAcMDswWfB48JfwtvDWMPUxFHEzsVLxcjGRsbDx0HHv8g9yLzJ
-Osm5yjjKt8s2y7bMNcy1zTXNtc42zrbPN8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DY
-ZNjo2WzZ8dp22vvbgNwF3IrdEN2W3hzeot8p36/gNuC94UThzOJT4tvjY+Pr5HPk/OWE5g3mlucf56no
-Mui86Ubp0Opb6uXrcOv77IbtEe2c7ijutO9A78zwWPDl8XLx//KM8xnzp/Q09ML1UPXe9m32+/eK+Bn4
-qPk4+cf6V/rn+3f8B/yY/Sn9uv5L/tz/bf//0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0
-bWFwSW1hZ2VSZXCjJykqWk5TSW1hZ2VSZXBYTlNPYmplY3TSJSYsLVdOU0FycmF5oiwq0iUmLzBeTlNN
-dXRhYmxlQXJyYXmjLywq0zIzCjQ1NldOU1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOADNIlJjg5V05T
-Q29sb3KiOCrSJSY7PFdOU0ltYWdlojsqXxAPTlNLZXllZEFyY2hpdmVy0T9AVHJvb3SAAQAIABEAGgAj
-AC0AMgA3AEYATABXAF4AZQByAHkAgQCDAIUAigCMAI4AlQCaAKUApwCpAKsAsACzALUAtwC5ALsAwADX
-ANkA2xMXExwTJxMwE0MTRxNSE1sTYBNoE2sTcBN/E4MTihOSE58TpBOmE6gTrRO1E7gTvRPFE8gT2hPd
-E+IAAAAAAAACAQAAAAAAAABBAAAAAAAAAAAAAAAAAAAT5A
-</mutableData>
-        </image>
-        <image name="imageCell:142:image" width="24" height="24">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
-GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
-c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7MjQsIDI0fdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
-HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPEQ2qTU0AKgAACQgAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-BAAAAgkAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgoGRDsnEpQBAQEFAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAKZ1Q5rJphIvgEAQAmAAEBFwEBAQcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAIAAAALAAAAFgEBASACAwMoBgcIOw0PEVgkKCyRuJRt97ZqL/9NQz/dQkhQ
-3ggJCTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0DBAQfCAkJMg0ODkUSExRTGBscZiYoK4U4Oz6hTE9T
-vWFkaddzdnzsg4iM/I+Um/+QkpD/26Rv/899Pf/Appf/goyY/w4QEmsAAAACAAAAAAAAAAAeHx9bQkRH
-q1FWWchlaW3YgIOI5pufo/WxtLj/wcTH/8/S1P/a3N//5unr//P19//5+vv//////+vs7//Et5v/9bhf
-/+WTPP/Qp4n/oaqz/x4iJZ4AAAAFAAAAAAAAAAAjJCWIiY2T/ezt8f/39/j/+Pn6//n6+v/9/Pz/////
-///////6+/v/zszM/+zr6//q7ez/4uTl/7/Av//ix4f/7rVO/+ifPv/LlGf/u8HJ/zI3PcUAAAAJAAAA
-AAAAAAAODQ9YcHN46PHz9P/4+Pj/7O3s/+np6f/m5+b/8PDw//z8/P//////yMDB/6WPkf/r7Oz/6u3t
-/7q0o//203P/67lM/+uqQf/OkVL/zMzQ/0VMU+MAAAEfAAAAAAAAAAAEBAQwV1pf0uLk5//z9PT/5OXk
-/+3t7v/z8/P/+Pj5///////9/Pz/6uDh/7SMjP+zjIz/uru9/+HQmf/0z13/7sBR/++zRf/UlEL/1szJ
-/11mb/QGBwhNAAAAAAAAAAAAAAAaQURJutHU2P//////+Pj4//j4+v/5+vz//v/////////HyMz/uJab
-/8a0tv/EkpT/qY2A//HahP/10V7/8cZU//C7R//Zlzf/1L+0/32GkfwPERN5AAAAAAAAAAAAAAARMDQ3
-osPHy//6+vr/7u7u//f4+//+//////////j5+/+vs7X/eIGI/9ng4v+9trz/xaV8//nabP/vxVL/6LZM
-/+muPf/fmzL/z7CV/52mr/8WGh2dAAAAAAAAAAAAAAAJIiUnh7G3vP/8/Pz/7u/w/87P0v/Y2dz/xMPH
-/5uZk//Dtn//fnds/4iHg/+CfnL/5c2A//zYZP/YrEj/xJJO//G9TP/pqDb/zaJ2/7u/yP8hJivCAAAA
-DQAAAAAAAAACGBobbZ6kq//4+fr/5OXn/56env+mnYv/qaCT/6yfcf/dwnX/vKuY/8Wvkf+2o33//uOD
-//bRYP+2jEr/rYlk/+6+Uv/xsDr/xI5T/8jGzP84PkXdAQICKQAAAAAAAAAAERITWIuQmP73+Pr/////
-/8LCw//j0rj/1MWq/9G8Z/+okWX/vbWt/6icj//hzY7//eF8//HJZP+PcFL/lH1q/+q9Wv/4u0P/yog7
-/9LIxP9YX2j0BAQFRQAAAAAAAAAADQ4OS3h+hvXy8/X/+Pn6/8DBxf+urK7/raOB/7+iUP/CvLj/5ebo
-/7aypf/66Jf//+WA/9qvXv/Csqb/nHpg/+S0U//4wEj/04cs/9K/sf96goz/BAYIXgAAAAAAAAAACAkI
-PGNpcern6Ov//f3+//T2+//Gyc3/yrt0/8Csfv/09vr/29zf/9zQpv/+6ZH/+9x6/8Wfbv/x8/b/uKCR
-/9eeSP/1uEf/4I8r/8uqkf+co6z/Cg0RiQAAAAYAAAAABAQDKk5TWtvY2t7////+//r8/v+zs7H/oZBq
-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
-AADEbmxOTAAAABQAAADEaXRJVAAAABQAAADEAFMAeQBuAGMATQBhAHMAdABlAHJtbW9kAAAAAAAATC0A
-AAIeSEEyMMCMI4AAAAAAAAAAAAAAAAAAAAAAdGV4dAAAAABDb3B5cmlnaHQgQXBwbGUsIEluYy4sIDIw
-MDgA0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJykqWk5TSW1hZ2VS
-ZXBYTlNPYmplY3TSJSYsLVdOU0FycmF5oiwq0iUmLzBeTlNNdXRhYmxlQXJyYXmjLywq0zIzCjQ1NldO
-U1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOADNIlJjg5V05TQ29sb3KiOCrSJSY7PFdOU0ltYWdlojsq
-XxAPTlNLZXllZEFyY2hpdmVy0T9AVHJvb3SAAQAIABEAGgAjAC0AMgA3AEYATABXAF4AZQByAHkAgQCD
-AIUAigCMAI4AlwCcAKcAqQCrAK0AsgC1ALcAuQC7AL0AwgDZANsA3Q6LDpAOmw6kDrcOuw7GDs8O1A7c
-Dt8O5A7zDvcO/g8GDxMPGA8aDxwPIQ8pDywPMQ85DzwPTg9RD1YAAAAAAAACAQAAAAAAAABBAAAAAAAA
-AAAAAAAAAAAPWA
-</mutableData>
-        </image>
-        <image name="minus-8" width="8" height="8"/>
-        <image name="plus-8" width="8" height="8"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
     </resources>
 </document>
