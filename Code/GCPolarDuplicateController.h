@@ -6,17 +6,17 @@
 
 @interface GCPolarDuplicateController : NSWindowController
 {
-    IBOutlet id mAngleIncrementTextField;
-    IBOutlet id mCentreXTextField;
-    IBOutlet id mCentreYTextField;
-    IBOutlet id mCopiesTextField;
-    IBOutlet id mRotateCopiesCheckbox;
-	IBOutlet id	mAutoFitCircleCheckbox;
-	IBOutlet id	mOKButton;
-	IBOutlet id	mCancelButton;
-	IBOutlet id	mManualSettingsBox;
+	IBOutlet NSTextField *mAngleIncrementTextField;
+	IBOutlet NSTextField *mCentreXTextField;
+	IBOutlet NSTextField *mCentreYTextField;
+	IBOutlet NSTextField *mCopiesTextField;
+	IBOutlet NSButton *mRotateCopiesCheckbox;
+	IBOutlet NSButton *mAutoFitCircleCheckbox;
+	IBOutlet NSButton *mOKButton;
+	IBOutlet NSButton *mCancelButton;
+	IBOutlet NSBox *mManualSettingsBox;
 	
-	id<PolarDuplicationDelegate> mDelegateRef;
+	__unsafe_unretained id<PolarDuplicationDelegate> mDelegateRef;
 }
 
 

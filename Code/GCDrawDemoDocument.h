@@ -10,17 +10,21 @@
 #import "GCPolarDuplicateController.h"
 #import "GCExportOptionsController.h"
 
+@class GCBasicDialogController;
+@class GCPolarDuplicateController;
+@class GCLinearDuplicateController;
+@class GCExportOptionsController;
+@class DrawingSizeController;
+
 @interface GCDrawDemoDocument : DKDrawingDocument <PolarDuplicationDelegate, ExportControllerDelegate>
 {
-	IBOutlet	id		mToolNamePanelController;
-	IBOutlet	id		mPolarDuplicateController;
-	IBOutlet	id		mLinearDuplicateController;
-	IBOutlet	id		mExportController;
-	id					mDrawingSizeController;
+	IBOutlet GCBasicDialogController *mToolNamePanelController;
+	IBOutlet GCPolarDuplicateController *mPolarDuplicateController;
+	IBOutlet GCLinearDuplicateController *mLinearDuplicateController;
+	IBOutlet GCExportOptionsController *mExportController;
+	DrawingSizeController *mDrawingSizeController;
 }
 
-+ (void)				setDefaultQualityModulation:(BOOL) dqm;
-+ (BOOL)				defaultQualityModulation;
 @property (class) BOOL defaultQualityModulation;
 
 

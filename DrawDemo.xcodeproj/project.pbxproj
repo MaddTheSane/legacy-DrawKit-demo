@@ -190,7 +190,7 @@
 		BF58CFF10C7526A6009B85CC /* GCMiniControlCluster.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCMiniControlCluster.h; sourceTree = "<group>"; };
 		BF58CFF20C7526A6009B85CC /* GCMiniControlCluster.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCMiniControlCluster.m; sourceTree = "<group>"; };
 		BF58CFF30C7526A6009B85CC /* GCMiniRadialControl2.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCMiniRadialControl2.h; sourceTree = "<group>"; };
-		BF58CFF40C7526A6009B85CC /* GCMiniRadialControl2.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCMiniRadialControl2.m; sourceTree = "<group>"; };
+		BF58CFF40C7526A6009B85CC /* GCMiniRadialControl2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMiniRadialControl2.m; sourceTree = "<group>"; };
 		BF58CFF50C7526A6009B85CC /* GCMiniRadialControls.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCMiniRadialControls.h; sourceTree = "<group>"; };
 		BF58CFF60C7526A6009B85CC /* GCMiniRadialControls.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GCMiniRadialControls.m; sourceTree = "<group>"; };
 		BF58CFF70C7526A6009B85CC /* GCMiniSlider.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GCMiniSlider.h; sourceTree = "<group>"; };

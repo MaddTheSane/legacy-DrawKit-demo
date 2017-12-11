@@ -88,10 +88,10 @@ typedef NS_ENUM(NSInteger, DKControlInfoWindowMode) {
 
 - (GCControlHitTest)hitTestPoint:(NSPoint) p;
 
-- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags;
-- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags;
-- (void)mouseUpAt:(NSPoint) endPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags;
-- (void)					flagsChanged:(int) flags;
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags;
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags;
+- (void)mouseUpAt:(NSPoint) endPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags;
+- (void)flagsChanged:(NSEventModifierFlags) flags;
 
 - (void)					setInfoWindowMode:(DKControlInfoWindowMode) mode;
 - (void)					setupInfoWindowAtPoint:(NSPoint) p withValue:(CGFloat) val andFormat:(NSString*) format;

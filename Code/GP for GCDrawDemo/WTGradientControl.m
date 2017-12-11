@@ -93,10 +93,10 @@
 }
 
 
-- (float)		relativeXWithPoint:(NSPoint) pt
+- (CGFloat)		relativeXWithPoint:(NSPoint) pt
 {
 	NSRect bounds = [self interior];
-	float gPos = ((pt.x - bounds.origin.x) / bounds.size.width);
+	CGFloat gPos = ((pt.x - bounds.origin.x) / bounds.size.width);
 	
 	gPos = MIN( 1.0, gPos );
 	return MAX( 0.0, gPos );
@@ -147,7 +147,7 @@
 	}
 	else
 	{
-		float gPos = [self relativeXWithPoint:point];
+		CGFloat gPos = [self relativeXWithPoint:point];
 		
 		[self setNeedsDisplay:YES];
 		if (color == nil)
@@ -164,13 +164,13 @@
 
 - (NSColor*)	colorAtPoint:(NSPoint) point
 {
-	float gPos = [self relativeXWithPoint:point];
+	CGFloat gPos = [self relativeXWithPoint:point];
 	return [[self gradient] colorAtValue:gPos];
 }
 
 
 #pragma mark -
-- (NSRect)		swatchBoxAtPosition:(float) position
+- (NSRect)swatchBoxAtPosition:(CGFloat) position
 {
 	NSRect box;
 	NSRect bounds = [self interior];
@@ -384,7 +384,7 @@
 
 
 #pragma mark -
-- (void)			updateInfoWithPosition:(float) pos
+- (void)updateInfoWithPosition:(CGFloat) pos
 {
 	if ( mShowsInfo )
 	{
@@ -861,7 +861,7 @@
 	{
 		NSPoint point = [event locationInWindow];
 		point = [self convertPoint:point fromView:nil];
-		float gPos = [self relativeXWithPoint:point];
+		CGFloat gPos = [self relativeXWithPoint:point];
 		
 		if( ![self setCursorInSafeLocation:point])
 		{

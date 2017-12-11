@@ -23,7 +23,7 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 	pa = [a location];
 	pb = [b location];
 	
-	float ppa, ppb;
+	CGFloat ppa, ppb;
 	
 	if( sortXOrY )
 	{
@@ -75,7 +75,7 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 		origRoutePath = [routePath copy];
 		[layer addObject:origRoutePath];
 		
-		float p1, p2;
+		CGFloat p1, p2;
 		
 		p1 = [rf pathLength];
 		
@@ -109,8 +109,9 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 	
 	[path moveToPoint:[val pointValue]];
 	
-	while(( val = [iter nextObject]))
+	while ((val = [iter nextObject])) {
 		[path lineToPoint:[val pointValue]];
+	}
 		
 	//NSLog(@"path length = %f", [path length]);
 		
@@ -118,7 +119,7 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 }
 
 
-- (NSArray*)		objectsInArray:(NSArray*) objects sortedByXOrY:(BOOL) xory
+- (NSArray<DKDrawableObject*>*)objectsInArray:(NSArray<DKDrawableObject*>*) objects sortedByXOrY:(BOOL) xory
 {
 	// given an array of objects, sorts them by location x or y.
 	
@@ -128,7 +129,7 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 
 #define	ONLY_SHOW_FINAL_STATE 1
 
-- (void)			routeFinder:(DKRouteFinder*) rf progressHasReached:(float) value
+- (void)routeFinder:(DKRouteFinder*)rf progressHasReached:(CGFloat) value
 {
 	// progress callback - in this case we use it to draw the path found so far
 	
@@ -139,9 +140,7 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 		
 	#endif
 	
-	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-	
-	
+	@autoreleasepool {
 	NSArray* points = [rf shortestRoute];
 	DKDrawablePath* path = [self pathWithPoints:points];
 	
@@ -170,9 +169,7 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 	
 	NSWindow* win = [NSApp mainWindow];
 	[win displayIfNeeded];
-	
-	[pool release];
-	
+	}
 }
 
 

@@ -117,7 +117,7 @@ static unsigned		sMFlags = 0;
 	}
 	else if ([ident isEqualToString:kSweepSegmentsControlID])
 	{
-		int seg = [ctrl value] * 50;
+		NSInteger seg = [ctrl value] * 50;
 		if ( seg < 4 )
 			seg = 0;		
 		
@@ -267,7 +267,7 @@ static unsigned		sMFlags = 0;
 		[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect]];
 		
 		int		seg = 100;//[[self gradient] numberOfAngularSegments];
-		float	v = (float) seg / 50.0;
+		CGFloat	v = (CGFloat) seg / 50.0;
 					
 		if ( seg < 4 )
 			v = 0.0;
@@ -407,7 +407,7 @@ static unsigned		sMFlags = 0;
 			}
 		}
 
-		int cmode = [(GCGradientWell*)controlView controlMode];
+		NSInteger cmode = [(GCGradientWell*)controlView controlMode];
 		GCMiniControlCluster*	cc = [self controlClusterForMode:cmode];
 			
 		if ( [cc mouseDownAt:startPoint inPart:0 modifierFlags:[self mouseDownFlags]])
@@ -564,7 +564,7 @@ static unsigned		sMFlags = 0;
 }
 
 
-- (float)		miniControlWillUpdateInfoWindow:(GCMiniControl*) mc withValue:(float) val
+- (CGFloat)miniControlWillUpdateInfoWindow:(GCMiniControl*) mc withValue:(CGFloat) val
 {
 	if ([[mc identifier] isEqualToString:kSweepSegmentsControlID])
 	{

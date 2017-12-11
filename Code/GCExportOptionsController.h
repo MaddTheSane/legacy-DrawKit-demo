@@ -61,7 +61,7 @@ typedef NS_ENUM(NSInteger, GCExportFileTypes) {
 
 @protocol ExportControllerDelegate <NSObject>
 
-- (void)	performExportType:(NSBitmapImageFileType) fileType withOptions:(NSDictionary*) options;	
+- (void)	performExportType:(GCExportFileTypes) fileType withOptions:(NSDictionary*) options;	
 
 @end
 

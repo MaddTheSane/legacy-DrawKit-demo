@@ -126,7 +126,7 @@ static BOOL		sDefaultQualityMod = NO;
 }
 
 
-- (void)	performExportType:(NSBitmapImageFileType) fileType withOptions:(NSDictionary*) options
+- (void)performExportType:(GCExportFileTypes) fileType withOptions:(NSDictionary*) options
 {
 	NSURL*	url = [options objectForKey:kGCExportedFileURL];
 	NSData*	data;
@@ -143,10 +143,9 @@ static BOOL		sDefaultQualityMod = NO;
 		[[[self drawing] gridLayer] setShouldDrawToPrinter:YES];
 	}
 	
-	switch( fileType )
-	{
+	switch (fileType) {
 		default:
-		case NSPDFFileType:
+		case GCExportFileTypePDF:
 			data = [[self drawing] pdf];
 			break;
 			
@@ -237,7 +236,7 @@ static BOOL		sDefaultQualityMod = NO;
 		{
 			// convert the units
 			
-			float radians = ( angle * pi ) / 180.0f;
+			CGFloat radians = ( angle * M_PI ) / 180.0;
 			
 			DKGridLayer* grid = [[self drawing] gridLayer];
 			

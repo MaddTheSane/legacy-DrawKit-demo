@@ -182,7 +182,7 @@
 	
 	NSEvent* theEvent;
 	BOOL keepOn = YES;
-	unsigned int mask;
+	NSEventMask mask;
 	BOOL invertedTracking = NO;
 	
 	mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask |
@@ -375,7 +375,7 @@ static	NSTimeInterval sFadeStartTime = 0.0;
 	NSTimeInterval total = [[timer userInfo] doubleValue];
 	NSTimeInterval elapsed = [NSDate timeIntervalSinceReferenceDate] - sFadeStartTime;
 	
-	float fade = 1.0 - ( elapsed / total );
+	CGFloat fade = 1.0 - ( elapsed / total );
 	
 	[self setAlphaValue:fade];
 	
@@ -431,21 +431,19 @@ static	NSTimeInterval sFadeStartTime = 0.0;
 }
 
 
-- (id)	initWithContentRect:(NSRect) contentRect
-		styleMask:(NSWindowStyleMask) styleMask
-		backing:(NSBackingStoreType) bufferingType
-		defer:(BOOL) deferCreation
+- (id)initWithContentRect:(NSRect) contentRect
+				styleMask:(NSWindowStyleMask)styleMask
+				  backing:(NSBackingStoreType)bufferingType
+					defer:(BOOL)deferCreation
 {
 	self = [super initWithContentRect:contentRect
-			styleMask:styleMask
-			backing:bufferingType
-			defer:deferCreation];
-	if (self != nil)
-	{
+							styleMask:styleMask
+							  backing:bufferingType
+								defer:deferCreation];
+	if (self != nil) {
 		NSAssert(mMainViewRef == nil, @"Expected init to zero");
 	}
-	if (self != nil)
-	{
+	if (self != nil) {
 		[self setLevel:NSPopUpMenuWindowLevel];
 		[self setHasShadow:YES];
 		[self setAlphaValue:0.95];

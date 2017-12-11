@@ -410,7 +410,7 @@
 	[mFillGradientRemoveButton setEnabled:(gradient != nil)];
 	[mFillGradientAddButton setEnabled:(gradient == nil)];
 	
-	float angle = [gradient angleInDegrees];
+	CGFloat angle = [gradient angleInDegrees];
 	
 	[mFillGradientAngleSlider setFloatValue:angle];
 	[mFillGradientAngleTextField setFloatValue:angle];

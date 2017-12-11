@@ -42,7 +42,7 @@
 - (DKColorStop*)	addColorStop: (NSColor*) color atPoint:(NSPoint) point;
 - (NSColor*)		colorAtPoint:(NSPoint) point;
 
-- (NSRect)			swatchBoxAtPosition:(float) position;
+- (NSRect)swatchBoxAtPosition:(CGFloat) position;
 - (NSArray*)		allSwatchBoxes;
 - (NSRect)			swatchRectForStop:(DKColorStop*) stop;
 - (void)			invalidate;
@@ -53,7 +53,7 @@
 - (DKColorStop*)	selectedStop;
 - (void)			setColorOfSelectedStop:(NSColor*) Color;
 
-- (void)			updateInfoWithPosition:(float) pos;
+- (void)updateInfoWithPosition:(CGFloat) pos;
 - (void)			setShowsPositionInfo:(BOOL) show;
 - (BOOL)			showsPositionInfo;
 

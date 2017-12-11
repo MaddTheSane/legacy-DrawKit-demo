@@ -157,7 +157,7 @@
 
 #pragma mark -
 #pragma mark As an DKDrawkitInspectorBase
-- (void)				documentDidChange:(NSNotification*) note
+- (void)documentDidChange:(NSNotification*) note
 {
 	NSResponder* firstR = [[note object] firstResponder];
 	
@@ -177,8 +177,9 @@
 
 #pragma mark -
 #pragma mark As an NSWindowController
-- (void)		windowDidLoad
+- (void)windowDidLoad
 {
+	[super windowDidLoad];
 	[(NSPanel*)[self window] setFloatingPanel:YES];
 	[(NSPanel*)[self window] setBecomesKeyOnlyIfNeeded:YES];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toolChangedNotification:) name:kDKDidChangeToolNotification object:nil];
@@ -224,7 +225,7 @@
 #pragma mark -
 
 
-- (BOOL)			validateMenuItem:(NSMenuItem*) item
+- (BOOL)validateMenuItem:(NSMenuItem*) item
 {
 	SEL action = [item action];
 	

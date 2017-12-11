@@ -11,22 +11,25 @@
 
 @class GCInfoFloater;
 
+typedef NS_ENUM(NSInteger, DKColourPickerMode) {
+	kDKColourPickerModeSwatches = 0,
+	kDKColourPickerModeSpectrum = 1
+};
 
 @interface GCColourPickerView : NSView
 {
 	NSColor*		mNonSelectColour;
 	GCInfoFloater*  mInfoWin;
 	id				mTargetRef;
-	int				mMode;
+	DKColourPickerMode mMode;
 	NSPoint			mSel;
 	SEL				mSelector;
-	float			mBright;
+	CGFloat			mBright;
 	BOOL			mShowsInfo;
 }
 
 
-- (void)		setMode:(int) aMode;
-- (int)			mode;
+@property DKColourPickerMode mode;
 
 - (void)		drawSwatches:(NSRect) rect;
 - (void)		drawSpectrum:(NSRect) rect;
@@ -37,11 +40,10 @@
 - (NSRect)		rectForSpectrumPoint:(NSPoint) sp;
 - (BOOL)		pointIsInColourwheel:(NSPoint) p;
 
-- (void)		setBrightness:(float) brightness;
-- (float)		brightness;
+@property (nonatomic) CGFloat brightness;
 
 - (NSPoint)		swatchAtPoint:(NSPoint) p;
-- (NSColor*)	colorForSwatchX:(int) x y:(int) y;
+- (NSColor*)	colorForSwatchX:(NSInteger) x y:(NSInteger) y;
 - (NSRect)		rectForSwatch:(NSPoint) sp;
 - (void)		updateInfoAtPoint:(NSPoint) p;
 
@@ -55,8 +57,4 @@
 
 @end
 
-enum
-{
-	kDKColourPickerModeSwatches = 0,
-	kDKColourPickerModeSpectrum = 1
-};
+

@@ -6,6 +6,7 @@
 //  Copyright 2007 Apptree.net. All rights reserved.
 //
 
+#include <tgmath.h>
 #import "NSBezierPath+GCAdditions.h"
 
 
@@ -51,7 +52,7 @@
 	{
 		NSSize	rs = rect.size;
 		BOOL	vertical = ( rs.width < rs.height );
-		float	radius = MIN( rs.width, rs.height );
+		CGFloat	radius = MIN( rs.width, rs.height );
 		
 		radius /= 2.0;
 		
@@ -77,7 +78,7 @@
 }
 
 
-+ (NSBezierPath*)	roundRectInRect:(NSRect) rect andCornerRadius:(float) radius
++ (NSBezierPath*)	roundRectInRect:(NSRect) rect andCornerRadius:(CGFloat) radius
 {
 	// return a roundRect with given corner radius. Note: this code based on Uli Kusterer's NSBezierpathRoundRects class with
 	// grateful thanks.
@@ -118,7 +119,7 @@
 }
 
 
-+ (NSBezierPath*)   bezierPathWithOffsetTargetInRect:(NSRect) rect offset:(int) off
++ (NSBezierPath*)   bezierPathWithOffsetTargetInRect:(NSRect) rect offset:(NSInteger) off
 {
 	// returns a target centred in rect, but with a round-rect shaped centre region which extends to the
 	// left or right according to <off> (-1 to left, +1 to right, 0 = normal target)
@@ -160,7 +161,7 @@
 
 
 #pragma mark -
-+ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(float) radius width:(float) width tabAngle:(float) angle tabSize:(NSSize) tabsize
++ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(CGFloat) radius width:(CGFloat) width tabAngle:(CGFloat) angle tabSize:(NSSize) tabsize
 {
 	// returns a complex path consisting of a ring with a square angled tab on the outer edge. The centre line
 	// of the ring lies at <radius>, centred at the origin. The path is equally distributed either side of
@@ -179,7 +180,7 @@
 }
 
 
-+ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(float) radius width:(float) width tabSize:(NSSize) tabsize
++ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(CGFloat) radius width:(CGFloat) width tabSize:(NSSize) tabsize
 {
 	// returns a complex path consisting of a ring with a square angled tab on the outer edge. The centre line
 	// of the ring lies at <radius>, centred at the origin. The path is equally distributed either side of
@@ -192,14 +193,14 @@
 	
 	// outer ring leaves a gap for the tab to connect
 	
-	float   a, sa, ea;
+	CGFloat   a, sa, ea;
 	
-	a = atan2f(( tabsize.height / 2), ( radius + width / 2 ));
+	a = atan2(( tabsize.height / 2), ( radius + width / 2 ));
 	
 	// arc angles in degrees:
 	
-	sa = - ((a * 180.0 ) / pi );
-	ea = (a * 180.0 ) / pi;
+	sa = - ((a * 180.0 ) / M_PI );
+	ea = (a * 180.0 ) / M_PI;
 	
 	[path appendBezierPathWithArcWithCenter:NSZeroPoint radius:(radius + width/2) startAngle:sa endAngle:ea clockwise:YES];
 	
@@ -226,13 +227,13 @@
 	rp.x = radius - width/2;
 	rp.y = 0;
 	[path moveToPoint:rp];
-	[path appendBezierPathWithArcWithCenter:NSZeroPoint radius:( radius - width/2) startAngle:0.0f endAngle:360.0f clockwise:NO];
+	[path appendBezierPathWithArcWithCenter:NSZeroPoint radius:(radius - width/2) startAngle:0.0 endAngle:360.0 clockwise:NO];
 	
 	return path;
 }
 
 
-+ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(float) radius width:(float) width tabAngle:(float) angle tabSize:(NSSize) tabsize
++ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(CGFloat) radius width:(CGFloat) width tabAngle:(CGFloat) angle tabSize:(NSSize) tabsize
 {
 	NSBezierPath* path = [NSBezierPath bezierPathWithIrisTabWithRadius:radius width:width tabSize:tabsize];
 	
@@ -244,7 +245,7 @@
 }
 
 
-+ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(float) radius width:(float) width tabSize:(NSSize) tabsize
++ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(CGFloat) radius width:(CGFloat) width tabSize:(NSSize) tabsize
 {
 	// returns a path representing just the tab area of the above path. Allows this area to be filled/stroked
 	// separately if desired.

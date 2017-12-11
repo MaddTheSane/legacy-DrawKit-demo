@@ -6,6 +6,7 @@
 //  Copyright (c) 2007 __MyCompanyName__. All rights reserved.
 //
 
+#include <tgmath.h>
 #import "GCMiniRadialControl2.h"
 
 #import "NSBezierPath+GCAdditions.h"
@@ -26,13 +27,13 @@
 }
 
 
-- (NSPoint)			centre
+- (NSPoint)centre
 {
 	return mCentre;
 }
 
 #pragma mark -
-- (void)			setRadius:(float) radius
+- (void)setRadius:(CGFloat) radius
 {
 	if (  radius != mRadius )
 	{
@@ -47,34 +48,34 @@
 		{
 			// set tab angle to analogue of radius
 		
-			float ta = ( radius / ( pi * [self maxValue])) - ( pi / 4.0 );
+			CGFloat ta = ( radius / ( M_PI * [self maxValue])) - ( M_PI_4 );
 			[self setTabAngle:ta];
 		}
 	}
 }
 
 
-- (float)			radius
+- (CGFloat)radius
 {
 	return mRadius;
 }
 
 
 #pragma mark -
-- (void)			setRingRadius:(float) radius
+- (void)setRingRadius:(CGFloat) radius
 {
 	mRingRadius = radius;
 	[self invalidatePathCache];
 }
 
 
-- (float)			ringRadius
+- (CGFloat)ringRadius
 {
 	return mRingRadius * mRingScale;
 }
 
 
-- (void)			setRingRadiusScale:(float) rsc
+- (void)setRingRadiusScale:(CGFloat) rsc
 {
 	mRingScale = rsc;
 }
@@ -97,14 +98,14 @@
 
 
 #pragma mark -
-- (void)			setTabAngle:(float) ta
+- (void)setTabAngle:(CGFloat) ta
 {
 	// tab angle is limited to +/- 45° around zero
 	
 	if ( mIrisDilating )
 		return;
 	
-	float fortyfive = pi / 4.0f;
+	const CGFloat fortyfive = M_PI_4;
 	
 	if ( ta < -fortyfive )
 		ta = -fortyfive;
@@ -119,7 +120,7 @@
 		
 		// tab angle sets the radius of the controlled gradient
 		
-		float r = ( ta + fortyfive ) * pi * [self maxValue];
+		CGFloat r = ( ta + fortyfive ) * M_PI * [self maxValue];
 		
 		mIrisDilating = YES;
 		[self setRadius:r];
@@ -128,7 +129,7 @@
 }
 
 
-- (float)			tabAngle
+- (CGFloat)			tabAngle
 {
 	return mTabAngle;
 }
@@ -139,7 +140,7 @@
 {
 	if ( mIrisPath == nil )
 	{
-		float width = MAX( 8, [self ringRadius] / 3.5 );
+		CGFloat width = MAX( 8, [self ringRadius] / 3.5 );
 		
 		NSSize  tabs = NSMakeSize( width * 1.5, width * 1.5 );
 		
@@ -163,7 +164,7 @@
 {
 	if ( mTabPath == nil )
 	{
-		float width = MAX( 8, [self ringRadius] / 3.5 ) + 5;
+		CGFloat width = MAX( 8, [self ringRadius] / 3.5 ) + 5;
 
 		NSSize  tabs = NSMakeSize( width * 0.67, width * 0.67 );
 
@@ -205,7 +206,7 @@
 {
 	if ( mHitTabPath == nil )
 	{
-		float width = MAX( 8, [self ringRadius] / 3.5 );
+		CGFloat width = MAX( 8, [self ringRadius] / 3.5 );
 
 		NSSize  tabs = NSMakeSize( width * 1.5, width * 1.5 );
 
@@ -225,14 +226,14 @@
 }
 
 
-- (NSPoint)			trackPointForAngle:(float) degrees
+- (NSPoint)			trackPointForAngle:(CGFloat) degrees
 {
 	// returns a point on the ring radius at <degrees> angle.
 
 	NSPoint p;
-	float   a;
+	CGFloat a;
 	
-	a = (degrees * pi)/180.0f;
+	a = (degrees * M_PI)/180.0;
 	
 	p.x = [self centre].x + (cos( a ) * [self ringRadius]);
 	p.y = [self centre].y + (sin( a ) * [self ringRadius]);
@@ -332,7 +333,7 @@
 		
 		NSAssert(mRadius == 0.0, @"Expected init to zero");
 		mRingRadius = 48;
-		mTabAngle = -pi / 4.0;
+		mTabAngle = -M_PI_4;
 		mRingScale = 1.0;
 		NSAssert(!mIrisDilating, @"Expected init to zero");
 		mAutoFlip = YES;
@@ -352,7 +353,7 @@
 }
 
 
-- (BOOL)			mouseDownAt:(NSPoint) currentPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (flags)
 	if ( part == kDKRadial2HitIris )
@@ -372,7 +373,7 @@
 }
 
 
-- (BOOL)			mouseDraggedAt:(NSPoint) currentPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (flags)
 	if ( part == kDKRadial2HitIris )
@@ -386,7 +387,7 @@
 	}
 	else if ( part == kDKRadial2HitTab )
 	{
-		float   a = atan2f( currentPoint.y - [self centre].y, currentPoint.x - [self centre].x );
+		CGFloat   a = atan2( currentPoint.y - [self centre].y, currentPoint.x - [self centre].x );
 		
 		[self setTabAngle:a];
 
@@ -398,10 +399,10 @@
 }
 
 
-- (void)			setBounds:(NSRect) r
+- (void)setBounds:(NSRect) r
 {
 	[super setBounds:r];
-	float rr;
+	CGFloat rr;
 	
 	rr = MIN( NSWidth( r ), NSHeight( r )) / 6;
 	

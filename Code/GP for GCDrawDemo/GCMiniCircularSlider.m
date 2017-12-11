@@ -6,11 +6,12 @@
 //  Copyright (c) 2007 __MyCompanyName__. All rights reserved.
 //
 
+#include <tgmath.h>
 #import "GCMiniCircularSlider.h"
 
 
 #pragma mark Static Vars
-static float		sConstrainAngle = 0.261799387799; // 15 degrees
+static const CGFloat		sConstrainAngle = 0.261799387799; // 15 degrees
 
 
 @implementation GCMiniCircularSlider
@@ -37,7 +38,7 @@ static float		sConstrainAngle = 0.261799387799; // 15 degrees
 {
 	NSRect  ar = [self circleBounds];
 	
-	float radius = ar.size.width / 2.0;
+	CGFloat radius = ar.size.width / 2.0;
 	
 	NSPoint	 cp;
 	NSRect	 kr;
@@ -73,16 +74,14 @@ static float		sConstrainAngle = 0.261799387799; // 15 degrees
 	{
 		// append ticks to path. show ticks every 15 degrees
 		
-		float radius = ( ar.size.width / 2.0 );
-		float	tickLength = 3, a = 0.0;
-		NSPoint	cp, ts, te;
-		int		t;
+		CGFloat radius = ( ar.size.width / 2.0 );
+		CGFloat tickLength = 3, a = 0.0;
+		NSPoint cp, ts, te;
 		
 		cp.x = NSMidX( ar );
 		cp.y = NSMidY( ar );
 		
-		for( t = 0; t < 24; ++t )
-		{
+		for(NSInteger t = 0; t < 24; ++t ) {
 			ts.x = cp.x + ( cos( a ) * ( radius - tickLength ));
 			ts.y = cp.y + ( sin( a ) * ( radius - tickLength ));
 			te.x = cp.x + ( cos( a ) * ( radius + tickLength ));
@@ -129,22 +128,22 @@ static float		sConstrainAngle = 0.261799387799; // 15 degrees
 	if (self != nil)
 	{
 		mValue = 0.0;
-		mMinValue = -pi;
-		mMaxValue = pi;
+		mMinValue = -M_PI;
+		mMaxValue = M_PI;
 		[self setInfoWindowMode:kDKMiniControlInfoWindowFollowsMouse];
 	}
 	return self;
 }
 
 
-- (BOOL)		mouseDownAt:(NSPoint) startPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
 {
 #pragma unused (startPoint, flags)
 	if ( part == kDKMiniSliderKnob )
 	{
-		NSString* fstr = [NSString stringWithUTF8String:"\x30\x2E\x30\xC2\xB0"];
+		NSString* fstr = @"\x30\x2E\x30\xC2\xB0";
 		
-		float degrees = fmodf(([self value] * 180.0f )/ pi, 360.0 );
+		CGFloat degrees = fmod(([self value] * 180.0 ) / M_PI, 360.0 );
 		[self setupInfoWindowAtPoint:[self knobRect].origin withValue:degrees andFormat:fstr];
 		return YES;
 	}
@@ -153,7 +152,7 @@ static float		sConstrainAngle = 0.261799387799; // 15 degrees
 }
 
 
-- (BOOL)		mouseDraggedAt:(NSPoint) currentPoint inPart:(int) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (part)
 	// recalculate the value based on the position of the knob
@@ -164,7 +163,7 @@ static float		sConstrainAngle = 0.261799387799; // 15 degrees
 	cp.x = NSMidX( ar);
 	cp.y = NSMidY( ar );
 	
-	float angle = atan2f( currentPoint.y - cp.y, currentPoint.x - cp.x );
+	CGFloat angle = atan2( currentPoint.y - cp.y, currentPoint.x - cp.x );
 	
 	// constrain angle if shift down
 
@@ -172,7 +171,7 @@ static float		sConstrainAngle = 0.261799387799; // 15 degrees
 	
 	if ( shift )
 	{
-		float rem = fmodf( angle, sConstrainAngle );
+		CGFloat rem = fmod( angle, sConstrainAngle );
 		
 		if ( rem > sConstrainAngle / 2.0 )
 			angle += ( sConstrainAngle - rem );
@@ -184,7 +183,7 @@ static float		sConstrainAngle = 0.261799387799; // 15 degrees
 	[self setValue:angle];
 	[self setNeedsDisplayInRect:[self knobRect]];
 	
-	float degrees = fmodf(([self value] * 180.0f )/ pi, 360.0 );
+	CGFloat degrees = fmod(([self value] * 180.0f )/ M_PI, 360.0 );
 	
 	[self updateInfoWindowAtPoint:[self knobRect].origin withValue:degrees];
 

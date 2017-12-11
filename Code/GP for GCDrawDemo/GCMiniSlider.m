@@ -124,7 +124,7 @@
 {
 	// recalculate the value based on the position of the knob
 	
-	float val = ( currentPoint.x - ( NSMinX([self bounds]) + kMiniSliderEndCapWidth )) / ([self bounds].size.width - ( kMiniSliderEndCapWidth * 2 ));
+	CGFloat val = ( currentPoint.x - ( NSMinX([self bounds]) + kMiniSliderEndCapWidth )) / ([self bounds].size.width - ( kMiniSliderEndCapWidth * 2 ));
 	
 	[super mouseDraggedAt:currentPoint inPart:part modifierFlags:flags];
 	

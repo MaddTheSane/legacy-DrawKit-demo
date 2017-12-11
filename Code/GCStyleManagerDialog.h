@@ -4,23 +4,24 @@
 
 
 @class DKStyleRegistry, DKStyle;
-
+@class GCBasicDialogController;
+@class GCTableView;
 
 @interface GCStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
 {
-    IBOutlet id mAddCategoryButton;
-    IBOutlet id mDeleteCategoryButton;
-    IBOutlet id mStyleCategoryList;
-    IBOutlet id mStyleIconMatrix;
-    IBOutlet id mStyleNameTextField;
-	IBOutlet id	mPreviewImageWell;
-	IBOutlet id	mStyleListTabView;
-	IBOutlet id	mStyleBrowserList;
-	IBOutlet id	mDeleteStyleButton;
-	IBOutlet id mKeyChangeDialogController;
+    IBOutlet NSButton *mAddCategoryButton;
+    IBOutlet NSButton *mDeleteCategoryButton;
+    IBOutlet GCTableView *mStyleCategoryList;
+    IBOutlet NSMatrix *mStyleIconMatrix;
+    IBOutlet NSTextField *mStyleNameTextField;
+	IBOutlet NSImageView *mPreviewImageWell;
+	IBOutlet NSTabView *mStyleListTabView;
+	IBOutlet NSTableView *mStyleBrowserList;
+	IBOutlet NSButton *mDeleteStyleButton;
+	IBOutlet GCBasicDialogController *mKeyChangeDialogController;
 	
-	DKStyle*	mSelectedStyle;
-	NSString*		mSelectedCategory;
+	DKStyle* mSelectedStyle;
+	NSString* mSelectedCategory;
 }
 - (IBAction)	addCategoryAction:(id)sender;
 - (IBAction)	deleteCategoryAction:(id)sender;

@@ -6,6 +6,7 @@
 //  Copyright (c) 2007 __MyCompanyName__. All rights reserved.
 //
 
+#include <tgmath.h>
 #import "GCColourPickerView.h"
 
 #import <DKDrawKit/NSColor+DKAdditions.h>
@@ -20,7 +21,7 @@
 
 @implementation GCColourPickerView
 #pragma mark As a GCColourPickerView
-- (void)		setMode:(int) aMode
+- (void)setMode:(DKColourPickerMode)aMode
 {
 	if ( aMode != mMode )
 	{
@@ -30,7 +31,7 @@
 }
 
 
-- (int)			mode
+- (DKColourPickerMode)mode
 {
 	return mMode;
 }
@@ -40,13 +41,13 @@
 - (void)		drawSwatches:(NSRect) rect
 {
 	NSRect  br = [self bounds];
-	int   swx, swy;
+	NSInteger   swx, swy;
 	
 	swx = br.size.width / COLS;
 	swy = br.size.height / ROWS;
 	
 	NSRect  swr = NSMakeRect( 0, 0, swx - 1, swy - 1 );
-	int		i, j;
+	NSInteger i, j;
 	
 	swr.origin.x = 1;
 	swr.origin.y = 1;
@@ -130,8 +131,8 @@
 {
 	// given a point p, this figures out the colour in the colourwheel at that point
 	
-	float	hue, sat;
-	float	angle, radius, mr;
+	CGFloat	hue, sat;
+	CGFloat	angle, radius, mr;
 	NSRect br = NSInsetRect( [self bounds], 4, 4 );
 	NSPoint cp;
 	
@@ -139,11 +140,11 @@
 	cp.y = NSMidY( br );
 	mr = br.size.width / 2.0;
 	
-	radius = hypotf( p.x - cp.x, p.y - cp.y );
-	angle = atan2f( p.y - cp.y , p.x - cp.x );
+	radius = hypot( p.x - cp.x, p.y - cp.y );
+	angle = atan2( p.y - cp.y , p.x - cp.x );
 	
 	if ( angle < 0 )
-		angle = ( 2 * pi ) + angle;
+		angle = ( 2 * M_PI ) + angle;
 	
 	// is the point within the colour wheel?
 	
@@ -152,7 +153,7 @@
 
 	// convert to hue, saturation and brightness
 	
-	hue = 1.0 - ( angle / ( 2 * pi ));
+	hue = 1.0 - ( angle / ( 2 * M_PI ));
 	sat = radius / mr;
 	
 	return [NSColor colorWithCalibratedHue:hue saturation:sat brightness:[self brightness] alpha:1.0];
@@ -165,9 +166,9 @@
 	
 	NSColor* rgb = [colour colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
 
-	float hue = [rgb hueComponent];
-	float sat = [rgb saturationComponent];
-	float angle, mr;
+	CGFloat hue = [rgb hueComponent];
+	CGFloat sat = [rgb saturationComponent];
+	CGFloat angle, mr;
 
 	NSRect  br = NSInsetRect([self bounds], 4, 4 );
 	NSPoint cp, p;
@@ -176,7 +177,7 @@
 	cp.y = NSMidY( br );
 	mr = br.size.width / 2.0;
 	
-	angle = ( 1.0 - hue ) * 2 * pi;
+	angle = ( 1.0 - hue ) * 2 * M_PI;
 	
 	p.x = cp.x + ( cos( angle ) * sat * mr );
 	p.y = cp.y + ( sin( angle ) * sat * mr );
@@ -195,20 +196,20 @@
 {
 	NSRect  br = NSInsetRect( [self bounds], 4, 4 );
 	NSPoint cp;
-	float   mr, radius;
+	CGFloat mr, radius;
 	
 	cp.x = NSMidX( br );
 	cp.y = NSMidY( br );
 	mr = br.size.width / 2.0;
 	
-	radius = hypotf( p.x - cp.x, p.y - cp.y );
+	radius = hypot( p.x - cp.x, p.y - cp.y );
 
 	return ( radius <= mr );
 }
 
 
 #pragma mark -
-- (void)		setBrightness:(float) brightness
+- (void)		setBrightness:(CGFloat) brightness
 {
 	brightness = MIN( brightness, 1.0 );
 	brightness = MAX( brightness, 0.0 );
@@ -224,7 +225,7 @@
 }
 
 
-- (float)		brightness
+- (CGFloat)		brightness
 {
 	return mBright;
 }
@@ -253,11 +254,11 @@
 #define qUseSystemColours    1
 
 
-- (NSColor*)	colorForSwatchX:(int) x y:(int) y
+- (NSColor*)colorForSwatchX:(NSInteger) x y:(NSInteger) y
 {
 	// given a swatch coordinate x, y, this returns the colour at that coordinate
 	
-	float	indx = ( y * COLS ) + x;
+	CGFloat	indx = ( y * COLS ) + x;
 	
 #if qUseSystemColours
 	static NSColorList*		cList = nil;
@@ -277,17 +278,17 @@
 	
 	NSArray* keys = [cList allKeys];
 	
-	int i = (int) indx % [keys count];
+	NSInteger i = (NSInteger) indx % [keys count];
 	return [cList colorWithKey:[keys objectAtIndex:i]];
 
 #else
-	float	r, g, b;
+	CGFloat	r, g, b;
 	
 	if ( indx < 216 )
 	{
 		r = ( indx / 36 )/6.0;
-		g = fmodf( indx / 6, 6 )/6.0;
-		b = fmodf( indx, 6 )/6.0;
+		g = fmod( indx / 6, 6 )/6.0;
+		b = fmod( indx, 6 )/6.0;
 	}
 	else if ( indx < 224 )
 	{
@@ -322,7 +323,7 @@
 	}
 	else
 	{
-		r = g = b = ((int) indx - 223 ) / 32.0f;
+		r = g = b = ((int) indx - 223 ) / 32.0;
 	}
 	
 //	LogEvent_(kReactiveEvent,  @"color %d: r - %1.1f, g - %1.1f, b - %1.1f", (int)indx, r, g, b );
@@ -332,12 +333,12 @@
 }
 
 
-- (NSRect)		rectForSwatch:(NSPoint) sp
+- (NSRect)rectForSwatch:(NSPoint) sp
 {
 	if ([self mode] == kDKColourPickerModeSwatches)
 	{
 		NSRect  br = [self bounds];
-		int   swx, swy;
+		NSInteger   swx, swy;
 		
 		swx = br.size.width / COLS;
 		swy = br.size.height / ROWS;
@@ -524,7 +525,7 @@
 {
 	if ([self mode] == kDKColourPickerModeSpectrum )
 	{
-		float deltay = [event deltaY] / 150.0;
+		CGFloat deltay = [event deltaY] / 150.0;
 		[self setBrightness:[self brightness] - deltay];
 		[self updateInfoAtPoint:NSMakePoint( -1, -1 )];
 	}

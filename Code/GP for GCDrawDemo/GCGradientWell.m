@@ -409,7 +409,7 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 		
 		NSSize ss = [[self superview] frame].size;
 		
-		float smaller = MIN( ss.width, ss.height );
+		CGFloat smaller = MIN( ss.width, ss.height );
 		smaller -= 20;
 		
 		frame.size.width = frame.size.height = smaller;

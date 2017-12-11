@@ -118,14 +118,14 @@
 
 
 #pragma mark -
-- (void)				setAlpha:(float) alpha
+- (void)setAlpha:(CGFloat) alpha
 {
 	mControlAlpha = alpha;
 	[self setNeedsDisplay];
 }
 
 
-- (float)				alpha
+- (CGFloat)alpha
 {
 	if ([self cluster])
 		return [[self cluster] alpha];

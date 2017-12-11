@@ -13,14 +13,14 @@
 
 + (NSBezierPath*)	bezierPathWithTargetInRect:(NSRect) rect;
 + (NSBezierPath*)	bezierPathWithRoundEndedRectInRect:(NSRect) rect;
-+ (NSBezierPath*)	roundRectInRect:(NSRect) rect andCornerRadius:(float) radius;
-+ (NSBezierPath*)   bezierPathWithOffsetTargetInRect:(NSRect) rect offset:(int) off;
++ (NSBezierPath*)	roundRectInRect:(NSRect) rect andCornerRadius:(CGFloat) radius;
++ (NSBezierPath*)   bezierPathWithOffsetTargetInRect:(NSRect) rect offset:(NSInteger) off;
 
 
-+ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(float) radius width:(float) width tabSize:(NSSize) tabsize;
-+ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(float) radius width:(float) width tabAngle:(float) angle tabSize:(NSSize) tabsize;
++ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(CGFloat) radius width:(CGFloat) width tabSize:(NSSize) tabsize;
++ (NSBezierPath*)   bezierPathWithIrisRingWithRadius:(CGFloat) radius width:(CGFloat) width tabAngle:(CGFloat) angle tabSize:(NSSize) tabsize;
 
-+ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(float) radius width:(float) width tabSize:(NSSize) tabsize;
-+ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(float) radius width:(float) width tabAngle:(float) angle tabSize:(NSSize) tabsize;
++ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(CGFloat) radius width:(CGFloat) width tabSize:(NSSize) tabsize;
++ (NSBezierPath*)   bezierPathWithIrisTabWithRadius:(CGFloat) radius width:(CGFloat) width tabAngle:(CGFloat) angle tabSize:(NSSize) tabsize;
 
 @end

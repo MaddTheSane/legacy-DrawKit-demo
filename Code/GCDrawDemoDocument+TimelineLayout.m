@@ -12,6 +12,7 @@
 ///
 ///**********************************************************************************************************************************
 
+#include <tgmath.h>
 #import "GCDrawDemoDocument+TimelineLayout.h"
 
 #import <DKDrawKit/DKObjectDrawingLayer.h>
@@ -61,7 +62,7 @@ static NSComparisonResult metaDataSortFunction( id a, id b, void* context)
 	NSMutableArray*		tlObjects;
 	NSEnumerator*		iter = [[layer availableObjects] objectEnumerator];
 	DKDrawableObject*	obj;
-	static float		lowestEdge = -10000;
+	static CGFloat		lowestEdge = -10000;
 
 	tlObjects = [NSMutableArray array];
 	
@@ -110,11 +111,11 @@ static NSComparisonResult metaDataSortFunction( id a, id b, void* context)
 	
 	// indx tracks the location of the next object ahead of the one we are laying out
 	
-	unsigned			indx = [tlObjects count], j;
-	int					year;
+	NSUInteger			indx = [tlObjects count], j;
+	NSInteger			year;
 	NSPoint				position;
 	NSRect				objRect, colObjRect;
-	float				gridVIncrement;
+	CGFloat				gridVIncrement;
 	DKDrawableObject*	colObj;
 	DKDrawablePath*		leader;
 	NSPoint				lp1, lp2;
@@ -131,7 +132,7 @@ static NSComparisonResult metaDataSortFunction( id a, id b, void* context)
 		
 		// use the grid to figure the real position:
 		
-		position.x = (float) year;
+		position.x = (CGFloat) year;
 		position.y = 0;
 		position = [grid pointForGridLocation:position];
 		
@@ -152,7 +153,7 @@ static NSComparisonResult metaDataSortFunction( id a, id b, void* context)
 		{
 			// make sure we are either exactly at 4 grid spaces, or 6 for 2-line labels
 			
-			float rem = fmodf( objRect.size.height, gridVIncrement );
+			CGFloat rem = fmod( objRect.size.height, gridVIncrement );
 		
 			objRect.size.height -= rem;
 			

@@ -85,13 +85,13 @@
 	{
 		// extract parameters and do something with them
 		
-		int			copies = [mCopiesTextField intValue];
+		NSInteger	copies = [mCopiesTextField integerValue];
 		NSPoint		centre;
 		
 		centre.x =  [mCentreXTextField floatValue];
 		centre.y =  [mCentreYTextField floatValue];
 		
-		float		incAngle = [mAngleIncrementTextField floatValue];
+		CGFloat		incAngle = [mAngleIncrementTextField floatValue];
 		BOOL		rotCopies = [mRotateCopiesCheckbox intValue];
 		
 		if ([mAutoFitCircleCheckbox intValue] == 1 )
@@ -101,7 +101,7 @@
 		else
 		{
 	
-			LogEvent_(kReactiveEvent, @"dialog data: copies %d; centre {%.2f,%.2f}; incAngle %.3f; rotateCopies %d", copies, centre.x, centre.y, incAngle, rotCopies );
+			LogEvent_(kReactiveEvent, @"dialog data: copies %ld; centre {%.2f,%.2f}; incAngle %.3f; rotateCopies %d", (long)copies, centre.x, centre.y, incAngle, rotCopies );
 
 			[mDelegateRef doPolarDuplicateCopies:copies centre:centre incAngle:incAngle rotateCopies:rotCopies];
 		}

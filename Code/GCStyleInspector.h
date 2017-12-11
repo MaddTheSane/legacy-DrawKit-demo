@@ -17,24 +17,26 @@
 #import "GCDashEditor.h"
 
 @class GCDashEditor;
+@class GCOutlineView;
+@class GCBasicDialogController;
 
 @interface GCStyleInspector : DKDrawkitInspectorBase <NSOutlineViewDelegate, NSOutlineViewDataSource, GCDashEditorDelegate>
 {
-	IBOutlet	id		mOutlineView;
-	IBOutlet	id		mTabView;
-	IBOutlet	id		mAddRendererPopUpButton;
-	IBOutlet	id		mRemoveRendererButton;
-	IBOutlet	id		mActionsPopUpButton;
+	IBOutlet GCOutlineView* mOutlineView;
+	IBOutlet NSTabView *mTabView;
+	IBOutlet NSPopUpButton *mAddRendererPopUpButton;
+	IBOutlet NSButton *mRemoveRendererButton;
+	IBOutlet NSPopUpButton *mActionsPopUpButton;
 	
 	IBOutlet GCDashEditor *mDashEditController;
-	IBOutlet	id		mScriptEditController;
+	IBOutlet GCBasicDialogController *mScriptEditController;
 	
 	IBOutlet NSButton *mStyleCloneButton;
 	IBOutlet NSPopUpButton *mStyleLibraryPopUpButton;
 	IBOutlet NSButton *mStyleLockCheckbox;
 	IBOutlet NSTextField *mStyleNameTextField;
 	IBOutlet NSImageView *mStylePreviewImageWell;
-	IBOutlet	id		mStyleRegisteredIndicatorText;
+	IBOutlet NSTextField *mStyleRegisteredIndicatorText;
 	IBOutlet NSButton *mStyleAddToLibraryButton;
 	IBOutlet NSButton *mStyleRemoveFromLibraryButton;
 	IBOutlet NSButton *mStyleSharedCheckbox;
@@ -82,7 +84,7 @@
 	IBOutlet	id		mFillZZAmp;
 	IBOutlet	id		mFillZZSpread;
 	
-	IBOutlet	id		mImageWell;
+	IBOutlet NSImageView *mImageWell;
 	IBOutlet	id		mImageIdentifierTextField;
 	IBOutlet	id		mImageOpacitySlider;
 	IBOutlet	id		mImageScaleSlider;
@@ -106,17 +108,17 @@
 	IBOutlet	id		mFlowedTextInsetSlider;
 	
 	IBOutlet NSColorWell *mHatchColourWell;
-	IBOutlet	id		mHatchSpacingSlider;
-	IBOutlet	id		mHatchSpacingTextField;
-	IBOutlet	id		mHatchLineWidthSlider;
-	IBOutlet	id		mHatchLineWidthTextField;
-	IBOutlet	id		mHatchAngleSlider;
-	IBOutlet	id		mHatchAngleTextField;
-	IBOutlet	id		mHatchLeadInSlider;
-	IBOutlet	id		mHatchLeadInTextField;
-	IBOutlet	id		mHatchDashPopUpButton;
-	IBOutlet	id		mHatchRelativeAngleCheckbox;
-	IBOutlet	id		mHatchLineCapButton;
+	IBOutlet NSSlider *mHatchSpacingSlider;
+	IBOutlet NSTextField *mHatchSpacingTextField;
+	IBOutlet NSSlider *mHatchLineWidthSlider;
+	IBOutlet NSTextField *mHatchLineWidthTextField;
+	IBOutlet NSSlider *mHatchAngleSlider;
+	IBOutlet NSTextField *mHatchAngleTextField;
+	IBOutlet NSSlider *mHatchLeadInSlider;
+	IBOutlet NSTextField *mHatchLeadInTextField;
+	IBOutlet NSPopUpButton *mHatchDashPopUpButton;
+	IBOutlet NSButton *mHatchRelativeAngleCheckbox;
+	IBOutlet NSSegmentedControl *mHatchLineCapButton;
 	
 	IBOutlet	id		mPDControlsTabView;
 	IBOutlet	id		mPDIntervalSlider;
@@ -131,14 +133,14 @@
 	IBOutlet	id		mMotifAngleSlider;
 	IBOutlet	id		mMotifRelativeAngleCheckbox;
 	
-	IBOutlet	id		mBlendModePopUpButton;
-	IBOutlet	id		mBlendGroupAlphaSlider;
-	IBOutlet	id		mBlendGroupImagePreview;
+	IBOutlet NSPopUpButton *mBlendModePopUpButton;
+	IBOutlet NSSlider *mBlendGroupAlphaSlider;
+	IBOutlet NSImageView *mBlendGroupImagePreview;
 	
-	IBOutlet	id		mShadowAngleSlider;
-	IBOutlet	id		mShadowDistanceSlider;
-	IBOutlet	id		mShadowColourWell;
-	IBOutlet	id		mShadowBlurRadiusSlider;
+	IBOutlet NSSlider *mShadowAngleSlider;
+	IBOutlet NSSlider *mShadowDistanceSlider;
+	IBOutlet NSColorWell *mShadowColourWell;
+	IBOutlet NSSlider *mShadowBlurRadiusSlider;
 	
 	DKStyle*			mStyle;
 	DKRasterizer*		mSelectedRendererRef;

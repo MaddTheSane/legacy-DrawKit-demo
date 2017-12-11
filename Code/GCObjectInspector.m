@@ -40,7 +40,7 @@
 
 - (void)		updateSingleItemTabWithObject:(DKDrawableObject*) obj
 {
-    float		cFactor = 1.0;
+    CGFloat		cFactor = 1.0;
 	NSPoint		loc = [obj location];
 	
 	if ( mConvertCoordinates )
@@ -200,7 +200,7 @@
 {
 	#pragma unused(sender)
 	NSSize size = NSMakeSize([mGenInfoWidthField floatValue], [mGenInfoHeightField floatValue]);
-	float cFactor = 1.0;
+	CGFloat cFactor = 1.0;
 	
 	if ( mConvertCoordinates )
 	{
@@ -218,7 +218,7 @@
 {
 	#pragma unused(sender)
 	
-	float radians = ([sender floatValue] * pi / 180.0 );
+	CGFloat radians = ([sender doubleValue] * M_PI / 180.0 );
 	[mSel setAngle:radians];
 	[[[mSel drawing] undoManager] setActionName:NSLocalizedString(@"Set Object Angle", @"undo for angle object")];
 }

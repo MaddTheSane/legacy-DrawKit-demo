@@ -6,7 +6,7 @@
 
 
 #pragma mark Static Vars
-static float		sUnitFactors[]	= { 1.0, 12.0, 72.0, 2.8346456692913, 28.346456692913, 2834.6456692913, 28346.456692913, 1.0 };
+static const CGFloat		sUnitFactors[]	= { 1.0, 12.0, 72.0, 2.8346456692913, 28.346456692913, 2834.6456692913, 28346.456692913, 1.0 };
 static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres", @"Centimetres", @"Metres", @"Kilometres", nil };
 
 
@@ -92,7 +92,7 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 		// apply the settings to the drawing.
 		
 		NSSize	dwgSize;
-		float	t, l, b, r;
+		CGFloat	t, l, b, r;
 		
 		dwgSize.width = [mWidthTextField floatValue] * mUnitConversionFactor;
 		dwgSize.height = [mHeightTextField floatValue] * mUnitConversionFactor;
@@ -109,8 +109,8 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 		
 		if ( grid )
 		{
-			float	span;
-			int		divs, majs;
+			CGFloat span;
+			NSInteger divs, majs;
 			
 			span = [mGridSpanTextField floatValue] * mUnitConversionFactor;
 			divs = [mGridDivsTextField intValue];
@@ -344,7 +344,7 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 
 - (IBAction)conversionFactorAction:(id) sender
 {
-	float oldUCF = mUnitConversionFactor;
+	CGFloat oldUCF = mUnitConversionFactor;
 	
 	mUnitConversionFactor = [sender floatValue];
 	

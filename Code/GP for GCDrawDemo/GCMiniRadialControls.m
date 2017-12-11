@@ -6,6 +6,7 @@
 //  Copyright (c) 2007 __MyCompanyName__. All rights reserved.
 //
 
+#include <tgmath.h>
 #import "GCMiniRadialControls.h"
 
 #import <DKDrawKit/NSColor+DKAdditions.h>
@@ -139,13 +140,13 @@
 		else
 		{
 			/*
-			float		pr;
+			CGFloat		pr;
 			NSPoint		mp;
 			NSRect		kr = [self rectForRadius];
 
 			mp.x = NSMidX( kr );
 			mp.y = NSMidY( kr );
-			pr = hypotf( p.x - mp.x, p.y - mp.y );
+			pr = hypot( p.x - mp.x, p.y - mp.y );
 			
 			LogEvent_(kReactiveEvent, @"pr = %f, rad= %f", pr, mRadius );
 			
@@ -171,7 +172,7 @@
 }
 
 
-- (BOOL)			mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)			mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (flags)
 	if ( part == kDKHitRadialTarget )
@@ -183,7 +184,7 @@
 		
 		mp.x = NSMidX( kr );
 		mp.y = NSMidY( kr );
-		[self setRadius:hypotf( currentPoint.x - mp.x, currentPoint.y - mp.y )];
+		[self setRadius:hypot( currentPoint.x - mp.x, currentPoint.y - mp.y )];
 	}
 	
 	return YES;

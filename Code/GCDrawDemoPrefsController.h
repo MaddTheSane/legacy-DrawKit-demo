@@ -2,14 +2,14 @@
 
 @interface GCDrawDemoPrefsController : NSWindowController
 {
-	IBOutlet id			mQualityThrottlingCheckbox;
-	IBOutlet id			mUndoSelectionsCheckbox;
-	IBOutlet id			mStorageTypeCheckbox;
+	IBOutlet NSButton *mQualityThrottlingCheckbox;
+	IBOutlet NSButton *mUndoSelectionsCheckbox;
+	IBOutlet NSButton *mStorageTypeCheckbox;
 }
 
 
-- (IBAction)			qualityThrottlingAction:(id) sender;
-- (IBAction)			undoableSelectionAction:(id) sender;
-- (IBAction)			setStorageTypeAction:(id) sender;
+- (IBAction)qualityThrottlingAction:(id) sender;
+- (IBAction)undoableSelectionAction:(id) sender;
+- (IBAction)setStorageTypeAction:(id) sender;
 
 @end

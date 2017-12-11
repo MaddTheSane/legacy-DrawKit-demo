@@ -156,7 +156,7 @@
 
 
 #pragma mark -
-- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (flags)
 	// override to do something, call super to handle info windows
@@ -173,7 +173,7 @@
 }
 
 
-- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (part, flags)
 	// override to do something, call super to handle info windows
@@ -183,7 +183,7 @@
 }
 
 
-- (void)mouseUpAt:(NSPoint) endPoint inPart:(GCControlHitTest) part modifierFlags:(int) flags
+- (void)mouseUpAt:(NSPoint) endPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
 {
 #pragma unused (endPoint, part, flags)
 	// override to do something, call super to handle info windows
@@ -192,7 +192,7 @@
 }
 
 
-- (void)		flagsChanged:(int) flags
+- (void)		flagsChanged:(NSEventModifierFlags) flags
 {
 #pragma unused (flags)
 	// override to do something

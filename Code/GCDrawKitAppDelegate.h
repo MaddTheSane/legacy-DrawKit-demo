@@ -3,7 +3,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface GCDrawKitAppDelegate : NSObject
+@interface GCDrawKitAppDelegate : NSObject <NSApplicationDelegate>
 {
 	id					mStyleInspector;
 	id					mToolPalette;

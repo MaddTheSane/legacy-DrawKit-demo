@@ -7,13 +7,13 @@
 //
 
 #import "DKGradientCell.h"
-
+#import "GCMiniControl.h"
 
 @class GCMiniControl;
 @class GCMiniControlCluster;
 
 
-@interface GCGradientCell : DKGradientCell
+@interface GCGradientCell : DKGradientCell <GCMiniControlDelegate>
 {
 	NSRect					mControlBoundsRect;
 	GCMiniControlCluster*	mMiniControls;

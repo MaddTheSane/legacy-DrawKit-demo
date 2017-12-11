@@ -40,8 +40,8 @@
 
 - (void)					setView:(NSView*) view;
 
-- (void)					setAlpha:(float) alpha;
-- (float)					alpha;
+- (void)setAlpha:(CGFloat) alpha;
+- (CGFloat)alpha;
 - (void)					fadeControlAlphaWithTimeInterval:(NSTimeInterval) t;
 - (void)					timerFadeCallback:(NSTimer*) timer;
 

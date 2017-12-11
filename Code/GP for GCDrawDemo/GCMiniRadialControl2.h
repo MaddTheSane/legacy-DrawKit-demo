@@ -18,10 +18,10 @@
 	NSPoint			mCentre;
 	NSSize			mOffset;
 	
-	float			mRadius;
-	float			mRingRadius;
-	float			mTabAngle;
-	float			mRingScale;
+	CGFloat			mRadius;
+	CGFloat			mRingRadius;
+	CGFloat			mTabAngle;
+	CGFloat			mRingScale;
 	BOOL			mIrisDilating;
 	BOOL			mAutoFlip;
 }
@@ -30,18 +30,18 @@
 - (void)			setCentre:(NSPoint) p;
 - (NSPoint)			centre;
 
-- (void)			setRadius:(float) radius;
-- (float)			radius;
+- (void)			setRadius:(CGFloat) radius;
+- (CGFloat)			radius;
 
-- (void)			setRingRadius:(float) radius;
-- (float)			ringRadius;
-- (void)			setRingRadiusScale:(float) rsc;
+- (void)			setRingRadius:(CGFloat) radius;
+- (CGFloat)			ringRadius;
+- (void)			setRingRadiusScale:(CGFloat) rsc;
 
 - (void)			setTabColor:(NSColor*) colour;
 - (NSColor*)		tabColor;
 
-- (void)			setTabAngle:(float) ta;
-- (float)			tabAngle;
+- (void)			setTabAngle:(CGFloat) ta;
+- (CGFloat)			tabAngle;
 
 - (NSBezierPath*)   irisPath;
 - (NSBezierPath*)   tabPath;

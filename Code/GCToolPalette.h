@@ -20,9 +20,9 @@
 
 @interface GCToolPalette : DKDrawkitInspectorBase
 {
-	IBOutlet id		mToolMatrix;
-	IBOutlet id		mStylePopUpButton;
-	IBOutlet id		mStylePreviewView;
+	IBOutlet NSMatrix *mToolMatrix;
+	IBOutlet NSPopUpButton *mStylePopUpButton;
+	IBOutlet NSImageView *mStylePreviewView;
 }
 
 
