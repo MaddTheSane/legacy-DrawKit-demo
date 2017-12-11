@@ -141,7 +141,7 @@ static const CGFloat		sConstrainAngle = 0.261799387799; // 15 degrees
 #pragma unused (startPoint, flags)
 	if ( part == kDKMiniSliderKnob )
 	{
-		NSString* fstr = @"\x30\x2E\x30\xC2\xB0";
+		NSString* fstr = @"0.0\u00B0";
 		
 		CGFloat degrees = fmod(([self value] * 180.0 ) / M_PI, 360.0 );
 		[self setupInfoWindowAtPoint:[self knobRect].origin withValue:degrees andFormat:fstr];
