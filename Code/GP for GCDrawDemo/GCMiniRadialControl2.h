@@ -26,7 +26,6 @@
 	BOOL			mAutoFlip;
 }
 
-
 @property (nonatomic) NSPoint centre;
 
 @property (nonatomic) CGFloat radius;
@@ -40,11 +39,9 @@
 
 @property (readonly, copy) NSBezierPath *irisPath;
 @property (readonly, copy) NSBezierPath *tabPath;
-- (void)			invalidatePathCache;
-
+- (void)invalidatePathCache;
 
 @end
-
 
 NS_ENUM(GCControlHitTest)
 {

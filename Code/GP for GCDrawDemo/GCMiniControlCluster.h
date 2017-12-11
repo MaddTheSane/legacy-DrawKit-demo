@@ -36,7 +36,7 @@
 
 - (void)addMiniControl:(GCMiniControl*) mc;
 - (void)removeMiniControl:(GCMiniControl*) mc;
-- (NSArray<GCMiniControl*>*)controls;
+@property (readonly, retain) NSArray<GCMiniControl*> *controls;
 - (GCMiniControl*)controlAtIndex:(NSInteger) n;
 
 - (void)					setControl:(GCMiniControl*) ctrl forKey:(NSString*) key;

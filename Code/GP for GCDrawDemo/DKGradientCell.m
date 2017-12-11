@@ -46,17 +46,7 @@
 
 
 #pragma mark -
-- (void)		setInset:(NSSize) inset
-{
-	mInset = inset;
-}
-
-
-- (NSSize)		inset
-{
-	return mInset;
-}
-
+@synthesize inset=mInset;
 
 #pragma mark -
 - (void)		invalidateCache
@@ -72,7 +62,6 @@
 	if (img == nil)
 	{
 		img = [self makeCacheImageWithSize:size];
-		[img setScalesWhenResized:YES];
 		[self setObjectValue: img];
 	}
 	return img;

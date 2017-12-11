@@ -9,19 +9,19 @@
 
 @interface DrawingSizeController : NSWindowController
 {
-    IBOutlet NSTextField *mBottomMarginTextField;
-    IBOutlet NSTextField *mGridDivsTextField;
-    IBOutlet NSTextField *mGridMajorsTextField;
-    IBOutlet NSButton *mGridPreviewCheckbox;
-    IBOutlet NSTextField *mGridSpanTextField;
-    IBOutlet NSColorWell *mGridThemeColourWell;
-    IBOutlet NSTextField *mHeightTextField;
-    IBOutlet NSTextField *mLeftMarginTextField;
-    IBOutlet NSTextField *mRightMarginTextField;
-    IBOutlet NSTextField *mTopMarginTextField;
-    IBOutlet NSButton *mTweakMarginsCheckbox;
-    IBOutlet NSComboBox *mUnitsComboBox;
-    IBOutlet NSTextField *mWidthTextField;
+	IBOutlet NSTextField *mBottomMarginTextField;
+	IBOutlet NSTextField *mGridDivsTextField;
+	IBOutlet NSTextField *mGridMajorsTextField;
+	IBOutlet NSButton *mGridPreviewCheckbox;
+	IBOutlet NSTextField *mGridSpanTextField;
+	IBOutlet NSColorWell *mGridThemeColourWell;
+	IBOutlet NSTextField *mHeightTextField;
+	IBOutlet NSTextField *mLeftMarginTextField;
+	IBOutlet NSTextField *mRightMarginTextField;
+	IBOutlet NSTextField *mTopMarginTextField;
+	IBOutlet NSButton *mTweakMarginsCheckbox;
+	IBOutlet NSComboBox *mUnitsComboBox;
+	IBOutlet NSTextField *mWidthTextField;
 	IBOutlet NSBox *mGridControlsBox;
 	IBOutlet NSStepper *mGridDivsSpinControl;
 	IBOutlet NSStepper *mGridMajorsSpinControl;

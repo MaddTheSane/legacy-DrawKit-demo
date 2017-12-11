@@ -10,29 +10,28 @@
 
 @interface GCObjectInspector : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate>
 {
-    IBOutlet NSTextField *mGenInfoAngleField;
-    IBOutlet NSTextField *mGenInfoHeightField;
-    IBOutlet NSTextField *mGenInfoLocationXField;
-    IBOutlet NSTextField *mGenInfoLocationYField;
-    IBOutlet NSTextField *mGenInfoStyleNameField;
-    IBOutlet NSTextField *mGenInfoTypeField;
-    IBOutlet NSTextField *mGenInfoWidthField;
+	IBOutlet NSTextField *mGenInfoAngleField;
+	IBOutlet NSTextField *mGenInfoHeightField;
+	IBOutlet NSTextField *mGenInfoLocationXField;
+	IBOutlet NSTextField *mGenInfoLocationYField;
+	IBOutlet NSTextField *mGenInfoStyleNameField;
+	IBOutlet NSTextField *mGenInfoTypeField;
+	IBOutlet NSTextField *mGenInfoWidthField;
 	IBOutlet NSMatrix *mGenInfoCoordinateRadioButtons;
 	
 	IBOutlet NSTextField *mMultiInfoItemCountField;
 	IBOutlet NSTextField *mGroupInfoItemCountField;
-    IBOutlet NSTabView *mMainTabView;
-    IBOutlet NSPopUpButton *mMetaAddItemButton;
-    IBOutlet NSButton *mMetaRemoveItemButton;
-    IBOutlet NSTableView *mMetaTableView;
-    IBOutlet NSTabView *mObjectTabView;
-	
+	IBOutlet NSTabView *mMainTabView;
+	IBOutlet NSPopUpButton *mMetaAddItemButton;
+	IBOutlet NSButton *mMetaRemoveItemButton;
+	IBOutlet NSTableView *mMetaTableView;
+	IBOutlet NSTabView *mObjectTabView;
+
 	IBOutlet NSImageView *mLockIconImageWell;
 	
 	DKDrawableObject*	mSel;
 	BOOL				mConvertCoordinates;
 }
-
 
 - (void)			updateTabAtIndex:(NSInteger) tab withSelection:(NSArray*) sel;
 - (void)			updateGroupTabWithObject:(DKShapeGroup*) group;

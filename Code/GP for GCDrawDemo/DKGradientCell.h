@@ -25,8 +25,7 @@
 - (DKGradient*)		gradient;
 - (void)			setGradient:(DKGradient*) grad;
 
-- (void)			setInset:(NSSize) inset;
-- (NSSize)			inset;
+@property (nonatomic) NSSize inset;
 
 - (void)			invalidateCache;
 - (NSImage*)		cachedImageForSize:(NSSize) size;
