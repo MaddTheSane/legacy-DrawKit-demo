@@ -191,8 +191,6 @@
 {
 #pragma unused (aNotification)
 	
-	[DKDrawing loadDefaults];
-	
 	BOOL qm = [[NSUserDefaults standardUserDefaults] boolForKey:@"GCDrawDemo_defaultQualityModulationFlag"];
 	[GCDrawDemoDocument setDefaultQualityModulation:qm];
 }
@@ -203,7 +201,6 @@
 #pragma unused (aNotification)
 
 	LogEvent_(kInfoEvent, @"app quitting...");
-	[DKDrawing saveDefaults];
 	
 	[[NSUserDefaults standardUserDefaults] setBool:[GCDrawDemoDocument defaultQualityModulation] forKey:@"GCDrawDemo_defaultQualityModulationFlag"];
 }
