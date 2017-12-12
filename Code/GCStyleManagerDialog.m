@@ -20,7 +20,7 @@
 	
 	NSInteger indx = [[[self styles] allCategories] indexOfObject:newCat];
 	
-	[mStyleCategoryList selectRow:indx byExtendingSelection:NO];
+	[mStyleCategoryList selectRowIndexes:[NSIndexSet indexSetWithIndex:indx] byExtendingSelection:NO];
 	[mStyleCategoryList editColumn:1 row:indx withEvent:nil select:YES];	// TO DO - !! look up column in case user has reordered them
 }
 
@@ -58,15 +58,15 @@
 	
 	if([context isEqualToString:@"save"])
 	{
-		NSString* path = [(NSSavePanel*)sheet filename];
-		[[DKStyleRegistry sharedStyleRegistry] writeToFile:path atomically:YES];
+		NSURL* path = [(NSSavePanel*)sheet URL];
+		[[DKStyleRegistry sharedStyleRegistry] writeToURL:path options:NSDataWritingAtomic error:NULL];
 	}
 	else if ([context isEqualToString:@"open"])
 	{
 		// just overwrite the current reg from the file
 		
-		NSString* path = [(NSOpenPanel*)sheet filename];
-		BOOL result = [[DKStyleRegistry sharedStyleRegistry] readFromFile:path mergeOptions:kDKReplaceExistingStyles mergeDelegate:self];
+		NSURL* path = [(NSOpenPanel*)sheet URL];
+		BOOL result = [[DKStyleRegistry sharedStyleRegistry] readFromURL:path mergeOptions:kDKReplaceExistingStyles mergeDelegate:self error:NULL];
 		
 		if ( result )
 		{
@@ -146,14 +146,11 @@
 #pragma unused (sender)
 	NSSavePanel* sp = [NSSavePanel savePanel];
 	
-	[sp setRequiredFileType:@"styles"];
+	sp.allowedFileTypes = @[@"styles"];
 	
-	[sp beginSheetForDirectory:nil
-		file:nil
-		modalForWindow:[self window]
-		modalDelegate:self
-		didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
-		contextInfo:@"save"];
+	[sp beginSheetModalForWindow:[self window] completionHandler:^(NSModalResponse result) {
+		[self sheetDidEnd:sp returnCode:result contextInfo:@"save"];
+	}];
 }
 
 
@@ -162,13 +159,11 @@
 #pragma unused (sender)
 	NSOpenPanel* op = [NSOpenPanel openPanel];
 	
-	[op beginSheetForDirectory:nil
-		file:nil
-		types:[NSArray arrayWithObject:@"styles"]
-		modalForWindow:[self window]
-		modalDelegate:self
-		didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
-		contextInfo:@"open"];
+	op.allowedFileTypes = @[@"styles"];
+	
+	[op beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse result) {
+		[self sheetDidEnd:op returnCode:result contextInfo:@"open"];
+	}];
 }
 
 
@@ -271,7 +266,7 @@
 	
 	[self populateMatrixWithStyleInCategory:category];
 	[mStyleBrowserList reloadData];
-	[mStyleBrowserList selectRow:0 byExtendingSelection:NO];
+	[mStyleBrowserList selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 	
 	if ([[[self styles] allKeysInCategory:category] count] > 0 )
 	{
@@ -282,7 +277,7 @@
 	{
 		mSelectedStyle = nil;
 		[mStyleCategoryList reloadData];
-		[mStyleCategoryList selectRow:0 byExtendingSelection:NO];
+		[mStyleCategoryList selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 	}
 	
 	// if the default category, disable the "delete" button
@@ -303,7 +298,7 @@
 	if ( row == -1 )
 	{
 		row = [[[self styles] allCategories] indexOfObject:kDKDefaultCategoryName];
-		[mStyleCategoryList selectRow:row byExtendingSelection:NO];
+		[mStyleCategoryList selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
 	}
 }
 
@@ -419,7 +414,6 @@
 			DKStyle* style = [[self styles] styleForKey:key];
 			NSImage*		swatch = [[style standardStyleSwatch] copy];
 		
-			[swatch setScalesWhenResized:YES];
 			[swatch setSize:NSMakeSize( 22, 22 )];
 			
 			return [swatch autorelease];
@@ -447,7 +441,7 @@
 			[aTableView reloadData];
 			
 			NSInteger indx = [[[self styles] allCategories] indexOfObject:anObject];
-			[aTableView selectRow:indx byExtendingSelection:NO];
+			[aTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:indx] byExtendingSelection:NO];
 			[mStyleBrowserList reloadData];
 		}
 		else if([identifier isEqualToString:@"keyInCat"])

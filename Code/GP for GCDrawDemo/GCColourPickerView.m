@@ -84,7 +84,6 @@
 		specImage = [[[NSBundle bundleForClass:[self class]] imageForResource:@"NSColorWheelImage"] retain];
 		
 		[specImage setFlipped:YES];
-		[specImage setScalesWhenResized:YES];
 	}
 	
 	// clip to a circle fitting bounds

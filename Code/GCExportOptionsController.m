@@ -41,13 +41,11 @@ NSString* kGCExportedFileURL = @"kGCExportedFileURL";
 	[sp setPrompt:NSLocalizedString(@"Export", @"")];
 	[sp setMessage:NSLocalizedString(@"Export The Drawing", @"")];
 	[sp setCanSelectHiddenExtension:YES];
+	sp.nameFieldStringValue = [(id)delegate displayName];
 	
-	[sp beginSheetForDirectory:nil
-		file:[(id)delegate displayName]
-		modalForWindow:parent
-		modalDelegate:self
-		didEndSelector:@selector(exportPanelDidEnd:returnCode:contextInfo:)
-		contextInfo:NULL];
+	[sp beginSheetModalForWindow:parent completionHandler:^(NSModalResponse result) {
+		[self exportPanelDidEnd:sp returnCode:result contextInfo:NULL];
+	}];
 }
 
 
