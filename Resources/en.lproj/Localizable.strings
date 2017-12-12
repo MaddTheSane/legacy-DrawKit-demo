@@ -1,0 +1,784 @@
+/*
+ Localizable.strings
+ DrawDemo
+ 
+ Created by C.W. Betts on 12/11/17.
+ 
+ */
+
+/* No comment provided by engineer. */
+"<multiple types>" = "<multiple types>";
+
+/* No comment provided by engineer. */
+"???" = "???";
+
+/* undo for style add fill */
+"Add Fill" = "Add Fill";
+
+/* undo action for Add Guide */
+"Add Guide" = "Add Guide";
+
+/* undo for style add image */
+"Add Image" = "Add Image";
+
+/* No comment provided by engineer. */
+"Add Layer" = "Add Layer";
+
+/* undo string for path add random */
+"Add Randomness" = "Add Randomness";
+
+/* undo for style add stroke */
+"Add Stroke" = "Add Stroke";
+
+/* No comment provided by engineer. */
+"Add Style Component" = "Add Style Component";
+
+/* undo for style add text */
+"Add Text" = "Add Text";
+
+/* undo string for add selection */
+"Add To Selection" = "Add To Selection";
+
+/* undo string for align bottom edges */
+"Align Bottom Edges" = "Align Bottom Edges";
+
+/* undo string for align text centre */
+"Align Center" = "Align Center";
+
+/* undo string for align edges to grid */
+"Align Edges To Grid" = "Align Edges To Grid";
+
+/* undo string for align h centres */
+"Align Horizontal Centres" = "Align Horizontal Centres";
+
+/* menu item for align left
+   undo string for align text left */
+"Align Left" = "Align Left";
+
+/* undo string for align left edges */
+"Align Left Edges" = "Align Left Edges";
+
+/* undo string for align objects to grid */
+"Align Objects To Grid" = "Align Objects To Grid";
+
+/* menu item for align right
+   undo string for align text right */
+"Align Right" = "Align Right";
+
+/* undo string for align right edges */
+"Align Right Edges" = "Align Right Edges";
+
+/* undo string for align top edges */
+"Align Top Edges" = "Align Top Edges";
+
+/* undo string for align v centres */
+"Align Vertical Centres" = "Align Vertical Centres";
+
+/* undo action for Apply Style */
+"Apply Style" = "Apply Style";
+
+/* menu item for Arrange */
+"Arrange" = "Arrange";
+
+/* auto dupe undo string */
+"Auto Polar Duplication" = "Auto Polar Duplication";
+
+/* undo action for setPaperColour */
+"Background Colour" = "Background Colour";
+
+/* default name for basic style */
+"Basic" = "Basic";
+
+/* default name for basic track style */
+"Basic Track" = "Basic Track";
+
+/* No comment provided by engineer. */
+"Boolean" = "Boolean";
+
+/* menu item for bottom (VA) */
+"Bottom" = "Bottom";
+
+/* undo string for break apart */
+"Break Apart" = "Break Apart";
+
+/* menu item for bring forwards
+   undo name for bring object forward */
+"Bring Forwards" = "Bring Forwards";
+
+/* undo string for layer bring forwards */
+"Bring Layer Forwards" = "Bring Layer Forwards";
+
+/* undo string for layer bring front */
+"Bring Layer To Front" = "Bring Layer To Front";
+
+/* menu item for bring to front
+   undo name for bring object to front */
+"Bring To Front" = "Bring To Front";
+
+/* drawing info draughter label */
+"by:" = "by:";
+
+/* default name for categories menu */
+"Categories" = "Categories";
+
+/* menu item for centre */
+"Centre" = "Centre";
+
+/* undo string for change arc angle */
+"Change Arc Angle" = "Change Arc Angle";
+
+/* undo string for change arc radius */
+"Change Arc Radius" = "Change Arc Radius";
+
+/* undo string for change arc type */
+"Change Arc Type" = "Change Arc Type";
+
+/* undo string for capitalization */
+"Change Case" = "Change Case";
+
+/* undo action for set drawing size */
+"Change Drawing Size" = "Change Drawing Size";
+
+/* undo action for Guide colour */
+"Change Guide Colour" = "Change Guide Colour";
+
+/* undo action for change layer name */
+"Change Layer Name" = "Change Layer Name";
+
+/* undo action for set margins */
+"Change Margins" = "Change Margins";
+
+/* undo string for change path */
+"Change Path" = "Change Path";
+
+/* undo string for change poly valley spread */
+"Change Polygon Inner Spread" = "Change Polygon Inner Spread";
+
+/* undo string for change poly inner radius */
+"Change Polygon Inset" = "Change Polygon Inset";
+
+/* undo string for change poly tip spread */
+"Change Polygon Outer Spread" = "Change Polygon Outer Spread";
+
+/* undo string for change poly radius */
+"Change Polygon Radius" = "Change Polygon Radius";
+
+/* undo string for change poly sides */
+"Change Polygon Sides" = "Change Polygon Sides";
+
+/* undo string for change selecton */
+"Change Selection" = "Change Selection";
+
+/* No comment provided by engineer. */
+"Change Style Name" = "Change Style Name";
+
+/* undo string for change transform mode */
+"Change Transform Mode" = "Change Transform Mode";
+
+/* undo string for clear guides */
+"Clear Guides" = "Clear Guides";
+
+/* menu item for toggle clipping */
+"Clip Contents" = "Clip Contents";
+
+/* undo for layer clipping */
+"Clip To Margin" = "Clip To Margin";
+
+/* No comment provided by engineer. */
+"Clone Style" = "Clone Style";
+
+/* No comment provided by engineer. */
+"Close Path" = "Close Path";
+
+/* undo string for clustering */
+"Cluster" = "Cluster";
+
+/* No comment provided by engineer. */
+"Colour" = "Colour";
+
+/* menu item for convert submenu
+   menu item for convert to submenu */
+"Convert To" = "Convert To";
+
+/* undo string for convert to outline */
+"Convert To Outline" = "Convert To Outline";
+
+/* menu item for convert to path
+   undo string for convert text to path
+   undo string for convert to path */
+"Convert To Path" = "Convert To Path";
+
+/* menu item for convert to shape
+   undo string for convert text to shape
+   undo string for convert to shape */
+"Convert To Shape" = "Convert To Shape";
+
+/* undo string for convert text to group */
+"Convert To Shape Group" = "Convert To Shape Group";
+
+/* undo string for convert to text path */
+"Convert To Text Path" = "Convert To Text Path";
+
+/* menu item for Copy */
+"Copy" = "Copy";
+
+/* No comment provided by engineer. */
+"Copy [LAYERNAME]" = "Copy [LAYERNAME]";
+
+/* undo string for copy and move (singular) */
+"Copy And Move Object" = "Copy And Move Object";
+
+/* undo string for copy and move (plural) */
+"Copy And Move Objects" = "Copy And Move Objects";
+
+/* No comment provided by engineer. */
+"Copy Grid" = "Copy Grid";
+
+/* menu item for copy image */
+"Copy Image" = "Copy Image";
+
+/* menu item for copy style */
+"Copy Style" = "Copy Style";
+
+/* No comment provided by engineer. */
+"Copy Style '%@'" = "Copy Style ‘%@’";
+
+/* undo string for crop image to path */
+"Crop Image To Path" = "Crop Image To Path";
+
+/* undo action for Curve Fit */
+"Curve Fit" = "Curve Fit";
+
+/* undo string for cut object from layer */
+"Cut" = "Cut";
+
+/* No comment provided by engineer. */
+"Data" = "Data";
+
+/* No comment provided by engineer. */
+"Date" = "Date";
+
+/* drawing info creation date label */
+"date:" = "date:";
+
+/* menu item for Delete
+   undo string for Delete */
+"Delete" = "Delete";
+
+/* undo action for Remove Guide */
+"Delete Guide" = "Delete Guide";
+
+/* undo string for delete layer */
+"Delete Layer" = "Delete Layer";
+
+/* undo string for delete path point */
+"Delete Path Point" = "Delete Path Point";
+
+/* undo string for delete path segment */
+"Delete Path Segment" = "Delete Path Segment";
+
+/* No comment provided by engineer. */
+"Delete Style Component" = "Delete Style Component";
+
+/* undo string for deselect all */
+"Deselect All" = "Deselect All";
+
+/* undo string for disable style */
+"Disable Style" = "Disable Style";
+
+/* undo string for enable component */
+"Disable Style Component" = "Disable Style Component";
+
+/* undo string for object distortion */
+"Distortion Transform" = "Distortion Transform";
+
+/* undo string for distribute h space */
+"Distribute Horizontal Space" = "Distribute Horizontal Space";
+
+/* undo string for distribute h centres */
+"Distribute Horizontally" = "Distribute Horizontally";
+
+/* undo string for distribute v space */
+"Distribute Vertical Space" = "Distribute Vertical Space";
+
+/* undo string for distribute v centres */
+"Distribute Vertically" = "Distribute Vertically";
+
+/* undo string for drag/drop image */
+"Drag and Drop Image" = "Drag and Drop Image";
+
+/* undo string for drag/drop objects */
+"Drag and Drop Objects" = "Drag and Drop Objects";
+
+/* undo string for drag/drop text */
+"Drag and Drop Text" = "Drag and Drop Text";
+
+/* default name for new drawing layers */
+"Drawing Layer" = "Drawing Layer";
+
+/* undo string for generic drop */
+"Drop" = "Drop";
+
+/* unso string for drop colour */
+"Drop Colour" = "Drop Colour";
+
+/* undo string for drop colour onto shape */
+"Drop Property" = "Drop Property";
+
+/* undo string for drop text */
+"Drop Text" = "Drop Text";
+
+/* menu item for Duplicate
+   undo string for Duplicate */
+"Duplicate" = "Duplicate";
+
+/* No comment provided by engineer. */
+"Duplicate Style Component" = "Duplicate Style Component";
+
+/* drawing info number label */
+"dwg #:" = "dwg #:";
+
+/* menu item for edit text */
+"Edit Text" = "Edit Text";
+
+/* undo string for enable style */
+"Enable Style" = "Enable Style";
+
+/* undo string for enable component */
+"Enable Style Component" = "Enable Style Component";
+
+/* No comment provided by engineer. */
+"Export" = "Export";
+
+/* No comment provided by engineer. */
+"Export The Drawing" = "Export The Drawing";
+
+/* menu item for fit to image
+   undo string for fit to image */
+"Fit To Image" = "Fit To Image";
+
+/* menu item for fit to text
+   undo string for fit to text */
+"Fit To Text" = "Fit To Text";
+
+/* h flip */
+"Flip Horizontally" = "Flip Horizontally";
+
+/* v flip */
+"Flip Vertically" = "Flip Vertically";
+
+/* menu item for Font */
+"Font" = "Font";
+
+/* undo action string for Font Change */
+"Font Change" = "Font Change";
+
+/* undo string for font size change */
+"Font Size" = "Font Size";
+
+/* undo action for single object ghost */
+"Ghost" = "Ghost";
+
+/* undo name for ghost object */
+"Ghost Objects" = "Ghost Objects";
+
+/* default name for grid layer */
+"Grid" = "Grid";
+
+/* menu item for group
+   undo string for grouping */
+"Group" = "Group";
+
+/* default name for guide layer */
+"Guides" = "Guides";
+
+/* undo action for single object hide */
+"Hide" = "Hide";
+
+/* menu item for Hide <layer name> */
+"Hide %@" = "Hide %@";
+
+/* undo for hide Layer
+   undo string for hide layer */
+"Hide Layer" = "Hide Layer";
+
+/* undo string for hide objects */
+"Hide Objects" = "Hide Objects";
+
+/* page break menu items */
+"Hide Page BreaksShow Page Breaks" = "Hide Page BreaksShow Page Breaks";
+
+/* No comment provided by engineer. */
+"Hide RulersShow Rulers" = "Hide RulersShow Rulers";
+
+/* undo string for h shear */
+"Horizontal Shear" = "Horizontal Shear";
+
+/* No comment provided by engineer. */
+"Image" = "Image";
+
+/* No comment provided by engineer. */
+"Image Data" = "Image Data";
+
+/* undo string for image on top */
+"Image On Top" = "Image On Top";
+
+/* default name for info layer */
+"Info" = "Info";
+
+/* undo string for insert path point */
+"Insert Path Point" = "Insert Path Point";
+
+/* No comment provided by engineer. */
+"Integer" = "Integer";
+
+/* undo string for join paths */
+"Join Paths" = "Join Paths";
+
+/* menu item for justify */
+"Justify" = "Justify";
+
+/* undo string for align justify */
+"Justify Text" = "Justify Text";
+
+/* linear dupe undo string */
+"Linear Duplication" = "Linear Duplication";
+
+/* menu item for lock
+   undo action for single object lock
+   undo name for lock object */
+"Lock" = "Lock";
+
+/* undo for lock layer
+   undo string for lock layer */
+"Lock Layer" = "Lock Layer";
+
+/* undo action for single object lock location */
+"Lock Location" = "Lock Location";
+
+/* No comment provided by engineer. */
+"Lock StyleUnlock Style" = "Lock StyleUnlock Style";
+
+/* menu item for middle (VA) */
+"Middle" = "Middle";
+
+/* drawing info modification history label */
+"mods:" = "mods:";
+
+/* undo string for move object */
+"Move" = "Move";
+
+/* undo action for move guide */
+"Move Guide" = "Move Guide";
+
+/* undo string for move image origin */
+"Move Image Origin" = "Move Image Origin";
+
+/* undo string for move multiple objects */
+"Move Multiple Objects" = "Move Multiple Objects";
+
+/* undo string for move single object */
+"Move Object" = "Move Object";
+
+/* undo string for object offset */
+"Move Origin" = "Move Origin";
+
+/* No comment provided by engineer. */
+"Move Style Component To Group" = "Move Style Component To Group";
+
+/* undo string for move to new layer */
+"Move To New Layer" = "Move To New Layer";
+
+/* undo string for new layer */
+"New Layer" = "New Layer";
+
+/* No comment provided by engineer. */
+"Nothing To Redo" = "Nothing To Redo";
+
+/* No comment provided by engineer. */
+"Nothing To Undo" = "Nothing To Undo";
+
+/* undo string for nudge left */
+"Nudge Down" = "Nudge Down";
+
+/* undo string for nudge left */
+"Nudge Left" = "Nudge Left";
+
+/* undo string for nudge left */
+"Nudge Right" = "Nudge Right";
+
+/* undo string for nudge left */
+"Nudge Up" = "Nudge Up";
+
+/* undo string for parallel copy */
+"Parallel Copy" = "Parallel Copy";
+
+/* menu item for Paste */
+"Paste" = "Paste";
+
+/* menu item for Paste Image
+   undo string for paste image */
+"Paste Image" = "Paste Image";
+
+/* undo string for paste image into shape */
+"Paste Image Into Shape" = "Paste Image Into Shape";
+
+/* undo action for paste object */
+"Paste Object" = "Paste Object";
+
+/* undo action for paste objects */
+"Paste Objects" = "Paste Objects";
+
+/* undo string for paste path */
+"Paste Path" = "Paste Path";
+
+/* menu item for paste path */
+"Paste Path Into Shape" = "Paste Path Into Shape";
+
+/* menu item for paste style
+   undo string for object paste style */
+"Paste Style" = "Paste Style";
+
+/* No comment provided by engineer. */
+"Paste Style '%@'" = "Paste Style ‘%@’";
+
+/* No comment provided by engineer. */
+"Paste Style Component" = "Paste Style Component";
+
+/* undo string for paste text
+   undo string for paste text into text path
+   undo string for paste text into text shape */
+"Paste Text" = "Paste Text";
+
+/* submenu item for convert to path */
+"Path" = "Path";
+
+/* undo string for perspective */
+"Perspective Transform" = "Perspective Transform";
+
+/* No comment provided by engineer. */
+"Point" = "Point";
+
+/* polar dupe undo string */
+"Polar Duplication" = "Polar Duplication";
+
+/* undo for position object */
+"Position Object" = "Position Object";
+
+/* No comment provided by engineer. */
+"Real Number" = "Real Number";
+
+/* No comment provided by engineer. */
+"Rectangle" = "Rectangle";
+
+/* No comment provided by engineer. */
+"Redo" = "Redo";
+
+/* undo for style remove fill */
+"Remove Fill" = "Remove Fill";
+
+/* undo string for remove selection */
+"Remove From Selection" = "Remove From Selection";
+
+/* undo for style remove image */
+"Remove Image" = "Remove Image";
+
+/* undo for style remove stroke */
+"Remove Stroke" = "Remove Stroke";
+
+/* undo for style remove text */
+"Remove Text" = "Remove Text";
+
+/* No comment provided by engineer. */
+"Remove Text Attributes" = "Remove Text Attributes";
+
+/* No comment provided by engineer. */
+"Reorder Layers" = "Reorder Layers";
+
+/* No comment provided by engineer. */
+"Reorder Style Component" = "Reorder Style Component";
+
+/* undo string for reset bbox */
+"Reset Bounding Box" = "Reset Bounding Box";
+
+/* undo string for resize object */
+"Resize" = "Resize";
+
+/* drawing info revision label */
+"rev:" = "rev:";
+
+/* undo string for reveal hidden objects */
+"Reveal Hidden Objects" = "Reveal Hidden Objects";
+
+/* undo action for Reverse Path */
+"Reverse Path" = "Reverse Path";
+
+/* undo string for rotate object */
+"Rotate" = "Rotate";
+
+/* undo string for rotate arc */
+"Rotate Arc" = "Rotate Arc";
+
+/* undo string for rotate regular poly */
+"Rotate Polygon" = "Rotate Polygon";
+
+/* undo string for shape rotate */
+"Rotation" = "Rotation";
+
+/* undo string for roughen path */
+"Roughen Path" = "Roughen Path";
+
+/* undo string for scale image to path */
+"Scale Image To Path" = "Scale Image To Path";
+
+/* undo string for select all */
+"Select All" = "Select All";
+
+/* undo string for select others */
+"Select Others" = "Select Others";
+
+/* No comment provided by engineer. */
+"Selection Colour" = "Selection Colour";
+
+/* menu item for send backwards
+   undo name for send object backward */
+"Send Backwards" = "Send Backwards";
+
+/* undo string for layer send backwards */
+"Send Layer Backwards" = "Send Layer Backwards";
+
+/* undo string for layer send back */
+"Send Layer To Back" = "Send Layer To Back";
+
+/* menu item for send to back
+   undo name for send object to back */
+"Send To Back" = "Send To Back";
+
+/* undo for angle object */
+"Set Object Angle" = "Set Object Angle";
+
+/* undo for size object */
+"Set Object Size" = "Set Object Size";
+
+/* menu item for basic shape
+   submenu item for convert to shape */
+"Shape" = "Shape";
+
+/* menu item for convert to shape group */
+"Shape Group" = "Shape Group";
+
+/* undo action for single object show */
+"Show" = "Show";
+
+/* menu item for Show <layer name> */
+"Show %@" = "Show %@";
+
+/* undo for show layer
+   undo string for show layer */
+"Show Layer" = "Show Layer";
+
+/* undo name for show object */
+"Show Objects" = "Show Objects";
+
+/* menu item for # of sides */
+"Sides" = "Sides";
+
+/* No comment provided by engineer. */
+"Size" = "Size";
+
+/* smooth more action name */
+"Smooth More" = "Smooth More";
+
+/* smooth path action name */
+"Smooth Path" = "Smooth Path";
+
+/* No comment provided by engineer. */
+"String" = "String";
+
+/* No comment provided by engineer. */
+"Style" = "Style";
+
+/* No comment provided by engineer. */
+"Style Name" = "Style Name";
+
+/* No comment provided by engineer. */
+"Styled String" = "Styled String";
+
+/* default label for new text adornments */
+"Text Adornment" = "Text Adornment";
+
+/* undo string for text align */
+"Text Alignment" = "Text Alignment";
+
+/* undo action string for Text Attributes */
+"Text Attributes" = "Text Attributes";
+
+/* undo string for text colour change */
+"Text Colour" = "Text Colour";
+
+/* menu item for convert to text path */
+"Text On Path" = "Text On Path";
+
+/* undo action for toggle clipping (group) */
+"Toggle Clipping" = "Toggle Clipping";
+
+/* menu item for top (VA) */
+"Top" = "Top";
+
+/* undo string for underline text */
+"Underline" = "Underline";
+
+/* No comment provided by engineer. */
+"Undo" = "Undo";
+
+/* undo action for single object unghost */
+"Unghost" = "Unghost";
+
+/* undo name for unghost object */
+"Unghost Objects" = "Unghost Objects";
+
+/* menu item for ungroup
+   undo string for ungroup */
+"Ungroup" = "Ungroup";
+
+/* menu item for unlock
+   undo action for single object unlock
+   undo name for lock object */
+"Unlock" = "Unlock";
+
+/* undo for Unlock Layer
+   undo string for unlock layer */
+"Unlock Layer" = "Unlock Layer";
+
+/* undo action for single object unlock location */
+"Unlock Location" = "Unlock Location";
+
+/* undo string for shape unrotate */
+"Unrotate" = "Unrotate";
+
+/* No comment provided by engineer. */
+"Unsigned Integer" = "Unsigned Integer";
+
+/* untitled style name */
+"untitled style" = "untitled style";
+
+/* No comment provided by engineer. */
+"URL" = "URL";
+
+/* menu item for vertical alignment
+   undo string for vertical align */
+"Vertical Alignment" = "Vertical Alignment";
+
+/* undo string for v shear */
+"Vertical Shear" = "Vertical Shear";
+
+"Change" = "Change";
+"Add" = "Add";
+"Delete" = "Delete";
+"Change Font" = "Change Font";
+"Underline" = "Underline";
+"Paragraph Style" = "Paragraph Style";
+"Text Attributes" = "Text Attributes";
+"All Items" = "All Items";
+"Recently Added" = "Recently Added";
+"Recently Used" = "Recently Used";

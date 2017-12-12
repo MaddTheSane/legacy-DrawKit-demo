@@ -68,7 +68,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	DKViewController* vc = [self currentMainViewController];
 	
 	if( vc != nil )
-		[vc setActivatesLayersAutomatically:[sender intValue]];
+		[vc setActivatesLayersAutomatically:[sender integerValue]];
 
 }
 

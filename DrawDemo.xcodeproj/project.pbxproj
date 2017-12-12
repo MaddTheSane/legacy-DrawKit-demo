@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551B08531FDF5650008AE439 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551B08551FDF5650008AE439 /* Localizable.strings */; };
 		55EFF2231FDE8DE0007A4610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EFF2221FDE8DE0007A4610 /* Assets.xcassets */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
@@ -122,6 +123,7 @@
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawDemo_Prefix.pch; path = Code/DrawDemo_Prefix.pch; sourceTree = "<group>"; };
+		551B08541FDF5650008AE439 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55EFF2221FDE8DE0007A4610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GCDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -350,6 +352,7 @@
 				AA7431EF0D8101720013CA82 /* StyleManager.xib */,
 				AA7431F20D8101790013CA82 /* ToolPalette.xib */,
 				BF8726590D91E53B001F09AC /* Preferences.xib */,
+				551B08551FDF5650008AE439 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = DrawKit;
 			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "DrawDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -499,6 +503,7 @@
 				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				AA7431D40D80FF3D0013CA82 /* DKGraphicInspector.xib in Resources */,
+				551B08531FDF5650008AE439 /* Localizable.strings in Resources */,
 				AA7431D80D80FF830013CA82 /* Drawingsize.xib in Resources */,
 				AA7431E20D8101230013CA82 /* LayersPalette.xib in Resources */,
 				AA7431E50D81015B0013CA82 /* MainMenu.xib in Resources */,
@@ -587,6 +592,14 @@
 				2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */,
 			);
 			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		551B08551FDF5650008AE439 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				551B08541FDF5650008AE439 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		AA206DD20D90A0E6003205BD /* GCDrawDemoDocument.xib */ = {
