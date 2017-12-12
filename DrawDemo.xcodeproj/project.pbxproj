@@ -113,13 +113,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A37F4ACFDCFA73011CA2CEA /* GCDrawDemoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawDemoDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* GCDrawDemoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDrawDemoDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Code/main.m; sourceTree = "<group>"; };
-		2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawDemo_Prefix.pch; path = Code/DrawDemo_Prefix.pch; sourceTree = "<group>"; };
@@ -129,15 +129,15 @@
 		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		96F5177A0B8A72760047BA96 /* GCDrawKitAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDrawKitAppDelegate.h; sourceTree = "<group>"; };
 		96F5177B0B8A72760047BA96 /* GCDrawKitAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawKitAppDelegate.m; sourceTree = "<group>"; };
-		AA206DD30D90A0E6003205BD /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/GCDrawDemoDocument.xib; sourceTree = "<group>"; };
-		AA7431D30D80FF3D0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/DKGraphicInspector.xib; sourceTree = "<group>"; };
-		AA7431D70D80FF830013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Drawingsize.xib; sourceTree = "<group>"; };
-		AA7431E10D8101230013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/LayersPalette.xib; sourceTree = "<group>"; };
-		AA7431E40D81015B0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		AA7431EA0D8101660013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ObjectInspector.xib; sourceTree = "<group>"; };
-		AA7431ED0D81016B0013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StyleInspector.xib; sourceTree = "<group>"; };
-		AA7431F00D8101720013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StyleManager.xib; sourceTree = "<group>"; };
-		AA7431F30D8101790013CA82 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ToolPalette.xib; sourceTree = "<group>"; };
+		AA206DD30D90A0E6003205BD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GCDrawDemoDocument.xib; sourceTree = "<group>"; };
+		AA7431D30D80FF3D0013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DKGraphicInspector.xib; sourceTree = "<group>"; };
+		AA7431D70D80FF830013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Drawingsize.xib; sourceTree = "<group>"; };
+		AA7431E10D8101230013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LayersPalette.xib; sourceTree = "<group>"; };
+		AA7431E40D81015B0013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AA7431EA0D8101660013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ObjectInspector.xib; sourceTree = "<group>"; };
+		AA7431ED0D81016B0013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StyleInspector.xib; sourceTree = "<group>"; };
+		AA7431F00D8101720013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StyleManager.xib; sourceTree = "<group>"; };
+		AA7431F30D8101790013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DrawDemo.xcconfig; sourceTree = "<group>"; };
 		AA8073650DA49912005BCAA0 /* DrawDemoInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DrawDemoInfo.plist; sourceTree = "<group>"; };
 		AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawKit.xcodeproj; path = DrawKit/DrawKit.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -187,7 +187,7 @@
 		BF701A0A0BFDAAD800080B21 /* GCDashEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDashEditView.m; sourceTree = "<group>"; };
 		BF8726560D91E3FC001F09AC /* GCDrawDemoPrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawDemoPrefsController.m; sourceTree = "<group>"; };
 		BF8726570D91E3FC001F09AC /* GCDrawDemoPrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDrawDemoPrefsController.h; sourceTree = "<group>"; };
-		BF87265A0D91E53B001F09AC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
+		BF87265A0D91E53B001F09AC /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = en.lproj/Preferences.xib; sourceTree = "<group>"; };
 		BF88FC9A0C1D0CA100A23755 /* GCToolPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCToolPalette.h; sourceTree = "<group>"; };
 		BF88FC9B0C1D0CA100A23755 /* GCToolPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCToolPalette.m; sourceTree = "<group>"; };
 		BF8C00B10E408F1D004206C9 /* GCDrawDemoDocument+ShortestRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCDrawDemoDocument+ShortestRoute.h"; sourceTree = "<group>"; };
@@ -605,7 +605,7 @@
 		AA206DD20D90A0E6003205BD /* GCDrawDemoDocument.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA206DD30D90A0E6003205BD /* English */,
+				AA206DD30D90A0E6003205BD /* en */,
 			);
 			name = GCDrawDemoDocument.xib;
 			sourceTree = "<group>";
@@ -613,7 +613,7 @@
 		AA7431D20D80FF3D0013CA82 /* DKGraphicInspector.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431D30D80FF3D0013CA82 /* English */,
+				AA7431D30D80FF3D0013CA82 /* en */,
 			);
 			name = DKGraphicInspector.xib;
 			sourceTree = "<group>";
@@ -621,7 +621,7 @@
 		AA7431D60D80FF830013CA82 /* Drawingsize.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431D70D80FF830013CA82 /* English */,
+				AA7431D70D80FF830013CA82 /* en */,
 			);
 			name = Drawingsize.xib;
 			sourceTree = "<group>";
@@ -629,7 +629,7 @@
 		AA7431E00D8101230013CA82 /* LayersPalette.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431E10D8101230013CA82 /* English */,
+				AA7431E10D8101230013CA82 /* en */,
 			);
 			name = LayersPalette.xib;
 			sourceTree = "<group>";
@@ -637,7 +637,7 @@
 		AA7431E30D81015B0013CA82 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431E40D81015B0013CA82 /* English */,
+				AA7431E40D81015B0013CA82 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -645,7 +645,7 @@
 		AA7431E90D8101660013CA82 /* ObjectInspector.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431EA0D8101660013CA82 /* English */,
+				AA7431EA0D8101660013CA82 /* en */,
 			);
 			name = ObjectInspector.xib;
 			sourceTree = "<group>";
@@ -653,7 +653,7 @@
 		AA7431EC0D81016B0013CA82 /* StyleInspector.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431ED0D81016B0013CA82 /* English */,
+				AA7431ED0D81016B0013CA82 /* en */,
 			);
 			name = StyleInspector.xib;
 			sourceTree = "<group>";
@@ -661,7 +661,7 @@
 		AA7431EF0D8101720013CA82 /* StyleManager.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431F00D8101720013CA82 /* English */,
+				AA7431F00D8101720013CA82 /* en */,
 			);
 			name = StyleManager.xib;
 			sourceTree = "<group>";
@@ -669,7 +669,7 @@
 		AA7431F20D8101790013CA82 /* ToolPalette.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA7431F30D8101790013CA82 /* English */,
+				AA7431F30D8101790013CA82 /* en */,
 			);
 			name = ToolPalette.xib;
 			sourceTree = "<group>";
