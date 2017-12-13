@@ -524,7 +524,7 @@
 	
 	// Note - this is called from mouseDown, so do not call it again.
 	
-	unsigned int	mask;
+	NSEventMask		mask;
 	BOOL			loop = YES;
 	
 	mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;

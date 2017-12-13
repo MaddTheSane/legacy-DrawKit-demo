@@ -102,6 +102,7 @@ static NSInteger		sMFlags = 0;
 	mini = [[GCMiniRadialControls alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kSweepCentreControlID];
 	[mini release];
+	[mcc release];
 }
 
 

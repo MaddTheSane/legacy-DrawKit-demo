@@ -207,6 +207,11 @@
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
 
+- (void)dealloc
+{
+	[mDash release];
+	[super dealloc];
+}
 
 #pragma mark -
 #pragma mark As a GCDashEditView delegate

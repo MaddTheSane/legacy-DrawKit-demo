@@ -119,8 +119,6 @@
 		[menu removeItemAtIndex:--m];
 	} while( m );
 		
-	m = [names count];
-	
 	for (NSString *name in names) {
 		tool = [DKDrawingTool drawingToolWithName:name];
 		

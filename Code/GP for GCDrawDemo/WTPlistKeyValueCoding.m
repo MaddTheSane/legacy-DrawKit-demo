@@ -174,10 +174,19 @@ WTKeyValueEncodeObject (id val)
 	return [[self valueForKey:key] floatValue];
 }
 
+- (double)decodeDoubleForKey:(NSString *)key
+{
+	return [[self valueForKey:key] doubleValue];
+}
 
 - (int)		decodeIntForKey:(NSString *)key
 {
 	return [[self valueForKey:key] intValue];
+}
+
+- (NSInteger)decodeIntegerForKey:(NSString *)key
+{
+	return [[self valueForKey:key] integerValue];
 }
 
 
@@ -237,6 +246,24 @@ WTKeyValueEncodeObject (id val)
 	}
 	 */
 }
+
+- (void)encodeDouble:(double)value forKey:(NSString *)key
+{
+	self[key] = @(value);
+}
+
+- (void)encodeInteger:(NSInteger)value forKey:(NSString *)key
+{
+	self[key] = @(value);
+}
+
+- (void)encodeConditionalObject:(nullable id)object forKey:(NSString *)key
+{
+	if (object) {
+		self[key] = object;
+	}
+}
+
 
 @end
 

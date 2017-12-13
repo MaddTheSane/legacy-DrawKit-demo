@@ -45,6 +45,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	[[self drawing] addLayer:layer andActivateIt:YES];
 	
 	NSString* action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Add Layer", @""), [layer layerName]];
+	[layer release];
 
 	[[[self drawing] undoManager] setActionName:action];
 }
