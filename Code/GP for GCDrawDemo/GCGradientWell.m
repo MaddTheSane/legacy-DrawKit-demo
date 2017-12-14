@@ -203,6 +203,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 
 		DKGradient *copyGrad = [self.gradient copy];
 		//[[GCGradientPanel sharedGradientPanel] setGradient:copyGrad];
+		(void)copyGrad;
 	}
 }
 

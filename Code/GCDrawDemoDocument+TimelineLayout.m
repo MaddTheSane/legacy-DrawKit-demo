@@ -59,7 +59,6 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 
 	NSMutableArray *tlObjects;
 	NSEnumerator *iter = [layer.availableObjects objectEnumerator];
-	DKDrawableObject *obj;
 	static CGFloat lowestEdge = -10000;
 
 	tlObjects = [NSMutableArray array];
@@ -118,7 +117,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 
 	gridVIncrement = grid.divisionDistance;
 
-	while ((obj = [iter nextObject]) != nil) {
+	for (DKDrawableObject *obj in iter) {
 		// place the object's horizontal position based on the "year" value. To make this easier we also offset the
 		// "loc" of the object relative to its top, left corner:
 

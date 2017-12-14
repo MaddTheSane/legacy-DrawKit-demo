@@ -22,7 +22,7 @@
 	NSMutableArray *mHandles;
 	NSBezierPath *mPath;
 	NSInteger mSelected;
-	id<GCDashEditViewDelegate> __unsafe_unretained mDelegateRef;
+	__weak id<GCDashEditViewDelegate> mDelegateRef;
 	NSColor *mLineColour;
 	NSRect mPhaseHandle;
 }
@@ -34,7 +34,7 @@
 @property NSLineJoinStyle lineJoinStyle;
 @property (nonatomic, strong) NSColor *lineColour;
 
-@property (unsafe_unretained) id<GCDashEditViewDelegate> delegate;
+@property (weak) id<GCDashEditViewDelegate> delegate;
 
 //! calculates where the handle rects are given the current dash
 - (void)calcHandles;

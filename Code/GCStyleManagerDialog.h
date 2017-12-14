@@ -19,7 +19,7 @@
 	IBOutlet NSButton *mDeleteStyleButton;
 	IBOutlet GCBasicDialogController *mKeyChangeDialogController;
 
-	DKStyle *mSelectedStyle;
+	__unsafe_unretained DKStyle *mSelectedStyle;
 	NSString *mSelectedCategory;
 }
 - (IBAction)addCategoryAction:(id)sender;

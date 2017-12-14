@@ -14,9 +14,9 @@ typedef NS_ENUM(NSInteger, GCExportFileTypes) {
 	// to unify the file types for export, the following is used to indicate export to PDF
 	GCExportFileTypePDF = -1,
 
-	GCExportFileTypeJPEG = NSJPEGFileType,
-	GCExportFileTypePNG = NSPNGFileType,
-	GCExportFileTypeTIFF = NSTIFFFileType,
+	GCExportFileTypeJPEG = NSBitmapImageFileTypeJPEG,
+	GCExportFileTypePNG = NSBitmapImageFileTypePNG,
+	GCExportFileTypeTIFF = NSBitmapImageFileTypeTIFF,
 };
 
 @interface GCExportOptionsController : NSObject {
@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, GCExportFileTypes) {
 	IBOutlet NSButton *mTIFFAlphaCheckbox;
 
 	NSSavePanel *mSavePanel;
-	id<ExportControllerDelegate> mDelegate;
+	__weak id<ExportControllerDelegate> mDelegate;
 	NSMutableDictionary *mOptionsDict;
 	GCExportFileTypes mFileType;
 }

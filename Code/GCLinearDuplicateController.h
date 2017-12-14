@@ -16,7 +16,7 @@
 	IBOutlet NSTextField *mYOffsetTextField;
 	IBOutlet NSButton *mOKButton;
 
-	id<LinearDuplicationDelegate> mDelegateRef;
+	__weak id<LinearDuplicationDelegate> mDelegateRef;
 }
 
 - (IBAction)numberOfCopiesAction:(id)sender;

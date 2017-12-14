@@ -15,7 +15,7 @@
 	IBOutlet NSButton *mCancelButton;
 	IBOutlet NSBox *mManualSettingsBox;
 
-	__unsafe_unretained id<PolarDuplicationDelegate> mDelegateRef;
+	__weak id<PolarDuplicationDelegate> mDelegateRef;
 }
 
 - (IBAction)angleAction:(id)sender;

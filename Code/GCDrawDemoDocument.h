@@ -36,4 +36,4 @@
 
 @end
 
-extern NSString *kDKTableRowInternalDragPasteboardType;
+extern NSPasteboardType kDKTableRowInternalDragPasteboardType;

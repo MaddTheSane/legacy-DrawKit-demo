@@ -35,7 +35,7 @@
 	IBOutlet NSSlider *mPhaseSlider;
 	DKStrokeDash *mDash;
 	NSTextField *mEF[8];
-	id<GCDashEditorDelegate> mDelegateRef;
+	__weak id<GCDashEditorDelegate> mDelegateRef;
 }
 
 - (void)openDashEditorInParentWindow:(NSWindow *)pw modalDelegate:(id<GCDashEditorDelegate>)del;
