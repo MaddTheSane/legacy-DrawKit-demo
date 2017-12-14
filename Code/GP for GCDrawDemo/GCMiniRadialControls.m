@@ -13,99 +13,92 @@
 #import "NSBezierPath+GCAdditions.h"
 #import <DKDrawKit/LogEvent.h>
 
-
-
 @implementation GCMiniRadialControls
 #pragma mark As a GCMiniRadialControls
-- (void)setCentre:(NSPoint) p
+- (void)setCentre:(NSPoint)p
 {
-	if ( ! NSEqualPoints( p, mCentre ))
-	{
+	if (!NSEqualPoints(p, mCentre)) {
 		[self notifyDelegateWillChange:nil];
 		mCentre = p;
 		[self notifyDelegateDidChange:nil];
 	}
 }
 
-@synthesize centre=mCentre;
+@synthesize centre = mCentre;
 
 #pragma mark -
-- (void)setRadius:(CGFloat) radius
+- (void)setRadius:(CGFloat)radius
 {
-	if (  radius != mRadius )
-	{
+	if (radius != mRadius) {
 		[self notifyDelegateWillChange:nil];
 		mRadius = radius;
 		[self notifyDelegateDidChange:nil];
 	}
 }
 
-@synthesize radius=mRadius;
+@synthesize radius = mRadius;
 
 #pragma mark -
-- (NSRect)			targetRect
+- (NSRect)targetRect
 {
 	NSRect pr;
-	pr.size = NSMakeSize( 20, 20 );
-	
-	pr.origin.x = mCentre.x - ( pr.size.width / 2.0 );
-	pr.origin.y = mCentre.y - ( pr.size.height / 2.0 );
-	
+	pr.size = NSMakeSize(20, 20);
+
+	pr.origin.x = mCentre.x - (pr.size.width / 2.0);
+	pr.origin.y = mCentre.y - (pr.size.height / 2.0);
+
 	return pr;
 }
 
-
-- (NSRect)			rectForRadius
+- (NSRect)rectForRadius
 {
-	NSRect  pr;
-	pr.size = NSMakeSize( 25, 25 );
-	
+	NSRect pr;
+	pr.size = NSMakeSize(25, 25);
+
 	NSPoint sp;
-	
+
 	sp.x = NSMidX([self targetRect]);
 	sp.y = NSMidY([self targetRect]);
-	
-	pr.origin.x = sp.x - ( pr.size.width / 2.0 );
-	pr.origin.y = sp.y - ( pr.size.height / 2.0 );
-	
+
+	pr.origin.x = sp.x - (pr.size.width / 2.0);
+	pr.origin.y = sp.y - (pr.size.height / 2.0);
+
 	return pr;
 }
 
-
-- (void)drawRadControlInRect:(NSRect) rr radius:(CGFloat) rad colorValue:(CGFloat) u
+- (void)drawRadControlInRect:(NSRect)rr radius:(CGFloat)rad colorValue:(CGFloat)u
 {
-#pragma unused (u)
+#pragma unused(u)
 	//NSBezierPath* path = [NSBezierPath bezierPathWithOffsetTargetInRect:rr offset:( u < 0.5 )? -1 : 1];
 	//NSColor*	fillc = [[[self gradient] colorAtValue:u] colorWithAlphaComponent:mControlAlpha];
-	
-	NSBezierPath* path = [NSBezierPath bezierPathWithTargetInRect:rr];
-	
-	NSColor* fillc = [NSColor rgbGrey:0.5];
+
+	NSBezierPath *path = [NSBezierPath bezierPathWithTargetInRect:rr];
+
+	NSColor *fillc = [NSColor rgbGrey:0.5];
 	[fillc set];
 	[path fill];
 	[[fillc contrastingColor] set];
-	
+
 	[path setLineWidth:0.7];
-	rr = NSInsetRect( rr, -10, -10 );
-	//[path appendBezierPathWithOvalInRect:rr]; 
+	rr = NSInsetRect(rr, -10, -10);
+	//[path appendBezierPathWithOvalInRect:rr];
 	[path stroke];
-	
-	if ( rad > 0.0 )
-	{
-		NSRect		radr;
-		CGFloat		dash[2] = { 5.0, 5.0 };
-		
-		radr.origin.x = NSMidX( rr ) - rad;
-		radr.origin.y = NSMidY( rr ) - rad;
-		radr.size.width = radr.size.height = ( rad * 2 );
-		
-	//	LogEvent_(kReactiveEvent, @"rad rect = {%f, %f} - {%f, %f}", radr.origin.x, radr.origin.y, radr.size.width, radr.size.height );
-		
+
+	if (rad > 0.0) {
+		NSRect radr;
+		CGFloat dash[2] = {5.0, 5.0};
+
+		radr.origin.x = NSMidX(rr) - rad;
+		radr.origin.y = NSMidY(rr) - rad;
+		radr.size.width = radr.size.height = (rad * 2);
+
+		//	LogEvent_(kReactiveEvent, @"rad rect = {%f, %f} - {%f, %f}", radr.origin.x, radr.origin.y, radr.size.width, radr.size.height );
+
 		path = [NSBezierPath bezierPathWithOvalInRect:radr];
 		[path setLineWidth:5.0];
 		[[[NSColor whiteColor] colorWithAlphaComponent:0.25] set];
 		[path stroke];
-		
+
 		[path setLineWidth:1.0];
 		[path setLineDash:dash count:2 phase:0.0];
 		[[NSColor orangeColor] set];
@@ -113,23 +106,19 @@
 	}
 }
 
-
 #pragma mark -
 #pragma mark As a GCMiniControl
-- (void)			draw
+- (void)draw
 {
 	[self drawRadControlInRect:[self targetRect] radius:mRadius colorValue:[self value]];
 }
 
-
-- (GCControlHitTest)hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint)p
 {
-	if ([super hitTestPoint:p] == kDKMiniControlEntireControl )
-	{
-		if ( NSPointInRect( p, [self targetRect]))
+	if ([super hitTestPoint:p] == kDKMiniControlEntireControl) {
+		if (NSPointInRect(p, [self targetRect]))
 			return kDKHitRadialTarget;
-		else
-		{
+		else {
 			/*
 			CGFloat		pr;
 			NSPoint		mp;
@@ -146,40 +135,35 @@
 			*/
 		}
 	}
-	
+
 	return kDKMiniControlNoPart;
 }
 
-
-- (id)				initWithBounds:(NSRect) rect inCluster:(GCMiniControlCluster*) clust
+- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
-	if (self != nil)
-	{
+	if (self != nil) {
 		NSAssert(mRadius == 0.0, @"Expected init to zero");
 		mCentre = NSMakePoint(NSMidX(rect), NSMidY(rect));
 	}
 	return self;
 }
 
-
-- (BOOL)			mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
+- (BOOL)mouseDraggedAt:(NSPoint)currentPoint inPart:(GCControlHitTest)part modifierFlags:(NSEventModifierFlags)flags
 {
-#pragma unused (flags)
-	if ( part == kDKHitRadialTarget )
+#pragma unused(flags)
+	if (part == kDKHitRadialTarget)
 		[self setCentre:currentPoint];
-	else if ( part == kDKHitRadialRadius )
-	{
-		NSRect		kr = [self targetRect];
-		NSPoint		mp;
-		
-		mp.x = NSMidX( kr );
-		mp.y = NSMidY( kr );
-		[self setRadius:hypot( currentPoint.x - mp.x, currentPoint.y - mp.y )];
+	else if (part == kDKHitRadialRadius) {
+		NSRect kr = [self targetRect];
+		NSPoint mp;
+
+		mp.x = NSMidX(kr);
+		mp.y = NSMidY(kr);
+		[self setRadius:hypot(currentPoint.x - mp.x, currentPoint.y - mp.y)];
 	}
-	
+
 	return YES;
 }
-
 
 @end

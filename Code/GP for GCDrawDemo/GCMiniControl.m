@@ -11,28 +11,26 @@
 #import <DKDrawKit/GCInfoFloater.h>
 #import <DKDrawKit/LogEvent.h>
 
-
 @implementation GCMiniControl
 #pragma mark As a GCMiniControl
-+ (NSColor*)miniControlThemeColor:(DKControlThemeElement) themeElementID withAlpha:(CGFloat) alpha
++ (NSColor *)miniControlThemeColor:(DKControlThemeElement)themeElementID withAlpha:(CGFloat)alpha
 {
-	switch( themeElementID )
-	{
+	switch (themeElementID) {
 		case kDKMiniControlThemeBackground:
 			return [[NSColor lightGrayColor] colorWithAlphaComponent:0.25 * alpha];
 
 		case kDKMiniControlThemeSliderTrack:
 			return [[NSColor blackColor] colorWithAlphaComponent:0.67 * alpha];
-			
+
 		case kDKMiniControlThemeSliderTrkHilite:
 			return [[NSColor lightGrayColor] colorWithAlphaComponent:0.67 * alpha];
-		
+
 		case kDKMiniControlThemeKnobInterior:
 			return [[NSColor grayColor] colorWithAlphaComponent:0.5 * alpha];
-		
+
 		case kDKMiniControlThemeKnobStroke:
 			return [[NSColor whiteColor] colorWithAlphaComponent:0.67 * alpha];
-		
+
 		case kDKMiniControlThemeIris:
 			return [[NSColor lightGrayColor] colorWithAlphaComponent:0.33 * alpha];
 
@@ -41,9 +39,8 @@
 	}
 }
 
-
 #pragma mark -
-- (id)			initWithBounds:(NSRect) rect inCluster:(GCMiniControlCluster*) clust
+- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super init];
 	if (self != nil) {
@@ -52,13 +49,13 @@
 		NSAssert(mIdent == nil, @"Expected init to zero");
 		NSAssert(mDelegateRef == nil, @"Expected init to zero");
 		mInfoWin = [GCInfoFloater infoFloater];
-		
+
 		NSAssert(mValue == 0.0, @"Expected init to zero");
 		NSAssert(mMinValue == 0.0, @"Expected init to zero");
 		mMaxValue = 1.0;
 		NSAssert(mInfoWMode == kDKMiniControlNoInfoWindow, @"Expected init to zero");
 		mApplyShadow = YES;
-		
+
 		if (mInfoWin == nil) {
 			return nil;
 		}
@@ -69,306 +66,266 @@
 	return self;
 }
 
-@synthesize cluster=mClusterRef;
+@synthesize cluster = mClusterRef;
 
-- (NSView*)		view
+- (NSView *)view
 {
 	return [[self cluster] view];
 }
 
-
 #pragma mark -
-- (void)		setBounds:(NSRect) rect
+- (void)setBounds:(NSRect)rect
 {
 	mBounds = rect;
 }
 
-
-- (NSRect)		bounds
+- (NSRect)bounds
 {
 	return mBounds;
 }
 
-
-- (void)		draw
+- (void)draw
 {
 	// override to do something
 }
 
-
 #pragma mark -
-- (void)		applyShadow
+- (void)applyShadow
 {
-	if ( mApplyShadow )
-	{
-		NSShadow*	shadowObj = [[NSShadow alloc] init];
-		
+	if (mApplyShadow) {
+		NSShadow *shadowObj = [[NSShadow alloc] init];
+
 		[shadowObj setShadowColor:[NSColor blackColor]];
-		[shadowObj setShadowOffset:NSMakeSize( 2, -2 )];
+		[shadowObj setShadowOffset:NSMakeSize(2, -2)];
 		[shadowObj setShadowBlurRadius:1.0];
 		[shadowObj set];
 	}
 }
 
-
 #pragma mark -
-- (void)		setNeedsDisplay
+- (void)setNeedsDisplay
 {
 	// relies on the delegate implementing setNeedsDisplayInRect: there is no guarantee that this will actually
-	// cause a redraw - you need to set it up to work. 
-	
+	// cause a redraw - you need to set it up to work.
+
 	[self setNeedsDisplayInRect:[self bounds]];
 }
 
-
-- (void)		setNeedsDisplayInRect:(NSRect) rect
+- (void)setNeedsDisplayInRect:(NSRect)rect
 {
 	// relies on the delegate implementing setNeedsDisplayInRect: there is no guarantee that this will actually
-	// cause a redraw - you need to set it up to work. 
-	
+	// cause a redraw - you need to set it up to work.
+
 	if ([self view])
 		[[self view] setNeedsDisplayInRect:rect];
 	else if ([self delegate] && [[self delegate] respondsToSelector:@selector(setNeedsDisplayInRect:)])
-		[(NSView*)[self delegate] setNeedsDisplayInRect:rect];
+		[(NSView *)[self delegate] setNeedsDisplayInRect:rect];
 }
 
-
 #pragma mark -
-- (NSColor*)	themeColour:(DKControlThemeElement) themeElementID
+- (NSColor *)themeColour:(DKControlThemeElement)themeElementID
 {
 	// returns theme colour but applies local value of alpha
-	
+
 	return [[self class] miniControlThemeColor:themeElementID withAlpha:[[self cluster] alpha]];
 }
 
-
 #pragma mark -
-- (GCControlHitTest)hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint)p
 {
-	return ( NSPointInRect( p, [self bounds]))? kDKMiniControlEntireControl : kDKMiniControlNoPart;
+	return (NSPointInRect(p, [self bounds])) ? kDKMiniControlEntireControl : kDKMiniControlNoPart;
 }
 
-
 #pragma mark -
-- (BOOL)mouseDownAt:(NSPoint) startPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
+- (BOOL)mouseDownAt:(NSPoint)startPoint inPart:(GCControlHitTest)part modifierFlags:(NSEventModifierFlags)flags
 {
-#pragma unused (flags)
+#pragma unused(flags)
 	// override to do something, call super to handle info windows
-	
-//	LogEvent_(kReactiveEvent, @"mini-control mouse down, part = %d", part);
-	
-	if ( part != kDKMiniControlNoPart )
-	{
+
+	//	LogEvent_(kReactiveEvent, @"mini-control mouse down, part = %d", part);
+
+	if (part != kDKMiniControlNoPart) {
 		[self setupInfoWindowAtPoint:startPoint withValue:[self value] andFormat:nil];
 		return YES;
-	}
-	else
+	} else
 		return NO;
 }
 
-
-- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
+- (BOOL)mouseDraggedAt:(NSPoint)currentPoint inPart:(GCControlHitTest)part modifierFlags:(NSEventModifierFlags)flags
 {
-#pragma unused (part, flags)
+#pragma unused(part, flags)
 	// override to do something, call super to handle info windows
-	
+
 	[self updateInfoWindowAtPoint:currentPoint withValue:[self value]];
 	return YES;
 }
 
-
-- (void)mouseUpAt:(NSPoint) endPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
+- (void)mouseUpAt:(NSPoint)endPoint inPart:(GCControlHitTest)part modifierFlags:(NSEventModifierFlags)flags
 {
-#pragma unused (endPoint, part, flags)
+#pragma unused(endPoint, part, flags)
 	// override to do something, call super to handle info windows
-//	LogEvent_(kReactiveEvent, @"mini-control mouse up, part = %d", part);
+	//	LogEvent_(kReactiveEvent, @"mini-control mouse up, part = %d", part);
 	[self hideInfoWindow];
 }
 
-
-- (void)flagsChanged:(NSEventModifierFlags) flags
+- (void)flagsChanged:(NSEventModifierFlags)flags
 {
-#pragma unused (flags)
+#pragma unused(flags)
 	// override to do something
-	
-//	LogEvent_(kInfoEvent, @"mini-control flags changed, flags = %d", flags);
+
+	//	LogEvent_(kInfoEvent, @"mini-control flags changed, flags = %d", flags);
 }
 
-
 #pragma mark -
-- (void)setInfoWindowMode:(DKControlInfoWindowMode) mode
+- (void)setInfoWindowMode:(DKControlInfoWindowMode)mode
 {
 	mInfoWMode = mode;
 }
 
-
-- (void)setupInfoWindowAtPoint:(NSPoint) p withValue:(CGFloat) val andFormat:(NSString*) format
+- (void)setupInfoWindowAtPoint:(NSPoint)p withValue:(CGFloat)val andFormat:(NSString *)format
 {
-	if ( mInfoWMode != kDKMiniControlNoInfoWindow )
-	{
-		if ( mInfoWin == nil )
+	if (mInfoWMode != kDKMiniControlNoInfoWindow) {
+		if (mInfoWin == nil)
 			mInfoWin = [GCInfoFloater infoFloater];
-		
-		if ( format )
+
+		if (format)
 			[self setInfoWindowFormat:format];
-			
+
 		[self updateInfoWindowAtPoint:p withValue:val];
 		[mInfoWin orderFront:self];
 	}
 }
 
-
 #pragma mark -
-- (void)updateInfoWindowAtPoint:(NSPoint) p withValue:(CGFloat) val
+- (void)updateInfoWindowAtPoint:(NSPoint)p withValue:(CGFloat)val
 {
 	// let delegate have opportunity to set this value
-	
+
 	if ([self delegate] && [[self delegate] respondsToSelector:@selector(miniControlWillUpdateInfoWindow:withValue:)])
 		val = [[self delegate] miniControlWillUpdateInfoWindow:self withValue:val];
-	
+
 	[mInfoWin setFloatValue:val];
-	
-	if ( mInfoWMode == kDKMiniControlInfoWindowFollowsMouse )
+
+	if (mInfoWMode == kDKMiniControlInfoWindowFollowsMouse)
 		[mInfoWin positionNearPoint:p inView:[self view]];
-	else if ( mInfoWMode == kDKMiniControlInfoWindowCentred )
-	{
+	else if (mInfoWMode == kDKMiniControlInfoWindowCentred) {
 		// position window above and centred horizontally in bounds
-	
-		NSRect	wfr = [mInfoWin frame];
-		NSRect	br = [self bounds];
-		NSPoint	wp;
-		
-		wp.x = (( NSMinX( br ) + NSMaxX( br )) / 2.0 ) - ( NSWidth( wfr ) / 2.0 );
-		wp.y = NSMinY( br ) - 2;//NSHeight( wfr );
-		
+
+		NSRect wfr = [mInfoWin frame];
+		NSRect br = [self bounds];
+		NSPoint wp;
+
+		wp.x = ((NSMinX(br) + NSMaxX(br)) / 2.0) - (NSWidth(wfr) / 2.0);
+		wp.y = NSMinY(br) - 2; //NSHeight( wfr );
+
 		[mInfoWin positionNearPoint:wp inView:[self view]];
 	}
 }
-
 
 - (void)hideInfoWindow
 {
 	[mInfoWin hide];
 }
 
-
-- (void)setInfoWindowFormat:(NSString*) format
+- (void)setInfoWindowFormat:(NSString *)format
 {
 	[mInfoWin setFormat:format];
 }
 
-
-- (void)setInfoWindowValue:(CGFloat) value
+- (void)setInfoWindowValue:(CGFloat)value
 {
 	[mInfoWin setFloatValue:value];
 }
 
-
 #pragma mark -
-@synthesize delegate=mDelegateRef;
+@synthesize delegate = mDelegateRef;
 
-
-- (id)			delegate
+- (id)delegate
 {
 	// return the delegate if we have one, otherwise use the cluster's delegate
-	
-	if ( mDelegateRef )
+
+	if (mDelegateRef)
 		return mDelegateRef;
 	else
 		return [[self cluster] delegate];
 }
 
-
-- (void)		notifyDelegateWillChange:(id) value
+- (void)notifyDelegateWillChange:(id)value
 {
 	if ([self delegate] && [[self delegate] respondsToSelector:@selector(miniControl:willChangeValue:)])
 		[[self delegate] miniControl:self willChangeValue:value];
 }
 
-
-- (void)		notifyDelegateDidChange:(id) value
+- (void)notifyDelegateDidChange:(id)value
 {
 	if ([self delegate] && [[self delegate] respondsToSelector:@selector(miniControl:didChangeValue:)])
 		[[self delegate] miniControl:self didChangeValue:value];
 }
 
-
 #pragma mark -
-- (void)		setIdentifier:(NSString*) name
+- (void)setIdentifier:(NSString *)name
 {
 	// stores the control against <name> in the owning cluster, so it can easily be located by name
-	
+
 	mIdent = name;
 	[[self cluster] setControl:self forKey:name];
 }
 
-
-- (NSString*)	identifier
+- (NSString *)identifier
 {
 	return mIdent;
 }
 
-
 #pragma mark -
-- (void)setValue:(CGFloat) v
+- (void)setValue:(CGFloat)v
 {
-	v = MAX( v, [self minValue]);
-	v = MIN( v, [self maxValue]);
-	
-	if ( v != mValue )
-	{
+	v = MAX(v, [self minValue]);
+	v = MIN(v, [self maxValue]);
+
+	if (v != mValue) {
 		[self notifyDelegateWillChange:[NSNumber numberWithFloat:mValue]];
 		mValue = v;
 		[self notifyDelegateDidChange:[NSNumber numberWithFloat:mValue]];
 	}
 }
 
-
 - (CGFloat)value
 {
 	return mValue;
 }
 
-
 #pragma mark -
-- (void)setMaxValue:(CGFloat) v
+- (void)setMaxValue:(CGFloat)v
 {
 	mMaxValue = v;
-	
-	if ( mValue > mMaxValue )
+
+	if (mValue > mMaxValue)
 		[self setValue:mMaxValue];
 }
-
 
 - (CGFloat)maxValue
 {
 	return mMaxValue;
 }
 
-
 #pragma mark -
-- (void)setMinValue:(CGFloat) v
+- (void)setMinValue:(CGFloat)v
 {
 	mMinValue = v;
-	
-	if ( mValue < mMinValue )
+
+	if (mValue < mMinValue)
 		[self setValue:mMinValue];
 }
-
 
 - (CGFloat)minValue
 {
 	return mMinValue;
 }
 
-
 #pragma mark -
 #pragma mark As an NSObject
 
-
 @end
-
-
 
 /*
 @implementation  NSObject (GCMiniControlDelegate)
@@ -386,4 +343,3 @@
 
 @end
 */
-

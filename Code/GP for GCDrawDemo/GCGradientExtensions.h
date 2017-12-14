@@ -9,60 +9,57 @@
 #import <Cocoa/Cocoa.h>
 #import "GCGradient.h"
 
-
 @interface NSView (GCGradientExtensions)
 
-- (void) dragGradient:(GCGradient*)gradient swatchSize:(NSSize)size
-			slideBack:(BOOL)slideBack event:(NSEvent *)event;
+- (void)dragGradient:(GCGradient *)gradient swatchSize:(NSSize)size
+		   slideBack:(BOOL)slideBack
+			   event:(NSEvent *)event;
 
-- (void) dragStandardSwatchGradient:(GCGradient*)gradient slideBack:(BOOL)slideBack event:(NSEvent *)event;
+- (void)dragStandardSwatchGradient:(GCGradient *)gradient slideBack:(BOOL)slideBack event:(NSEvent *)event;
 
-- (void) dragColor:(NSColor*)color swatchSize:(NSSize)size slideBack:(BOOL)slideBack event:(NSEvent *)event;
+- (void)dragColor:(NSColor *)color swatchSize:(NSSize)size slideBack:(BOOL)slideBack event:(NSEvent *)event;
 
 @end
 
 @interface NSColor (GCGradientExtensions)
 
-- (NSImage*) swatchImageWithSize:(NSSize) size withBorder:(BOOL) showBorder;
+- (NSImage *)swatchImageWithSize:(NSSize)size withBorder:(BOOL)showBorder;
 
 @end
-
-
 
 @interface GCGradient (GCGradientExtensions)
 
-- (void)		initExtensionData;
+- (void)initExtensionData;
 
-- (void)		setRadialStartingPoint:(NSPoint) p;
-- (void)		setRadialEndingPoint:(NSPoint) p;
-- (void)		setRadialStartingRadius:(float) rad;
-- (void)		setRadialEndingRadius:(float) rad;
+- (void)setRadialStartingPoint:(NSPoint)p;
+- (void)setRadialEndingPoint:(NSPoint)p;
+- (void)setRadialStartingRadius:(float)rad;
+- (void)setRadialEndingRadius:(float)rad;
 
-- (NSPoint)		radialStartingPoint;
-- (NSPoint)		radialEndingPoint;
-- (float)		radialStartingRadius;
-- (float)		radialEndingRadius;
+- (NSPoint)radialStartingPoint;
+- (NSPoint)radialEndingPoint;
+- (float)radialStartingRadius;
+- (float)radialEndingRadius;
 
-- (BOOL)		hasRadialSettings;
+- (BOOL)hasRadialSettings;
 
-- (NSPoint)		mapPoint:(NSPoint) p fromRect:(NSRect) rect;
-- (NSPoint)		mapPoint:(NSPoint) p toRect:(NSRect) rect;
+- (NSPoint)mapPoint:(NSPoint)p fromRect:(NSRect)rect;
+- (NSPoint)mapPoint:(NSPoint)p toRect:(NSRect)rect;
 
-- (void)		setNumberOfAngularSegments:(int) seg;
-- (int)			numberOfAngularSegments;
+- (void)setNumberOfAngularSegments:(int)seg;
+- (int)numberOfAngularSegments;
 
-- (void)		convertOldKey:(NSString*) key;
-- (void)		convertOldKeys;
+- (void)convertOldKey:(NSString *)key;
+- (void)convertOldKeys;
 
 @end
 
+@interface NSDictionary (StructEncoding)
 
-@interface		NSDictionary (StructEncoding)
+- (void)setPoint:(NSPoint)p forKey:(id)key;
+- (NSPoint)pointForKey:(id)key;
 
-- (void)		setPoint:(NSPoint) p forKey:(id) key;
-- (NSPoint)		pointForKey:(id) key;
-
-- (void)		setFloat:(float) f forKey:(id) key;
-- (float)		floatForKey:(id) key;
+- (void)setFloat:(float)f forKey:(id)key;
+- (float)floatForKey:(id)key;
 
 @end

@@ -8,41 +8,32 @@
 
 #import <AppKit/AppKit.h>
 
-
 @class GCGradient;
 
-
-
-@interface GCGradientView : NSView
-{
-	GCGradient*		_gradient;
+@interface GCGradientView : NSView {
+	GCGradient *_gradient;
 }
 
-
-- (void)			setGradient:(GCGradient*) grad;
-- (GCGradient*)		gradient;
+- (void)setGradient:(GCGradient *)grad;
+- (GCGradient *)gradient;
 
 @end
-
 
 // ultra simple view class simply renders its gradient in the bounds.
 // used (in part) to provide PDF/EPS export facility for gradients
 
-
 // list view used to provide similar feature for exporting library images
 
-@interface GCGradientListView : NSView
-{
-	NSArray*	_list;
-	NSSize		_cellSize;
-	NSSize		_cellSpacing;
+@interface GCGradientListView : NSView {
+	NSArray *_list;
+	NSSize _cellSize;
+	NSSize _cellSpacing;
 }
 
-- (void)	setGradientList:(NSArray*) list;
-- (void)	setCellSize:(NSSize) size;
+- (void)setGradientList:(NSArray *)list;
+- (void)setCellSize:(NSSize)size;
 
 @end
 
-
-#define kGCDefaultListViewCellSize		( NSMakeSize( 64, 64 ))
-#define kGCDefaultListViewCellSpacing   ( NSMakeSize( 2, 2 ))
+#define kGCDefaultListViewCellSize (NSMakeSize(64, 64))
+#define kGCDefaultListViewCellSpacing (NSMakeSize(2, 2))

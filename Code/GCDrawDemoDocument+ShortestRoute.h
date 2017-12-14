@@ -9,21 +9,14 @@
 #import "GCDrawDemoDocument.h"
 #import <DKDrawKit/DKRouteFinder.h>
 
-
 @class DKDrawablePath;
 @class DKDrawableObject;
 
-
 @interface GCDrawDemoDocument (ShortestRoute) <DKRouteFinderProgressDelegate>
 
+- (IBAction)computeShortestRoute:(id)sender;
 
-- (IBAction)		computeShortestRoute:(id) sender;
-
-- (DKDrawablePath*)pathWithPoints:(NSArray<NSValue*>*) points;
-- (NSArray<DKDrawableObject*>*)objectsInArray:(NSArray<DKDrawableObject*>*)objects sortedByXOrY:(BOOL) xory;
+- (DKDrawablePath *)pathWithPoints:(NSArray<NSValue *> *)points;
+- (NSArray<DKDrawableObject *> *)objectsInArray:(NSArray<DKDrawableObject *> *)objects sortedByXOrY:(BOOL)xory;
 
 @end
-
-
-
-

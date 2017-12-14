@@ -8,11 +8,9 @@
 
 #import "GCMiniControl.h"
 
-
-@interface GCMiniRadialControls : GCMiniControl
-{
-	CGFloat			mRadius;
-	NSPoint			mCentre;
+@interface GCMiniRadialControls : GCMiniControl {
+	CGFloat mRadius;
+	NSPoint mCentre;
 }
 
 @property (nonatomic) NSPoint centre;
@@ -26,8 +24,4 @@
 
 // hit part codes:
 
-NS_ENUM(GCControlHitTest)
-{
-	kDKHitRadialTarget	= 24,
-	kDKHitRadialRadius	= 42
-};
+NS_ENUM(GCControlHitTest){kDKHitRadialTarget = 24, kDKHitRadialRadius = 42};

@@ -8,13 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (WTPlistKeyValueCoding)
 
-+ (BOOL) supportsSimpleDictionaryKeyValueCoding;
-- (BOOL) supportsSimpleDictionaryKeyValueCoding;
++ (BOOL)supportsSimpleDictionaryKeyValueCoding;
+- (BOOL)supportsSimpleDictionaryKeyValueCoding;
 
 @end
 

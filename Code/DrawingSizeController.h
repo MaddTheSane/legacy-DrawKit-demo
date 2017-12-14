@@ -2,13 +2,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @class DKDrawing;
 
-
-
-@interface DrawingSizeController : NSWindowController
-{
+@interface DrawingSizeController : NSWindowController {
 	IBOutlet NSTextField *mBottomMarginTextField;
 	IBOutlet NSTextField *mGridDivsTextField;
 	IBOutlet NSTextField *mGridMajorsTextField;
@@ -33,33 +29,32 @@
 	IBOutlet NSStepper *mConversionFactorSpinControl;
 	IBOutlet NSTextField *mConversionFactorLabelText;
 	IBOutlet NSColorWell *mPaperColourWell;
-	
-	DKDrawing*	mDrawing;
-	BOOL		mLivePreview;
-	CGFloat		mUnitConversionFactor;
-	CGFloat		mSavedSpan;
-	CGFloat		mSavedCF;
+
+	DKDrawing *mDrawing;
+	BOOL mLivePreview;
+	CGFloat mUnitConversionFactor;
+	CGFloat mSavedSpan;
+	CGFloat mSavedCF;
 	NSInteger mSavedDivs;
 	NSInteger mSavedMajors;
-	NSString*	mSavedUnits;
-	NSColor*	mSavedGridColour;
-	NSColor*	mSavedPaperColour;
+	NSString *mSavedUnits;
+	NSColor *mSavedGridColour;
+	NSColor *mSavedPaperColour;
 }
 
+- (void)beginDrawingSizeDialog:(NSWindow *)parent withDrawing:(DKDrawing *)drawing;
 
-- (void)		beginDrawingSizeDialog:(NSWindow*) parent withDrawing:(DKDrawing*) drawing;
-
-- (IBAction)	cancelAction:(id)sender;
-- (IBAction)	gridDivsAction:(id)sender;
-- (IBAction)	gridMajorsAction:(id)sender;
-- (IBAction)	gridSpanAction:(id)sender;
-- (IBAction)	gridRulerStepsAction:(id) sender;
-- (IBAction)	gridThemeColourAction:(id)sender;
-- (IBAction)	gridPrintAction:(id) sender;
-- (IBAction)	livePreviewAction:(id)sender;
-- (IBAction)	okAction:(id)sender;
-- (IBAction)	unitsComboBoxAction:(id) sender;
-- (IBAction)	conversionFactorAction:(id) sender;
-- (IBAction)	paperColourAction:(id) sender;
+- (IBAction)cancelAction:(id)sender;
+- (IBAction)gridDivsAction:(id)sender;
+- (IBAction)gridMajorsAction:(id)sender;
+- (IBAction)gridSpanAction:(id)sender;
+- (IBAction)gridRulerStepsAction:(id)sender;
+- (IBAction)gridThemeColourAction:(id)sender;
+- (IBAction)gridPrintAction:(id)sender;
+- (IBAction)livePreviewAction:(id)sender;
+- (IBAction)okAction:(id)sender;
+- (IBAction)unitsComboBoxAction:(id)sender;
+- (IBAction)conversionFactorAction:(id)sender;
+- (IBAction)paperColourAction:(id)sender;
 
 @end

@@ -8,6 +8,5 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface GCOutlineView : NSOutlineView
 @end

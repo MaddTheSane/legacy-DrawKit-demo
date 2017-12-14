@@ -5,7 +5,7 @@
 ///  Created by graham on 18/05/2007.
 ///  Released under the Creative Commons license 2007 Apptree.net.
 ///
-/// 
+///
 ///  This work is licensed under the Creative Commons Attribution-ShareAlike 2.5 License.
 ///  To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/2.5/ or send a letter to
 ///  Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
@@ -18,24 +18,23 @@
 #import <DKDrawKit/DKStrokeDash.h>
 
 @interface NSObject (SDEMethod)
-- (void)sheetDidEnd:(NSWindow*) sheet returnCode:(NSInteger) returnCode  contextInfo:(void*) contextInfo;
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 @end
 
 @implementation GCDashEditor
 #pragma mark As a GCDashEditor
-- (void)				openDashEditorInParentWindow:(NSWindow*) pw modalDelegate:(id) del
+- (void)openDashEditorInParentWindow:(NSWindow *)pw modalDelegate:(id)del
 {
-	if ([self dash] == nil )
+	if ([self dash] == nil)
 		[self setDash:[DKStrokeDash defaultDash]];
-	
+
 	mDelegateRef = del;
-	[NSApp beginSheet:[self window] modalForWindow:pw modalDelegate:del didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:(__bridge void * _Null_unspecified)(self)];
+	[NSApp beginSheet:[self window] modalForWindow:pw modalDelegate:del didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:(__bridge void *_Null_unspecified)(self)];
 	[self notifyDelegate];
 }
 
-
-- (void)				updateForDash
+- (void)updateForDash
 {
 	// set UI to match current dash
 
@@ -45,18 +44,17 @@
 	[mPhaseSlider setFloatValue:[[self dash] phase]];
 }
 
-
-- (void)setDash:(DKStrokeDash*) dash
+- (void)setDash:(DKStrokeDash *)dash
 {
 	mDash = dash;
-	
+
 	[self updateForDash];
 }
 
-@synthesize dash=mDash;
+@synthesize dash = mDash;
 
 #pragma mark -
-- (void)setLineWidth:(CGFloat) width
+- (void)setLineWidth:(CGFloat)width
 {
 	[mDashPreviewEditView setLineWidth:width];
 }
@@ -66,7 +64,7 @@
 	return mDashPreviewEditView.lineWidth;
 }
 
-- (void)setLineCapStyle:(NSLineCapStyle) lcs
+- (void)setLineCapStyle:(NSLineCapStyle)lcs
 {
 	[mDashPreviewEditView setLineCapStyle:lcs];
 }
@@ -76,7 +74,7 @@
 	return mDashPreviewEditView.lineCapStyle;
 }
 
-- (void)setLineJoinStyle:(NSLineJoinStyle) ljs
+- (void)setLineJoinStyle:(NSLineJoinStyle)ljs
 {
 	[mDashPreviewEditView setLineJoinStyle:ljs];
 }
@@ -86,7 +84,7 @@
 	return mDashPreviewEditView.lineJoinStyle;
 }
 
-- (void)setLineColour:(NSColor*) colour
+- (void)setLineColour:(NSColor *)colour
 {
 	[mDashPreviewEditView setLineColour:colour];
 }
@@ -97,99 +95,91 @@
 }
 
 #pragma mark -
-- (void)setDashCount:(NSInteger) c
+- (void)setDashCount:(NSInteger)c
 {
 	int i;
-	
-	CGFloat	d[8] = {1,1,1,1,1,1,1,1};
-	NSInteger		count;
-	
+
+	CGFloat d[8] = {1, 1, 1, 1, 1, 1, 1, 1};
+	NSInteger count;
+
 	[[self dash] getDashPattern:d count:&count];
-	
-	if ( count != c )
-	{
+
+	if (count != c) {
 		[[self dash] setDashPattern:d count:c];
 		count = c;
 	}
 
-	for( i = 0; i < 8; ++i )
-	{
-		if ( i < count )
+	for (i = 0; i < 8; ++i) {
+		if (i < count)
 			[mEF[i] setFloatValue:d[i]];
 		else
 			[mEF[i] setStringValue:@""];
-		
-		[mEF[i] setEnabled:( i < count )];
+
+		[mEF[i] setEnabled:(i < count)];
 	}
-		
-	[mDashCountButtonMatrix selectCellAtRow:0 column:( c - 1 )/2];
+
+	[mDashCountButtonMatrix selectCellAtRow:0 column:(c - 1) / 2];
 	[mPhaseSlider setMaxValue:[[self dash] length]];
 }
 
 - (NSInteger)dashCount
 {
 	NSInteger count;
-	CGFloat	d[8] = {1,1,1,1,1,1,1,1};
+	CGFloat d[8] = {1, 1, 1, 1, 1, 1, 1, 1};
 
 	[[self dash] getDashPattern:d count:&count];
-	
+
 	return count;
 }
 
-- (void)				notifyDelegate
+- (void)notifyDelegate
 {
-	if([mPreviewCheckbox intValue])
-	{
-		if ( mDelegateRef && [mDelegateRef respondsToSelector:@selector(dashDidChange:)])
+	if ([mPreviewCheckbox intValue]) {
+		if (mDelegateRef && [mDelegateRef respondsToSelector:@selector(dashDidChange:)])
 			[mDelegateRef dashDidChange:self];
 	}
 }
 
-
 #pragma mark -
-- (IBAction)			ok:(id) sender
+- (IBAction)ok:(id)sender
 {
-#pragma unused (sender)
+#pragma unused(sender)
 	[[self window] orderOut:self];
 	[NSApp endSheet:[self window] returnCode:NSOKButton];
 }
 
-
-- (IBAction)			cancel:(id) sender
+- (IBAction)cancel:(id)sender
 {
-#pragma unused (sender)
+#pragma unused(sender)
 	[[self window] orderOut:self];
 	[NSApp endSheet:[self window] returnCode:NSCancelButton];
 }
 
-
-- (IBAction)			dashValueAction:(id) sender
+- (IBAction)dashValueAction:(id)sender
 {
-#pragma unused (sender)
-	CGFloat	d[8];
-	NSInteger		i, c;
-	
+#pragma unused(sender)
+	CGFloat d[8];
+	NSInteger i, c;
+
 	c = [[self dash] count];
-	
-	for( i = 0; i < c; ++i )
+
+	for (i = 0; i < c; ++i)
 		d[i] = [mEF[i] floatValue];
-		
+
 	[[self dash] setDashPattern:d count:c];
 	[self notifyDelegate];
 	[mPhaseSlider setMaxValue:[[self dash] length]];
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
 
-
-- (IBAction)			dashScaleCheckboxAction:(id) sender
+- (IBAction)dashScaleCheckboxAction:(id)sender
 {
 	[[self dash] setScalesToLineWidth:[sender intValue]];
 	[self notifyDelegate];
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
 
-
-- (IBAction)			dashCountMatrixAction:(id) sender
+- (IBAction)dashCountMatrixAction:(id)sender
 {
 	NSInteger count = ([sender selectedColumn] + 1) * 2;
 	[self setDashCount:count];
@@ -197,8 +187,7 @@
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
 
-
-- (IBAction)			dashPhaseSliderAction:(id) sender
+- (IBAction)dashPhaseSliderAction:(id)sender
 {
 	[[self dash] setPhase:[sender floatValue]];
 	[self notifyDelegate];
@@ -207,13 +196,12 @@
 
 #pragma mark -
 #pragma mark As a GCDashEditView delegate
-- (void)				dashDidChange:(id) sender
+- (void)dashDidChange:(id)sender
 {
-#pragma unused (sender)
+#pragma unused(sender)
 	[self setDashCount:[[self dash] count]];
 	[self notifyDelegate];
 }
-
 
 #pragma mark -
 #pragma mark As part of NSNibAwaking  Protocol
@@ -221,7 +209,7 @@
 {
 	[super awakeFromNib];
 	// copy the text fields to an array so we can access them from a loop
-	
+
 	mEF[0] = mDashMarkTextField1;
 	mEF[1] = mDashSpaceTextField1;
 	mEF[2] = mDashMarkTextField2;
@@ -230,12 +218,11 @@
 	mEF[5] = mDashSpaceTextField3;
 	mEF[6] = mDashMarkTextField4;
 	mEF[7] = mDashSpaceTextField4;
-	
+
 	[mPreviewCheckbox setIntValue:1];
 	[mPhaseSlider setHidden:YES];
 	[mDashPreviewEditView setDelegate:self];
 	[self updateForDash];
 }
-
 
 @end

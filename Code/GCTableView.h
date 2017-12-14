@@ -5,33 +5,23 @@
 @interface GCTableView : NSTableView
 @end
 
-
-
 // declare a custom NSCell class for drawing a colour in a table's column
 
-
-@interface GCColourCell	: NSCell
-{
-	NSColor*	mColour;
-	BOOL		mHighlighted;
-	NSRect		mFrame;
-	NSView*		mControlView;
+@interface GCColourCell : NSCell {
+	NSColor *mColour;
+	BOOL mHighlighted;
+	NSRect mFrame;
+	NSView *mControlView;
 }
 
-
-- (void)		setColorValue:(NSColor*) colour;
-- (NSColor*)	colorValue;
-- (void)		setState:(BOOL) state;
+- (void)setColorValue:(NSColor *)colour;
+- (NSColor *)colorValue;
+- (void)setState:(BOOL)state;
 
 @end
-
-
-
 
 @interface NSObject (GCColourCellHack)
 
-- (void)				setTemporaryColour:(NSColor*) aColour forTableView:(NSTableView*) tView row:(NSInteger) row;
+- (void)setTemporaryColour:(NSColor *)aColour forTableView:(NSTableView *)tView row:(NSInteger)row;
 
 @end
-
-

@@ -8,26 +8,20 @@
 
 #import "GCMiniControl.h"
 
-
-@interface GCMiniSlider : GCMiniControl
-{
-	NSImage*	mKnobImage;
-	BOOL		mShowTicks;
+@interface GCMiniSlider : GCMiniControl {
+	NSImage *mKnobImage;
+	BOOL mShowTicks;
 }
-
 
 @property (nonatomic) BOOL showTickMarks;
 
-- (NSRect)		knobRect;
+- (NSRect)knobRect;
 
 @end
 
+enum {
+	kDKMiniSliderKnob = 2
+}
+;
 
-
-enum
-{
-	kDKMiniSliderKnob   = 2
-};
-
-
-#define kMiniSliderEndCapWidth  10
+#define kMiniSliderEndCapWidth 10

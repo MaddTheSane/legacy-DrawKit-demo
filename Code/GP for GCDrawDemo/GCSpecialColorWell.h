@@ -5,7 +5,7 @@
 ///  Created by graham on 01/05/2007.
 ///  Released under the Creative Commons license 2007 Apptree.net.
 ///
-/// 
+///
 ///  This work is licensed under the Creative Commons Attribution-ShareAlike 2.5 License.
 ///  To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/2.5/ or send a letter to
 ///  Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
@@ -14,19 +14,16 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface GCSpecialColorWell : NSColorWell
 
-+ (void)		deactivateCurrentWell;
-
++ (void)deactivateCurrentWell;
 
 @end
 
-extern NSString*	kDKColorWellWillActivate;
-extern NSString*	kDKColorWellDidActivate;
-extern NSString*	kDKColorWellWillDeactivate;
-extern NSString*	kDKColorWellDidDeactivate;
-
+extern NSString *kDKColorWellWillActivate;
+extern NSString *kDKColorWellDidActivate;
+extern NSString *kDKColorWellWillDeactivate;
+extern NSString *kDKColorWellDidDeactivate;
 
 /*
 
@@ -36,4 +33,3 @@ The point is to get notified on all activates and deactivates so WTGradientContr
 its color well behaviour correctly.
 
 */
-

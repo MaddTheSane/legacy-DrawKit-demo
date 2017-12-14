@@ -13,13 +13,11 @@
 #import <DKDrawKit/LogEvent.h>
 #import "GCMiniControlCluster.h"
 
-
 @implementation GCMiniRadialControl2
 #pragma mark As a GCMiniRadialControl2
-- (void)			setCentre:(NSPoint) p
+- (void)setCentre:(NSPoint)p
 {
-	if ( ! NSEqualPoints( p, mCentre ))
-	{
+	if (!NSEqualPoints(p, mCentre)) {
 		[self notifyDelegateWillChange:nil];
 		mCentre = p;
 		[self notifyDelegateDidChange:nil];
@@ -27,34 +25,32 @@
 	}
 }
 
-@synthesize centre=mCentre;
+@synthesize centre = mCentre;
 
 #pragma mark -
-- (void)setRadius:(CGFloat) radius
+- (void)setRadius:(CGFloat)radius
 {
-	if (  radius != mRadius )
-	{
-	//	LogEvent_(kStateEvent, @"setting radius = %f", radius );
-		
+	if (radius != mRadius) {
+		//	LogEvent_(kStateEvent, @"setting radius = %f", radius );
+
 		[self notifyDelegateWillChange:nil];
 		mRadius = radius;
 		[self notifyDelegateDidChange:nil];
 		[self setNeedsDisplay];
-		
-		if ( ! mIrisDilating )
-		{
+
+		if (!mIrisDilating) {
 			// set tab angle to analogue of radius
-		
-			CGFloat ta = ( radius / ( M_PI * [self maxValue])) - ( M_PI_4 );
+
+			CGFloat ta = (radius / (M_PI * [self maxValue])) - (M_PI_4);
 			[self setTabAngle:ta];
 		}
 	}
 }
 
-@synthesize radius=mRadius;
+@synthesize radius = mRadius;
 
 #pragma mark -
-- (void)setRingRadius:(CGFloat) radius
+- (void)setRingRadius:(CGFloat)radius
 {
 	mRingRadius = radius;
 	[self invalidatePathCache];
@@ -65,177 +61,164 @@
 	return mRingRadius * mRingScale;
 }
 
-- (void)setRingRadiusScale:(CGFloat) rsc
+- (void)setRingRadiusScale:(CGFloat)rsc
 {
 	mRingScale = rsc;
 }
 
 #pragma mark -
-- (void)setTabColor:(NSColor*) colour
+- (void)setTabColor:(NSColor *)colour
 {
 	mTabColour = colour;
 	[self setNeedsDisplay];
 }
 
-
-- (NSColor*)tabColor
+- (NSColor *)tabColor
 {
 	return [mTabColour colorWithAlphaComponent:[[self cluster] alpha] * 1.0];
 }
 
-
 #pragma mark -
-- (void)setTabAngle:(CGFloat) ta
+- (void)setTabAngle:(CGFloat)ta
 {
 	// tab angle is limited to +/- 45° around zero
-	
-	if ( mIrisDilating )
+
+	if (mIrisDilating)
 		return;
-	
+
 	const CGFloat fortyfive = M_PI_4;
-	
-	if ( ta < -fortyfive )
+
+	if (ta < -fortyfive)
 		ta = -fortyfive;
-		
-	if ( ta > fortyfive )
+
+	if (ta > fortyfive)
 		ta = fortyfive;
-		
-	if ( ta != mTabAngle )
-	{
+
+	if (ta != mTabAngle) {
 		mTabAngle = ta;
 		[self setNeedsDisplay];
-		
+
 		// tab angle sets the radius of the controlled gradient
-		
-		CGFloat r = ( ta + fortyfive ) * M_PI * [self maxValue];
-		
+
+		CGFloat r = (ta + fortyfive) * M_PI * [self maxValue];
+
 		mIrisDilating = YES;
 		[self setRadius:r];
 		mIrisDilating = NO;
 	}
 }
 
-
-- (CGFloat)			tabAngle
+- (CGFloat)tabAngle
 {
 	return mTabAngle;
 }
 
-
 #pragma mark -
-- (NSBezierPath*)   irisPath
+- (NSBezierPath *)irisPath
 {
-	if ( mIrisPath == nil )
-	{
-		CGFloat width = MAX( 8, [self ringRadius] / 3.5 );
-		
-		NSSize  tabs = NSMakeSize( width * 1.5, width * 1.5 );
-		
-		mIrisPath = [NSBezierPath bezierPathWithIrisRingWithRadius:[self ringRadius]
-										width:width
-										tabSize:tabs];
-	}									
+	if (mIrisPath == nil) {
+		CGFloat width = MAX(8, [self ringRadius] / 3.5);
 
-	NSAffineTransform*  tfm = [NSAffineTransform transform];
+		NSSize tabs = NSMakeSize(width * 1.5, width * 1.5);
+
+		mIrisPath = [NSBezierPath bezierPathWithIrisRingWithRadius:[self ringRadius]
+															 width:width
+														   tabSize:tabs];
+	}
+
+	NSAffineTransform *tfm = [NSAffineTransform transform];
 	[tfm rotateByRadians:[self tabAngle]];
-	
-	NSAffineTransform* t2 = [NSAffineTransform transform];
+
+	NSAffineTransform *t2 = [NSAffineTransform transform];
 	[t2 translateXBy:[self centre].x yBy:[self centre].y];
 	[tfm appendTransform:t2];
 
 	return [tfm transformBezierPath:mIrisPath];
 }
 
-
-- (NSBezierPath*)   tabPath
+- (NSBezierPath *)tabPath
 {
-	if ( mTabPath == nil )
-	{
-		CGFloat width = MAX( 8, [self ringRadius] / 3.5 ) + 5;
+	if (mTabPath == nil) {
+		CGFloat width = MAX(8, [self ringRadius] / 3.5) + 5;
 
-		NSSize  tabs = NSMakeSize( width * 0.67, width * 0.67 );
+		NSSize tabs = NSMakeSize(width * 0.67, width * 0.67);
 
 		mTabPath = [NSBezierPath bezierPathWithIrisTabWithRadius:[self ringRadius]
-										width:width
-										tabSize:tabs];
-	}									
+														   width:width
+														 tabSize:tabs];
+	}
 
-	NSAffineTransform*  tfm = [NSAffineTransform transform];
+	NSAffineTransform *tfm = [NSAffineTransform transform];
 	[tfm rotateByRadians:[self tabAngle]];
-	
-	NSAffineTransform* t2 = [NSAffineTransform transform];
+
+	NSAffineTransform *t2 = [NSAffineTransform transform];
 	[t2 translateXBy:[self centre].x yBy:[self centre].y];
 	[tfm appendTransform:t2];
 
 	return [tfm transformBezierPath:mTabPath];
 }
 
-
-- (void)			invalidatePathCache
+- (void)invalidatePathCache
 {
 	mTabPath = nil;
 	mHitTabPath = nil;
 	mIrisPath = nil;
 }
 
-
 #pragma mark -
 // The hitTabPath is NEVER DRAWN. Its just a bit bigger to make sure
 // it includes the "rim" around the gradient swatch so we don't initiate
 // a drag from the tab
 
-- (NSBezierPath*)   hitTabPath
+- (NSBezierPath *)hitTabPath
 {
-	if ( mHitTabPath == nil )
-	{
-		CGFloat width = MAX( 8, [self ringRadius] / 3.5 );
+	if (mHitTabPath == nil) {
+		CGFloat width = MAX(8, [self ringRadius] / 3.5);
 
-		NSSize  tabs = NSMakeSize( width * 1.5, width * 1.5 );
+		NSSize tabs = NSMakeSize(width * 1.5, width * 1.5);
 
 		mHitTabPath = [NSBezierPath bezierPathWithIrisTabWithRadius:[self ringRadius]
-														width:width
-													  tabSize:tabs];
-	}									
-	
-	NSAffineTransform*  tfm = [NSAffineTransform transform];
+															  width:width
+															tabSize:tabs];
+	}
+
+	NSAffineTransform *tfm = [NSAffineTransform transform];
 	[tfm rotateByRadians:[self tabAngle]];
-	
-	NSAffineTransform* t2 = [NSAffineTransform transform];
+
+	NSAffineTransform *t2 = [NSAffineTransform transform];
 	[t2 translateXBy:[self centre].x yBy:[self centre].y];
 	[tfm appendTransform:t2];
-	
+
 	return [tfm transformBezierPath:mHitTabPath];
 }
 
-
-- (NSPoint)			trackPointForAngle:(CGFloat) degrees
+- (NSPoint)trackPointForAngle:(CGFloat)degrees
 {
 	// returns a point on the ring radius at <degrees> angle.
 
 	NSPoint p;
 	CGFloat a;
-	
-	a = (degrees * M_PI)/180.0;
-	
-	p.x = [self centre].x + (cos( a ) * [self ringRadius]);
-	p.y = [self centre].y + (sin( a ) * [self ringRadius]);
-	
+
+	a = (degrees * M_PI) / 180.0;
+
+	p.x = [self centre].x + (cos(a) * [self ringRadius]);
+	p.y = [self centre].y + (sin(a) * [self ringRadius]);
+
 	return p;
 }
 
-
 #pragma mark -
 #pragma mark As a GCMiniControl
-- (void)			draw
+- (void)draw
 {
-	NSBezierPath*	iris = [self irisPath];
-	
+	NSBezierPath *iris = [self irisPath];
+
 	[[NSGraphicsContext currentContext] saveGraphicsState];
-	
-	[self applyShadow];									
+
+	[self applyShadow];
 	[[self themeColour:kDKMiniControlThemeIris] set];
 	[iris fill];
-	
+
 	// draw range track:
 	/*
 	[iris removeAllPoints];
@@ -250,29 +233,29 @@
 	[iris stroke];
 	*/
 	// range dots:
-	
+
 	NSPoint p = [self trackPointForAngle:-45];
-	NSRect  dot = NSInsetRect( NSMakeRect( p.x, p.y, 0, 0 ), -2, -2 );
+	NSRect dot = NSInsetRect(NSMakeRect(p.x, p.y, 0, 0), -2, -2);
 	[iris removeAllPoints];
 	[iris appendBezierPathWithOvalInRect:dot];
 	p = [self trackPointForAngle:45];
-	dot = NSInsetRect( NSMakeRect( p.x, p.y, 0, 0 ), -2, -2 );
+	dot = NSInsetRect(NSMakeRect(p.x, p.y, 0, 0), -2, -2);
 
 	[iris appendBezierPathWithOvalInRect:dot];
 	[[self themeColour:kDKMiniControlThemeKnobInterior] set];
-	
+
 	[iris fill];
 	[[NSGraphicsContext currentContext] restoreGraphicsState];
-	
+
 	// debug - draw hit tab path
-/*
+	/*
 	[[NSColor redColor] set];
 	[[self hitTabPath] stroke];
 */
-	
+
 	// tab swatch:
-	
-	NSBezierPath*   tab = [self tabPath];
+
+	NSBezierPath *tab = [self tabPath];
 	[[[NSColor lightGrayColor] colorWithAlphaComponent:[[self cluster] alpha]] set];
 	[tab setLineWidth:1.0];
 	[tab stroke];
@@ -280,120 +263,103 @@
 	[tab fill];
 }
 
-
-- (GCControlHitTest)hitTestPoint:(NSPoint) p
+- (GCControlHitTest)hitTestPoint:(NSPoint)p
 {
-	if ([super hitTestPoint:p] == kDKMiniControlEntireControl )
-	{
+	if ([super hitTestPoint:p] == kDKMiniControlEntireControl) {
 		// NOTE: use the hitTabPath which is bigger than the tabPath which is drawn
-		NSBezierPath* tab = [self hitTabPath];
-		
+		NSBezierPath *tab = [self hitTabPath];
+
 		if ([tab containsPoint:p])
 			return kDKRadial2HitTab;
-			
-		NSBezierPath* iris = [self irisPath];
-		
+
+		NSBezierPath *iris = [self irisPath];
+
 		if ([iris containsPoint:p])
 			return kDKRadial2HitIris;
 	}
-	
+
 	return kDKMiniControlNoPart;
 }
 
-
-- (id)initWithBounds:(NSRect) rect inCluster:(GCMiniControlCluster*) clust
+- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
-	if (self != nil)
-	{
+	if (self != nil) {
 		[self setTabColor:[NSColor blackColor]];
 		NSAssert(mTabPath == nil, @"Expected init to zero");
 		NSAssert(mHitTabPath == nil, @"Expected init to zero");
 		NSAssert(mIrisPath == nil, @"Expected init to zero");
 		mCentre = NSMakePoint(NSMidX(rect), NSMidY(rect));
 		NSAssert(NSEqualSizes(mOffset, NSZeroSize), @"Expected init to zero");
-		
+
 		NSAssert(mRadius == 0.0, @"Expected init to zero");
 		mRingRadius = 48;
 		mTabAngle = -M_PI_4;
 		mRingScale = 1.0;
 		NSAssert(!mIrisDilating, @"Expected init to zero");
 		mAutoFlip = YES;
-		
-		if (mTabColour == nil)
-		{
+
+		if (mTabColour == nil) {
 			return nil;
 		}
 	}
-	if (self != nil)
-	{
+	if (self != nil) {
 		mMaxValue = 60;
 		[self setInfoWindowMode:kDKMiniControlInfoWindowFollowsMouse];
 	}
 	return self;
 }
 
-
-- (BOOL)mouseDownAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
+- (BOOL)mouseDownAt:(NSPoint)currentPoint inPart:(GCControlHitTest)part modifierFlags:(NSEventModifierFlags)flags
 {
-#pragma unused (flags)
-	if ( part == kDKRadial2HitIris )
-	{
+#pragma unused(flags)
+	if (part == kDKRadial2HitIris) {
 		mOffset.width = currentPoint.x - [self centre].x;
 		mOffset.height = currentPoint.y - [self centre].y;
-	}
-	else if ( part == kDKRadial2HitTab )
-	{
+	} else if (part == kDKRadial2HitTab) {
 		NSPoint p = [[self tabPath] bounds].origin;
 		[self setupInfoWindowAtPoint:p withValue:[self radius] andFormat:@"0.0"];
-	}
-	else
+	} else
 		return NO;
-	
+
 	return YES;
 }
 
-
-- (BOOL)mouseDraggedAt:(NSPoint) currentPoint inPart:(GCControlHitTest) part modifierFlags:(NSEventModifierFlags) flags
+- (BOOL)mouseDraggedAt:(NSPoint)currentPoint inPart:(GCControlHitTest)part modifierFlags:(NSEventModifierFlags)flags
 {
-#pragma unused (flags)
-	if ( part == kDKRadial2HitIris )
-	{
+#pragma unused(flags)
+	if (part == kDKRadial2HitIris) {
 		NSPoint cp;
-		
+
 		cp.x = currentPoint.x - mOffset.width;
 		cp.y = currentPoint.y - mOffset.height;
-		
+
 		[self setCentre:cp];
-	}
-	else if ( part == kDKRadial2HitTab )
-	{
-		CGFloat   a = atan2( currentPoint.y - [self centre].y, currentPoint.x - [self centre].x );
-		
+	} else if (part == kDKRadial2HitTab) {
+		CGFloat a = atan2(currentPoint.y - [self centre].y, currentPoint.x - [self centre].x);
+
 		[self setTabAngle:a];
 
 		NSPoint p = [[self tabPath] bounds].origin;
 		[self updateInfoWindowAtPoint:p withValue:[self radius]];
 	}
-	
+
 	return YES;
 }
 
-
-- (void)setBounds:(NSRect) r
+- (void)setBounds:(NSRect)r
 {
 	[super setBounds:r];
 	CGFloat rr;
-	
-	rr = MIN( NSWidth( r ), NSHeight( r )) / 6;
-	
+
+	rr = MIN(NSWidth(r), NSHeight(r)) / 6;
+
 	[self setRingRadius:rr];
 }
 
-
 #pragma mark -
 #pragma mark As an NSObject
-- (void)				dealloc
+- (void)dealloc
 {
 	[self invalidatePathCache];
 }

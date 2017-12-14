@@ -4,57 +4,52 @@
 #import <DKDrawKit/DKGridLayer.h>
 #import <DKDrawKit/LogEvent.h>
 
-
 #pragma mark Static Vars
-static const CGFloat		sUnitFactors[]	= { 1.0, 12.0, 72.0, 2.8346456692913, 28.346456692913, 2834.6456692913, 28346.456692913, 1.0 };
-static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres", @"Centimetres", @"Metres", @"Kilometres", nil };
-
+static const CGFloat sUnitFactors[] = {1.0, 12.0, 72.0, 2.8346456692913, 28.346456692913, 2834.6456692913, 28346.456692913, 1.0};
+static NSString *sUnitNames[] = {@"Pixels", @"Picas", @"Inches", @"Millimetres", @"Centimetres", @"Metres", @"Kilometres", nil};
 
 @implementation DrawingSizeController
 #pragma mark As a DrawingSizeController
 
-- (NSArray*)	unitNames
+- (NSArray *)unitNames
 {
-	NSMutableArray* arr = [NSMutableArray array];
-	NSString* name;
+	NSMutableArray *arr = [NSMutableArray array];
+	NSString *name;
 	NSInteger i = 0;
-	
-	while( 1 )
-	{
+
+	while (1) {
 		name = sUnitNames[i++];
-		
-		if ( name )
+
+		if (name)
 			[arr addObject:name];
 		else
 			break;
 	}
-	
+
 	return arr;
 }
 
-
-- (void)prepareDialogWithDrawing:(DKDrawing*) drawing
+- (void)prepareDialogWithDrawing:(DKDrawing *)drawing
 {
 	// set up the dialog elements with the current drawing settings
 
-	NSSize	size = [drawing drawingSize];
-	
+	NSSize size = [drawing drawingSize];
+
 	[mWidthTextField setFloatValue:size.width / mUnitConversionFactor];
 	[mHeightTextField setFloatValue:size.height / mUnitConversionFactor];
-	
+
 	[mTopMarginTextField setFloatValue:[drawing topMargin] / mUnitConversionFactor];
 	[mLeftMarginTextField setFloatValue:[drawing leftMargin] / mUnitConversionFactor];
 	[mRightMarginTextField setFloatValue:[drawing rightMargin] / mUnitConversionFactor];
 	[mBottomMarginTextField setFloatValue:[drawing bottomMargin] / mUnitConversionFactor];
-	
+
 	[mConversionFactorTextField setFloatValue:mUnitConversionFactor];
 	[mConversionFactorSpinControl setFloatValue:mUnitConversionFactor];
 	[mPaperColourWell setColor:[drawing paperColour]];
-	
-	DKGridLayer* grid = [drawing gridLayer];
-	
-	if ( grid )
-	{
+
+	DKGridLayer *grid = [drawing gridLayer];
+
+	if (grid) {
 		[mGridSpanTextField setFloatValue:[grid spanDistance] / mUnitConversionFactor];
 		[mGridDivsTextField setIntegerValue:[grid divisions]];
 		[mGridDivsSpinControl setIntegerValue:[grid divisions]];
@@ -65,322 +60,293 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 		[mGridAbbrevUnitsText setStringValue:[drawing abbreviatedDrawingUnits]];
 		[mGridRulerStepsTextField setIntegerValue:[grid rulerSteps]];
 		[mGridRulerStepsSpinControl setIntegerValue:[grid rulerSteps]];
-				
+
 		[mGridPreviewCheckbox setIntValue:mLivePreview];
 	}
 }
 
-
-- (void)		setupComboBoxWithCurrentUnits:(NSString*) units
+- (void)setupComboBoxWithCurrentUnits:(NSString *)units
 {
-#pragma unused (units)
+#pragma unused(units)
 	// populate the combobox with default units
 	[mUnitsComboBox setHasVerticalScroller:NO];
 	[mUnitsComboBox addItemsWithObjectValues:[self unitNames]];
 	[mUnitsComboBox setNumberOfVisibleItems:[[self unitNames] count]];
 }
 
-
 #pragma mark -
-- (void)		sheetDidEnd:(NSWindow*) sheet returnCode:(int) returnCode contextInfo:(void*) contextInfo
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
-#pragma unused (sheet, contextInfo)
-	DKGridLayer* grid = [mDrawing gridLayer];
+#pragma unused(sheet, contextInfo)
+	DKGridLayer *grid = [mDrawing gridLayer];
 
-	if ( returnCode == NSOKButton )
-	{
+	if (returnCode == NSOKButton) {
 		// apply the settings to the drawing.
-		
-		NSSize	dwgSize;
-		CGFloat	t, l, b, r;
-		
+
+		NSSize dwgSize;
+		CGFloat t, l, b, r;
+
 		dwgSize.width = [mWidthTextField floatValue] * mUnitConversionFactor;
 		dwgSize.height = [mHeightTextField floatValue] * mUnitConversionFactor;
-	
+
 		t = [mTopMarginTextField floatValue] * mUnitConversionFactor;
 		l = [mLeftMarginTextField floatValue] * mUnitConversionFactor;
 		b = [mBottomMarginTextField floatValue] * mUnitConversionFactor;
 		r = [mRightMarginTextField floatValue] * mUnitConversionFactor;
-		
+
 		[mDrawing setDrawingSize:dwgSize];
 		[mDrawing setMarginsLeft:l top:t right:b bottom:r];
 		[mDrawing setDrawingUnits:[mUnitsComboBox stringValue] unitToPointsConversionFactor:mUnitConversionFactor];
 		[mDrawing setPaperColour:[mPaperColourWell color]];
-		
-		if ( grid )
-		{
+
+		if (grid) {
 			CGFloat span;
 			NSInteger divs, majs;
-			
+
 			span = [mGridSpanTextField floatValue] * mUnitConversionFactor;
 			divs = [mGridDivsTextField intValue];
 			majs = [mGridMajorsTextField intValue];
-		
+
 			[grid setDistanceForUnitSpan:span
-					drawingUnits:[mUnitsComboBox stringValue]
-					span:1.0
-					divisions:divs
-					majors:majs
-					rulerSteps:[mGridRulerStepsTextField intValue]];
-			
-			if([mTweakMarginsCheckbox intValue] == 1 )
+							drawingUnits:[mUnitsComboBox stringValue]
+									span:1.0
+							   divisions:divs
+								  majors:majs
+							  rulerSteps:[mGridRulerStepsTextField intValue]];
+
+			if ([mTweakMarginsCheckbox intValue] == 1)
 				[grid tweakDrawingMargins];
-				
+
 			[grid setGridThemeColour:[mGridThemeColourWell color]];
 		}
-		
+
 		[mDrawing setNeedsDisplay:YES];
-	}
-	else if ( returnCode == NSCancelButton )
-	{
+	} else if (returnCode == NSCancelButton) {
 		// restore saved grid settings
-		
-		if ( grid )
-		{
+
+		if (grid) {
 			[grid setDistanceForUnitSpan:mSavedSpan
-					drawingUnits:mSavedUnits
-					span:1.0
-					divisions:mSavedDivs
-					majors:mSavedMajors
-					rulerSteps:2];
-					
+							drawingUnits:mSavedUnits
+									span:1.0
+							   divisions:mSavedDivs
+								  majors:mSavedMajors
+							  rulerSteps:2];
+
 			[grid setGridThemeColour:mSavedGridColour];
 		}
-		
+
 		[mDrawing setPaperColour:mSavedPaperColour];
 	}
 }
 
-
-- (void)			beginDrawingSizeDialog:(NSWindow*) parent withDrawing:(DKDrawing*) drawing
+- (void)beginDrawingSizeDialog:(NSWindow *)parent withDrawing:(DKDrawing *)drawing
 {
 	mDrawing = drawing;
 	mUnitConversionFactor = mSavedCF = [drawing unitToPointsConversionFactor];
-	
+
 	// save off the current grid settings in case we cancel:
-	
+
 	mSavedPaperColour = [drawing paperColour];
-	
-	DKGridLayer* grid = [mDrawing gridLayer];
-	
-	if ( grid )
-	{
+
+	DKGridLayer *grid = [mDrawing gridLayer];
+
+	if (grid) {
 		mSavedSpan = [grid spanDistance];
 		mSavedDivs = [grid divisions];
 		mSavedMajors = [grid majors];
 		mSavedGridColour = [grid spanColour];
 		mSavedUnits = [drawing drawingUnits];
 	}
-	
+
 	[mUnitsComboBox setStringValue:[drawing drawingUnits]];
 	[mConversionFactorLabelText setStringValue:[NSString stringWithFormat:@"1 %@ occupies", [drawing drawingUnits]]];
 	[self prepareDialogWithDrawing:drawing];
-	
-	[NSApp	beginSheet:[self window]
-			modalForWindow:parent
-			modalDelegate:self
-			didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
-			contextInfo:@"drawing_size"];
+
+	[NSApp beginSheet:[self window]
+		modalForWindow:parent
+		 modalDelegate:self
+		didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
+		   contextInfo:@"drawing_size"];
 }
 
-
 #pragma mark -
-- (IBAction)		cancelAction:(id)sender
+- (IBAction)cancelAction:(id)sender
 {
-#pragma unused (sender)
+#pragma unused(sender)
 	[[self window] orderOut:self];
 	[NSApp endSheet:[self window] returnCode:NSCancelButton];
 }
 
-
-- (IBAction)		gridDivsAction:(id)sender
+- (IBAction)gridDivsAction:(id)sender
 {
-	DKGridLayer* grid = [mDrawing gridLayer];
-	
-	if (mLivePreview && grid )
-	{
-		CGFloat	span;
+	DKGridLayer *grid = [mDrawing gridLayer];
+
+	if (mLivePreview && grid) {
+		CGFloat span;
 		NSInteger majs;
-		
+
 		span = [grid spanDistance] / mUnitConversionFactor;
 		majs = [grid majors];
-		
-		[grid	setDistanceForUnitSpan:mUnitConversionFactor
-				drawingUnits:[mDrawing drawingUnits]
-				span:span
-				divisions: [sender intValue]
-				majors: majs
-				rulerSteps:[mGridRulerStepsTextField intValue]];
+
+		[grid setDistanceForUnitSpan:mUnitConversionFactor
+						drawingUnits:[mDrawing drawingUnits]
+								span:span
+						   divisions:[sender intValue]
+							  majors:majs
+						  rulerSteps:[mGridRulerStepsTextField intValue]];
 	}
-	
-	if ( sender == mGridDivsSpinControl )
+
+	if (sender == mGridDivsSpinControl)
 		[mGridDivsTextField setIntValue:[sender intValue]];
 	else
 		[mGridDivsSpinControl setIntValue:[sender intValue]];
 }
 
-
-- (IBAction)		gridMajorsAction:(id)sender
+- (IBAction)gridMajorsAction:(id)sender
 {
-	DKGridLayer* grid = [mDrawing gridLayer];
-	
-	if (mLivePreview && grid )
-	{
+	DKGridLayer *grid = [mDrawing gridLayer];
+
+	if (mLivePreview && grid) {
 		CGFloat span;
 		NSInteger divs;
-		
+
 		span = [grid spanDistance] / mUnitConversionFactor;
 		divs = [grid divisions];
-		
-		[grid	setDistanceForUnitSpan:mUnitConversionFactor
-				drawingUnits:[mDrawing drawingUnits]
-				span:span
-				divisions: divs
-				majors: [sender intValue]
-				rulerSteps:[mGridRulerStepsTextField intValue]];
+
+		[grid setDistanceForUnitSpan:mUnitConversionFactor
+						drawingUnits:[mDrawing drawingUnits]
+								span:span
+						   divisions:divs
+							  majors:[sender intValue]
+						  rulerSteps:[mGridRulerStepsTextField intValue]];
 	}
-	if ( sender == mGridMajorsSpinControl )
+	if (sender == mGridMajorsSpinControl)
 		[mGridMajorsTextField setIntValue:[sender intValue]];
 	else
 		[mGridMajorsSpinControl setIntValue:[sender intValue]];
 }
 
-
-- (IBAction)		gridSpanAction:(id)sender
+- (IBAction)gridSpanAction:(id)sender
 {
-	DKGridLayer* grid = [mDrawing gridLayer];
-	
-	if (mLivePreview && grid )
-	{
+	DKGridLayer *grid = [mDrawing gridLayer];
+
+	if (mLivePreview && grid) {
 		NSInteger divs, majs;
-		
+
 		divs = [grid divisions];
 		majs = [grid majors];
-		
+
 		[grid setDistanceForUnitSpan:mUnitConversionFactor
 						drawingUnits:[mDrawing drawingUnits]
 								span:[sender doubleValue]
-						   divisions: divs
-							  majors: majs
+						   divisions:divs
+							  majors:majs
 						  rulerSteps:[mGridRulerStepsTextField intValue]];
 	}
 }
 
-
-- (IBAction)		gridRulerStepsAction:(id) sender
+- (IBAction)gridRulerStepsAction:(id)sender
 {
-	DKGridLayer* grid = [mDrawing gridLayer];
-	
-	if (mLivePreview && grid )
+	DKGridLayer *grid = [mDrawing gridLayer];
+
+	if (mLivePreview && grid)
 		[grid setRulerSteps:[sender intValue]];
 
-	if ( sender == mGridRulerStepsSpinControl )
+	if (sender == mGridRulerStepsSpinControl)
 		[mGridRulerStepsTextField setIntValue:[sender intValue]];
 	else
 		[mGridRulerStepsSpinControl setIntValue:[sender intValue]];
 }
 
-
-- (IBAction)		gridThemeColourAction:(id)sender
+- (IBAction)gridThemeColourAction:(id)sender
 {
-	DKGridLayer* grid = [mDrawing gridLayer];
-	
-	if (mLivePreview && grid )
+	DKGridLayer *grid = [mDrawing gridLayer];
+
+	if (mLivePreview && grid)
 		[grid setGridThemeColour:[sender color]];
 }
 
-
-- (IBAction)		gridPrintAction:(id) sender
+- (IBAction)gridPrintAction:(id)sender
 {
 	[[mDrawing gridLayer] setShouldDrawToPrinter:[sender intValue]];
 }
 
-
-- (IBAction)		livePreviewAction:(id)sender
+- (IBAction)livePreviewAction:(id)sender
 {
 	mLivePreview = [sender intValue];
 }
 
-
-- (IBAction)		okAction:(id)sender
+- (IBAction)okAction:(id)sender
 {
-#pragma unused (sender)
+#pragma unused(sender)
 	[[self window] orderOut:self];
 	[NSApp endSheet:[self window] returnCode:NSOKButton];
 }
 
-
-- (IBAction)		unitsComboBoxAction:(id) sender
+- (IBAction)unitsComboBoxAction:(id)sender
 {
-//	LogEvent_(kStateEvent, @"units changing to: %@", [sender stringValue]);
-	
+	//	LogEvent_(kStateEvent, @"units changing to: %@", [sender stringValue]);
+
 	NSInteger indx = [mUnitsComboBox indexOfItemWithObjectValue:[sender stringValue]];
-	
-	if ( indx == NSNotFound )
-	{
+
+	if (indx == NSNotFound) {
 		mUnitConversionFactor = 1.0;
 		//[mConversionFactorTextField setEnabled:YES];
 		//[mConversionFactorSpinControl setEnabled:YES];
-	}
-	else
-	{
+	} else {
 		mUnitConversionFactor = sUnitFactors[indx];
 		//[mConversionFactorTextField setEnabled:NO];
 		//[mConversionFactorSpinControl setEnabled:NO];
 	}
-		
+
 	[mConversionFactorLabelText setStringValue:[NSString stringWithFormat:@"1 %@ occupies", [sender stringValue]]];
 	[mDrawing setDrawingUnits:[sender stringValue] unitToPointsConversionFactor:mUnitConversionFactor];
-	
-	if ( mLivePreview )
+
+	if (mLivePreview)
 		[[mDrawing gridLayer] synchronizeRulers];
-	
+
 	[self prepareDialogWithDrawing:mDrawing];
 }
 
-
-- (IBAction)conversionFactorAction:(id) sender
+- (IBAction)conversionFactorAction:(id)sender
 {
 	CGFloat oldUCF = mUnitConversionFactor;
-	
+
 	mUnitConversionFactor = [sender floatValue];
-	
-	if ( sender == mConversionFactorSpinControl )
+
+	if (sender == mConversionFactorSpinControl)
 		[mConversionFactorTextField setFloatValue:[sender floatValue]];
 	else
 		[mConversionFactorSpinControl setFloatValue:[sender floatValue]];
 
-	DKGridLayer* grid = [mDrawing gridLayer];
-	
-	if (mLivePreview && grid )
-	{
+	DKGridLayer *grid = [mDrawing gridLayer];
+
+	if (mLivePreview && grid) {
 		NSInteger divs, majs;
 		CGFloat span;
-		
+
 		divs = [grid divisions];
 		majs = [grid majors];
 		span = [grid spanDistance] / oldUCF;
-		
-		[grid	setDistanceForUnitSpan:mUnitConversionFactor
-				drawingUnits:[mDrawing drawingUnits]
-				span:span
-				divisions: divs
-				majors: majs
-				rulerSteps:[mGridRulerStepsTextField intValue]];
+
+		[grid setDistanceForUnitSpan:mUnitConversionFactor
+						drawingUnits:[mDrawing drawingUnits]
+								span:span
+						   divisions:divs
+							  majors:majs
+						  rulerSteps:[mGridRulerStepsTextField intValue]];
 	}
 }
 
-
-- (IBAction)paperColourAction:(id) sender
+- (IBAction)paperColourAction:(id)sender
 {
-	if ( mLivePreview )
+	if (mLivePreview)
 		[mDrawing setPaperColour:[sender color]];
 }
 
-
 #pragma mark -
 #pragma mark As an NSWindowController
-- (void)		windowDidLoad
+- (void)windowDidLoad
 {
 	mLivePreview = YES;
 	[self setupComboBoxWithCurrentUnits:[mDrawing drawingUnits]];
@@ -388,6 +354,5 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 	[mConversionFactorLabelText setStringValue:[NSString stringWithFormat:@"1 %@ occupies", [mDrawing drawingUnits]]];
 	[self prepareDialogWithDrawing:mDrawing];
 }
-
 
 @end

@@ -10,29 +10,26 @@
 
 @protocol LinearDuplicationDelegate;
 
-@interface GCLinearDuplicateController : NSWindowController
-{
+@interface GCLinearDuplicateController : NSWindowController {
 	IBOutlet NSTextField *mNumberOfCopiesTextField;
 	IBOutlet NSTextField *mXOffsetTextField;
 	IBOutlet NSTextField *mYOffsetTextField;
 	IBOutlet NSButton *mOKButton;
-	
+
 	id<LinearDuplicationDelegate> mDelegateRef;
 }
 
+- (IBAction)numberOfCopiesAction:(id)sender;
+- (IBAction)xyOffsetAction:(id)sender;
+- (IBAction)okAction:(id)sender;
+- (IBAction)cancelAction:(id)sender;
 
-- (IBAction)		numberOfCopiesAction:(id) sender;
-- (IBAction)		xyOffsetAction:(id) sender;
-- (IBAction)		okAction:(id) sender;
-- (IBAction)		cancelAction:(id) sender;
+- (void)beginLinearDuplicationDialog:(NSWindow *)parentWindow linearDelegate:(id<LinearDuplicationDelegate>)delegate;
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
-- (void)			beginLinearDuplicationDialog:(NSWindow*) parentWindow linearDelegate:(id<LinearDuplicationDelegate>) delegate;
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void  *)contextInfo;
-
-- (void)			conditionallyEnableOKButton;
+- (void)conditionallyEnableOKButton;
 
 @end
-
 
 @protocol LinearDuplicationDelegate <NSObject>
 
@@ -40,4 +37,3 @@
 - (NSInteger)countOfItemsInSelection;
 
 @end
-

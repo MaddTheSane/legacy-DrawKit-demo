@@ -5,7 +5,7 @@
 ///  Created by Jason Jobe on 24/02/07.
 ///  Released under the Creative Commons license 2006 Apptree.net.
 ///
-/// 
+///
 ///  This work is licensed under the Creative Commons Attribution-ShareAlike 2.5 License.
 ///  To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/2.5/ or send a letter to
 ///  Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
@@ -14,76 +14,68 @@
 
 #import "GCGradientWell.h"
 
-
 @class DKColorStop;
 @class GCInfoFloater;
 
+@interface WTGradientControl : GCGradientWell {
+	DKColorStop *mDragStopRef;
+	DKColorStop *mSelectedStopRef;
+	DKColorStop *mDeletionCandidateRef;
+	GCInfoFloater *mInfoWin;
 
-@interface WTGradientControl : GCGradientWell
-{
-	DKColorStop*	mDragStopRef;
-	DKColorStop*	mSelectedStopRef;
-	DKColorStop*	mDeletionCandidateRef;
-	GCInfoFloater*	mInfoWin;
-	
-	NSMutableArray*	mUnsortedStops;
-	NSMutableArray*	mSBArray;
-	
-	NSPoint			mStopInsertHint;
-	BOOL			mStopWasDragged;
-	BOOL			mMouseDownInStop;
-	BOOL			mShowsInfo;
+	NSMutableArray *mUnsortedStops;
+	NSMutableArray *mSBArray;
+
+	NSPoint mStopInsertHint;
+	BOOL mStopWasDragged;
+	BOOL mMouseDownInStop;
+	BOOL mShowsInfo;
 }
 
+- (void)setGradient:(DKGradient *)aGradient;
 
-- (void)			setGradient:(DKGradient*) aGradient;
+- (void)removeColorStopAtPoint:(NSPoint)point;
+- (DKColorStop *)addColorStop:(NSColor *)color atPoint:(NSPoint)point;
+- (NSColor *)colorAtPoint:(NSPoint)point;
 
-- (void)			removeColorStopAtPoint:(NSPoint) point;
-- (DKColorStop*)	addColorStop: (NSColor*) color atPoint:(NSPoint) point;
-- (NSColor*)		colorAtPoint:(NSPoint) point;
+- (NSRect)swatchBoxAtPosition:(CGFloat)position;
+- (NSArray *)allSwatchBoxes;
+- (NSRect)swatchRectForStop:(DKColorStop *)stop;
+- (void)invalidate;
 
-- (NSRect)swatchBoxAtPosition:(CGFloat) position;
-- (NSArray*)		allSwatchBoxes;
-- (NSRect)			swatchRectForStop:(DKColorStop*) stop;
-- (void)			invalidate;
+- (void)drawStopsInRect:(NSRect)rect;
+- (DKColorStop *)stopAtPoint:(NSPoint)point;
+- (void)setSelectedStop:(DKColorStop *)stop;
+- (DKColorStop *)selectedStop;
+- (void)setColorOfSelectedStop:(NSColor *)Color;
 
-- (void)			drawStopsInRect:(NSRect) rect;
-- (DKColorStop*)	stopAtPoint:(NSPoint) point;
-- (void)			setSelectedStop:(DKColorStop*) stop;
-- (DKColorStop*)	selectedStop;
-- (void)			setColorOfSelectedStop:(NSColor*) Color;
+- (void)updateInfoWithPosition:(CGFloat)pos;
+- (void)setShowsPositionInfo:(BOOL)show;
+- (BOOL)showsPositionInfo;
 
-- (void)updateInfoWithPosition:(CGFloat) pos;
-- (void)			setShowsPositionInfo:(BOOL) show;
-- (BOOL)			showsPositionInfo;
+- (BOOL)setCursorInSafeLocation:(NSPoint)p;
+- (NSImage *)dragImageForStop:(DKColorStop *)stop;
+- (NSCursor *)makeCursorForDeletingStop:(DKColorStop *)stop;
 
-- (BOOL)			setCursorInSafeLocation:(NSPoint) p;
-- (NSImage*)		dragImageForStop:(DKColorStop*) stop;
-- (NSCursor*)		makeCursorForDeletingStop:(DKColorStop*) stop;
+- (void)trackMouseWithEvent:(NSEvent *)event;
 
-- (void)			trackMouseWithEvent:(NSEvent*) event;
+- (IBAction)changeColor:(id)sender;
+- (IBAction)newStop:(id)sender;
+- (IBAction)blendMode:(id)sender;
+- (IBAction)flip:(id)sender;
+- (IBAction)gradientType:(id)sender;
 
-- (IBAction)		changeColor:(id) sender;
-- (IBAction)		newStop:(id) sender;
-- (IBAction)		blendMode:(id) sender;
-- (IBAction)		flip:(id) sender;
-- (IBAction)		gradientType:(id) sender;
-
-
-- (NSRect)			interior;
+- (NSRect)interior;
 
 @end
 
 // state constants used to specify highlighting for stops
 
-enum
-{
-	kDKNormalState				= 0,
-	kDKPressedState				= 1,
-	kDKSelectedState			= 2,
-	kDKInactiveState			= 3,
-	kDKHighlightedForMenuState	= 4
-};
-
-
-
+enum {
+	kDKNormalState = 0,
+	kDKPressedState = 1,
+	kDKSelectedState = 2,
+	kDKInactiveState = 3,
+	kDKHighlightedForMenuState = 4
+}
+;

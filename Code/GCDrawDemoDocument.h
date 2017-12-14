@@ -15,8 +15,7 @@
 @class GCExportOptionsController;
 @class DrawingSizeController;
 
-@interface GCDrawDemoDocument : DKDrawingDocument <PolarDuplicationDelegate, ExportControllerDelegate, LinearDuplicationDelegate>
-{
+@interface GCDrawDemoDocument : DKDrawingDocument <PolarDuplicationDelegate, ExportControllerDelegate, LinearDuplicationDelegate> {
 	IBOutlet GCBasicDialogController *mToolNamePanelController;
 	IBOutlet GCPolarDuplicateController *mPolarDuplicateController;
 	IBOutlet GCLinearDuplicateController *mLinearDuplicateController;
@@ -26,18 +25,15 @@
 
 @property (class) BOOL defaultQualityModulation;
 
+- (NSString *)askUserForToolName;
 
-- (NSString*)			askUserForToolName;
+- (IBAction)makeToolFromSelectedShape:(id)sender;
 
-- (IBAction)			makeToolFromSelectedShape:(id) sender;
-
-- (IBAction)			polarDuplicate:(id) sender;
-- (IBAction)			linearDuplicate:(id) sender;
-- (IBAction)			openDrawingSizePanel:(id) sender;
-- (IBAction)			exportAction:(id) sender;
+- (IBAction)polarDuplicate:(id)sender;
+- (IBAction)linearDuplicate:(id)sender;
+- (IBAction)openDrawingSizePanel:(id)sender;
+- (IBAction)exportAction:(id)sender;
 
 @end
 
-
-
-extern NSString*		kDKTableRowInternalDragPasteboardType;
+extern NSString *kDKTableRowInternalDragPasteboardType;

@@ -8,41 +8,35 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @class DKGradient;
 
-
-@interface DKGradientCell : NSImageCell
-{
-	DKGradient*				mGradient;
-	id						mTargetRef;
-	SEL						mAction;
-	NSSize					mInset;
-	BOOL					mEnableCache;
+@interface DKGradientCell : NSImageCell {
+	DKGradient *mGradient;
+	id mTargetRef;
+	SEL mAction;
+	NSSize mInset;
+	BOOL mEnableCache;
 }
 
-
-- (DKGradient*)		gradient;
-- (void)			setGradient:(DKGradient*) grad;
+- (DKGradient *)gradient;
+- (void)setGradient:(DKGradient *)grad;
 
 @property (nonatomic) NSSize inset;
 
-- (void)			invalidateCache;
-- (NSImage*)		cachedImageForSize:(NSSize) size;
-- (NSImage*)		makeCacheImageWithSize:(NSSize) size;
+- (void)invalidateCache;
+- (NSImage *)cachedImageForSize:(NSSize)size;
+- (NSImage *)makeCacheImageWithSize:(NSSize)size;
 
-- (void)			gradientDidChange:(NSNotification*) note;
-- (void)			gradientWillChange:(NSNotification*) note;
+- (void)gradientDidChange:(NSNotification *)note;
+- (void)gradientWillChange:(NSNotification *)note;
 
 @end
 
-
-#define kDKDefaultGradientCellInset		(NSMakeSize( 8.0, 8.0 ))
-
+#define kDKDefaultGradientCellInset (NSMakeSize(8.0, 8.0))
 
 @interface NSObject (GradientDragging)
 
-- (void)			dragProxyIconAtPoint:(NSPoint) startPoint fromControl:(NSControl*) control;
-- (void)			initiateGradientDragWithEvent:(NSEvent*) event;
+- (void)dragProxyIconAtPoint:(NSPoint)startPoint fromControl:(NSControl *)control;
+- (void)initiateGradientDragWithEvent:(NSEvent *)event;
 
 @end

@@ -8,22 +8,20 @@
 
 #import "GCMiniControl.h"
 
+@interface GCMiniRadialControl2 : GCMiniControl {
+	NSColor *mTabColour;
+	NSBezierPath *mTabPath;
+	NSBezierPath *mHitTabPath;
+	NSBezierPath *mIrisPath;
+	NSPoint mCentre;
+	NSSize mOffset;
 
-@interface GCMiniRadialControl2 : GCMiniControl
-{
-	NSColor*		mTabColour;
-	NSBezierPath*   mTabPath;
-	NSBezierPath*   mHitTabPath;
-	NSBezierPath*   mIrisPath;
-	NSPoint			mCentre;
-	NSSize			mOffset;
-	
-	CGFloat			mRadius;
-	CGFloat			mRingRadius;
-	CGFloat			mTabAngle;
-	CGFloat			mRingScale;
-	BOOL			mIrisDilating;
-	BOOL			mAutoFlip;
+	CGFloat mRadius;
+	CGFloat mRingRadius;
+	CGFloat mTabAngle;
+	CGFloat mRingScale;
+	BOOL mIrisDilating;
+	BOOL mAutoFlip;
 }
 
 @property (nonatomic) NSPoint centre;
@@ -33,7 +31,7 @@
 @property (nonatomic) CGFloat ringRadius;
 - (void)setRingRadiusScale:(CGFloat)rsc;
 
-@property (nonatomic, copy) NSColor* tabColor;
+@property (nonatomic, copy) NSColor *tabColor;
 
 @property (nonatomic) CGFloat tabAngle;
 
@@ -43,8 +41,6 @@
 
 @end
 
-NS_ENUM(GCControlHitTest)
-{
-	kDKRadial2HitIris   = 17,
-	kDKRadial2HitTab	= 18
-};
+NS_ENUM(GCControlHitTest){
+	kDKRadial2HitIris = 17,
+	kDKRadial2HitTab = 18};

@@ -9,112 +9,100 @@
 #import "WTPlistKeyValueCoding.h"
 
 static id
-WTKeyValueDecodeObject (id val)
-{	
+WTKeyValueDecodeObject(id val)
+{
 	if (val == nil)
 		return nil;
-	
+
 	if ([val isKindOfClass:[NSData class]]) {
 		val = [NSUnarchiver unarchiveObjectWithData:val];
 	}
 	if ([val isKindOfClass:[NSDictionary class]]) {
-		val = [(NSDictionary*)val unarchiveFromPropertyListFormat];
-	}
-	else if ([val isKindOfClass:[NSArray class]]) {
+		val = [(NSDictionary *)val unarchiveFromPropertyListFormat];
+	} else if ([val isKindOfClass:[NSArray class]]) {
 		NSMutableArray *na = [NSMutableArray arrayWithCapacity:[val count]];
 		NSEnumerator *curs = [val objectEnumerator];
 		id nob;
 		while ((nob = [curs nextObject]) != nil)
 			[na addObject:WTKeyValueDecodeObject(nob)];
 		return na;
-	}
-	else if ([@"null" isEqualTo:val])
+	} else if ([@"null" isEqualTo:val])
 		return [NSNull null];
 	// else
 	return val;
 }
 
 static id
-WTKeyValueEncodeObject (id val)
-{	
+WTKeyValueEncodeObject(id val)
+{
 	if (val == nil)
 		return nil;
-	
+
 	if ([val isKindOfClass:[NSString class]]) {
 		;
-	}
-	else if ([val isKindOfClass:[NSNumber class]]) {
+	} else if ([val isKindOfClass:[NSNumber class]]) {
 		;
-	}
-	else if ([val isKindOfClass:[NSData class]]) {
+	} else if ([val isKindOfClass:[NSData class]]) {
 		;
 	} else if ([val isKindOfClass:[NSDictionary class]]) {
-		val = [(NSDictionary*)val archiveFromPropertyListFormat];
-	}
-	else if ([val isKindOfClass:[NSArray class]]) {
+		val = [(NSDictionary *)val archiveFromPropertyListFormat];
+	} else if ([val isKindOfClass:[NSArray class]]) {
 		NSMutableArray *na = [NSMutableArray arrayWithCapacity:[val count]];
 		NSEnumerator *curs = [val objectEnumerator];
 		id nob;
 		while ((nob = [curs nextObject]) != nil)
 			[na addObject:WTKeyValueEncodeObject(nob)];
 		val = na;
-	}
-	else if ([val supportsSimpleDictionaryKeyValueCoding]) {
+	} else if ([val supportsSimpleDictionaryKeyValueCoding]) {
 		val = [NSDictionary archiveToPropertyListForRootObject:val];
-		
-	}
-	else {
+
+	} else {
 		val = [NSArchiver archivedDataWithRootObject:val];
 	}
 	return val;
 }
 
-
 #pragma mark -
 @implementation NSObject (WTPlistKeyValueCoding)
 
-+ (BOOL) supportsSimpleDictionaryKeyValueCoding
++ (BOOL)supportsSimpleDictionaryKeyValueCoding
 {
 	return NO;
 }
 
-
-- (BOOL) supportsSimpleDictionaryKeyValueCoding
+- (BOOL)supportsSimpleDictionaryKeyValueCoding
 {
 	return NO;
 }
 
 @end
 
-
 #pragma mark -
 @implementation NSDictionary (WTPlistKeyValueCoding)
 
-+ (BOOL) supportsSimpleDictionaryKeyValueCoding
++ (BOOL)supportsSimpleDictionaryKeyValueCoding
 {
 	return YES;
 }
 
-
-- (BOOL) supportsSimpleDictionaryKeyValueCoding
+- (BOOL)supportsSimpleDictionaryKeyValueCoding
 {
 	return YES;
 }
-	
+
 #pragma mark -
-+ (id)archiveToPropertyListForRootObject:(id) rob
++ (id)archiveToPropertyListForRootObject:(id)rob
 {
 	if ([rob supportsSimpleDictionaryKeyValueCoding]) {
 		NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-		[dict setValue:NSStringFromClass ([rob class]) forKey:@"isa"];
-		[rob encodeWithCoder:(NSCoder*)dict];
+		[dict setValue:NSStringFromClass([rob class]) forKey:@"isa"];
+		[rob encodeWithCoder:(NSCoder *)dict];
 		return dict;
 	}
 	// else return a data object
 	NSData *data = [NSArchiver archivedDataWithRootObject:rob];
 	return data;
 }
-
 
 - (id)unarchiveFromPropertyListFormat
 {
@@ -123,14 +111,14 @@ WTKeyValueEncodeObject (id val)
 	type = [self valueForKey:@"isa"];
 	if (type != nil) {
 		Class factory = NSClassFromString(type);
-		id nob = [[factory alloc] initWithCoder:(NSCoder*)self];
+		id nob = [[factory alloc] initWithCoder:(NSCoder *)self];
 		return nob;
 	} else {
 		NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:[self count]];
 		NSEnumerator *curs = [self keyEnumerator];
 		NSString *key;
 		id value;
-		
+
 		while ((key = [curs nextObject]) != nil) {
 			value = WTKeyValueDecodeObject([self valueForKey:key]);
 			if (value)
@@ -140,14 +128,13 @@ WTKeyValueEncodeObject (id val)
 	}
 }
 
-
 - (id)archiveFromPropertyListFormat
 {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:[self count]];
 	NSEnumerator *curs = [self keyEnumerator];
 	NSString *key;
 	id value;
-	
+
 	while ((key = [curs nextObject]) != nil) {
 		value = WTKeyValueEncodeObject([self valueForKey:key]);
 		if (value)
@@ -156,20 +143,21 @@ WTKeyValueEncodeObject (id val)
 	return dict;
 }
 
-
 #pragma mark -
-- (BOOL)	decodeBoolForKey:(NSString *)key
+- (BOOL)decodeBoolForKey:(NSString *)key
 {
 	NSString *b = [self valueForKey:key];
-	if (b == nil) return NO;
-	if ([b isEqualToString:@"YES"]) return YES;
-	if ([b isEqualToString:@"yes"]) return YES;
+	if (b == nil)
+		return NO;
+	if ([b isEqualToString:@"YES"])
+		return YES;
+	if ([b isEqualToString:@"yes"])
+		return YES;
 	// else
 	return NO;
 }
 
-
-- (float)	decodeFloatForKey:(NSString *)key
+- (float)decodeFloatForKey:(NSString *)key
 {
 	return [[self valueForKey:key] floatValue];
 }
@@ -179,7 +167,7 @@ WTKeyValueEncodeObject (id val)
 	return [[self valueForKey:key] doubleValue];
 }
 
-- (int)		decodeIntForKey:(NSString *)key
+- (int)decodeIntForKey:(NSString *)key
 {
 	return [[self valueForKey:key] intValue];
 }
@@ -189,11 +177,10 @@ WTKeyValueEncodeObject (id val)
 	return [[self valueForKey:key] integerValue];
 }
 
-
-- (id)		decodeObjectForKey:(NSString *)key
+- (id)decodeObjectForKey:(NSString *)key
 {
 	id val = [self valueForKey:key];
-	return WTKeyValueDecodeObject (val);
+	return WTKeyValueDecodeObject(val);
 }
 
 @end
@@ -201,25 +188,22 @@ WTKeyValueEncodeObject (id val)
 #pragma mark -
 @implementation NSMutableDictionary (WTPlistKeyValueCoding)
 
-- (void)	encodeBool:(BOOL)intv forKey:(NSString *)key
+- (void)encodeBool:(BOOL)intv forKey:(NSString *)key
 {
-	[self setValue:(intv ? @"YES" : @"NO") forKey:key];
+	[self setValue:(intv ? @"YES" : @"NO")forKey:key];
 }
 
-
-- (void)	encodeFloat:(float)intv forKey:(NSString *)key
+- (void)encodeFloat:(float)intv forKey:(NSString *)key
 {
 	[self setValue:[NSNumber numberWithFloat:intv] forKey:key];
 }
 
-
-- (void)	encodeInt:(int)intv forKey:(NSString *)key
+- (void)encodeInt:(int)intv forKey:(NSString *)key
 {
 	[self setValue:[NSNumber numberWithInt:intv] forKey:key];
 }
 
-
-- (void)	encodeObject:(id)intv forKey:(NSString *)key
+- (void)encodeObject:(id)intv forKey:(NSString *)key
 {
 	id val = WTKeyValueEncodeObject(intv);
 	if (val)
@@ -264,6 +248,4 @@ WTKeyValueEncodeObject (id val)
 	}
 }
 
-
 @end
-

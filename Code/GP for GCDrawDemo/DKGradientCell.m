@@ -13,13 +13,11 @@
 #import "NSBezierPath+GCAdditions.h"
 #import <DKDrawKit/LogEvent.h>
 
-
 @implementation DKGradientCell
 #pragma mark As a DKGradientCell
-- (void)		setGradient:(DKGradient*) value
+- (void)setGradient:(DKGradient *)value
 {
-	if ( value != [self gradient])
-	{
+	if (value != [self gradient]) {
 		[self setInset:kDKDefaultGradientCellInset];
 		mEnableCache = YES;
 
@@ -31,225 +29,196 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gradientDidChange:) name:kDKNotificationGradientDidRemoveColorStop object:mGradient];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gradientWillChange:) name:kDKNotificationGradientWillAddColorStop object:mGradient];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gradientWillChange:) name:kDKNotificationGradientWillRemoveColorStop object:mGradient];
-		
+
 		[self invalidateCache];
 	}
 }
 
-
-- (DKGradient*)	gradient
+- (DKGradient *)gradient
 {
 	return mGradient;
 }
 
+#pragma mark -
+@synthesize inset = mInset;
 
 #pragma mark -
-@synthesize inset=mInset;
-
-#pragma mark -
-- (void)		invalidateCache
+- (void)invalidateCache
 {
 	//LogEvent_(kReactiveEvent, @"invalidating cache");
 	[self setObjectValue:nil];
 }
 
-
-- (NSImage*)	cachedImageForSize:(NSSize) size
+- (NSImage *)cachedImageForSize:(NSSize)size
 {
 	NSImage *img = [self image];
-	if (img == nil)
-	{
+	if (img == nil) {
 		img = [self makeCacheImageWithSize:size];
-		[self setObjectValue: img];
+		[self setObjectValue:img];
 	}
 	return img;
 }
 
-
-- (NSImage*)	makeCacheImageWithSize:(NSSize) size
+- (NSImage *)makeCacheImageWithSize:(NSSize)size
 {
 	// creates an image of the current gradient for rendering in this cell as a cache. Note that the swatch method
 	// of the gradient itself does not include the chequered background
-	
+
 	NSImage *swatchImage = [[NSImage alloc] initWithSize:size];
 	NSRect box = NSMakeRect(0.0, 0.0, size.width, size.height);
 	[swatchImage setFlipped:YES];
-	
+
 	[swatchImage lockFocus];
 	[[self gradient] fillRect:box];
 	[swatchImage unlockFocus];
-	
+
 	return swatchImage;
 }
 
-
 #pragma mark -
-- (void)		gradientDidChange:(NSNotification*) note
+- (void)gradientDidChange:(NSNotification *)note
 {
-#pragma unused (note)
+#pragma unused(note)
 	[self invalidateCache];
 	[mGradient setUpKVOForObserver:self];
 }
 
-
-- (void)		gradientWillChange:(NSNotification*) note
+- (void)gradientWillChange:(NSNotification *)note
 {
-#pragma unused (note)
+#pragma unused(note)
 	[mGradient tearDownKVOForObserver:self];
 }
 
-
 #pragma mark -
 #pragma mark As an NSCell
-- (SEL)			action
+- (SEL)action
 {
 	return mAction;
 }
 
-
-- (void)		drawInteriorWithFrame:(NSRect) cellFrame inView:(NSView*) controlView
+- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
-	if ([self gradient])
-	{
-		static NSImage* pat = nil;
-		
-		if ( pat == nil )
-		{
+	if ([self gradient]) {
+		static NSImage *pat = nil;
+
+		if (pat == nil) {
 			pat = [[NSBundle bundleForClass:[self class]] imageForResource:@"chequered"];
 		}
-		
-		if ( pat )
-		{
-			NSColor* pp = [NSColor colorWithPatternImage:pat];
-			
+
+		if (pat) {
+			NSColor *pp = [NSColor colorWithPatternImage:pat];
+
 			[pp set];
-			NSRectFill( NSInsetRect( cellFrame, mInset.width, mInset.height ));
+			NSRectFill(NSInsetRect(cellFrame, mInset.width, mInset.height));
 		}
-		
-		if ( mEnableCache )
-		{
+
+		if (mEnableCache) {
 			[self cachedImageForSize:cellFrame.size];
 			[super drawInteriorWithFrame:cellFrame inView:controlView];
-		}
-		else
-		{
+		} else {
 			[super drawInteriorWithFrame:cellFrame inView:controlView];
-			[[self gradient] fillRect:NSInsetRect( cellFrame, mInset.width, mInset.height )];
+			[[self gradient] fillRect:NSInsetRect(cellFrame, mInset.width, mInset.height)];
 		}
 	}
 }
 
-
-- (void)		drawWithFrame:(NSRect) cellFrame inView:(NSView *) controlView
+- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
 	// if active, draw the "active" hilite
-	
+
 	[super drawWithFrame:cellFrame inView:controlView];
 
-	if([controlView isKindOfClass:[GCGradientWell class]])
-	{
-		if ([(GCGradientWell*)controlView isActiveWell])
-		{
-			NSBezierPath* rr = [NSBezierPath roundRectInRect:NSInsetRect( cellFrame, 2, 2 ) andCornerRadius:5];
-			
+	if ([controlView isKindOfClass:[GCGradientWell class]]) {
+		if ([(GCGradientWell *)controlView isActiveWell]) {
+			NSBezierPath *rr = [NSBezierPath roundRectInRect:NSInsetRect(cellFrame, 2, 2) andCornerRadius:5];
+
 			[rr setLineWidth:3];
-			
+
 			[[NSColor colorForControlTint:[NSColor currentControlTint]] set];
 			[rr stroke];
 		}
 	}
-
 }
 
-
-- (void)		setAction:(SEL) action
+- (void)setAction:(SEL)action
 {
 	mAction = action;
 }
 
-
-- (void)		setTarget:(id) target
+- (void)setTarget:(id)target
 {
 	mTargetRef = target;
 }
 
-
-- (id)			target
+- (id)target
 {
 	return mTargetRef;
 }
 
-
-- (BOOL)		trackMouse:(NSEvent*) theEvent inRect:(NSRect) cellFrame ofView:(NSView*) controlView untilMouseUp:(BOOL) untilMouseUp
+- (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
 {
-#pragma unused (cellFrame, untilMouseUp)
+#pragma unused(cellFrame, untilMouseUp)
 	NSPoint p = [controlView convertPoint:[theEvent locationInWindow] fromView:nil];
-	
-	if ([self startTrackingAt:p inView:controlView])
-	{
-		NSEventMask		mask;
-		NSEvent*		event = nil;
-		BOOL			loop = YES;
-		NSPoint			currentPoint, lastPoint;
-		
+
+	if ([self startTrackingAt:p inView:controlView]) {
+		NSEventMask mask;
+		NSEvent *event = nil;
+		BOOL loop = YES;
+		NSPoint currentPoint, lastPoint;
+
 		mEnableCache = NO;
 		mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
 		lastPoint = p;
-		
-		while( loop )
-		{
+
+		while (loop) {
 			event = [[controlView window] nextEventMatchingMask:mask];
-			
+
 			currentPoint = [controlView convertPoint:[event locationInWindow] fromView:nil];
-			
-			switch([event type])
-			{
+
+			switch ([event type]) {
 				case NSLeftMouseUp:
 					[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:YES];
 					loop = NO;
-					
+
 					// set active if allowed to become (default is YES)
-					
-					if([[self controlView] isKindOfClass:[GCGradientWell class]])
-						[(GCGradientWell*)[self controlView] toggleActiveWell];
+
+					if ([[self controlView] isKindOfClass:[GCGradientWell class]])
+						[(GCGradientWell *)[self controlView] toggleActiveWell];
 					break;
-					
+
 				case NSLeftMouseDragged:
 					loop = NO;
 					[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:NO];
 					[controlView initiateGradientDragWithEvent:theEvent];
 					break;
-					
+
 				default:
 					break;
 			}
-			
+
 			lastPoint = currentPoint;
 		}
 		[[controlView window] discardEventsMatchingMask:mask beforeEvent:event];
 		mEnableCache = YES;
 	}
-	
+
 	return YES;
 }
-
 
 #pragma mark -
 #pragma mark As an NSObject
 
-- (id)	init
+- (id)init
 {
 	self = [super initImageCell:nil];
-	if (self != nil)
-	{
+	if (self != nil) {
 		NSAssert(mGradient == nil, @"Expected init to zero");
 		NSAssert(mTargetRef == nil, @"Expected init to zero");
 		NSAssert(mAction == nil, @"Expected init to zero");
 		[self setInset:kDKDefaultGradientCellInset];
 		mEnableCache = YES;
 	}
-	if (self != nil)
-	{
+	if (self != nil) {
 		[self setContinuous:YES];
 		[self setImageFrameStyle:NSImageFrameGrayBezel];
 		[self setImageScaling:NSScaleToFit];
@@ -257,14 +226,12 @@
 	return self;
 }
 
-
 #pragma mark -
 #pragma mark As part of NSKeyValueObserving Protocol
-- (void)		observeValueForKeyPath:(NSString*)keypath ofObject:(id) object change:(NSDictionary*) change context:(void*) context
+- (void)observeValueForKeyPath:(NSString *)keypath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-#pragma unused (keypath, object, change, context)
+#pragma unused(keypath, object, change, context)
 	[self invalidateCache];
 }
-
 
 @end
