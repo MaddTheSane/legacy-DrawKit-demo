@@ -15,8 +15,8 @@
 - (IBAction)showStyleInspector:(id)sender
 {
 #pragma unused(sender)
-	if ([[mStyleInspector window] isVisible])
-		[[mStyleInspector window] orderOut:self];
+	if (mStyleInspector.window.visible)
+		[mStyleInspector.window orderOut:self];
 	else
 		[self openStyleInspector];
 }
@@ -24,8 +24,8 @@
 - (IBAction)showToolPalette:(id)sender
 {
 #pragma unused(sender)
-	if ([[mToolPalette window] isVisible])
-		[[mToolPalette window] orderOut:self];
+	if (mToolPalette.window.visible)
+		[mToolPalette.window orderOut:self];
 	else
 		[self openToolPalette];
 }
@@ -33,8 +33,8 @@
 - (IBAction)showObjectInspector:(id)sender
 {
 #pragma unused(sender)
-	if ([[mObjectInspector window] isVisible])
-		[[mObjectInspector window] orderOut:self];
+	if (mObjectInspector.window.visible)
+		[mObjectInspector.window orderOut:self];
 	else
 		[self openObjectInspector];
 }
@@ -101,7 +101,7 @@
 	NSMenuItem *item;
 	DKDrawingTool *tool;
 
-	m = [menu numberOfItems];
+	m = menu.numberOfItems;
 
 	if (menu == nil || m == 0)
 		return;
@@ -179,7 +179,7 @@
 
 - (IBAction)showAboutBox:(id)sender
 {
-	BOOL isOptionKeyDown = (([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask) != 0);
+	BOOL isOptionKeyDown = ((NSApp.currentEvent.modifierFlags & NSAlternateKeyMask) != 0);
 	if (isOptionKeyDown) {
 		[[LoggingController sharedLoggingController] showLoggingWindow];
 	} else {

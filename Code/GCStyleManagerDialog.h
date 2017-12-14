@@ -31,7 +31,7 @@
 - (IBAction)saveStylesToFileAction:(id)sender;
 - (IBAction)loadStylesFromFileAction:(id)sender;
 
-- (DKStyleRegistry *)styles;
+@property (readonly, copy) DKStyleRegistry *styles;
 - (void)populateMatrixWithStyleInCategory:(NSString *)cat;
 - (void)updateUIForStyle:(DKStyle *)style;
 - (void)updateUIForCategory:(NSString *)category;

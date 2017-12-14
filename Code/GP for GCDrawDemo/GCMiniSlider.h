@@ -15,7 +15,7 @@
 
 @property (nonatomic) BOOL showTickMarks;
 
-- (NSRect)knobRect;
+@property (readonly) NSRect knobRect;
 
 @end
 

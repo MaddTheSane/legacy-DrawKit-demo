@@ -26,12 +26,9 @@ static BOOL sDefaultQualityMod = NO;
 
 	// also push the setting out to all current documents
 
-	NSEnumerator *iter = [[[NSDocumentController sharedDocumentController] documents] objectEnumerator];
-	id doc;
-
-	while ((doc = [iter nextObject])) {
+	for (id doc in [NSDocumentController sharedDocumentController].documents) {
 		if ([doc isKindOfClass:[DKDrawingDocument class]])
-			[[doc drawing] setDynamicQualityModulationEnabled:dqm];
+			[doc drawing].dynamicQualityModulationEnabled = dqm;
 	}
 }
 
@@ -66,11 +63,11 @@ static BOOL sDefaultQualityMod = NO;
 	// allows a single selected shape in the active layer to be turned into a named tool. If the selection is valid, this then asks the user
 	// for a name for the tool.
 
-	DKObjectDrawingLayer *layer = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
+	DKObjectDrawingLayer *layer = [self.drawing activeLayerOfClass:[DKObjectDrawingLayer class]];
 
 	if (layer) {
-		if ([layer isSingleObjectSelected] && [layer selectionContainsObjectOfClass:[DKDrawableShape class]]) {
-			DKDrawableShape *shape = (DKDrawableShape *)[layer singleSelection];
+		if (layer.singleObjectSelected && [layer selectionContainsObjectOfClass:[DKDrawableShape class]]) {
+			DKDrawableShape *shape = (DKDrawableShape *)layer.singleSelection;
 
 			// ok, got an object that can be turned into a tool, so ask the user to name it.
 
@@ -86,14 +83,14 @@ static BOOL sDefaultQualityMod = NO;
 - (IBAction)polarDuplicate:(id)sender
 {
 #pragma unused(sender)
-	[mPolarDuplicateController beginPolarDuplicationDialog:[self windowForSheet]
+	[mPolarDuplicateController beginPolarDuplicationDialog:self.windowForSheet
 											 polarDelegate:self];
 }
 
 - (IBAction)linearDuplicate:(id)sender
 {
 #pragma unused(sender)
-	[mLinearDuplicateController beginLinearDuplicationDialog:[self windowForSheet]
+	[mLinearDuplicateController beginLinearDuplicationDialog:self.windowForSheet
 											  linearDelegate:self];
 }
 
@@ -104,56 +101,56 @@ static BOOL sDefaultQualityMod = NO;
 	if (mDrawingSizeController == nil)
 		mDrawingSizeController = [[DrawingSizeController alloc] initWithWindowNibName:@"Drawingsize"];
 
-	[mDrawingSizeController beginDrawingSizeDialog:[self windowForSheet] withDrawing:[self drawing]];
+	[mDrawingSizeController beginDrawingSizeDialog:self.windowForSheet withDrawing:self.drawing];
 }
 
 - (IBAction)exportAction:(id)sender
 {
 #pragma unused(sender)
 
-	[mExportController beginExportDialogWithParentWindow:[self windowForSheet]
+	[mExportController beginExportDialogWithParentWindow:self.windowForSheet
 												delegate:self];
 }
 
 - (void)performExportType:(GCExportFileTypes)fileType withOptions:(NSDictionary *)options
 {
-	NSURL *url = [options objectForKey:kGCExportedFileURL];
+	NSURL *url = options[kGCExportedFileURL];
 	NSData *data;
 
 	LogEvent_(kFileEvent, @"exporting file to URL '%@'", url);
 
 	BOOL saveGrid = NO, drawGrid;
 
-	drawGrid = [[options objectForKey:kGCIncludeGridInExportedFile] boolValue];
+	drawGrid = [options[kGCIncludeGridInExportedFile] boolValue];
 
 	if (drawGrid) {
-		saveGrid = [[[self drawing] gridLayer] shouldDrawToPrinter];
-		[[[self drawing] gridLayer] setShouldDrawToPrinter:YES];
+		saveGrid = self.drawing.gridLayer.shouldDrawToPrinter;
+		[self.drawing.gridLayer setShouldDrawToPrinter:YES];
 	}
 
 	switch (fileType) {
 		default:
 		case GCExportFileTypePDF:
-			data = [[self drawing] pdf];
+			data = [self.drawing pdf];
 			break;
 
 		case NSJPEGFileType:
-			data = [[self drawing] JPEGDataWithProperties:options];
+			data = [self.drawing JPEGDataWithProperties:options];
 			break;
 
 		case NSTIFFFileType:
-			data = [[self drawing] TIFFDataWithProperties:options];
+			data = [self.drawing TIFFDataWithProperties:options];
 			break;
 
 		case NSPNGFileType:
-			data = [[self drawing] PNGDataWithProperties:options];
+			data = [self.drawing PNGDataWithProperties:options];
 			break;
 	}
 
 	if (drawGrid)
-		[[[self drawing] gridLayer] setShouldDrawToPrinter:saveGrid];
+		self.drawing.gridLayer.shouldDrawToPrinter = saveGrid;
 
-	if (data != nil && [data length] > 0)
+	if (data != nil && data.length > 0)
 		[data writeToURL:url atomically:YES];
 }
 
@@ -168,8 +165,8 @@ static BOOL sDefaultQualityMod = NO;
 
 - (void)setDrawing:(DKDrawing *)dwg
 {
-	[super setDrawing:dwg];
-	[dwg setDynamicQualityModulationEnabled:[[self class] defaultQualityModulation]];
+	super.drawing = dwg;
+	dwg.dynamicQualityModulationEnabled = [[self class] defaultQualityModulation];
 }
 
 #pragma mark -
@@ -187,17 +184,17 @@ static BOOL sDefaultQualityMod = NO;
 	// call super to ensure correct establishment of model-view-controller within the DK internals
 
 	[super windowControllerDidLoadNib:winController];
-	[[winController window] zoom:self];
+	[winController.window zoom:self];
 }
 
 #pragma mark -
 #pragma mark As a PolarDuplication delegate
 - (NSInteger)countOfItemsInSelection
 {
-	DKObjectDrawingLayer *odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
+	DKObjectDrawingLayer *odl = [self.drawing activeLayerOfClass:[DKObjectDrawingLayer class]];
 
 	if (odl != nil)
-		return [[odl selectedAvailableObjects] count];
+		return odl.selectedAvailableObjects.count;
 	else
 		return 0;
 }
@@ -207,17 +204,17 @@ static BOOL sDefaultQualityMod = NO;
 	// callback from dialog. Locate the selection and use the object drawing layer method to do the deed. Note - centre is passed
 	// in grid coordinates so needs converting to the drawing, and the angle is in degrees and needs converting to radians.
 
-	DKObjectDrawingLayer *odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
+	DKObjectDrawingLayer *odl = [self.drawing activeLayerOfClass:[DKObjectDrawingLayer class]];
 
 	if (odl != nil) {
-		NSArray *target = [odl selectedAvailableObjects];
+		NSArray *target = odl.selectedAvailableObjects;
 
-		if (target && [target count] > 0) {
+		if (target && target.count > 0) {
 			// convert the units
 
 			CGFloat radians = (angle * M_PI) / 180.0;
 
-			DKGridLayer *grid = [[self drawing] gridLayer];
+			DKGridLayer *grid = self.drawing.gridLayer;
 
 			NSPoint drawingPt = [grid pointForGridLocation:cp];
 
@@ -229,7 +226,7 @@ static BOOL sDefaultQualityMod = NO;
 
 			// add newCopies to the layer and select them
 
-			if ([newCopies count] > 0) {
+			if (newCopies.count > 0) {
 				//	LogEvent_(kReactiveEvent, @"copies: %@", newCopies);
 
 				[odl recordSelectionForUndo];
@@ -243,13 +240,13 @@ static BOOL sDefaultQualityMod = NO;
 
 - (void)doAutoPolarDuplicateWithCentre:(NSPoint)cp
 {
-	DKObjectDrawingLayer *odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
+	DKObjectDrawingLayer *odl = [self.drawing activeLayerOfClass:[DKObjectDrawingLayer class]];
 
 	if (odl != nil) {
-		DKDrawableObject *target = [odl singleSelection];
+		DKDrawableObject *target = odl.singleSelection;
 
 		if (target) {
-			DKGridLayer *grid = [[self drawing] gridLayer];
+			DKGridLayer *grid = self.drawing.gridLayer;
 
 			NSPoint drawingPt = [grid pointForGridLocation:cp];
 
@@ -257,7 +254,7 @@ static BOOL sDefaultQualityMod = NO;
 
 			// add newCopies to the layer and select them
 
-			if ([newCopies count] > 0) {
+			if (newCopies.count > 0) {
 				//	LogEvent_(kReactiveEvent, @"copies: %@", newCopies);
 
 				[odl recordSelectionForUndo];
@@ -274,15 +271,15 @@ static BOOL sDefaultQualityMod = NO;
 
 - (void)doLinearDuplicateCopies:(NSInteger)copies offset:(NSSize)offset
 {
-	DKObjectDrawingLayer *odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
+	DKObjectDrawingLayer *odl = [self.drawing activeLayerOfClass:[DKObjectDrawingLayer class]];
 
 	if (odl != nil) {
-		NSArray *target = [odl selectedAvailableObjects];
+		NSArray *target = odl.selectedAvailableObjects;
 
-		if (target && [target count] > 0) {
+		if (target && target.count > 0) {
 			// convert the units
 
-			DKGridLayer *grid = [[self drawing] gridLayer];
+			DKGridLayer *grid = self.drawing.gridLayer;
 			NSSize drawingOffset;
 
 			drawingOffset.width = [grid quartzDistanceForGridDistance:offset.width];
@@ -294,7 +291,7 @@ static BOOL sDefaultQualityMod = NO;
 
 			// add newCopies to the layer and select them
 
-			if ([newCopies count] > 0) {
+			if (newCopies.count > 0) {
 				//	LogEvent_(kReactiveEvent, @"copies: %@", newCopies);
 
 				[odl recordSelectionForUndo];
@@ -312,7 +309,7 @@ static BOOL sDefaultQualityMod = NO;
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
 	BOOL enable = YES;
-	SEL action = [menuItem action];
+	SEL action = menuItem.action;
 
 	NSAssert(menuItem != nil, @"Expected valid menuItem");
 	if (action == @selector(linearDuplicate:)) {

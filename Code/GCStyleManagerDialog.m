@@ -51,12 +51,12 @@
 	NSString *context = (__bridge NSString *)contextInfo;
 
 	if ([context isEqualToString:@"save"]) {
-		NSURL *path = [(NSSavePanel *)sheet URL];
+		NSURL *path = ((NSSavePanel *)sheet).URL;
 		[[DKStyleRegistry sharedStyleRegistry] writeToURL:path options:NSDataWritingAtomic error:NULL];
 	} else if ([context isEqualToString:@"open"]) {
 		// just overwrite the current reg from the file
 
-		NSURL *path = [(NSOpenPanel *)sheet URL];
+		NSURL *path = ((NSOpenPanel *)sheet).URL;
 		BOOL result = [[DKStyleRegistry sharedStyleRegistry] readFromURL:path mergeOptions:kDKReplaceExistingStyles mergeDelegate:self error:NULL];
 
 		if (result) {
@@ -94,13 +94,13 @@
 
 	// check this is OK with user
 
-	NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Really Remove '%@' From Registry?", [mSelectedStyle name]]
+	NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Really Remove '%@' From Registry?", mSelectedStyle.name]
 									 defaultButton:@"Remove"
 								   alternateButton:@"Cancel"
 									   otherButton:nil
 						 informativeTextWithFormat:@"Removing the style from the registry does not affect any object that might be using the style, but it may prevent the style being used in another document later."];
 
-	[alert beginSheetModalForWindow:[self window]
+	[alert beginSheetModalForWindow:self.window
 					  modalDelegate:self
 					 didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
 						contextInfo:@"remove"];
@@ -111,13 +111,13 @@
 #pragma unused(sender)
 	// warn the user of the consequences, then remove everything from the registry except the defaults
 
-	NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Really Remove All Styles From Registry?", [mSelectedStyle name]]
+	NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Really Remove All Styles From Registry?", mSelectedStyle.name]
 									 defaultButton:@"Clear"
 								   alternateButton:@"Cancel"
 									   otherButton:nil
 						 informativeTextWithFormat:@"Removing styles from the registry does not affect any object that might be using them, but it may prevent the styles being used in another document later."];
 
-	[alert beginSheetModalForWindow:[self window]
+	[alert beginSheetModalForWindow:self.window
 					  modalDelegate:self
 					 didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
 						contextInfo:@"reset"];
@@ -130,7 +130,7 @@
 
 	sp.allowedFileTypes = @[ @"styles" ];
 
-	[sp beginSheetModalForWindow:[self window]
+	[sp beginSheetModalForWindow:self.window
 			   completionHandler:^(NSModalResponse result) {
 				   [self sheetDidEnd:sp returnCode:result contextInfo:@"save"];
 			   }];
@@ -164,10 +164,10 @@
 	NSInteger rows, cols, x, y, num;
 	NSSize cellSize;
 
-	for (cols = 0; cols < [mStyleIconMatrix numberOfColumns]; ++cols)
+	for (cols = 0; cols < mStyleIconMatrix.numberOfColumns; ++cols)
 		[mStyleIconMatrix removeColumn:cols];
 
-	num = [[[self styles] objectsInCategory:cat] count];
+	num = [[self styles] objectsInCategory:cat].count;
 	cols = 4;
 	rows = (num / cols);
 
@@ -180,18 +180,18 @@
 
 	[mStyleIconMatrix renewRows:rows columns:cols];
 	[mStyleIconMatrix sizeToCells];
-	cellSize = [mStyleIconMatrix cellSize];
+	cellSize = mStyleIconMatrix.cellSize;
 
 	if (num > 0) {
 		while ((style = [iter nextObject]) != nil) {
-			swatch = [[style standardStyleSwatch] copy];
-			[swatch setSize:cellSize];
+			swatch = [style.standardStyleSwatch copy];
+			swatch.size = cellSize;
 
 			cell = [mStyleIconMatrix cellAtRow:y column:x];
-			[cell setImage:swatch];
+			cell.image = swatch;
 
-			[cell setRepresentedObject:style];
-			[mStyleIconMatrix setToolTip:[style name] forCell:cell];
+			cell.representedObject = style;
+			[mStyleIconMatrix setToolTip:style.name forCell:cell];
 			[cell setEnabled:YES];
 
 			if (++x >= cols) {
@@ -218,9 +218,9 @@
 
 - (void)updateUIForStyle:(DKStyle *)style
 {
-	[mStyleNameTextField setStringValue:[style name]];
+	mStyleNameTextField.stringValue = style.name;
 	[mStyleNameTextField setEnabled:YES];
-	[mPreviewImageWell setImage:[style standardStyleSwatch]];
+	mPreviewImageWell.image = style.standardStyleSwatch;
 
 	// reload table which will set the checkboxes for categories containing this style
 
@@ -235,7 +235,7 @@
 	[mStyleBrowserList reloadData];
 	[mStyleBrowserList selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 
-	if ([[[self styles] allKeysInCategory:category] count] > 0) {
+	if ([[self styles] allKeysInCategory:category].count > 0) {
 		[mStyleIconMatrix selectCellAtRow:0 column:0];
 		[mStyleIconMatrix sendAction];
 	} else {
@@ -256,7 +256,7 @@
 #pragma mark As an NSWindowController
 - (void)windowDidLoad
 {
-	NSInteger row = [mStyleCategoryList selectedRow];
+	NSInteger row = mStyleCategoryList.selectedRow;
 
 	if (row == -1) {
 		row = [[[self styles] allCategories] indexOfObject:kDKDefaultCategoryName];
@@ -268,23 +268,23 @@
 #pragma mark As an NSTableView delegate
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
-	if ([aNotification object] == mStyleCategoryList) {
+	if (aNotification.object == mStyleCategoryList) {
 		// when the user selects a different category in the list, the matrix is repopulated with the styles in that category
 
-		NSInteger catItem = [mStyleCategoryList selectedRow];
+		NSInteger catItem = mStyleCategoryList.selectedRow;
 
 		LogEvent_(kReactiveEvent, @"selection change: %ld", (long)catItem);
 
 		if (catItem != -1) {
-			NSString *cat = [[[self styles] allCategories] objectAtIndex:catItem];
+			NSString *cat = [[self styles] allCategories][catItem];
 			[self updateUIForCategory:cat];
 		}
-	} else if ([aNotification object] == mStyleBrowserList) {
-		NSInteger rowIndex = [mStyleBrowserList selectedRow];
+	} else if (aNotification.object == mStyleBrowserList) {
+		NSInteger rowIndex = mStyleBrowserList.selectedRow;
 		NSArray *sortedKeys = [[self styles] allSortedKeysInCategory:mSelectedCategory];
 
-		if (rowIndex >= 0 && rowIndex < (int)[sortedKeys count]) {
-			NSString *key = [sortedKeys objectAtIndex:rowIndex];
+		if (rowIndex >= 0 && rowIndex < (int)sortedKeys.count) {
+			NSString *key = sortedKeys[rowIndex];
 
 			mSelectedStyle = [[self styles] objectForKey:key];
 			[self updateUIForStyle:mSelectedStyle];
@@ -296,7 +296,7 @@
 {
 #pragma unused(aTableColumn)
 	if (aTableView == mStyleCategoryList) {
-		NSString *cat = [[[self styles] allCategories] objectAtIndex:rowIndex];
+		NSString *cat = [[self styles] allCategories][rowIndex];
 		[aCell setEnabled:![cat isEqualToString:kDKDefaultCategoryName]];
 	}
 }
@@ -305,7 +305,7 @@
 {
 #pragma unused(aTableColumn)
 	if (aTableView == mStyleCategoryList) {
-		NSString *cat = [[[self styles] allCategories] objectAtIndex:rowIndex];
+		NSString *cat = [[self styles] allCategories][rowIndex];
 		return ![cat isEqualToString:kDKDefaultCategoryName];
 	}
 
@@ -317,42 +317,42 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
 	if (aTableView == mStyleCategoryList) {
-		return [[[self styles] allCategories] count];
+		return [[self styles] allCategories].count;
 	} else if (aTableView == mStyleBrowserList) {
-		return [[[self styles] allKeysInCategory:mSelectedCategory] count];
+		return [[self styles] allKeysInCategory:mSelectedCategory].count;
 	} else
 		return 0;
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-	id identifier = [aTableColumn identifier];
+	id identifier = aTableColumn.identifier;
 
 	if (aTableView == mStyleCategoryList) {
 		if ([identifier isEqualToString:@"catName"])
-			return [[[self styles] allCategories] objectAtIndex:rowIndex];
+			return [[self styles] allCategories][rowIndex];
 		else if ([identifier isEqualToString:@"keyInCat"]) {
 			// checkbox for inclusion in category for the selected style
 
-			NSString *cat = [[[self styles] allCategories] objectAtIndex:rowIndex];
-			NSString *key = [mSelectedStyle uniqueKey];
+			NSString *cat = [[self styles] allCategories][rowIndex];
+			NSString *key = mSelectedStyle.uniqueKey;
 
 			BOOL include = [[self styles] key:key existsInCategory:cat];
 
-			return [NSNumber numberWithInt:include];
+			return @(include);
 		} else
 			return nil;
 	} else if (aTableView == mStyleBrowserList) {
 		NSArray *sortedKeys = [[self styles] allSortedKeysInCategory:mSelectedCategory];
-		NSString *key = [sortedKeys objectAtIndex:rowIndex];
+		NSString *key = sortedKeys[rowIndex];
 
 		if ([identifier isEqualToString:@"name"]) {
 			return [[self styles] styleNameForKey:key];
 		} else if ([identifier isEqualToString:@"image"]) {
 			DKStyle *style = [[self styles] styleForKey:key];
-			NSImage *swatch = [[style standardStyleSwatch] copy];
+			NSImage *swatch = [style.standardStyleSwatch copy];
 
-			[swatch setSize:NSMakeSize(22, 22)];
+			swatch.size = NSMakeSize(22, 22);
 
 			return swatch;
 		}
@@ -363,7 +363,7 @@
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-	id identifier = [aTableColumn identifier];
+	id identifier = aTableColumn.identifier;
 
 	if (aTableView == mStyleCategoryList) {
 		if ([identifier isEqualToString:@"catName"]) {
@@ -383,8 +383,8 @@
 			// accordingly
 
 			if (rowIndex != -1) {
-				NSString *cat = [[[self styles] allCategories] objectAtIndex:rowIndex];
-				NSString *key = [mSelectedStyle uniqueKey];
+				NSString *cat = [[self styles] allCategories][rowIndex];
+				NSString *key = mSelectedStyle.uniqueKey;
 
 				// the "all items" category can't be edited
 

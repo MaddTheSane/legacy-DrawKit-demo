@@ -58,7 +58,7 @@
 			break;
 	}
 
-	[[stop color] drawSwatchInRect:inner];
+	[stop.color drawSwatchInRect:inner];
 
 	if (st == kDKInactiveState)
 		[[NSColor lightGrayColor] set];
@@ -70,18 +70,18 @@
 
 - (void)externalStopChange:(NSNotification *)note
 {
-	if ([note object] == [self gradient]) {
+	if (note.object == self.gradient) {
 		//	LogEvent_(kUserEvent, @"external change to stops");
 
 		[self invalidate];
-		[mUnsortedStops setArray:[[self gradient] colorStops]];
+		[mUnsortedStops setArray:self.gradient.colorStops];
 		[self setNeedsDisplay:YES];
 	}
 }
 
 - (void)interpolation:(id)sender
 {
-	[[self gradient] setGradientInterpolation:[sender tag]];
+	self.gradient.gradientInterpolation = [sender tag];
 	[self syncGradientToControlSettings];
 	[self setNeedsDisplay:YES];
 }
@@ -98,14 +98,14 @@
 #pragma mark -
 - (void)setGradient:(DKGradient *)aGradient
 {
-	if (aGradient != [self gradient]) {
-		[super setGradient:aGradient];
+	if (aGradient != self.gradient) {
+		super.gradient = aGradient;
 		[self setSelectedStop:nil];
 		mDragStopRef = nil;
 
 		// copy initial set of stops to the unsorted stops array
 
-		[mUnsortedStops setArray:[aGradient colorStops]];
+		[mUnsortedStops setArray:aGradient.colorStops];
 	} else
 		[self setNeedsDisplay:YES];
 	[self invalidate];
@@ -118,7 +118,7 @@
 	if (stop) {
 		[mUnsortedStops removeObject:stop];
 		[self invalidate];
-		[[self gradient] removeColorStop:stop];
+		[self.gradient removeColorStop:stop];
 		[self syncGradientToControlSettings];
 		[self setNeedsDisplay:YES];
 	}
@@ -128,16 +128,16 @@
 {
 	DKColorStop *stop = [self stopAtPoint:point];
 	if (stop) {
-		[stop setColor:color];
+		stop.color = color;
 		[self syncGradientToControlSettings];
 	} else {
 		CGFloat gPos = [self relativeXWithPoint:point];
 
 		[self setNeedsDisplay:YES];
 		if (color == nil)
-			color = [[self gradient] colorAtValue:gPos];
+			color = [self.gradient colorAtValue:gPos];
 
-		stop = [[self gradient] addColor:color at:gPos];
+		stop = [self.gradient addColor:color at:gPos];
 		//[mUnsortedStops addObject:stop];
 		[self invalidate];
 		[self syncGradientToControlSettings];
@@ -148,7 +148,7 @@
 - (NSColor *)colorAtPoint:(NSPoint)point
 {
 	CGFloat gPos = [self relativeXWithPoint:point];
-	return [[self gradient] colorAtValue:gPos];
+	return [self.gradient colorAtValue:gPos];
 }
 
 #pragma mark -
@@ -177,7 +177,7 @@
 		NSMutableIndexSet *hits;
 
 		while ((stop = [iter nextObject]) != nil) {
-			r = [self swatchBoxAtPosition:[stop position]];
+			r = [self swatchBoxAtPosition:stop.position];
 			[mSBArray addObject:[NSValue valueWithRect:r]];
 		}
 
@@ -186,15 +186,15 @@
 
 		unsigned i, k;
 
-		for (i = 0; i < [mSBArray count]; ++i) {
-			r = [[mSBArray objectAtIndex:i] rectValue];
+		for (i = 0; i < mSBArray.count; ++i) {
+			r = [mSBArray[i] rectValue];
 
 			[hits removeAllIndexes];
 			[hits addIndex:i];
 
-			for (k = 0; k < [mSBArray count]; ++k) {
+			for (k = 0; k < mSBArray.count; ++k) {
 				if (i != k) {
-					rn = [[mSBArray objectAtIndex:k] rectValue];
+					rn = [mSBArray[k] rectValue];
 
 					//rn.size.height = swr.size.height;
 					//rn.origin.y = swr.origin.y;
@@ -209,23 +209,23 @@
 
 			// if any hits, need to adjust all indicated rects
 
-			if ([hits count] > 1) {
-				CGFloat height = swr.size.height / [hits count];
+			if (hits.count > 1) {
+				CGFloat height = swr.size.height / hits.count;
 				CGFloat yorigin = swr.origin.y;
 
 				NSInteger j;
 
-				j = [hits firstIndex];
+				j = hits.firstIndex;
 
 				do {
-					r = [[mSBArray objectAtIndex:j] rectValue];
+					r = [mSBArray[j] rectValue];
 
 					r.size.height = height;
 					r.origin.y = yorigin;
 
 					yorigin += height;
 
-					[mSBArray replaceObjectAtIndex:j withObject:[NSValue valueWithRect:r]];
+					mSBArray[j] = [NSValue valueWithRect:r];
 
 					j = [hits indexGreaterThanIndex:j];
 				} while (j != NSNotFound);
@@ -249,7 +249,7 @@
 	NSInteger indx = [mUnsortedStops indexOfObject:stop];
 
 	if (indx != NSNotFound)
-		return [[[self allSwatchBoxes] objectAtIndex:indx] rectValue];
+		return [[self allSwatchBoxes][indx] rectValue];
 	else
 		return NSZeroRect;
 }
@@ -267,7 +267,7 @@
 
 	while ((element = [curs nextObject]) != nil) {
 		if (element != mDeletionCandidateRef) {
-			sw = [[boxes objectAtIndex:j] rectValue];
+			sw = [boxes[j] rectValue];
 
 			if (element == mSelectedStopRef || element == mDragStopRef) {
 				if (mMouseDownInStop)
@@ -291,10 +291,10 @@
 	int j = 0;
 
 	while ((v = [iter nextObject]) != nil) {
-		r = [v rectValue];
+		r = v.rectValue;
 
 		if (NSPointInRect(point, r))
-			return [mUnsortedStops objectAtIndex:j];
+			return mUnsortedStops[j];
 
 		++j;
 	}
@@ -314,7 +314,7 @@
 
 			[GCSpecialColorWell deactivateCurrentWell];
 
-			[[NSColorPanel sharedColorPanel] setColor:[mSelectedStopRef color]];
+			[NSColorPanel sharedColorPanel].color = mSelectedStopRef.color;
 			[[NSColorPanel sharedColorPanel] setTarget:self];
 			[[NSColorPanel sharedColorPanel] setAction:@selector(changeColor:)];
 
@@ -331,7 +331,7 @@
 - (void)setColorOfSelectedStop:(NSColor *)Color
 {
 	if (nil != mSelectedStopRef) {
-		[mSelectedStopRef setColor:Color];
+		mSelectedStopRef.color = Color;
 		[self syncGradientToControlSettings];
 		[self setNeedsDisplay:YES];
 	}
@@ -365,9 +365,9 @@
 #pragma mark -
 - (BOOL)setCursorInSafeLocation:(NSPoint)p
 {
-	NSRect safeZone = NSInsetRect([self bounds], -32.0, -7.0);
+	NSRect safeZone = NSInsetRect(self.bounds, -32.0, -7.0);
 
-	if (NSPointInRect(p, safeZone) || [[self gradient] countOfColorStops] < 3) {
+	if (NSPointInRect(p, safeZone) || self.gradient.countOfColorStops < 3) {
 		[[NSCursor arrowCursor] set];
 		return YES;
 	} else {
@@ -401,9 +401,9 @@
 
 	if (sCurs == nil || stop != sStop) {
 
-		NSImage *poofImage = [[NSCursor disappearingItemCursor] image];
+		NSImage *poofImage = [NSCursor disappearingItemCursor].image;
 		NSImage *stopImg = [self dragImageForStop:stop];
-		NSPoint hotspot = [[NSCursor disappearingItemCursor] hotSpot];
+		NSPoint hotspot = [NSCursor disappearingItemCursor].hotSpot;
 
 		NSImage *newImage;
 		NSRect a, b, c;
@@ -412,9 +412,9 @@
 
 		// compute size of composited image. stopImg will be centred under the hotspot
 
-		a.size = [poofImage size];
+		a.size = poofImage.size;
 		a.origin = NSZeroPoint;
-		b.size = [stopImg size];
+		b.size = stopImg.size;
 		b.origin.x = hotspot.x - (b.size.width / 2.0);
 		b.origin.y = hotspot.y - (b.size.height / 2.0);
 
@@ -464,15 +464,13 @@
 
 	// Note - this is called from mouseDown, so do not call it again.
 
-	NSEventMask mask;
 	BOOL loop = YES;
-
-	mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
+	NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
 
 	while (loop) {
-		event = [[self window] nextEventMatchingMask:mask];
+		event = [self.window nextEventMatchingMask:mask];
 
-		switch ([event type]) {
+		switch (event.type) {
 			case NSLeftMouseUp:
 				[self mouseUp:event];
 				loop = NO;
@@ -497,7 +495,7 @@
 	[self setColorOfSelectedStop:clr];
 
 	if (sender != [NSColorPanel sharedColorPanel])
-		[[NSColorPanel sharedColorPanel] setColor:clr];
+		[NSColorPanel sharedColorPanel].color = clr;
 }
 
 - (IBAction)newStop:(id)sender
@@ -506,15 +504,15 @@
 	NSPoint p = mStopInsertHint;
 
 	if (NSEqualPoints(p, NSZeroPoint)) {
-		p.x = NSMidX([self bounds]);
-		p.y = NSMidY([self bounds]);
+		p.x = NSMidX(self.bounds);
+		p.y = NSMidY(self.bounds);
 	}
 	[self setSelectedStop:[self addColorStop:nil atPoint:p]];
 }
 
 - (IBAction)blendMode:(id)sender
 {
-	[[self gradient] setGradientBlending:[sender tag]];
+	self.gradient.gradientBlending = [sender tag];
 	[self syncGradientToControlSettings];
 	[self setNeedsDisplay:YES];
 }
@@ -522,7 +520,7 @@
 - (IBAction)flip:(id)sender
 {
 #pragma unused(sender)
-	[[self gradient] reverseColorStops];
+	[self.gradient reverseColorStops];
 	[self syncGradientToControlSettings];
 	[self setNeedsDisplay:YES];
 	[self invalidate];
@@ -532,8 +530,8 @@
 {
 	DKGradientType type = (DKGradientType)[sender tag];
 
-	if (type != [[self gradient] gradientType]) {
-		[[self gradient] setGradientType:type];
+	if (type != self.gradient.gradientType) {
+		self.gradient.gradientType = type;
 		[self syncGradientToControlSettings];
 		[self setNeedsDisplay:YES];
 	}
@@ -542,7 +540,7 @@
 #pragma mark -
 - (NSRect)interior
 {
-	return NSInsetRect([self bounds], 11.0, 2.0);
+	return NSInsetRect(self.bounds, 11.0, 2.0);
 }
 
 #pragma mark -
@@ -556,7 +554,7 @@
 - (void)drawRect:(NSRect)rect
 {
 #pragma unused(rect)
-	NSRect br = [self bounds];
+	NSRect br = self.bounds;
 	NSRect clip = NSInsetRect([self interior], -8, 0);
 
 	[[NSColor grayColor] set];
@@ -579,10 +577,10 @@
 
 	// must make a copy of the gradient so that the angle and type can be ignored
 
-	DKGradient *gradCopy = [[self gradient] copy];
+	DKGradient *gradCopy = [self.gradient copy];
 
-	[gradCopy setGradientType:kDKGradientTypeLinear];
-	[gradCopy setAngle:0.0];
+	gradCopy.gradientType = kDKGradientTypeLinear;
+	gradCopy.angle = 0.0;
 
 	NSBezierPath *path = [NSBezierPath bezierPathWithRect:clip];
 	NSPoint start, end;
@@ -596,7 +594,7 @@
 	[self drawStopsInRect:clip];
 }
 
-- (id)initWithFrame:(NSRect)frame
+- (instancetype)initWithFrame:(NSRect)frame
 {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
@@ -629,7 +627,7 @@
 
 - (NSMenu *)menuForEvent:(NSEvent *)theEvent
 {
-	NSPoint p = [theEvent locationInWindow];
+	NSPoint p = theEvent.locationInWindow;
 	p = [self convertPoint:p fromView:nil];
 
 	DKColorStop *stop = [self stopAtPoint:p];
@@ -655,14 +653,14 @@
 		GCColourPickerView *picker = [[GCColourPickerView alloc] initWithFrame:sr];
 		GCWindowMenu *popup = [GCWindowMenu windowMenuWithContentView:picker];
 
-		if ([theEvent modifierFlags] & NSAlternateKeyMask)
-			[picker setMode:kDKColourPickerModeSwatches];
+		if (theEvent.modifierFlags & NSAlternateKeyMask)
+			picker.mode = kDKColourPickerModeSwatches;
 		else
-			[picker setMode:kDKColourPickerModeSpectrum];
+			picker.mode = kDKColourPickerModeSpectrum;
 
 		[picker setTarget:self];
 		[picker setAction:@selector(changeColor:)];
-		[picker setColorForUndefinedSelection:[stop color]];
+		[picker setColorForUndefinedSelection:stop.color];
 		[picker setShowsInfo:YES];
 
 		[GCWindowMenu popUpWindowMenu:popup atPoint:loc withEvent:theEvent forView:self];
@@ -678,7 +676,7 @@
 														  action:@selector(flip:)
 												   keyEquivalent:@""
 														 atIndex:1];
-		[item setTarget:self];
+		item.target = self;
 
 		[contextualMenu insertItem:[NSMenuItem separatorItem] atIndex:2];
 
@@ -686,40 +684,40 @@
 
 		[contextualMenu addItem:[NSMenuItem separatorItem]];
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Linear", @"") action:@selector(gradientType:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:0];
+		item.target = self;
+		item.tag = 0;
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Radial", @"") action:@selector(gradientType:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:1];
+		item.target = self;
+		item.tag = 1;
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Sweep", @"") action:@selector(gradientType:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:2];
+		item.target = self;
+		item.tag = 2;
 
 		// blending modes:
 
 		[contextualMenu addItem:[NSMenuItem separatorItem]];
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"RGB Blending", @"") action:@selector(blendMode:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:0];
+		item.target = self;
+		item.tag = 0;
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"HSV Blending", @"") action:@selector(blendMode:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:1];
+		item.target = self;
+		item.tag = 1;
 
 		// interpolations:
 		[contextualMenu addItem:[NSMenuItem separatorItem]];
 
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Linear", @"") action:@selector(interpolation:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:0];
+		item.target = self;
+		item.tag = 0;
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Quadratic", @"") action:@selector(interpolation:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:2];
+		item.target = self;
+		item.tag = 2;
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Cubic", @"") action:@selector(interpolation:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:3];
+		item.target = self;
+		item.tag = 3;
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Sinusoid", @"") action:@selector(interpolation:) keyEquivalent:@""];
-		[item setTarget:self];
-		[item setTag:4];
+		item.target = self;
+		item.tag = 4;
 
 		mStopInsertHint = p;
 
@@ -731,7 +729,7 @@
 
 - (void)setFrame:(NSRect)frame
 {
-	[super setFrame:frame];
+	super.frame = frame;
 	[self invalidate];
 }
 
@@ -739,7 +737,7 @@
 #pragma mark As an NSFirstResponder
 - (void)mouseDown:(NSEvent *)event
 {
-	NSPoint pt = [event locationInWindow];
+	NSPoint pt = event.locationInWindow;
 	pt = [self convertPoint:pt fromView:nil];
 
 	mDragStopRef = nil;
@@ -754,7 +752,7 @@
 		// prepare the info window to show the stop's position
 
 		if (mShowsInfo) {
-			[self updateInfoWithPosition:[mDragStopRef position]];
+			[self updateInfoWithPosition:mDragStopRef.position];
 			[mInfoWin orderFront:self];
 		}
 		[self setNeedsDisplayInRect:[self swatchRectForStop:stop]];
@@ -766,7 +764,7 @@
 - (void)mouseDragged:(NSEvent *)event
 {
 	if (mDragStopRef) {
-		NSPoint point = [event locationInWindow];
+		NSPoint point = event.locationInWindow;
 		point = [self convertPoint:point fromView:nil];
 		CGFloat gPos = [self relativeXWithPoint:point];
 
@@ -780,13 +778,13 @@
 				[mInfoWin show];
 
 			// round gPos to "grid" clicks if desired
-			if ([event modifierFlags] & NSShiftKeyMask)
+			if (event.modifierFlags & NSShiftKeyMask)
 				gPos = round(gPos * 100) / 100;
 
 			[self updateInfoWithPosition:gPos];
-			[mDragStopRef setPosition:gPos];
+			mDragStopRef.position = gPos;
 			[self invalidate];
-			[[self gradient] sortColorStops];
+			[self.gradient sortColorStops];
 			[self syncGradientToControlSettings];
 
 			mStopWasDragged = YES;
@@ -799,7 +797,7 @@
 
 - (void)mouseUp:(NSEvent *)event
 {
-	NSPoint pt = [event locationInWindow];
+	NSPoint pt = event.locationInWindow;
 	pt = [self convertPoint:pt fromView:nil];
 	mMouseDownInStop = NO;
 
@@ -820,7 +818,7 @@
 				mSelectedStopRef = nil;
 
 			[mUnsortedStops removeObject:mDragStopRef];
-			[[self gradient] removeColorStop:mDragStopRef];
+			[self.gradient removeColorStop:mDragStopRef];
 			[self syncGradientToControlSettings];
 
 			NSShowAnimationEffect(NSAnimationEffectDisappearingItemDefault, [NSEvent mouseLocation], NSZeroSize, nil, nil, nil);
@@ -846,7 +844,7 @@
 	pboard = [sender draggingPasteboard];
 
 	if ([DKGradient canInitalizeFromPasteboard:pboard] ||
-		[[pboard types] containsObject:NSColorPboardType]) {
+		[pboard.types containsObject:NSColorPboardType]) {
 		if (sourceDragMask & NSDragOperationGeneric) {
 			return NSDragOperationGeneric;
 		}
@@ -868,7 +866,7 @@
 		DKGradient *aGradient = [DKGradient gradientWithPasteboard:pboard];
 		if (aGradient)
 			[self setGradient:aGradient];
-	} else if ([[pboard types] containsObject:NSColorPboardType]) {
+	} else if ([pboard.types containsObject:NSColorPboardType]) {
 		NSColor *color = [NSColor colorFromPasteboard:pboard];
 		NSPoint pt = [sender draggingLocation];
 		pt = [self convertPoint:pt fromView:nil];
@@ -883,14 +881,14 @@
 - (BOOL)validateMenuItem:(NSMenuItem *)item
 {
 	BOOL enable = [super validateMenuItem:item];
-	SEL act = [item action];
+	SEL act = item.action;
 
 	if (act == @selector(blendMode:))
-		[item setState:([item tag] == (int)[[self gradient] gradientBlending]) ? NSOnState : NSOffState];
+		item.state = (item.tag == (int)self.gradient.gradientBlending) ? NSOnState : NSOffState;
 	else if (act == @selector(interpolation:))
-		[item setState:([item tag] == (int)[[self gradient] gradientInterpolation]) ? NSOnState : NSOffState];
+		item.state = (item.tag == (int)self.gradient.gradientInterpolation) ? NSOnState : NSOffState;
 	else if (act == @selector(gradientType:))
-		[item setState:([item tag] == (int)[[self gradient] gradientType]) ? NSOnState : NSOffState];
+		item.state = (item.tag == (int)self.gradient.gradientType) ? NSOnState : NSOffState;
 
 	return enable;
 }
@@ -902,7 +900,7 @@
 	[[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
 
 	[self registerForDraggedTypes:[DKGradient readablePasteboardTypes]];
-	[self registerForDraggedTypes:[NSArray arrayWithObject:NSColorPboardType]];
+	[self registerForDraggedTypes:@[NSColorPboardType]];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(colorWellActivation:) name:kDKColorWellWillActivate object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(externalStopChange:) name:kDKNotificationGradientDidAddColorStop object:nil];

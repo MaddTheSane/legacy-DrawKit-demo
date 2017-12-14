@@ -11,8 +11,8 @@
 @interface NSFileManager (FindFolder)
 
 - (NSString *)pathToFolderOfType:(const OSType)folderType shouldCreateFolder:(BOOL)create;
-- (NSString *)applicationSupportFolder;
-- (NSString *)thisApplicationsSupportFolder;
+@property (readonly, copy) NSString *applicationSupportFolder;
+@property (readonly, copy) NSString *thisApplicationsSupportFolder;
 
 - (NSString *)writeContents:(NSData *)data toUniqueTemporaryFile:(NSString *)fileName;
 - (NSString *)writeContents:(NSData *)data toUniqueFile:(NSString *)fileName inDirectory:(NSString *)path;

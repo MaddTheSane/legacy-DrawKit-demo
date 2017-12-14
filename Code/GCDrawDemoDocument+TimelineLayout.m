@@ -58,13 +58,13 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 	// first locate the candidate objects:
 
 	NSMutableArray *tlObjects;
-	NSEnumerator *iter = [[layer availableObjects] objectEnumerator];
+	NSEnumerator *iter = [layer.availableObjects objectEnumerator];
 	DKDrawableObject *obj;
 	static CGFloat lowestEdge = -10000;
 
 	tlObjects = [NSMutableArray array];
 
-	while ((obj = [iter nextObject]) != nil) {
+	for  (DKDrawableObject *obj in layer.availableObjects) {
 		// does this object have a metadata item "year"?
 
 		if ([obj hasMetadataForKey:@"year"]) {
@@ -73,7 +73,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 			// make a note of the lowest edge found among these objects - it will be used as the starting point for
 			// applying the vertical location.
 
-			NSPoint loc = [obj location];
+			NSPoint loc = obj.location;
 
 			if (loc.y > lowestEdge)
 				lowestEdge = loc.y;
@@ -82,7 +82,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 
 	//	LogEvent_(kReactiveEvent, @"found %d eligible objects. Bottom edge = %f", [tlObjects count], lowestEdge);
 
-	if ([tlObjects count] < 1)
+	if (tlObjects.count < 1)
 		return; // nothing to do
 
 	// sort the objects into chronological order:
@@ -93,7 +93,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 	// reloading the drawing from a file, as the style object is not literally the same. TO DO: fix this.
 
 	NSArray *leaderLines = [layer objectsWithStyle:[self leaderLineStyle]];
-	if (leaderLines && [leaderLines count] > 0)
+	if (leaderLines && leaderLines.count > 0)
 		[layer removeObjectsInArray:leaderLines];
 
 	// now lay out the labels. This iterates in reverse since labels extend to the right (i.e into the future) so the non-crossing
@@ -103,11 +103,11 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 
 	// we need the grid to locate objects in time and space
 
-	DKGridLayer *grid = [[self drawing] gridLayer];
+	DKGridLayer *grid = self.drawing.gridLayer;
 
 	// indx tracks the location of the next object ahead of the one we are laying out
 
-	NSUInteger indx = [tlObjects count], j;
+	NSUInteger indx = tlObjects.count, j;
 	NSInteger year;
 	NSPoint position;
 	NSRect objRect, colObjRect;
@@ -116,13 +116,13 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 	DKDrawablePath *leader;
 	NSPoint lp1, lp2;
 
-	gridVIncrement = [grid divisionDistance];
+	gridVIncrement = grid.divisionDistance;
 
 	while ((obj = [iter nextObject]) != nil) {
 		// place the object's horizontal position based on the "year" value. To make this easier we also offset the
 		// "loc" of the object relative to its top, left corner:
 
-		[obj setOffset:NSMakeSize(-0.5, -0.5)];
+		obj.offset = NSMakeSize(-0.5, -0.5);
 		year = [[obj metadataObjectForKey:@"year"] intValue];
 
 		// use the grid to figure the real position:
@@ -135,13 +135,13 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 		// already laid objects. To allow a neat layout, we test in grid increments
 
 		//[(GCTextShape*)obj sizeVerticallyToFitText];
-		objRect.size = [obj size];
+		objRect.size = obj.size;
 
 		// if the size is less than 4 grid units high, make it at least that high
 
 		if (objRect.size.height < (gridVIncrement * 4)) {
 			objRect.size.height = gridVIncrement * 4;
-			[obj setSize:objRect.size];
+			obj.size = objRect.size;
 		} else if (objRect.size.height > (gridVIncrement * 4)) {
 			// make sure we are either exactly at 4 grid spaces, or 6 for 2-line labels
 
@@ -151,7 +151,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 
 			if (objRect.size.height > (gridVIncrement * 4))
 				objRect.size.height = gridVIncrement * 6;
-			[obj setSize:objRect.size];
+			obj.size = objRect.size;
 		}
 
 		position.y = lowestEdge - objRect.size.height;
@@ -170,11 +170,11 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 
 		j = indx;
 
-		while (j < [tlObjects count]) {
-			colObj = [tlObjects objectAtIndex:j];
+		while (j < tlObjects.count) {
+			colObj = tlObjects[j];
 
-			colObjRect.origin = [colObj location];
-			colObjRect.size = [colObj size];
+			colObjRect.origin = colObj.location;
+			colObjRect.size = colObj.size;
 
 			// if this object is beyond the x range of our object, we can jump out now since there
 			// is no more beyond j worth testing against
@@ -197,8 +197,8 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 		// the object is now positioned so that it doesn't collide, so place it here
 
 		position.y = objRect.origin.y;
-		[obj setLocation:position];
-		[(DKTextShape *)obj setVerticalAlignment:kDKTextShapeVerticalAlignmentCentre];
+		obj.location = position;
+		((DKTextShape *)obj).verticalAlignment = kDKTextShapeVerticalAlignmentCentre;
 
 		//	LogEvent_(kReactiveEvent, @"laid object %@ at position {%.2f,%.2f}", obj, position.x, position.y );
 
@@ -215,8 +215,8 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 		[layer moveObjectToBottom:leader];
 
 		if (showIt) {
-			[[self drawing] scrollToRect:objRect];
-			[[self windowForSheet] displayIfNeeded];
+			[self.drawing scrollToRect:objRect];
+			[self.windowForSheet displayIfNeeded];
 		}
 
 		// one more to check against next time
@@ -230,7 +230,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 {
 	DKDrawablePath *leader = [DKDrawablePath drawablePathWithBezierPath:[self leaderLinePathFromPoint:p1 toPoint:p2]];
 
-	[leader setStyle:[self leaderLineStyle]];
+	leader.style = [self leaderLineStyle];
 	return leader;
 }
 
@@ -271,7 +271,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 #pragma unused(sender)
 	// locate the active layer and do the timeline layout on it
 
-	DKObjectDrawingLayer *odl = [[self drawing] activeLayerOfClass:[DKObjectDrawingLayer class]];
+	DKObjectDrawingLayer *odl = [self.drawing activeLayerOfClass:[DKObjectDrawingLayer class]];
 
 	if (odl)
 		[self performTimelineLayoutWithLayer:odl showAsYouGo:YES];

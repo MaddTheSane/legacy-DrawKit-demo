@@ -12,14 +12,13 @@
 
 @interface DKGradientCell : NSImageCell {
 	DKGradient *mGradient;
-	id mTargetRef;
+	__unsafe_unretained id mTargetRef;
 	SEL mAction;
 	NSSize mInset;
 	BOOL mEnableCache;
 }
 
-- (DKGradient *)gradient;
-- (void)setGradient:(DKGradient *)grad;
+@property (copy) DKGradient *gradient;
 
 @property (nonatomic) NSSize inset;
 

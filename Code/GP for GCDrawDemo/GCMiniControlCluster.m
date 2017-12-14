@@ -14,7 +14,7 @@
 {
 	if (![mControls containsObject:mc]) {
 		[mControls addObject:mc];
-		[mc setCluster:self];
+		mc.cluster = self;
 	}
 }
 
@@ -30,23 +30,23 @@
 
 - (GCMiniControl *)controlAtIndex:(NSInteger)n
 {
-	return [[self controls] objectAtIndex:n];
+	return self.controls[n];
 }
 
 #pragma mark -
 - (void)setControl:(GCMiniControl *)ctrl forKey:(NSString *)key
 {
-	[mControlNames setObject:ctrl forKey:key];
+	mControlNames[key] = ctrl;
 }
 
 - (GCMiniControl *)controlForKey:(NSString *)key
 {
 	// looks for the key in local dict. If not there, looks for subclusters and asks them to look
 
-	GCMiniControl *mc = [mControlNames objectForKey:key];
+	GCMiniControl *mc = mControlNames[key];
 
 	if (mc == nil) {
-		for (mc in [self controls]) {
+		for (mc in self.controls) {
 			if ([mc isKindOfClass:[GCMiniControlCluster class]]) {
 				mc = [(GCMiniControlCluster *)mc controlForKey:key];
 
@@ -66,7 +66,7 @@
 	if (vis) {
 		[mCATimerRef invalidate];
 		mCATimerRef = nil;
-		[self setAlpha:1.0];
+		self.alpha = 1.0;
 		mVisible = YES;
 	} else if (mVisible) {
 		// trigger a fadeout which will set visible to NO at the end
@@ -81,13 +81,13 @@
 
 	mVisible = vis;
 	if (vis)
-		[self setAlpha:1.0];
+		self.alpha = 1.0;
 }
 
 - (BOOL)visible
 {
-	if ([self cluster])
-		return [[self cluster] visible];
+	if (self.cluster)
+		return self.cluster.visible;
 	else
 		return mVisible;
 }
@@ -107,8 +107,8 @@
 
 - (CGFloat)alpha
 {
-	if ([self cluster])
-		return [[self cluster] alpha];
+	if (self.cluster)
+		return self.cluster.alpha;
 	else
 		return mControlAlpha;
 }
@@ -121,17 +121,17 @@
 		mCATimerRef = [NSTimer scheduledTimerWithTimeInterval:1 / 30.0
 													   target:self
 													 selector:@selector(timerFadeCallback:)
-													 userInfo:[NSNumber numberWithDouble:t]
+													 userInfo:@(t)
 													  repeats:YES];
 	}
 }
 
 - (void)timerFadeCallback:(NSTimer *)timer
 {
-	NSTimeInterval total = [[timer userInfo] doubleValue];
+	NSTimeInterval total = [timer.userInfo doubleValue];
 	NSTimeInterval elapsed = [NSDate timeIntervalSinceReferenceDate] - mFadeStartTime;
 
-	[self setAlpha:1.0 - (elapsed / total)];
+	self.alpha = 1.0 - (elapsed / total);
 
 	if (elapsed >= total) {
 		[timer invalidate];
@@ -160,12 +160,12 @@
 {
 	// clusters return the union of the bounds of their controls
 
-	NSEnumerator *iter = [[self controls] objectEnumerator];
+	NSEnumerator *iter = [self.controls objectEnumerator];
 	NSRect r = NSZeroRect;
 	GCMiniControl *ctl;
 
 	while ((ctl = [iter nextObject]) != nil)
-		r = NSUnionRect(r, [ctl bounds]);
+		r = NSUnionRect(r, ctl.bounds);
 
 	return r;
 }
@@ -174,7 +174,7 @@
 {
 	// propagate to all controls in the cluster
 
-	NSEnumerator *iter = [[self controls] objectEnumerator];
+	NSEnumerator *iter = [self.controls objectEnumerator];
 	GCMiniControl *mc;
 
 	while ((mc = [iter nextObject]) != nil)
@@ -185,8 +185,8 @@
 {
 	// draws all the controls if visible
 
-	if ([self visible])
-		[[self controls] makeObjectsPerformSelector:@selector(draw)];
+	if (self.visible)
+		[self.controls makeObjectsPerformSelector:@selector(draw)];
 }
 
 - (GCControlHitTest)hitTestPoint:(NSPoint)p
@@ -194,7 +194,7 @@
 	// hit test all owned controls, returning the partcode resulting. If this is not 0, this also
 	// sets mHitTarget to the control hit. This hit tests in reverse order in case controls overlap.
 
-	NSEnumerator *iter = [[self controls] reverseObjectEnumerator];
+	NSEnumerator *iter = [self.controls reverseObjectEnumerator];
 	GCMiniControl *ctl;
 	GCControlHitTest pc;
 
@@ -210,7 +210,7 @@
 	return kDKMiniControlNoPart;
 }
 
-- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
+- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
 	if (self != nil) {
@@ -241,7 +241,7 @@
 	// tracking of the mouse in that control. If the cluster is not visible, does nothing and returns
 	// NO. Otherwise returns YES if there was a valid hit, NO otherwise.
 
-	if ([self visible]) {
+	if (self.visible) {
 		mHitPart = [self hitTestPoint:startPoint];
 
 		if (mHitPart == kDKMiniControlNoPart)
@@ -250,7 +250,7 @@
 			if (mLinkPart == mHitPart) {
 				// detected a linkage - send all objects the mouse down.
 
-				NSEnumerator *iter = [[self controls] objectEnumerator];
+				NSEnumerator *iter = [self.controls objectEnumerator];
 				GCMiniControl *mc;
 
 				while ((mc = [iter nextObject]) != nil)
@@ -271,11 +271,11 @@
 	// track the mouse in the current hit target with the part established by the mouse down. The
 	// value of <part> passed here is ignored. return YES to continue tracking, NO otherwise.
 
-	if ([self visible] && mHitTarget) {
+	if (self.visible && mHitTarget) {
 		if ((mLinkPart == mHitPart) && ((flags & mLinkModFlagsMask) != 0)) {
 			// detected a linkage - send all objects the mouse drag if the mask is also matched
 
-			NSEnumerator *iter = [[self controls] objectEnumerator];
+			NSEnumerator *iter = [self.controls objectEnumerator];
 			GCMiniControl *mc;
 
 			while ((mc = [iter nextObject]) != nil)
@@ -291,9 +291,9 @@
 - (void)mouseUpAt:(NSPoint)endPoint inPart:(GCControlHitTest)part modifierFlags:(NSEventModifierFlags)flags
 {
 #pragma unused(part)
-	if ([self visible] && mHitTarget) {
+	if (self.visible && mHitTarget) {
 		if (mLinkPart == mHitPart) {
-			NSEnumerator *iter = [[self controls] objectEnumerator];
+			NSEnumerator *iter = [self.controls objectEnumerator];
 			GCMiniControl *mc;
 
 			while ((mc = [iter nextObject]) != nil)
@@ -310,7 +310,7 @@
 	if (mViewRef)
 		return mViewRef;
 	else
-		return [super view];
+		return super.view;
 }
 
 #pragma mark -

@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (WTPlistKeyValueCoding)
 
-+ (BOOL)supportsSimpleDictionaryKeyValueCoding;
-- (BOOL)supportsSimpleDictionaryKeyValueCoding;
+@property (class, readonly) BOOL supportsSimpleDictionaryKeyValueCoding;
+@property (readonly) BOOL supportsSimpleDictionaryKeyValueCoding;
 
 @end
 

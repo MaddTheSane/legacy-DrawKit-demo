@@ -14,8 +14,7 @@
 	NSView *mControlView;
 }
 
-- (void)setColorValue:(NSColor *)colour;
-- (NSColor *)colorValue;
+@property (copy) NSColor *colorValue;
 - (void)setState:(BOOL)state;
 
 @end

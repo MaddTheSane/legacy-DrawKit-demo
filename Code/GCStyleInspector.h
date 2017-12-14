@@ -21,7 +21,7 @@
 @class GCBasicDialogController;
 @class WTGradientControl;
 
-@interface GCStyleInspector : DKDrawkitInspectorBase <NSOutlineViewDelegate, NSOutlineViewDataSource, GCDashEditorDelegate> {
+@interface GCStyleInspector : DKDrawkitInspectorBase <NSOutlineViewDelegate, NSOutlineViewDataSource, GCDashEditorDelegate, GCDashEditViewDelegate> {
 	IBOutlet GCOutlineView *mOutlineView;
 	IBOutlet NSTabView *mTabView;
 	IBOutlet NSPopUpButton *mAddRendererPopUpButton;
@@ -151,8 +151,7 @@
 
 // general state management:
 
-- (void)setStyle:(DKStyle *)style;
-- (DKStyle *)style;
+@property (copy) DKStyle *style;
 - (void)updateUIForStyle;
 - (void)updateStylePreview;
 

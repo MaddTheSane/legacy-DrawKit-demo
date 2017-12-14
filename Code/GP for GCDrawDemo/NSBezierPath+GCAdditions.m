@@ -177,7 +177,7 @@
 
 	NSBezierPath *path = [NSBezierPath bezierPath];
 
-	[path setWindingRule:NSEvenOddWindingRule];
+	path.windingRule = NSEvenOddWindingRule;
 	//[path moveToPoint:NSZeroPoint];
 
 	// outer ring leaves a gap for the tab to connect

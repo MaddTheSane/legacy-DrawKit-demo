@@ -26,11 +26,11 @@
 #pragma mark As a GCDashEditor
 - (void)openDashEditorInParentWindow:(NSWindow *)pw modalDelegate:(id)del
 {
-	if ([self dash] == nil)
-		[self setDash:[DKStrokeDash defaultDash]];
+	if (self.dash == nil)
+		self.dash = [DKStrokeDash defaultDash];
 
 	mDelegateRef = del;
-	[NSApp beginSheet:[self window] modalForWindow:pw modalDelegate:del didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:(__bridge void *_Null_unspecified)(self)];
+	[NSApp beginSheet:self.window modalForWindow:pw modalDelegate:del didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:(__bridge void *_Null_unspecified)(self)];
 	[self notifyDelegate];
 }
 
@@ -38,10 +38,10 @@
 {
 	// set UI to match current dash
 
-	[mDashPreviewEditView setDash:[self dash]];
-	[self setDashCount:[[self dash] count]];
-	[mDashScaleCheckbox setIntValue:[[self dash] scalesToLineWidth]];
-	[mPhaseSlider setFloatValue:[[self dash] phase]];
+	mDashPreviewEditView.dash = self.dash;
+	self.dashCount = self.dash.count;
+	mDashScaleCheckbox.intValue = self.dash.scalesToLineWidth;
+	mPhaseSlider.floatValue = self.dash.phase;
 }
 
 - (void)setDash:(DKStrokeDash *)dash
@@ -56,7 +56,7 @@
 #pragma mark -
 - (void)setLineWidth:(CGFloat)width
 {
-	[mDashPreviewEditView setLineWidth:width];
+	mDashPreviewEditView.lineWidth = width;
 }
 
 - (CGFloat)lineWidth
@@ -66,7 +66,7 @@
 
 - (void)setLineCapStyle:(NSLineCapStyle)lcs
 {
-	[mDashPreviewEditView setLineCapStyle:lcs];
+	mDashPreviewEditView.lineCapStyle = lcs;
 }
 
 - (NSLineCapStyle)lineCapStyle
@@ -76,7 +76,7 @@
 
 - (void)setLineJoinStyle:(NSLineJoinStyle)ljs
 {
-	[mDashPreviewEditView setLineJoinStyle:ljs];
+	mDashPreviewEditView.lineJoinStyle = ljs;
 }
 
 - (NSLineJoinStyle)lineJoinStyle
@@ -86,7 +86,7 @@
 
 - (void)setLineColour:(NSColor *)colour
 {
-	[mDashPreviewEditView setLineColour:colour];
+	mDashPreviewEditView.lineColour = colour;
 }
 
 - (NSColor *)lineColour
@@ -97,29 +97,27 @@
 #pragma mark -
 - (void)setDashCount:(NSInteger)c
 {
-	int i;
-
 	CGFloat d[8] = {1, 1, 1, 1, 1, 1, 1, 1};
 	NSInteger count;
 
-	[[self dash] getDashPattern:d count:&count];
+	[self.dash getDashPattern:d count:&count];
 
 	if (count != c) {
-		[[self dash] setDashPattern:d count:c];
+		[self.dash setDashPattern:d count:c];
 		count = c;
 	}
 
-	for (i = 0; i < 8; ++i) {
+	for (NSInteger i = 0; i < 8; ++i) {
 		if (i < count)
-			[mEF[i] setFloatValue:d[i]];
+			mEF[i].floatValue = d[i];
 		else
-			[mEF[i] setStringValue:@""];
+			mEF[i].stringValue = @"";
 
-		[mEF[i] setEnabled:(i < count)];
+		mEF[i].enabled = (i < count);
 	}
 
 	[mDashCountButtonMatrix selectCellAtRow:0 column:(c - 1) / 2];
-	[mPhaseSlider setMaxValue:[[self dash] length]];
+	mPhaseSlider.maxValue = self.dash.length;
 }
 
 - (NSInteger)dashCount
@@ -127,14 +125,14 @@
 	NSInteger count;
 	CGFloat d[8] = {1, 1, 1, 1, 1, 1, 1, 1};
 
-	[[self dash] getDashPattern:d count:&count];
+	[self.dash getDashPattern:d count:&count];
 
 	return count;
 }
 
 - (void)notifyDelegate
 {
-	if ([mPreviewCheckbox intValue]) {
+	if (mPreviewCheckbox.intValue) {
 		if (mDelegateRef && [mDelegateRef respondsToSelector:@selector(dashDidChange:)])
 			[mDelegateRef dashDidChange:self];
 	}
@@ -144,15 +142,15 @@
 - (IBAction)ok:(id)sender
 {
 #pragma unused(sender)
-	[[self window] orderOut:self];
-	[NSApp endSheet:[self window] returnCode:NSOKButton];
+	[self.window orderOut:self];
+	[NSApp endSheet:self.window returnCode:NSOKButton];
 }
 
 - (IBAction)cancel:(id)sender
 {
 #pragma unused(sender)
-	[[self window] orderOut:self];
-	[NSApp endSheet:[self window] returnCode:NSCancelButton];
+	[self.window orderOut:self];
+	[NSApp endSheet:self.window returnCode:NSCancelButton];
 }
 
 - (IBAction)dashValueAction:(id)sender
@@ -161,20 +159,20 @@
 	CGFloat d[8];
 	NSInteger i, c;
 
-	c = [[self dash] count];
+	c = self.dash.count;
 
 	for (i = 0; i < c; ++i)
-		d[i] = [mEF[i] floatValue];
+		d[i] = mEF[i].floatValue;
 
-	[[self dash] setDashPattern:d count:c];
+	[self.dash setDashPattern:d count:c];
 	[self notifyDelegate];
-	[mPhaseSlider setMaxValue:[[self dash] length]];
+	mPhaseSlider.maxValue = self.dash.length;
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
 
 - (IBAction)dashScaleCheckboxAction:(id)sender
 {
-	[[self dash] setScalesToLineWidth:[sender intValue]];
+	self.dash.scalesToLineWidth = [sender intValue];
 	[self notifyDelegate];
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
@@ -182,14 +180,14 @@
 - (IBAction)dashCountMatrixAction:(id)sender
 {
 	NSInteger count = ([sender selectedColumn] + 1) * 2;
-	[self setDashCount:count];
+	self.dashCount = count;
 	[self notifyDelegate];
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
 
 - (IBAction)dashPhaseSliderAction:(id)sender
 {
-	[[self dash] setPhase:[sender floatValue]];
+	self.dash.phase = [sender floatValue];
 	[self notifyDelegate];
 	[mDashPreviewEditView setNeedsDisplay:YES];
 }
@@ -199,7 +197,7 @@
 - (void)dashDidChange:(id)sender
 {
 #pragma unused(sender)
-	[self setDashCount:[[self dash] count]];
+	self.dashCount = self.dash.count;
 	[self notifyDelegate];
 }
 
@@ -219,9 +217,9 @@
 	mEF[6] = mDashMarkTextField4;
 	mEF[7] = mDashSpaceTextField4;
 
-	[mPreviewCheckbox setIntValue:1];
+	mPreviewCheckbox.integerValue = 1;
 	[mPhaseSlider setHidden:YES];
-	[mDashPreviewEditView setDelegate:self];
+	mDashPreviewEditView.delegate = self;
 	[self updateForDash];
 }
 

@@ -38,7 +38,7 @@ static GCSpecialColorWell *sCurrentActiveWell = nil;
 #pragma mark As an NSColorWell
 - (void)activate:(BOOL)exclusive
 {
-	if (![self isActive]) {
+	if (!self.active) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:kDKColorWellWillActivate object:self];
 		[super activate:exclusive];
 		sCurrentActiveWell = self;
@@ -50,7 +50,7 @@ static GCSpecialColorWell *sCurrentActiveWell = nil;
 
 - (void)deactivate
 {
-	if ([self isActive]) {
+	if (self.active) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:kDKColorWellWillDeactivate object:self];
 
 		//	LogEvent_(kReactiveEvent, @"deactivating well: %@", self);

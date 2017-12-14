@@ -57,8 +57,8 @@
 
 	NSPoint sp;
 
-	sp.x = NSMidX([self targetRect]);
-	sp.y = NSMidY([self targetRect]);
+	sp.x = NSMidX(self.targetRect);
+	sp.y = NSMidY(self.targetRect);
 
 	pr.origin.x = sp.x - (pr.size.width / 2.0);
 	pr.origin.y = sp.y - (pr.size.height / 2.0);
@@ -79,7 +79,7 @@
 	[path fill];
 	[[fillc contrastingColor] set];
 
-	[path setLineWidth:0.7];
+	path.lineWidth = 0.7;
 	rr = NSInsetRect(rr, -10, -10);
 	//[path appendBezierPathWithOvalInRect:rr];
 	[path stroke];
@@ -95,11 +95,11 @@
 		//	LogEvent_(kReactiveEvent, @"rad rect = {%f, %f} - {%f, %f}", radr.origin.x, radr.origin.y, radr.size.width, radr.size.height );
 
 		path = [NSBezierPath bezierPathWithOvalInRect:radr];
-		[path setLineWidth:5.0];
+		path.lineWidth = 5.0;
 		[[[NSColor whiteColor] colorWithAlphaComponent:0.25] set];
 		[path stroke];
 
-		[path setLineWidth:1.0];
+		path.lineWidth = 1.0;
 		[path setLineDash:dash count:2 phase:0.0];
 		[[NSColor orangeColor] set];
 		[path stroke];
@@ -110,13 +110,13 @@
 #pragma mark As a GCMiniControl
 - (void)draw
 {
-	[self drawRadControlInRect:[self targetRect] radius:mRadius colorValue:[self value]];
+	[self drawRadControlInRect:self.targetRect radius:mRadius colorValue:self.value];
 }
 
 - (GCControlHitTest)hitTestPoint:(NSPoint)p
 {
 	if ([super hitTestPoint:p] == kDKMiniControlEntireControl) {
-		if (NSPointInRect(p, [self targetRect]))
+		if (NSPointInRect(p, self.targetRect))
 			return kDKHitRadialTarget;
 		else {
 			/*
@@ -139,7 +139,7 @@
 	return kDKMiniControlNoPart;
 }
 
-- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
+- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
 	if (self != nil) {
@@ -153,9 +153,9 @@
 {
 #pragma unused(flags)
 	if (part == kDKHitRadialTarget)
-		[self setCentre:currentPoint];
+		self.centre = currentPoint;
 	else if (part == kDKHitRadialRadius) {
-		NSRect kr = [self targetRect];
+		NSRect kr = self.targetRect;
 		NSPoint mp;
 
 		mp.x = NSMidX(kr);

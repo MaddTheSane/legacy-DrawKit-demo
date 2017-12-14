@@ -26,13 +26,13 @@
 #pragma mark -
 - (NSRect)knobRect
 {
-	NSRect kr = NSInsetRect([self bounds], kMiniSliderEndCapWidth, 1);
+	NSRect kr = NSInsetRect(self.bounds, kMiniSliderEndCapWidth, 1);
 
-	CGFloat length = [self bounds].size.width - (kMiniSliderEndCapWidth * 2);
+	CGFloat length = self.bounds.size.width - (kMiniSliderEndCapWidth * 2);
 
-	kr.size = [mKnobImage size];
-	kr.origin.x += ([self value] * length) - (kr.size.width / 2.0);
-	kr.origin.y = NSMidY([self bounds]) - (kr.size.height / 2.0);
+	kr.size = mKnobImage.size;
+	kr.origin.x += (self.value * length) - (kr.size.width / 2.0);
+	kr.origin.y = NSMidY(self.bounds) - (kr.size.height / 2.0);
 
 	return kr;
 }
@@ -41,7 +41,7 @@
 #pragma mark As a GCMiniControl
 - (void)draw
 {
-	NSBezierPath *path = [NSBezierPath bezierPathWithRoundEndedRectInRect:[self bounds]];
+	NSBezierPath *path = [NSBezierPath bezierPathWithRoundEndedRectInRect:self.bounds];
 
 	[[NSGraphicsContext currentContext] saveGraphicsState];
 
@@ -54,10 +54,10 @@
 
 	NSPoint sp, ep;
 
-	sp.x = NSMinX([self bounds]) + kMiniSliderEndCapWidth;
-	sp.y = NSMidY([self bounds]);
-	ep.x = NSMaxX([self bounds]) - kMiniSliderEndCapWidth;
-	ep.y = NSMidY([self bounds]);
+	sp.x = NSMinX(self.bounds) + kMiniSliderEndCapWidth;
+	sp.y = NSMidY(self.bounds);
+	ep.x = NSMaxX(self.bounds) - kMiniSliderEndCapWidth;
+	ep.y = NSMidY(self.bounds);
 
 	[NSBezierPath setDefaultLineWidth:0.5];
 	[NSBezierPath strokeLineFromPoint:sp toPoint:ep];
@@ -70,7 +70,7 @@
 
 	// position and draw the knob
 
-	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:[[self cluster] alpha]];
+	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:self.cluster.alpha];
 }
 
 - (GCControlHitTest)hitTestPoint:(NSPoint)p
@@ -85,7 +85,7 @@
 	return ph;
 }
 
-- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
+- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
 	if (self != nil) {
@@ -107,7 +107,7 @@
 {
 #pragma unused(flags)
 	if (part == kDKMiniSliderKnob)
-		[self setupInfoWindowAtPoint:startPoint withValue:[self value] andFormat:nil];
+		[self setupInfoWindowAtPoint:startPoint withValue:self.value andFormat:nil];
 	return (part == kDKMiniSliderKnob);
 }
 
@@ -115,12 +115,12 @@
 {
 	// recalculate the value based on the position of the knob
 
-	CGFloat val = (currentPoint.x - (NSMinX([self bounds]) + kMiniSliderEndCapWidth)) / ([self bounds].size.width - (kMiniSliderEndCapWidth * 2));
+	CGFloat val = (currentPoint.x - (NSMinX(self.bounds) + kMiniSliderEndCapWidth)) / (self.bounds.size.width - (kMiniSliderEndCapWidth * 2));
 
 	[super mouseDraggedAt:currentPoint inPart:part modifierFlags:flags];
 
 	[self setNeedsDisplayInRect:[self knobRect]];
-	[self setValue:val];
+	self.value = val;
 	[self setNeedsDisplayInRect:[self knobRect]];
 
 	return YES;

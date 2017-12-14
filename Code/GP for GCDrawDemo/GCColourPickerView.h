@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, DKColourPickerMode) {
 - (void)drawSwatches:(NSRect)rect;
 - (void)drawSpectrum:(NSRect)rect;
 
-- (NSColor *)color;
+@property (readonly, copy) NSColor *color;
 - (NSColor *)colorForSpectrumPoint:(NSPoint)p;
 - (NSPoint)pointForSpectrumColor:(NSColor *)colour;
 - (NSRect)rectForSpectrumPoint:(NSPoint)sp;

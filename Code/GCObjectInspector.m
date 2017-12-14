@@ -13,15 +13,15 @@
 			break;
 
 		case kDKObjectInspectorTabMultipleItems:
-			[mMultiInfoItemCountField setIntegerValue:[sel count]];
+			mMultiInfoItemCountField.integerValue = sel.count;
 			break;
 
 		case kDKObjectInspectorTabGroupItem:
-			[self updateGroupTabWithObject:[sel lastObject]];
+			[self updateGroupTabWithObject:sel.lastObject];
 			break;
 
 		case kDKObjectInspectorTabSingleItem:
-			mSel = [sel lastObject];
+			mSel = sel.lastObject;
 			[self updateSingleItemTabWithObject:mSel];
 			break;
 		default:
@@ -31,20 +31,20 @@
 
 - (void)updateGroupTabWithObject:(DKShapeGroup *)group
 {
-	[mGroupInfoItemCountField setIntegerValue:[[group groupObjects] count]];
+	mGroupInfoItemCountField.integerValue = [group groupObjects].count;
 }
 
 - (void)updateSingleItemTabWithObject:(DKDrawableObject *)obj
 {
 	CGFloat cFactor = 1.0;
-	NSPoint loc = [obj location];
+	NSPoint loc = obj.location;
 
 	if (mConvertCoordinates) {
-		cFactor = 1.0 / [[obj drawing] unitToPointsConversionFactor];
-		loc = [[[obj drawing] gridLayer] gridLocationForPoint:loc];
+		cFactor = 1.0 / [obj.drawing unitToPointsConversionFactor];
+		loc = [obj.drawing.gridLayer gridLocationForPoint:loc];
 	}
 
-	if ([obj isKindOfClass:[DKDrawablePath class]] || [obj locked]) {
+	if ([obj isKindOfClass:[DKDrawablePath class]] || obj.locked) {
 		[mGenInfoAngleField setEnabled:NO];
 		[mGenInfoWidthField setEnabled:NO];
 		[mGenInfoHeightField setEnabled:NO];
@@ -54,46 +54,46 @@
 		[mGenInfoHeightField setEnabled:YES];
 	}
 
-	[mGenInfoAngleField setFloatValue:[obj angleInDegrees]];
-	[mGenInfoWidthField setFloatValue:[obj size].width * cFactor];
-	[mGenInfoHeightField setFloatValue:[obj size].height * cFactor];
+	mGenInfoAngleField.floatValue = obj.angleInDegrees;
+	mGenInfoWidthField.floatValue = obj.size.width * cFactor;
+	mGenInfoHeightField.floatValue = obj.size.height * cFactor;
 
-	[mGenInfoLocationXField setFloatValue:loc.x];
-	[mGenInfoLocationYField setFloatValue:loc.y];
-	[mGenInfoTypeField setStringValue:NSStringFromClass([obj class])];
+	mGenInfoLocationXField.floatValue = loc.x;
+	mGenInfoLocationYField.floatValue = loc.y;
+	mGenInfoTypeField.stringValue = NSStringFromClass([obj class]);
 
-	if ([obj locked]) {
+	if (obj.locked) {
 		[mGenInfoLocationXField setEnabled:NO];
 		[mGenInfoLocationYField setEnabled:NO];
-		[mLockIconImageWell setImage:[NSImage imageNamed:NSImageNameLockLockedTemplate]];
+		mLockIconImageWell.image = [NSImage imageNamed:NSImageNameLockLockedTemplate];
 		[mMetaTableView setEnabled:NO];
 		[mMetaAddItemButton setEnabled:NO];
 		[mMetaRemoveItemButton setEnabled:NO];
 	} else {
 		[mGenInfoLocationXField setEnabled:YES];
 		[mGenInfoLocationYField setEnabled:YES];
-		[mLockIconImageWell setImage:[NSImage imageNamed:NSImageNameLockUnlockedTemplate]];
+		mLockIconImageWell.image = [NSImage imageNamed:NSImageNameLockUnlockedTemplate];
 		[mMetaTableView setEnabled:YES];
 		[mMetaAddItemButton setEnabled:YES];
 		[mMetaRemoveItemButton setEnabled:YES];
 	}
 
 	if ([obj isKindOfClass:[DKShapeGroup class]])
-		[mGroupInfoItemCountField setIntegerValue:[[(DKShapeGroup *)obj groupObjects] count]];
+		mGroupInfoItemCountField.integerValue = [(DKShapeGroup *)obj groupObjects].count;
 	else
-		[mGroupInfoItemCountField setStringValue:@"n/a"];
+		mGroupInfoItemCountField.stringValue = @"n/a";
 
-	DKStyle *style = [obj style];
+	DKStyle *style = obj.style;
 
 	if (style != nil) {
-		NSString *cs = [style name];
+		NSString *cs = style.name;
 
 		if (cs != nil)
-			[mGenInfoStyleNameField setStringValue:cs];
+			mGenInfoStyleNameField.stringValue = cs;
 		else
-			[mGenInfoStyleNameField setStringValue:@"(unnamed)"];
+			mGenInfoStyleNameField.stringValue = @"(unnamed)";
 	} else
-		[mGenInfoStyleNameField setStringValue:@"none"];
+		mGenInfoStyleNameField.stringValue = @"none";
 
 	// refresh the metadata table
 
@@ -102,13 +102,13 @@
 
 - (void)objectChanged:(NSNotification *)note
 {
-	if ([note object] == mSel)
+	if (note.object == mSel)
 		[self updateSingleItemTabWithObject:mSel];
 }
 
 - (void)styleChanged:(NSNotification *)note
 {
-	if ([note object] == [mSel style])
+	if (note.object == mSel.style)
 		[self updateSingleItemTabWithObject:mSel];
 }
 
@@ -117,7 +117,7 @@
 {
 	static NSInteger keySeed = 1;
 
-	NSInteger tag = [[sender selectedItem] tag];
+	NSInteger tag = [sender selectedItem].tag;
 
 	NSString *key = [NSString stringWithFormat:@"** change me %ld **", (long)(keySeed++)];
 
@@ -143,9 +143,9 @@
 - (IBAction)removeMetaItemAction:(id)sender
 {
 #pragma unused(sender)
-	NSInteger sel = [mMetaTableView selectedRow];
-	NSArray *keys = [[[mSel userInfo] allKeys] sortedArrayUsingSelector:@selector(compare:)];
-	NSString *oldKey = [keys objectAtIndex:sel];
+	NSInteger sel = mMetaTableView.selectedRow;
+	NSArray *keys = [[mSel userInfo].allKeys sortedArrayUsingSelector:@selector(compare:)];
+	NSString *oldKey = keys[sel];
 
 	[mSel removeMetadataForKey:oldKey];
 	[mMetaTableView reloadData];
@@ -165,29 +165,29 @@
 - (IBAction)changeLocationAction:(id)sender
 {
 #pragma unused(sender)
-	NSPoint loc = NSMakePoint([mGenInfoLocationXField floatValue], [mGenInfoLocationYField floatValue]);
+	NSPoint loc = NSMakePoint(mGenInfoLocationXField.floatValue, mGenInfoLocationYField.floatValue);
 
 	if (mConvertCoordinates)
-		loc = [[[mSel drawing] gridLayer] pointForGridLocation:loc];
+		loc = [mSel.drawing.gridLayer pointForGridLocation:loc];
 
-	[mSel setLocation:loc];
-	[[[mSel drawing] undoManager] setActionName:NSLocalizedString(@"Position Object", @"undo for position object")];
+	mSel.location = loc;
+	[mSel.drawing.undoManager setActionName:NSLocalizedString(@"Position Object", @"undo for position object")];
 }
 
 - (IBAction)changeSizeAction:(id)sender
 {
 #pragma unused(sender)
-	NSSize size = NSMakeSize([mGenInfoWidthField floatValue], [mGenInfoHeightField floatValue]);
+	NSSize size = NSMakeSize(mGenInfoWidthField.floatValue, mGenInfoHeightField.floatValue);
 	CGFloat cFactor = 1.0;
 
 	if (mConvertCoordinates) {
-		cFactor = [[mSel drawing] unitToPointsConversionFactor];
+		cFactor = [mSel.drawing unitToPointsConversionFactor];
 		size.width *= cFactor;
 		size.height *= cFactor;
 	}
 
-	[mSel setSize:size];
-	[[[mSel drawing] undoManager] setActionName:NSLocalizedString(@"Set Object Size", @"undo for size object")];
+	mSel.size = size;
+	[mSel.drawing.undoManager setActionName:NSLocalizedString(@"Set Object Size", @"undo for size object")];
 }
 
 - (IBAction)changeAngleAction:(id)sender
@@ -195,8 +195,8 @@
 #pragma unused(sender)
 
 	CGFloat radians = ([sender doubleValue] * M_PI / 180.0);
-	[mSel setAngle:radians];
-	[[[mSel drawing] undoManager] setActionName:NSLocalizedString(@"Set Object Angle", @"undo for angle object")];
+	mSel.angle = radians;
+	[mSel.drawing.undoManager setActionName:NSLocalizedString(@"Set Object Angle", @"undo for angle object")];
 }
 
 #pragma mark -
@@ -208,10 +208,10 @@
 	DKLayer *layer = [self currentActiveLayer];
 
 	if ([layer isKindOfClass:[DKObjectDrawingLayer class]]) {
-		selection = [[(DKObjectDrawingLayer *)layer selection] allObjects];
+		selection = ((DKObjectDrawingLayer *)layer).selection.allObjects;
 	}
 
-	NSInteger tab, oc = [selection count];
+	NSInteger tab, oc = selection.count;
 
 	if (oc == 0) {
 		mSel = nil;
@@ -232,8 +232,8 @@
 
 - (void)windowDidLoad
 {
-	[(NSPanel *)[self window] setFloatingPanel:YES];
-	[(NSPanel *)[self window] setBecomesKeyOnlyIfNeeded:YES];
+	[(NSPanel *)self.window setFloatingPanel:YES];
+	[(NSPanel *)self.window setBecomesKeyOnlyIfNeeded:YES];
 	[mMainTabView selectTabViewItemAtIndex:kDKObjectInspectorTabNoItems];
 
 	mConvertCoordinates = YES;
@@ -249,7 +249,7 @@
 {
 #pragma unused(aTableView)
 
-	return [[mSel metadataKeys] count];
+	return [mSel metadataKeys].count;
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
@@ -257,9 +257,9 @@
 #pragma unused(aTableView)
 
 	NSArray *keys = [[mSel metadataKeys] sortedArrayUsingSelector:@selector(compare:)];
-	NSString *key = [keys objectAtIndex:rowIndex];
+	NSString *key = keys[rowIndex];
 
-	if ([[aTableColumn identifier] isEqualToString:@"key"])
+	if ([aTableColumn.identifier isEqualToString:@"key"])
 		return key;
 	else
 		return [[mSel metadataItemForKey:key] value];
@@ -270,9 +270,9 @@
 #pragma unused(aTableView)
 
 	NSArray *keys = [[mSel metadataKeys] sortedArrayUsingSelector:@selector(compare:)];
-	NSString *oldKey = [keys objectAtIndex:rowIndex];
+	NSString *oldKey = keys[rowIndex];
 
-	if ([[aTableColumn identifier] isEqualToString:@"key"]) {
+	if ([aTableColumn.identifier isEqualToString:@"key"]) {
 		DKMetadataItem *item = [mSel metadataItemForKey:oldKey];
 
 		[mSel removeMetadataForKey:oldKey];
@@ -287,7 +287,7 @@
 #pragma unused(aTableColumn)
 #pragma unused(rowIndex)
 
-	return ![mSel locked];
+	return !mSel.locked;
 }
 
 @end

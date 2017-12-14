@@ -39,19 +39,17 @@
 - (NSColor *)colorAtPoint:(NSPoint)point;
 
 - (NSRect)swatchBoxAtPosition:(CGFloat)position;
-- (NSArray *)allSwatchBoxes;
+@property (readonly, copy) NSArray *allSwatchBoxes;
 - (NSRect)swatchRectForStop:(DKColorStop *)stop;
 - (void)invalidate;
 
 - (void)drawStopsInRect:(NSRect)rect;
 - (DKColorStop *)stopAtPoint:(NSPoint)point;
-- (void)setSelectedStop:(DKColorStop *)stop;
-- (DKColorStop *)selectedStop;
+@property (copy) DKColorStop *selectedStop;
 - (void)setColorOfSelectedStop:(NSColor *)Color;
 
 - (void)updateInfoWithPosition:(CGFloat)pos;
-- (void)setShowsPositionInfo:(BOOL)show;
-- (BOOL)showsPositionInfo;
+@property  BOOL showsPositionInfo;
 
 - (BOOL)setCursorInSafeLocation:(NSPoint)p;
 - (NSImage *)dragImageForStop:(DKColorStop *)stop;
@@ -65,7 +63,7 @@
 - (IBAction)flip:(id)sender;
 - (IBAction)gradientType:(id)sender;
 
-- (NSRect)interior;
+@property (readonly) NSRect interior;
 
 @end
 

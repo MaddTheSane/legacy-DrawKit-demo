@@ -19,7 +19,7 @@
 @class GCDashEditView;
 @protocol GCDashEditorDelegate;
 
-@interface GCDashEditor : NSWindowController <DashEditViewDelegate> {
+@interface GCDashEditor : NSWindowController <GCDashEditViewDelegate> {
 	IBOutlet NSTextField *mDashMarkTextField1;
 	IBOutlet NSTextField *mDashSpaceTextField1;
 	IBOutlet NSTextField *mDashMarkTextField2;

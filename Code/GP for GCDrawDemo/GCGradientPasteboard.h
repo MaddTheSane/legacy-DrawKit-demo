@@ -36,16 +36,16 @@
 - (BOOL)writeToPasteboard:(NSPasteboard *)pboard;
 - (BOOL)writeType:(NSString *)type toPasteboard:(NSPasteboard *)pboard;
 
-- (NSData *)pdf;
-- (NSData *)eps;
+@property (readonly, copy) NSData *pdf;
+@property (readonly, copy) NSData *eps;
 
 // File interface
 
 + (DKGradient *)gradientWithContentsOfFile:(NSString *)path;
 - (BOOL)writeToFile:(NSString *)path atomically:(BOOL)flag;
-- (NSData *)fileRepresentation;
-- (NSFileWrapper *)fileWrapperRepresentation;
-- (NSDictionary *)plistRepresentation;
+@property (readonly, copy) NSData *fileRepresentation;
+@property (readonly, strong) NSFileWrapper *fileWrapperRepresentation;
+@property (readonly, copy) NSDictionary *plistRepresentation;
 
 - (BOOL)writeFileToPasteboard:(NSPasteboard *)pboard;
 

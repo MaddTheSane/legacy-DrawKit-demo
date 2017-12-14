@@ -40,11 +40,11 @@
 }
 
 #pragma mark -
-- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
+- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super init];
 	if (self != nil) {
-		[self setBounds:rect];
+		self.bounds = rect;
 		mClusterRef = clust;
 		NSAssert(mIdent == nil, @"Expected init to zero");
 		NSAssert(mDelegateRef == nil, @"Expected init to zero");
@@ -70,7 +70,7 @@
 
 - (NSView *)view
 {
-	return [[self cluster] view];
+	return self.cluster.view;
 }
 
 #pragma mark -
@@ -95,9 +95,9 @@
 	if (mApplyShadow) {
 		NSShadow *shadowObj = [[NSShadow alloc] init];
 
-		[shadowObj setShadowColor:[NSColor blackColor]];
-		[shadowObj setShadowOffset:NSMakeSize(2, -2)];
-		[shadowObj setShadowBlurRadius:1.0];
+		shadowObj.shadowColor = [NSColor blackColor];
+		shadowObj.shadowOffset = NSMakeSize(2, -2);
+		shadowObj.shadowBlurRadius = 1.0;
 		[shadowObj set];
 	}
 }
@@ -108,7 +108,7 @@
 	// relies on the delegate implementing setNeedsDisplayInRect: there is no guarantee that this will actually
 	// cause a redraw - you need to set it up to work.
 
-	[self setNeedsDisplayInRect:[self bounds]];
+	[self setNeedsDisplayInRect:self.bounds];
 }
 
 - (void)setNeedsDisplayInRect:(NSRect)rect
@@ -116,10 +116,10 @@
 	// relies on the delegate implementing setNeedsDisplayInRect: there is no guarantee that this will actually
 	// cause a redraw - you need to set it up to work.
 
-	if ([self view])
-		[[self view] setNeedsDisplayInRect:rect];
-	else if ([self delegate] && [[self delegate] respondsToSelector:@selector(setNeedsDisplayInRect:)])
-		[(NSView *)[self delegate] setNeedsDisplayInRect:rect];
+	if (self.view)
+		[self.view setNeedsDisplayInRect:rect];
+	else if (self.delegate && [self.delegate respondsToSelector:@selector(setNeedsDisplayInRect:)])
+		[(NSView *)self.delegate setNeedsDisplayInRect:rect];
 }
 
 #pragma mark -
@@ -127,13 +127,13 @@
 {
 	// returns theme colour but applies local value of alpha
 
-	return [[self class] miniControlThemeColor:themeElementID withAlpha:[[self cluster] alpha]];
+	return [[self class] miniControlThemeColor:themeElementID withAlpha:self.cluster.alpha];
 }
 
 #pragma mark -
 - (GCControlHitTest)hitTestPoint:(NSPoint)p
 {
-	return (NSPointInRect(p, [self bounds])) ? kDKMiniControlEntireControl : kDKMiniControlNoPart;
+	return (NSPointInRect(p, self.bounds)) ? kDKMiniControlEntireControl : kDKMiniControlNoPart;
 }
 
 #pragma mark -
@@ -145,7 +145,7 @@
 	//	LogEvent_(kReactiveEvent, @"mini-control mouse down, part = %d", part);
 
 	if (part != kDKMiniControlNoPart) {
-		[self setupInfoWindowAtPoint:startPoint withValue:[self value] andFormat:nil];
+		[self setupInfoWindowAtPoint:startPoint withValue:self.value andFormat:nil];
 		return YES;
 	} else
 		return NO;
@@ -156,7 +156,7 @@
 #pragma unused(part, flags)
 	// override to do something, call super to handle info windows
 
-	[self updateInfoWindowAtPoint:currentPoint withValue:[self value]];
+	[self updateInfoWindowAtPoint:currentPoint withValue:self.value];
 	return YES;
 }
 
@@ -201,24 +201,24 @@
 {
 	// let delegate have opportunity to set this value
 
-	if ([self delegate] && [[self delegate] respondsToSelector:@selector(miniControlWillUpdateInfoWindow:withValue:)])
-		val = [[self delegate] miniControlWillUpdateInfoWindow:self withValue:val];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(miniControlWillUpdateInfoWindow:withValue:)])
+		val = [self.delegate miniControlWillUpdateInfoWindow:self withValue:val];
 
 	[mInfoWin setFloatValue:val];
 
 	if (mInfoWMode == kDKMiniControlInfoWindowFollowsMouse)
-		[mInfoWin positionNearPoint:p inView:[self view]];
+		[mInfoWin positionNearPoint:p inView:self.view];
 	else if (mInfoWMode == kDKMiniControlInfoWindowCentred) {
 		// position window above and centred horizontally in bounds
 
-		NSRect wfr = [mInfoWin frame];
-		NSRect br = [self bounds];
+		NSRect wfr = mInfoWin.frame;
+		NSRect br = self.bounds;
 		NSPoint wp;
 
 		wp.x = ((NSMinX(br) + NSMaxX(br)) / 2.0) - (NSWidth(wfr) / 2.0);
 		wp.y = NSMinY(br) - 2; //NSHeight( wfr );
 
-		[mInfoWin positionNearPoint:wp inView:[self view]];
+		[mInfoWin positionNearPoint:wp inView:self.view];
 	}
 }
 
@@ -247,19 +247,19 @@
 	if (mDelegateRef)
 		return mDelegateRef;
 	else
-		return [[self cluster] delegate];
+		return self.cluster.delegate;
 }
 
 - (void)notifyDelegateWillChange:(id)value
 {
-	if ([self delegate] && [[self delegate] respondsToSelector:@selector(miniControl:willChangeValue:)])
-		[[self delegate] miniControl:self willChangeValue:value];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(miniControl:willChangeValue:)])
+		[self.delegate miniControl:self willChangeValue:value];
 }
 
 - (void)notifyDelegateDidChange:(id)value
 {
-	if ([self delegate] && [[self delegate] respondsToSelector:@selector(miniControl:didChangeValue:)])
-		[[self delegate] miniControl:self didChangeValue:value];
+	if (self.delegate && [self.delegate respondsToSelector:@selector(miniControl:didChangeValue:)])
+		[self.delegate miniControl:self didChangeValue:value];
 }
 
 #pragma mark -
@@ -268,7 +268,7 @@
 	// stores the control against <name> in the owning cluster, so it can easily be located by name
 
 	mIdent = name;
-	[[self cluster] setControl:self forKey:name];
+	[self.cluster setControl:self forKey:name];
 }
 
 - (NSString *)identifier
@@ -283,9 +283,9 @@
 	v = MIN(v, [self maxValue]);
 
 	if (v != mValue) {
-		[self notifyDelegateWillChange:[NSNumber numberWithFloat:mValue]];
+		[self notifyDelegateWillChange:@(mValue)];
 		mValue = v;
-		[self notifyDelegateDidChange:[NSNumber numberWithFloat:mValue]];
+		[self notifyDelegateDidChange:@(mValue)];
 	}
 }
 
@@ -300,7 +300,7 @@
 	mMaxValue = v;
 
 	if (mValue > mMaxValue)
-		[self setValue:mMaxValue];
+		self.value = mMaxValue;
 }
 
 - (CGFloat)maxValue
@@ -314,7 +314,7 @@
 	mMinValue = v;
 
 	if (mValue < mMinValue)
-		[self setValue:mMinValue];
+		self.value = mMinValue;
 }
 
 - (CGFloat)minValue

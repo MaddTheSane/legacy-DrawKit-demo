@@ -34,6 +34,6 @@
 @protocol LinearDuplicationDelegate <NSObject>
 
 - (void)doLinearDuplicateCopies:(NSInteger)copies offset:(NSSize)offset;
-- (NSInteger)countOfItemsInSelection;
+@property (readonly) NSInteger countOfItemsInSelection;
 
 @end

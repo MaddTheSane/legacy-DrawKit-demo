@@ -15,14 +15,14 @@
 #import <Cocoa/Cocoa.h>
 
 @class DKStrokeDash;
-@protocol DashEditViewDelegate;
+@protocol GCDashEditViewDelegate;
 
 @interface GCDashEditView : NSView {
 	DKStrokeDash *mDash;
 	NSMutableArray *mHandles;
 	NSBezierPath *mPath;
 	NSInteger mSelected;
-	id<DashEditViewDelegate> __unsafe_unretained mDelegateRef;
+	id<GCDashEditViewDelegate> __unsafe_unretained mDelegateRef;
 	NSColor *mLineColour;
 	NSRect mPhaseHandle;
 }
@@ -34,7 +34,7 @@
 @property NSLineJoinStyle lineJoinStyle;
 @property (nonatomic, strong) NSColor *lineColour;
 
-@property (unsafe_unretained) id<DashEditViewDelegate> delegate;
+@property (unsafe_unretained) id<GCDashEditViewDelegate> delegate;
 
 //! calculates where the handle rects are given the current dash
 - (void)calcHandles;
@@ -47,7 +47,7 @@
 
 @end
 
-@protocol DashEditViewDelegate <NSObject>
+@protocol GCDashEditViewDelegate <NSObject>
 
 - (void)dashDidChange:(id)sender;
 

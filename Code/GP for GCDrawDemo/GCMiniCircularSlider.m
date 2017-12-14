@@ -17,15 +17,15 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 #pragma mark As a GCMiniCircularSlider
 - (NSRect)circleBounds
 {
-	NSRect ar = NSInsetRect([self bounds], 8, 8);
+	NSRect ar = NSInsetRect(self.bounds, 8, 8);
 
 	if (ar.size.width > ar.size.height)
 		ar.size.width = ar.size.height;
 	else
 		ar.size.height = ar.size.width;
 
-	ar.origin.x = ((NSMinX([self bounds]) + NSMaxX([self bounds])) / 2.0) - (ar.size.width / 2.0);
-	ar.origin.y = ((NSMinY([self bounds]) + NSMaxY([self bounds])) / 2.0) - (ar.size.height / 2.0);
+	ar.origin.x = ((NSMinX(self.bounds) + NSMaxX(self.bounds)) / 2.0) - (ar.size.width / 2.0);
+	ar.origin.y = ((NSMinY(self.bounds) + NSMaxY(self.bounds)) / 2.0) - (ar.size.height / 2.0);
 
 	return ar;
 }
@@ -34,7 +34,7 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 #pragma mark As a GCMiniSlider
 - (NSRect)knobRect
 {
-	NSRect ar = [self circleBounds];
+	NSRect ar = self.circleBounds;
 
 	CGFloat radius = ar.size.width / 2.0;
 
@@ -44,9 +44,9 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 	cp.x = NSMidX(ar);
 	cp.y = NSMidY(ar);
 
-	kr.origin.x = (cp.x + (cos([self value]) * radius)) - ([mKnobImage size].width / 2.0);
-	kr.origin.y = (cp.y + (sin([self value]) * radius)) - ([mKnobImage size].height / 2.0);
-	kr.size = [mKnobImage size];
+	kr.origin.x = (cp.x + (cos([self value]) * radius)) - (mKnobImage.size.width / 2.0);
+	kr.origin.y = (cp.y + (sin([self value]) * radius)) - (mKnobImage.size.height / 2.0);
+	kr.size = mKnobImage.size;
 
 	return kr;
 }
@@ -55,10 +55,10 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 #pragma mark As a GCMiniControl
 - (void)draw
 {
-	NSRect ar = [self circleBounds];
+	NSRect ar = self.circleBounds;
 
 	NSBezierPath *path = [NSBezierPath bezierPathWithOvalInRect:ar];
-	[path setLineWidth:10];
+	path.lineWidth = 10;
 	[[NSGraphicsContext currentContext] saveGraphicsState];
 
 	[self applyShadow];
@@ -67,7 +67,7 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 
 	[[NSGraphicsContext currentContext] restoreGraphicsState];
 
-	if ([self showTickMarks]) {
+	if (self.showTickMarks) {
 		// append ticks to path. show ticks every 15 degrees
 
 		CGFloat radius = (ar.size.width / 2.0);
@@ -90,7 +90,7 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 		}
 	}
 
-	[path setLineWidth:0.5];
+	path.lineWidth = 0.5;
 
 	NSAffineTransform *tfm = [NSAffineTransform transform];
 	[tfm translateXBy:0 yBy:1];
@@ -107,16 +107,16 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 
 	// draw the knob
 
-	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:[[self cluster] alpha]];
+	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:self.cluster.alpha];
 }
 
 - (void)flagsChanged:(NSEventModifierFlags)flags
 {
 	BOOL shift = (flags & NSShiftKeyMask) != 0;
-	[self setShowTickMarks:shift];
+	self.showTickMarks = shift;
 }
 
-- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
+- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
 	if (self != nil) {
@@ -147,7 +147,7 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 	// recalculate the value based on the position of the knob
 
 	NSPoint cp;
-	NSRect ar = [self circleBounds];
+	NSRect ar = self.circleBounds;
 
 	cp.x = NSMidX(ar);
 	cp.y = NSMidY(ar);
@@ -168,7 +168,7 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 	}
 
 	[self setNeedsDisplayInRect:[self knobRect]];
-	[self setValue:angle];
+	self.value = angle;
 	[self setNeedsDisplayInRect:[self knobRect]];
 
 	CGFloat degrees = fmod(([self value] * 180.0f) / M_PI, 360.0);

@@ -37,7 +37,7 @@
 
 + (void)popUpWindowMenu:(GCWindowMenu *)menu withEvent:(NSEvent *)event forView:(NSView *)view
 {
-	NSPoint loc = [event locationInWindow];
+	NSPoint loc = event.locationInWindow;
 	loc.x -= 10;
 	loc.y -= 5;
 
@@ -70,7 +70,7 @@
 	if (menu == nil)
 		menu = [GCWindowMenu windowMenu];
 
-	loc = [[view window] convertBaseToScreen:loc];
+	loc = [view.window convertBaseToScreen:loc];
 	[menu setFrameTopLeftPoint:loc];
 
 	// show the "menu"
@@ -167,17 +167,16 @@
 
 	//[NSEvent startPeriodicEventsAfterDelay:1.0 withPeriod:0.1];
 
-	NSTimeInterval startTime = [event timestamp];
+	NSTimeInterval startTime = event.timestamp;
 
 	//[self setAcceptsMouseMovedEvents:YES];
 	[[self mainView] mouseDown:[self transmogrify:event]];
 
 	NSEvent *theEvent = nil;
 	BOOL keepOn = YES;
-	NSEventMask mask;
 	BOOL invertedTracking = NO;
 
-	mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask |
+	NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask |
 		   NSRightMouseUpMask | NSRightMouseDraggedMask |
 		   NSAppKitDefinedMask | NSFlagsChangedMask |
 		   NSScrollWheelMask;
@@ -185,7 +184,7 @@
 	while (keepOn) {
 		theEvent = [self transmogrify:[self nextEventMatchingMask:mask]];
 
-		switch ([theEvent type]) {
+		switch (theEvent.type) {
 			//case NSMouseMovedMask:
 			case NSRightMouseDragged:
 			case NSLeftMouseDragged:
@@ -197,7 +196,7 @@
 				// if this is within a very short time of the mousedown, leave the menu up but track it
 				// using mouse moved and mouse down to end.
 
-				if ([theEvent timestamp] - startTime < 0.25) {
+				if (theEvent.timestamp - startTime < 0.25) {
 					invertedTracking = YES;
 					mask |= (NSLeftMouseDownMask | NSRightMouseDownMask);
 				} else {
@@ -208,7 +207,7 @@
 
 			case NSRightMouseDown:
 			case NSLeftMouseDown:
-				if (!NSPointInRect([theEvent locationInWindow], [[self mainView] frame]))
+				if (!NSPointInRect(theEvent.locationInWindow, [self mainView].frame))
 					keepOn = NO;
 				else
 					[[self mainView] mouseDown:theEvent];
@@ -223,7 +222,7 @@
 
 			case NSAppKitDefined:
 				//	LogEvent_(kReactiveEvent, @"appkit event: %@", theEvent);
-				if ([theEvent subtype] == NSApplicationDeactivatedEventType)
+				if (theEvent.subtype == NSApplicationDeactivatedEventType)
 					keepOn = NO;
 				break;
 
@@ -266,13 +265,13 @@
 
 	// add as a subview which retains it as well
 
-	[[self contentView] addSubview:aView];
+	[self.contentView addSubview:aView];
 
 	// if stf, position the view at top, left corner of the window and
 	// make the window the size of the view
 
 	if (stf) {
-		NSRect fr = [aView frame];
+		NSRect fr = aView.frame;
 
 		fr.origin = NSZeroPoint;
 		[aView setFrameOrigin:NSZeroPoint];
@@ -323,13 +322,13 @@ static NSTimeInterval sFadeStartTime = 0.0;
 	// fades the window to invisible over <t> seconds. Used when the menu is closed.
 	// retain ourselves so that the timer can run long after the window's owner has said goodbye.
 
-	if ([self isVisible]) {
+	if (self.visible) {
 		sFadeStartTime = [NSDate timeIntervalSinceReferenceDate];
 
 		[NSTimer scheduledTimerWithTimeInterval:1 / 30.0
 										 target:self
 									   selector:@selector(timerFadeCallback:)
-									   userInfo:[NSNumber numberWithDouble:t]
+									   userInfo:@(t)
 										repeats:YES];
 	}
 }
@@ -350,12 +349,12 @@ static NSTimeInterval sFadeStartTime = 0.0;
 
 - (void)timerFadeCallback:(NSTimer *)timer
 {
-	NSTimeInterval total = [[timer userInfo] doubleValue];
+	NSTimeInterval total = [timer.userInfo doubleValue];
 	NSTimeInterval elapsed = [NSDate timeIntervalSinceReferenceDate] - sFadeStartTime;
 
 	CGFloat fade = 1.0 - (elapsed / total);
 
-	[self setAlphaValue:fade];
+	self.alphaValue = fade;
 
 	if (elapsed > total) {
 		[timer invalidate];
@@ -379,18 +378,18 @@ static NSTimeInterval sFadeStartTime = 0.0;
 
 - (NSEvent *)transmogrify:(NSEvent *)event
 {
-	if (([event window] != self) && [event isMouseEventType]) {
-		NSPoint glob = [[event window] convertBaseToScreen:[event locationInWindow]];
+	if ((event.window != self) && [event isMouseEventType]) {
+		NSPoint glob = [event.window convertBaseToScreen:event.locationInWindow];
 
-		return [NSEvent mouseEventWithType:[event type]
+		return [NSEvent mouseEventWithType:event.type
 								  location:[self convertScreenToBase:glob]
-							 modifierFlags:[event modifierFlags]
-								 timestamp:[event timestamp]
-							  windowNumber:[self windowNumber]
+							 modifierFlags:event.modifierFlags
+								 timestamp:event.timestamp
+							  windowNumber:self.windowNumber
 								   context:[NSGraphicsContext currentContext]
-							   eventNumber:[event eventNumber]
-								clickCount:[event clickCount]
-								  pressure:[event pressure]];
+							   eventNumber:event.eventNumber
+								clickCount:event.clickCount
+								  pressure:event.pressure];
 	} else
 		return event;
 }
@@ -402,7 +401,7 @@ static NSTimeInterval sFadeStartTime = 0.0;
 	return YES;
 }
 
-- (id)initWithContentRect:(NSRect)contentRect
+- (instancetype)initWithContentRect:(NSRect)contentRect
 				styleMask:(NSWindowStyleMask)styleMask
 				  backing:(NSBackingStoreType)bufferingType
 					defer:(BOOL)deferCreation
@@ -415,9 +414,9 @@ static NSTimeInterval sFadeStartTime = 0.0;
 		NSAssert(mMainViewRef == nil, @"Expected init to zero");
 	}
 	if (self != nil) {
-		[self setLevel:NSPopUpMenuWindowLevel];
+		self.level = NSPopUpMenuWindowLevel;
 		[self setHasShadow:YES];
-		[self setAlphaValue:0.95];
+		self.alphaValue = 0.95;
 		[self setReleasedWhenClosed:YES];
 		[self setFrame:kDKDefaultWindowMenuSize display:NO];
 	}
@@ -447,7 +446,7 @@ static NSTimeInterval sFadeStartTime = 0.0;
 {
 	// returns YES if type is any mouse type
 
-	NSEventType t = [self type];
+	NSEventType t = self.type;
 
 	return (t == NSLeftMouseDown ||
 			t == NSLeftMouseUp ||

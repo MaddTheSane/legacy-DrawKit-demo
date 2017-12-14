@@ -23,7 +23,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 #pragma mark As a GCGradientWell
 + (void)setActiveWell:(GCGradientWell *)well
 {
-	if (well != sCurrentActiveWell && [well canBecomeActiveWell]) {
+	if (well != sCurrentActiveWell && well.canBecomeActiveWell) {
 		[sCurrentActiveWell wellWillResignActive];
 		sCurrentActiveWell = well;
 		[sCurrentActiveWell wellDidBecomeActive];
@@ -43,8 +43,8 @@ static GCGradientWell *sCurrentActiveWell = nil;
 #pragma mark -
 - (void)setGradient:(DKGradient *)aGradient
 {
-	if ([self gradient] != aGradient) {
-		[[self cell] setGradient:aGradient];
+	if (self.gradient != aGradient) {
+		[self.cell setGradient:aGradient];
 		[self setNeedsDisplay:YES];
 		[self syncGradientToControlSettings];
 	}
@@ -52,7 +52,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 
 - (DKGradient *)gradient
 {
-	return [(GCGradientCell *)[self cell] gradient];
+	return [(GCGradientCell *)self.cell gradient];
 }
 
 - (void)syncGradientToControlSettings
@@ -62,15 +62,15 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	if (!mIsSendingAction) {
 		mIsSendingAction = YES;
 		[self setNeedsDisplay:YES];
-		[self sendAction:[self action] to:[self target]];
+		[self sendAction:self.action to:self.target];
 		mIsSendingAction = NO;
 	}
 }
 
 - (void)initiateGradientDragWithEvent:(NSEvent *)theEvent
 {
-	[[self gradient] writeFileToPasteboard:[NSPasteboard pasteboardWithName:NSDragPboard]];
-	[self dragStandardSwatchGradient:[self gradient] slideBack:YES event:theEvent];
+	[self.gradient writeFileToPasteboard:[NSPasteboard pasteboardWithName:NSDragPboard]];
+	[self dragStandardSwatchGradient:self.gradient slideBack:YES event:theEvent];
 }
 
 #pragma mark -
@@ -94,20 +94,20 @@ static GCGradientWell *sCurrentActiveWell = nil;
 {
 	//	LogEvent_(kStateEvent, @"setting tracking rect");
 
-	if ([[self cell] isKindOfClass:[GCGradientCell class]]) {
+	if ([self.cell isKindOfClass:[GCGradientCell class]]) {
 		if (mTrackingTag != 0)
 			[self removeTrackingRect:mTrackingTag];
 
-		NSPoint loc = [self convertPoint:[[self window] mouseLocationOutsideOfEventStream] fromView:nil];
+		NSPoint loc = [self convertPoint:self.window.mouseLocationOutsideOfEventStream fromView:nil];
 		BOOL inside = ([self hitTest:loc] == self);
 
 		if (inside)
-			[[self window] makeFirstResponder:self];
+			[self.window makeFirstResponder:self];
 
 		//NSRect fr = [self frame];
 		//fr.origin = NSZeroPoint;
 
-		mTrackingTag = [self addTrackingRect:[self visibleRect] owner:self userData:nil assumeInside:inside];
+		mTrackingTag = [self addTrackingRect:self.visibleRect owner:self userData:nil assumeInside:inside];
 	}
 }
 
@@ -127,8 +127,8 @@ static GCGradientWell *sCurrentActiveWell = nil;
 
 	// copy its gradient to the GP, if it has one
 
-	if ([self gradient]) {
-		DKGradient *copyGrad = [[self gradient] copy];
+	if (self.gradient) {
+		DKGradient *copyGrad = [self.gradient copy];
 		//[[GCGradientPanel sharedGradientPanel] setGradient:copyGrad];
 	} else {
 		// should we do this?
@@ -142,9 +142,9 @@ static GCGradientWell *sCurrentActiveWell = nil;
 - (void)wellWillResignActive
 {
 	// set our own gradient to a copy so as to fully detach it from the GP
-	if ([self gradient]) {
-		DKGradient *copyGrad = [[self gradient] copy];
-		[self setGradient:copyGrad];
+	if (self.gradient) {
+		DKGradient *copyGrad = [self.gradient copy];
+		self.gradient = copyGrad;
 	}
 
 	[self setNeedsDisplay:YES];
@@ -154,7 +154,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 {
 	// if already the active well, turn off all active wells, otherwise, make it the active well
 
-	if ([self isActiveWell])
+	if (self.activeWell)
 		[GCGradientWell clearAllActiveWells];
 	else
 		[GCGradientWell setActiveWell:self];
@@ -170,15 +170,15 @@ static GCGradientWell *sCurrentActiveWell = nil;
 - (IBAction)copy:(id)sender
 {
 #pragma unused(sender)
-	[[self gradient] writeToPasteboard:[NSPasteboard generalPasteboard]];
+	[self.gradient writeToPasteboard:[NSPasteboard generalPasteboard]];
 }
 
 - (IBAction)copyImage:(id)sender
 {
 #pragma unused(sender)
 	NSPasteboard *pboard = [NSPasteboard generalPasteboard];
-	DKGradient *grad = [self gradient];
-	[pboard declareTypes:[NSArray arrayWithObject:NSPDFPboardType] owner:grad];
+	DKGradient *grad = self.gradient;
+	[pboard declareTypes:@[NSPDFPboardType] owner:grad];
 	[grad writeType:NSPDFPboardType toPasteboard:[NSPasteboard generalPasteboard]];
 	[grad writeType:NSTIFFPboardType toPasteboard:[NSPasteboard generalPasteboard]];
 }
@@ -187,21 +187,21 @@ static GCGradientWell *sCurrentActiveWell = nil;
 {
 #pragma unused(sender)
 	NSPasteboard *pboard = [NSPasteboard generalPasteboard];
-	DKGradient *grad = [self gradient];
-	[pboard declareTypes:[NSArray arrayWithObject:NSTIFFPboardType] owner:grad];
+	DKGradient *grad = self.gradient;
+	[pboard declareTypes:@[NSTIFFPboardType] owner:grad];
 	NSImage *image = [grad swatchImageWithSize:NSMakeSize(128.0f, 128.0f) withBorder:YES];
-	[pboard setData:[image TIFFRepresentation] forType:NSTIFFPboardType];
+	[pboard setData:image.TIFFRepresentation forType:NSTIFFPboardType];
 }
 
 - (IBAction)paste:(id)sender
 {
 #pragma unused(sender)
-	[self setGradient:[DKGradient gradientWithPasteboard:[NSPasteboard generalPasteboard]]];
+	self.gradient = [DKGradient gradientWithPasteboard:[NSPasteboard generalPasteboard]];
 
-	if ([self isActiveWell]) {
+	if (self.activeWell) {
 		// update GP with dropped gradient too
 
-		DKGradient *copyGrad = [[self gradient] copy];
+		DKGradient *copyGrad = [self.gradient copy];
 		//[[GCGradientPanel sharedGradientPanel] setGradient:copyGrad];
 	}
 }
@@ -214,12 +214,12 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	NSPoint globalLoc;
 	NSRect cf;
 
-	cf = [self bounds];
+	cf = self.bounds;
 	globalLoc.x = NSMidX(cf);
 	globalLoc.y = NSMidY(cf);
 
 	globalLoc = [self convertPoint:globalLoc toView:nil];
-	globalLoc = [[self window] convertBaseToScreen:globalLoc];
+	globalLoc = [self.window convertBaseToScreen:globalLoc];
 
 	NSShowAnimationEffect(NSAnimationEffectDisappearingItemDefault, globalLoc, NSZeroSize, nil, nil, nil);
 }
@@ -227,13 +227,13 @@ static GCGradientWell *sCurrentActiveWell = nil;
 - (IBAction)resetRadial:(id)sender
 {
 #pragma unused(sender)
-	if ([self controlMode] == kDKGradientWellRadialMode) {
-		[[self gradient] setRadialStartingPoint:NSMakePoint(0.5, 0.5)];
-		[[self gradient] setRadialEndingPoint:NSMakePoint(0.5, 0.5)];
-		[[self gradient] setRadialStartingRadius:0.0];
-		[[self gradient] setRadialEndingRadius:0.5];
-	} else if ([self controlMode] == kDKGradientWellSweepMode) {
-		[[self gradient] setRadialStartingPoint:NSMakePoint(0.5, 0.5)];
+	if (self.controlMode == kDKGradientWellRadialMode) {
+		[self.gradient setRadialStartingPoint:NSMakePoint(0.5, 0.5)];
+		[self.gradient setRadialEndingPoint:NSMakePoint(0.5, 0.5)];
+		[self.gradient setRadialStartingRadius:0.0];
+		[self.gradient setRadialEndingRadius:0.5];
+	} else if (self.controlMode == kDKGradientWellSweepMode) {
+		[self.gradient setRadialStartingPoint:NSMakePoint(0.5, 0.5)];
 	}
 	[self syncGradientToControlSettings];
 	[self setNeedsDisplay:YES];
@@ -254,11 +254,11 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	return YES;
 }
 
-- (id)initWithFrame:(NSRect)frame
+- (instancetype)initWithFrame:(NSRect)frame
 {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
-		[self setControlMode:kDKGradientWellDisplayMode];
+		self.controlMode = kDKGradientWellDisplayMode;
 		NSAssert(mTrackingTag == 0, @"Expected init to zero");
 		NSAssert(!mForceSquare, @"Expected init to zero");
 		NSAssert(!mShowProxyIcon, @"Expected init to zero");
@@ -279,40 +279,40 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	NSMenuItem *item;
 	BOOL allowsClear;
 
-	allowsClear = mCanBecomeActive && ![[self cell] isKindOfClass:[GCGradientCell class]];
+	allowsClear = mCanBecomeActive && ![self.cell isKindOfClass:[GCGradientCell class]];
 
 	// add "Copy" and "Paste" command
 
 	if (allowsClear) {
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Cut", @"") action:@selector(cut:) keyEquivalent:@""];
-		[item setTarget:self];
+		item.target = self;
 	}
 	item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Copy Gradient", @"") action:@selector(copy:) keyEquivalent:@""];
-	[item setTarget:self];
+	item.target = self;
 	item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Paste Gradient", @"") action:@selector(paste:) keyEquivalent:@""];
-	[item setTarget:self];
+	item.target = self;
 	if (allowsClear) {
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Delete", @"") action:@selector(delete:) keyEquivalent:@""];
-		[item setTarget:self];
+		item.target = self;
 		[contextualMenu addItem:[NSMenuItem separatorItem]];
 	}
 
 	item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Copy Image", @"")
 												   action:@selector(copyImage:)
 											keyEquivalent:@""];
-	[item setTarget:self];
+	item.target = self;
 
 	item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Copy Bordered Image", @"")
 												   action:@selector(copyBorderedImage:)
 											keyEquivalent:@""];
-	[item setTarget:self];
+	item.target = self;
 	[item setAlternate:YES];
-	[item setKeyEquivalentModifierMask:NSAlternateKeyMask];
+	item.keyEquivalentModifierMask = NSAlternateKeyMask;
 
-	if ([self controlMode] == kDKGradientWellRadialMode || [self controlMode] == kDKGradientWellSweepMode) {
+	if (self.controlMode == kDKGradientWellRadialMode || self.controlMode == kDKGradientWellSweepMode) {
 		[contextualMenu addItem:[NSMenuItem separatorItem]];
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Reset Radial Gradient", @"") action:@selector(resetRadial:) keyEquivalent:@""];
-		[item setTarget:self];
+		item.target = self;
 	}
 
 	return contextualMenu;
@@ -331,7 +331,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 		// that will fit squarely in the superview. (the other dimension is centred).
 		// !!!---this assumes that the superview is set up to do the right thing---!!!
 
-		NSSize ss = [[self superview] frame].size;
+		NSSize ss = self.superview.frame.size;
 
 		CGFloat smaller = MIN(ss.width, ss.height);
 		smaller -= 20;
@@ -347,14 +347,14 @@ static GCGradientWell *sCurrentActiveWell = nil;
 			frame.origin.y = (ss.height / 2.0) - smaller;
 	}
 
-	[super setFrame:frame];
+	super.frame = frame;
 	[self setupTrackingRect];
-	[[self superview] setNeedsDisplay:YES];
+	[self.superview setNeedsDisplay:YES];
 }
 
 - (void)viewDidMoveToWindow
 {
-	if ([self window])
+	if (self.window)
 		[self setupTrackingRect];
 }
 
@@ -366,7 +366,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	//	LogEvent_(kReactiveEvent,  @"mouse went in..." );
 
 	//[super mouseEntered:event];
-	[[self cell] setControlVisible:YES];
+	[self.cell setControlVisible:YES];
 }
 
 - (void)mouseExited:(NSEvent *)event
@@ -374,7 +374,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 #pragma unused(event)
 	//	LogEvent_(kReactiveEvent,  @"...mouse went out" );
 
-	[[self cell] setControlVisible:NO];
+	[self.cell setControlVisible:NO];
 	//[super mouseExited:event];
 }
 
@@ -397,7 +397,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	pboard = [sender draggingPasteboard];
 
 	if ([DKGradient canInitalizeFromPasteboard:pboard] ||
-		[[pboard types] containsObject:NSColorPboardType])
+		[pboard.types containsObject:NSColorPboardType])
 
 	{
 		if (sourceDragMask & NSDragOperationGeneric) {
@@ -425,25 +425,25 @@ static GCGradientWell *sCurrentActiveWell = nil;
 		if ([DKGradient canInitalizeFromPasteboard:pboard]) {
 			DKGradient *gradient = [DKGradient gradientWithPasteboard:pboard];
 			if (gradient)
-				[self setGradient:gradient];
+				self.gradient = gradient;
 
-		} else if ([[pboard types] containsObject:NSColorPboardType]) {
+		} else if ([pboard.types containsObject:NSColorPboardType]) {
 
 			NSColor *colour = [NSColor colorFromPasteboard:pboard];
-			DKGradient *grad = [[self gradient] gradientByColorizingWithColor:colour];
+			DKGradient *grad = [self.gradient gradientByColorizingWithColor:colour];
 
 			//	LogEvent_(kReactiveEvent, @"received colour drag, colourizing. %@", grad);
 			if (grad)
-				[self setGradient:grad];
+				self.gradient = grad;
 		}
 	}
 
-	if ([[self cell] isKindOfClass:[GCGradientCell class]])
-		[[self cell] setControlVisible:YES];
-	else if ([self isActiveWell]) {
+	if ([self.cell isKindOfClass:[GCGradientCell class]])
+		[self.cell setControlVisible:YES];
+	else if (self.activeWell) {
 		// update GP with dropped gradient too
 
-		DKGradient *copyGrad = [[self gradient] copy];
+		DKGradient *copyGrad = [self.gradient copy];
 		//[[GCGradientPanel sharedGradientPanel] setGradient:copyGrad];
 	}
 
@@ -470,10 +470,10 @@ static GCGradientWell *sCurrentActiveWell = nil;
 - (NSArray *)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
-	NSString *path = [fm writeContents:[[self gradient] fileRepresentation] toUniqueFile:@"untitled gradient.gradient" inDirectory:[dropDestination path]];
+	NSString *path = [fm writeContents:[self.gradient fileRepresentation] toUniqueFile:@"untitled gradient.gradient" inDirectory:dropDestination.path];
 
 	if (path)
-		return [NSArray arrayWithObject:[path lastPathComponent]];
+		return @[path.lastPathComponent];
 	else
 		return nil;
 }
@@ -482,11 +482,11 @@ static GCGradientWell *sCurrentActiveWell = nil;
 #pragma mark As part of NSMenuValidation Protocol
 - (BOOL)validateMenuItem:(NSMenuItem *)item
 {
-	BOOL enable = ([self gradient] != nil);
-	SEL act = [item action];
+	BOOL enable = (self.gradient != nil);
+	SEL act = item.action;
 
 	if (act == @selector(paste:)) {
-		enable = [[NSPasteboard generalPasteboard] availableTypeFromArray:[NSArray arrayWithObject:GPGradientPasteboardType]] != nil;
+		enable = [[NSPasteboard generalPasteboard] availableTypeFromArray:@[GPGradientPasteboardType]] != nil;
 	}
 
 	return enable;
@@ -497,7 +497,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 - (void)awakeFromNib
 {
 	[self registerForDraggedTypes:[DKGradient readablePasteboardTypes]];
-	[self registerForDraggedTypes:[NSArray arrayWithObject:NSColorPboardType]];
+	[self registerForDraggedTypes:@[NSColorPboardType]];
 }
 
 @end

@@ -22,7 +22,7 @@
 {
 	NSCell *cell = [sender selectedCell];
 
-	LogEvent_(kInfoEvent, @"cell = %@, title = %@", cell, [cell title]);
+	LogEvent_(kInfoEvent, @"cell = %@, title = %@", cell, cell.title);
 
 	// forward the choice to the first responder - if it implements selectDrawingTool: it will switch tools based
 	// on the sender of the message's title matching the registered name of the tool.
@@ -31,7 +31,7 @@
 
 	// another way is to call the -set method on the tool itself:
 
-	DKDrawingTool *tool = [cell representedObject];
+	DKDrawingTool *tool = cell.representedObject;
 	[tool set];
 }
 
@@ -45,9 +45,9 @@
 
 	[DKObjectCreationTool setStyleForCreatedObjects:ss];
 
-	NSString *toolname = [[mToolMatrix selectedCell] title];
+	NSString *toolname = mToolMatrix.selectedCell.title;
 	DKDrawingTool *tool = [[DKToolRegistry sharedToolRegistry] drawingToolWithName:toolname];
-	[self selectToolWithName:[tool registeredName]];
+	[self selectToolWithName:tool.registeredName];
 }
 
 - (IBAction)toolDoubleClick:(id)sender
@@ -81,7 +81,7 @@
 		for (cc = 0; cc < col; ++cc) {
 			cell = [mToolMatrix cellAtRow:rr column:cc];
 
-			if ([[cell title] isEqualToString:name]) {
+			if ([cell.title isEqualToString:name]) {
 				[mToolMatrix selectCellAtRow:rr column:cc];
 
 				// set the preview image to the tool prototype's style, if any
@@ -90,7 +90,7 @@
 
 				if (tool && [tool isKindOfClass:[DKObjectCreationTool class]]) {
 					if (style == nil)
-						style = [(DKDrawableObject *)[(DKObjectCreationTool *)tool prototype] style];
+						style = ((DKDrawableObject *)[(DKObjectCreationTool *)tool prototype]).style;
 				}
 
 				[self updateStylePreviewWithStyle:style];
@@ -106,8 +106,8 @@
 - (void)toolChangedNotification:(NSNotification *)note
 {
 #pragma unused(note)
-	DKToolController *tc = [note object];
-	NSString *tn = [[tc drawingTool] registeredName];
+	DKToolController *tc = note.object;
+	NSString *tn = tc.drawingTool.registeredName;
 
 	LogEvent_(kReactiveEvent, @"tool did change to '%@'", tn);
 
@@ -120,14 +120,14 @@
 - (void)populatePopUpButtonWithLibraryStyles:(NSPopUpButton *)button
 {
 	NSMenu *styleMenu = [DKStyleRegistry managedStylesMenuWithItemTarget:self itemAction:@selector(libraryItemAction:)];
-	[button setMenu:styleMenu];
+	button.menu = styleMenu;
 	[button setTitle:@"Style"];
 }
 
 - (void)updateStylePreviewWithStyle:(DKStyle *)style
 {
 	NSImage *swatch = [[style styleSwatchWithSize:NSMakeSize(112, 112) type:kDKStyleSwatchAutomatic] copy];
-	[mStylePreviewView setImage:swatch];
+	mStylePreviewView.image = swatch;
 }
 
 - (void)styleRegistryChanged:(NSNotification *)note
@@ -140,11 +140,11 @@
 #pragma mark As an DKDrawkitInspectorBase
 - (void)documentDidChange:(NSNotification *)note
 {
-	NSResponder *firstR = [[note object] firstResponder];
+	NSResponder *firstR = [note.object firstResponder];
 
 	if (firstR != nil && [firstR respondsToSelector:@selector(drawingTool)]) {
 		DKDrawingTool *tool = [(id)firstR drawingTool];
-		NSString *tn = [tool registeredName];
+		NSString *tn = tool.registeredName;
 
 		LogEvent_(kReactiveEvent, @"tool will change to '%@'", tn);
 
@@ -160,53 +160,53 @@
 - (void)windowDidLoad
 {
 	[super windowDidLoad];
-	[(NSPanel *)[self window] setFloatingPanel:YES];
-	[(NSPanel *)[self window] setBecomesKeyOnlyIfNeeded:YES];
+	[(NSPanel *)self.window setFloatingPanel:YES];
+	[(NSPanel *)self.window setBecomesKeyOnlyIfNeeded:YES];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toolChangedNotification:) name:kDKDidChangeToolNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(styleRegistryChanged:) name:kDKStyleRegistryDidFlagPossibleUIChange object:[DKStyleRegistry sharedStyleRegistry]];
 
 	// set up button cells with the respective images - the cell title is used to look up the image resource
 
-	NSEnumerator *iter = [[mToolMatrix cells] objectEnumerator];
+	NSEnumerator *iter = [mToolMatrix.cells objectEnumerator];
 	NSActionCell *cell;
 	NSImage *icon;
 
 	while ((cell = (NSActionCell *)[iter nextObject]) != nil) {
-		icon = [NSImage imageNamed:[cell title]];
+		icon = [NSImage imageNamed:cell.title];
 
 		if (icon)
-			[cell setImage:icon];
+			cell.image = icon;
 
-		if ([[cell title] length] == 0)
+		if (cell.title.length == 0)
 			[cell setEnabled:NO];
 		else {
-			DKDrawingTool *tool = [[DKToolRegistry sharedToolRegistry] drawingToolWithName:[cell title]];
-			[cell setRepresentedObject:tool];
-			[mToolMatrix setToolTip:[cell title] forCell:cell];
+			DKDrawingTool *tool = [[DKToolRegistry sharedToolRegistry] drawingToolWithName:cell.title];
+			cell.representedObject = tool;
+			[mToolMatrix setToolTip:cell.title forCell:cell];
 		}
 	}
 
 	[self populatePopUpButtonWithLibraryStyles:mStylePopUpButton];
-	[mToolMatrix setDoubleAction:@selector(toolDoubleClick:)];
+	mToolMatrix.doubleAction = @selector(toolDoubleClick:);
 
 	// position the palette on the left of the main screen
 
-	NSRect panelFrame = [[self window] frame];
-	NSRect screenFrame = [[[NSScreen screens] objectAtIndex:0] visibleFrame];
+	NSRect panelFrame = self.window.frame;
+	NSRect screenFrame = [NSScreen screens][0].visibleFrame;
 
 	panelFrame.origin.x = NSMinX(screenFrame) + 34;
 	panelFrame.origin.y = NSHeight(screenFrame) - 20 - NSHeight(panelFrame);
-	[[self window] setFrameOrigin:panelFrame.origin];
+	[self.window setFrameOrigin:panelFrame.origin];
 }
 
 #pragma mark -
 
 - (BOOL)validateMenuItem:(NSMenuItem *)item
 {
-	SEL action = [item action];
+	SEL action = item.action;
 
 	if (action == @selector(libraryItemAction:)) {
-		[item setState:[DKObjectCreationTool styleForCreatedObjects] == [item representedObject] ? NSOnState : NSOffState];
+		item.state = [DKObjectCreationTool styleForCreatedObjects] == item.representedObject ? NSOnState : NSOffState;
 	}
 
 	return YES;

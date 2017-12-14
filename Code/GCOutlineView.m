@@ -19,8 +19,8 @@
 
 	NSRange rows = [self rowsInRect:clipRect];
 
-	if (NSLocationInRange([self selectedRow], rows)) {
-		NSRect sr = [self rectOfRow:[self selectedRow]];
+	if (NSLocationInRange(self.selectedRow, rows)) {
+		NSRect sr = [self rectOfRow:self.selectedRow];
 		/*
 		DKGradient* aqua = [DKGradient sourceListSelectedGradient];
 		[aqua fillRect:sr];
@@ -49,13 +49,13 @@
 #pragma mark As an NSResponder
 - (void)mouseDown:(NSEvent *)event
 {
-	NSPoint p = [self convertPoint:[event locationInWindow] fromView:nil];
+	NSPoint p = [self convertPoint:event.locationInWindow fromView:nil];
 
 	// which column and cell has been hit?
 
 	NSInteger column = [self columnAtPoint:p];
 	NSInteger row = [self rowAtPoint:p];
-	NSTableColumn *theColumn = [[self tableColumns] objectAtIndex:column];
+	NSTableColumn *theColumn = self.tableColumns[column];
 	id dataCell = [theColumn dataCellForRow:row];
 
 	// if the checkbox column, handle click in checkbox without selecting the row
@@ -70,7 +70,7 @@
 
 		if ([dataCell trackMouse:event inRect:cellFrame ofView:self untilMouseUp:YES]) {
 			// call the data source to handle the checkbox state change as normal
-			[[self dataSource] outlineView:self setObjectValue:[dataCell objectValue] forTableColumn:theColumn byItem:[self itemAtRow:row]];
+			[self.dataSource outlineView:self setObjectValue:[dataCell objectValue] forTableColumn:theColumn byItem:[self itemAtRow:row]];
 			[self updateCell:dataCell];
 		}
 	} else

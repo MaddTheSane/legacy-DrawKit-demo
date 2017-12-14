@@ -27,7 +27,7 @@
 - (void)trackWithEvent:(NSEvent *)event;
 
 - (void)setMainView:(NSView *)aView sizeToFit:(BOOL)stf;
-- (NSView *)mainView;
+@property (readonly, strong) NSView *mainView;
 
 // private stuff:
 
@@ -41,6 +41,6 @@
 
 @interface NSEvent (GCAdditions)
 
-- (BOOL)isMouseEventType;
+@property (getter=isMouseEventType, readonly) BOOL mouseEventType;
 
 @end

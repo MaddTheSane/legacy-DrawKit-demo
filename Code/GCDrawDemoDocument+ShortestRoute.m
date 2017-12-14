@@ -20,8 +20,8 @@ static NSComparisonResult compareLocations(DKDrawableObject *a, DKDrawableObject
 
 	NSPoint pa, pb;
 
-	pa = [a location];
-	pb = [b location];
+	pa = a.location;
+	pb = b.location;
 
 	CGFloat ppa, ppb;
 
@@ -47,7 +47,7 @@ static NSComparisonResult compareLocations(DKDrawableObject *a, DKDrawableObject
 
 	// locate the target layer - active layer of class
 
-	DKObjectOwnerLayer *layer = (DKObjectOwnerLayer *)[[self drawing] activeLayerOfClass:[DKObjectOwnerLayer class]];
+	DKObjectOwnerLayer *layer = (DKObjectOwnerLayer *)[self.drawing activeLayerOfClass:[DKObjectOwnerLayer class]];
 
 	if (layer != nil) {
 		[[layer undoManager] disableUndoRegistration];
@@ -58,12 +58,12 @@ static NSComparisonResult compareLocations(DKDrawableObject *a, DKDrawableObject
 		if (origRoutePath != nil)
 			[layer removeObject:origRoutePath];
 
-		NSArray *objects = [layer objects];
+		NSArray *objects = layer.objects;
 
 		[DKRouteFinder setAlgorithm:kDKUseNearestNeighbour];
 		DKRouteFinder *rf = [DKRouteFinder routeFinderWithObjects:objects withValueForKey:@"location"];
 
-		[rf setProgressDelegate:self];
+		rf.progressDelegate = self;
 		[rf sortedArrayFromArray:objects];
 
 		origRoutePath = [routePath copy];
@@ -71,15 +71,15 @@ static NSComparisonResult compareLocations(DKDrawableObject *a, DKDrawableObject
 
 		CGFloat p1, p2;
 
-		p1 = [rf pathLength];
+		p1 = rf.pathLength;
 
 		[DKRouteFinder setAlgorithm:kDKUseSimulatedAnnealing];
 		rf = [DKRouteFinder routeFinderWithObjects:objects withValueForKey:@"location"];
 
-		[rf setProgressDelegate:self];
+		rf.progressDelegate = self;
 		[rf sortedArrayFromArray:objects];
 
-		p2 = [rf pathLength];
+		p2 = rf.pathLength;
 
 		NSLog(@"path lengths: NN = %f; SA = %f; diff = %f", p1, p2, p1 - p2);
 
@@ -97,10 +97,10 @@ static NSComparisonResult compareLocations(DKDrawableObject *a, DKDrawableObject
 
 	val = [iter nextObject];
 
-	[path moveToPoint:[val pointValue]];
+	[path moveToPoint:val.pointValue];
 
 	while ((val = [iter nextObject])) {
-		[path lineToPoint:[val pointValue]];
+		[path lineToPoint:val.pointValue];
 	}
 
 	//NSLog(@"path length = %f", [path length]);
@@ -136,15 +136,15 @@ static NSComparisonResult compareLocations(DKDrawableObject *a, DKDrawableObject
 
 		NSColor *lineColour;
 
-		if ([rf algorithm] == kDKUseSimulatedAnnealing)
+		if (rf.algorithm == kDKUseSimulatedAnnealing)
 			lineColour = [NSColor redColor];
 		else
 			lineColour = [NSColor magentaColor];
 
 		DKStyle *routeStyle = [DKStyle styleWithFillColour:nil strokeColour:lineColour strokeWidth:3];
-		[path setStyle:routeStyle];
+		path.style = routeStyle;
 
-		DKObjectOwnerLayer *layer = (DKObjectOwnerLayer *)[[self drawing] activeLayerOfClass:[DKObjectOwnerLayer class]];
+		DKObjectOwnerLayer *layer = (DKObjectOwnerLayer *)[self.drawing activeLayerOfClass:[DKObjectOwnerLayer class]];
 
 		if (routePath != nil) {
 			[layer removeObject:routePath];
@@ -153,7 +153,7 @@ static NSComparisonResult compareLocations(DKDrawableObject *a, DKDrawableObject
 		[layer addObject:path];
 		routePath = path;
 
-		NSWindow *win = [NSApp mainWindow];
+		NSWindow *win = NSApp.mainWindow;
 		[win displayIfNeeded];
 	}
 }

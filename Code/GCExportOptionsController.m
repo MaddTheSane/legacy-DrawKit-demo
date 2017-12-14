@@ -23,13 +23,13 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 
 	if (mOptionsDict == nil) {
 		mOptionsDict = [[NSMutableDictionary alloc] init];
-		[mOptionsDict setObject:[NSNumber numberWithFloat:0.67] forKey:NSImageCompressionFactor];
-		[mOptionsDict setObject:[NSNumber numberWithInt:72] forKey:kDKExportPropertiesResolution];
+		mOptionsDict[NSImageCompressionFactor] = @0.67f;
+		mOptionsDict[kDKExportPropertiesResolution] = @72;
 	}
 
 	NSSavePanel *sp = [NSSavePanel savePanel];
 
-	[sp setAccessoryView:mExportAccessoryView];
+	sp.accessoryView = mExportAccessoryView;
 	mSavePanel = sp;
 	mFileType = GCExportFileTypePDF;
 	[self displayOptionsForFileType:mFileType];
@@ -47,7 +47,7 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 
 - (IBAction)formatPopUpAction:(id)sender
 {
-	NSInteger tag = [[sender selectedItem] tag];
+	NSInteger tag = [sender selectedItem].tag;
 
 	mFileType = tag;
 
@@ -56,40 +56,40 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 
 - (IBAction)resolutionPopUpAction:(id)sender
 {
-	NSInteger tag = [[sender selectedItem] tag];
-	[mOptionsDict setObject:@(tag) forKey:kDKExportPropertiesResolution];
+	NSInteger tag = [sender selectedItem].tag;
+	mOptionsDict[kDKExportPropertiesResolution] = @(tag);
 }
 
 - (IBAction)formatIncludeGridAction:(id)sender
 {
-	[mOptionsDict setObject:[NSNumber numberWithBool:[sender intValue]] forKey:kGCIncludeGridInExportedFile];
+	mOptionsDict[kGCIncludeGridInExportedFile] = [NSNumber numberWithBool:([sender intValue] != 0)];
 }
 
 - (IBAction)jpegQualityAction:(id)sender
 {
-	[mOptionsDict setObject:[NSNumber numberWithFloat:[sender floatValue]] forKey:NSImageCompressionFactor];
+	mOptionsDict[NSImageCompressionFactor] = @([sender floatValue]);
 }
 
 - (IBAction)jpegProgressiveAction:(id)sender
 {
-	[mOptionsDict setObject:[NSNumber numberWithBool:[sender intValue]] forKey:NSImageProgressive];
+	mOptionsDict[NSImageProgressive] = [NSNumber numberWithBool:([sender intValue] != 0)];
 }
 
 - (IBAction)tiffCompressionAction:(id)sender
 {
-	NSInteger tag = [[sender selectedItem] tag];
+	NSInteger tag = [sender selectedItem].tag;
 
-	[mOptionsDict setObject:@(tag) forKey:NSImageCompressionMethod];
+	mOptionsDict[NSImageCompressionMethod] = @(tag);
 }
 
 - (IBAction)tiffAlphaAction:(id)sender
 {
-	[mOptionsDict setObject:[NSNumber numberWithBool:[sender intValue]] forKey:kDKExportedImageHasAlpha];
+	mOptionsDict[kDKExportedImageHasAlpha] = [NSNumber numberWithBool:([sender intValue] != 0)];
 }
 
 - (IBAction)pngInterlaceAction:(id)sender
 {
-	[mOptionsDict setObject:[NSNumber numberWithBool:[sender intValue]] forKey:NSImageInterlaced];
+	mOptionsDict[NSImageInterlaced] = [NSNumber numberWithBool:([sender intValue] != 0)];
 }
 
 - (void)displayOptionsForFileType:(GCExportFileTypes)type
@@ -103,12 +103,12 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 
 	// set controls in options to match current dict state
 
-	[mJPEGQualitySlider setFloatValue:[[mOptionsDict objectForKey:NSImageCompressionFactor] floatValue]];
-	[mJPEGProgressiveCheckbox setIntValue:[[mOptionsDict objectForKey:NSImageProgressive] intValue]];
-	[mPNGInterlaceCheckbox setIntValue:[[mOptionsDict objectForKey:NSImageInterlaced] intValue]];
-	[mTIFFCompressionTypePopUpButton selectItemWithTag:[[mOptionsDict objectForKey:NSImageCompressionMethod] intValue]];
-	[mTIFFAlphaCheckbox setIntValue:[[mOptionsDict objectForKey:kDKExportedImageHasAlpha] intValue]];
-	[mExportResolutionPopUpButton selectItemWithTag:[[mOptionsDict objectForKey:kDKExportPropertiesResolution] intValue]];
+	mJPEGQualitySlider.floatValue = [mOptionsDict[NSImageCompressionFactor] floatValue];
+	mJPEGProgressiveCheckbox.intValue = [mOptionsDict[NSImageProgressive] intValue];
+	mPNGInterlaceCheckbox.intValue = [mOptionsDict[NSImageInterlaced] intValue];
+	[mTIFFCompressionTypePopUpButton selectItemWithTag:[mOptionsDict[NSImageCompressionMethod] intValue]];
+	mTIFFAlphaCheckbox.intValue = [mOptionsDict[kDKExportedImageHasAlpha] intValue];
+	[mExportResolutionPopUpButton selectItemWithTag:[mOptionsDict[kDKExportPropertiesResolution] intValue]];
 
 	NSString *rft;
 
@@ -145,7 +145,7 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 		if (mDelegate && [mDelegate respondsToSelector:@selector(performExportType:withOptions:)]) {
 			// call the delegate to perform the export with the data we've obtained from the user.
 
-			[mOptionsDict setObject:[sp URL] forKey:kGCExportedFileURL];
+			mOptionsDict[kGCExportedFileURL] = sp.URL;
 
 			LogEvent_(kFileEvent, @"export controller completed (OK), type = %ld, dict = %@", (long)mFileType, mOptionsDict);
 

@@ -27,9 +27,9 @@
 
 - (void)awakeFromNib
 {
-	[mQualityThrottlingCheckbox setIntValue:[GCDrawDemoDocument defaultQualityModulation]];
-	[mUndoSelectionsCheckbox setIntValue:[DKObjectDrawingLayer defaultSelectionChangesAreUndoable]];
-	[mStorageTypeCheckbox setIntValue:0];
+	mQualityThrottlingCheckbox.intValue = [GCDrawDemoDocument defaultQualityModulation];
+	mUndoSelectionsCheckbox.intValue = [DKObjectDrawingLayer defaultSelectionChangesAreUndoable];
+	mStorageTypeCheckbox.intValue = 0;
 }
 
 @end

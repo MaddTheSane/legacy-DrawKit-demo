@@ -114,7 +114,7 @@ WTKeyValueEncodeObject(id val)
 		id nob = [[factory alloc] initWithCoder:(NSCoder *)self];
 		return nob;
 	} else {
-		NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:[self count]];
+		NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:self.count];
 		NSEnumerator *curs = [self keyEnumerator];
 		NSString *key;
 		id value;
@@ -130,7 +130,7 @@ WTKeyValueEncodeObject(id val)
 
 - (id)archiveFromPropertyListFormat
 {
-	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:[self count]];
+	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:self.count];
 	NSEnumerator *curs = [self keyEnumerator];
 	NSString *key;
 	id value;
@@ -147,6 +147,9 @@ WTKeyValueEncodeObject(id val)
 - (BOOL)decodeBoolForKey:(NSString *)key
 {
 	NSString *b = [self valueForKey:key];
+	if ([b isKindOfClass:[NSNumber class]]) {
+		return [(NSNumber*)b boolValue];
+	}
 	if (b == nil)
 		return NO;
 	if ([b isEqualToString:@"YES"])
@@ -190,17 +193,17 @@ WTKeyValueEncodeObject(id val)
 
 - (void)encodeBool:(BOOL)intv forKey:(NSString *)key
 {
-	[self setValue:(intv ? @"YES" : @"NO")forKey:key];
+	[self setValue:@(intv) forKey:key];
 }
 
 - (void)encodeFloat:(float)intv forKey:(NSString *)key
 {
-	[self setValue:[NSNumber numberWithFloat:intv] forKey:key];
+	[self setValue:@(intv) forKey:key];
 }
 
 - (void)encodeInt:(int)intv forKey:(NSString *)key
 {
-	[self setValue:[NSNumber numberWithInt:intv] forKey:key];
+	[self setValue:@(intv) forKey:key];
 }
 
 - (void)encodeObject:(id)intv forKey:(NSString *)key

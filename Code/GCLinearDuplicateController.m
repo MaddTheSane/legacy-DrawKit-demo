@@ -27,22 +27,22 @@
 - (IBAction)okAction:(id)sender
 {
 #pragma unused(sender)
-	[[self window] orderOut:self];
-	[NSApp endSheet:[self window] returnCode:NSOKButton];
+	[self.window orderOut:self];
+	[NSApp endSheet:self.window returnCode:NSOKButton];
 }
 
 - (IBAction)cancelAction:(id)sender
 {
 #pragma unused(sender)
-	[[self window] orderOut:self];
-	[NSApp endSheet:[self window] returnCode:NSCancelButton];
+	[self.window orderOut:self];
+	[NSApp endSheet:self.window returnCode:NSCancelButton];
 }
 
 - (void)beginLinearDuplicationDialog:(NSWindow *)parentWindow linearDelegate:(id)delegate
 {
 	mDelegateRef = delegate;
 
-	[NSApp beginSheet:[self window]
+	[NSApp beginSheet:self.window
 		modalForWindow:parentWindow
 		 modalDelegate:self
 		didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
@@ -57,11 +57,11 @@
 	if (returnCode == NSOKButton) {
 		// extract parameters and do something with them
 
-		int copies = [mNumberOfCopiesTextField intValue];
+		int copies = mNumberOfCopiesTextField.intValue;
 		NSSize offset;
 
-		offset.width = [mXOffsetTextField floatValue];
-		offset.height = [mYOffsetTextField floatValue];
+		offset.width = mXOffsetTextField.floatValue;
+		offset.height = mYOffsetTextField.floatValue;
 
 		LogEvent_(kReactiveEvent, @"dialog data: copies %d; offset {%.2f,%.2f}", copies, offset.width, offset.height);
 
@@ -71,12 +71,12 @@
 
 - (void)conditionallyEnableOKButton
 {
-	if ([mNumberOfCopiesTextField stringValue] == nil ||
-		[[mNumberOfCopiesTextField stringValue] isEqualToString:@""] ||
-		[mXOffsetTextField stringValue] == nil ||
-		[[mXOffsetTextField stringValue] isEqualToString:@""] ||
-		[mYOffsetTextField stringValue] == nil ||
-		[[mYOffsetTextField stringValue] isEqualToString:@""])
+	if (mNumberOfCopiesTextField.stringValue == nil ||
+		[mNumberOfCopiesTextField.stringValue isEqualToString:@""] ||
+		mXOffsetTextField.stringValue == nil ||
+		[mXOffsetTextField.stringValue isEqualToString:@""] ||
+		mYOffsetTextField.stringValue == nil ||
+		[mYOffsetTextField.stringValue isEqualToString:@""])
 		[mOKButton setEnabled:NO];
 	else
 		[mOKButton setEnabled:YES];

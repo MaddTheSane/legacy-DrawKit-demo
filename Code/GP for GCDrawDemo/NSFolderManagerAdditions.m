@@ -43,7 +43,7 @@
 	// returns a path to a folder within the applicaiton support folder having the same name as the app
 	// itself. This is a good place to place support files.
 
-	NSString *appname = [[NSBundle mainBundle] bundleIdentifier];
+	NSString *appname = [NSBundle mainBundle].bundleIdentifier;
 	NSString *path = [[self applicationSupportFolder] stringByAppendingPathComponent:appname];
 
 	// create this folder if it doesn't exist
@@ -67,7 +67,7 @@
 
 - (NSString *)writeContents:(NSData *)data toUniqueFile:(NSString *)fileName inDirectory:(NSString *)path
 {
-	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSFileExtensionHidden, nil];
+	NSDictionary *attributes = @{NSFileExtensionHidden: @YES};
 	NSString *unique = [self uniqueFilenameForFilename:fileName inDirectory:path];
 
 	path = [path stringByAppendingPathComponent:unique];
@@ -92,8 +92,8 @@
 	BOOL nameOK = YES;
 	int renameIndex = 0;
 
-	root = [name stringByDeletingPathExtension];
-	extension = [name pathExtension];
+	root = name.stringByDeletingPathExtension;
+	extension = name.pathExtension;
 
 	do {
 		if (renameIndex > 0)

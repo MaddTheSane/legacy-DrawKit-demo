@@ -34,7 +34,7 @@
 #pragma mark -
 - (void)drawSwatches:(NSRect)rect
 {
-	NSRect br = [self bounds];
+	NSRect br = self.bounds;
 	NSInteger swx, swy;
 
 	swx = br.size.width / COLS;
@@ -76,17 +76,17 @@
 
 	// clip to a circle fitting bounds
 
-	[[NSBezierPath bezierPathWithOvalInRect:NSInsetRect([self bounds], 5, 5)] addClip];
+	[[NSBezierPath bezierPathWithOvalInRect:NSInsetRect(self.bounds, 5, 5)] addClip];
 
 	// composite image + brightness to view
 
-	if ([self brightness] < 1.0) {
+	if (self.brightness < 1.0) {
 		[[NSColor blackColor] set];
 		NSRectFill(rect);
 	}
 
-	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
-	[specImage drawInRect:rect fromRect:rect operation:NSCompositeCopy fraction:[self brightness]];
+	[NSGraphicsContext currentContext].imageInterpolation = NSImageInterpolationHigh;
+	[specImage drawInRect:rect fromRect:rect operation:NSCompositeCopy fraction:self.brightness];
 
 	// draw the current colour location
 
@@ -99,7 +99,7 @@
 #pragma mark -
 - (NSColor *)color
 {
-	if ([self mode] == kDKColourPickerModeSwatches) {
+	if (self.mode == kDKColourPickerModeSwatches) {
 		if (mSel.x < 0 || mSel.x > (COLS - 1) || mSel.y < 0 || mSel.y > (ROWS - 1))
 			return mNonSelectColour;
 		else
@@ -114,7 +114,7 @@
 
 	CGFloat hue, sat;
 	CGFloat angle, radius, mr;
-	NSRect br = NSInsetRect([self bounds], 4, 4);
+	NSRect br = NSInsetRect(self.bounds, 4, 4);
 	NSPoint cp;
 
 	cp.x = NSMidX(br);
@@ -137,7 +137,7 @@
 	hue = 1.0 - (angle / (2 * M_PI));
 	sat = radius / mr;
 
-	return [NSColor colorWithCalibratedHue:hue saturation:sat brightness:[self brightness] alpha:1.0];
+	return [NSColor colorWithCalibratedHue:hue saturation:sat brightness:self.brightness alpha:1.0];
 }
 
 - (NSPoint)pointForSpectrumColor:(NSColor *)colour
@@ -146,11 +146,11 @@
 
 	NSColor *rgb = [colour colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
 
-	CGFloat hue = [rgb hueComponent];
-	CGFloat sat = [rgb saturationComponent];
+	CGFloat hue = rgb.hueComponent;
+	CGFloat sat = rgb.saturationComponent;
 	CGFloat angle, mr;
 
-	NSRect br = NSInsetRect([self bounds], 4, 4);
+	NSRect br = NSInsetRect(self.bounds, 4, 4);
 	NSPoint cp, p;
 
 	cp.x = NSMidX(br);
@@ -172,7 +172,7 @@
 
 - (BOOL)pointIsInColourwheel:(NSPoint)p
 {
-	NSRect br = NSInsetRect([self bounds], 4, 4);
+	NSRect br = NSInsetRect(self.bounds, 4, 4);
 	NSPoint cp;
 	CGFloat mr, radius;
 
@@ -195,7 +195,7 @@
 		mBright = brightness;
 		[self setNeedsDisplay:YES];
 
-		if ([self mode] == kDKColourPickerModeSpectrum)
+		if (self.mode == kDKColourPickerModeSpectrum)
 			[self sendToTarget];
 	}
 }
@@ -210,7 +210,7 @@
 {
 	// returns x and y coordinates of the swatch containing p
 
-	NSRect br = [self bounds];
+	NSRect br = self.bounds;
 	NSPoint sp;
 
 	if (NSPointInRect(p, br)) {
@@ -245,10 +245,10 @@
 		//	LogEvent_(kReactiveEvent, @"clist = %@; colours = %d", cList, [[cList allKeys] count] );
 	}
 
-	NSArray *keys = [cList allKeys];
+	NSArray *keys = cList.allKeys;
 
-	NSInteger i = (NSInteger)indx % [keys count];
-	return [cList colorWithKey:[keys objectAtIndex:i]];
+	NSInteger i = (NSInteger)indx % keys.count;
+	return [cList colorWithKey:keys[i]];
 
 #else
 	CGFloat r, g, b;
@@ -297,8 +297,8 @@
 
 - (NSRect)rectForSwatch:(NSPoint)sp
 {
-	if ([self mode] == kDKColourPickerModeSwatches) {
-		NSRect br = [self bounds];
+	if (self.mode == kDKColourPickerModeSwatches) {
+		NSRect br = self.bounds;
 		NSInteger swx, swy;
 
 		swx = br.size.width / COLS;
@@ -316,7 +316,7 @@
 	if (!NSEqualPoints(NSMakePoint(-1, -1), p))
 		[mInfoWin positionNearPoint:p inView:self];
 
-	NSString *cf = [[self color] hexString];
+	NSString *cf = [self color].hexString;
 	[mInfoWin setStringValue:cf];
 }
 
@@ -346,7 +346,7 @@
 
 	// set brightness to the colours brightness
 
-	[self setBrightness:[[colour colorUsingColorSpaceName:NSCalibratedRGBColorSpace] brightnessComponent]];
+	self.brightness = [colour colorUsingColorSpaceName:NSCalibratedRGBColorSpace].brightnessComponent;
 }
 
 - (void)setShowsInfo:(BOOL)si
@@ -358,7 +358,7 @@
 #pragma mark As an NSView
 - (void)drawRect:(NSRect)rect
 {
-	if ([self mode] == kDKColourPickerModeSwatches)
+	if (self.mode == kDKColourPickerModeSwatches)
 		[self drawSwatches:rect];
 	else
 		[self drawSpectrum:rect];
@@ -366,13 +366,13 @@
 
 - (void)flagsChanged:(NSEvent *)theEvent
 {
-	if ([theEvent modifierFlags] & NSAlternateKeyMask)
-		[self setMode:kDKColourPickerModeSwatches];
+	if (theEvent.modifierFlags & NSAlternateKeyMask)
+		self.mode = kDKColourPickerModeSwatches;
 	else
-		[self setMode:kDKColourPickerModeSpectrum];
+		self.mode = kDKColourPickerModeSpectrum;
 }
 
-- (id)initWithFrame:(NSRect)frame
+- (instancetype)initWithFrame:(NSRect)frame
 {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
@@ -403,7 +403,7 @@
 - (void)mouseDown:(NSEvent *)event
 {
 	if (mShowsInfo) {
-		NSInteger wn = [[self window] windowNumber];
+		NSInteger wn = self.window.windowNumber;
 
 		[mInfoWin orderWindow:NSWindowAbove relativeTo:wn];
 		[self updateInfoAtPoint:NSZeroPoint];
@@ -414,9 +414,9 @@
 
 - (void)mouseDragged:(NSEvent *)event
 {
-	NSPoint s, p = [self convertPoint:[event locationInWindow] fromView:nil];
+	NSPoint s, p = [self convertPoint:event.locationInWindow fromView:nil];
 
-	if ([self mode] == kDKColourPickerModeSwatches)
+	if (self.mode == kDKColourPickerModeSwatches)
 		s = [self swatchAtPoint:p];
 	else
 		s = p;
@@ -429,9 +429,9 @@
 
 		// in colourwheel mode, if sel is outside the wheel, set it to the undefined colour position
 
-		if ([self mode] == kDKColourPickerModeSpectrum && ![self pointIsInColourwheel:p]) {
+		if (self.mode == kDKColourPickerModeSpectrum && ![self pointIsInColourwheel:p]) {
 			mSel = [self pointForSpectrumColor:mNonSelectColour];
-			[self setBrightness:[mNonSelectColour brightnessComponent]];
+			self.brightness = mNonSelectColour.brightnessComponent;
 			[self setNeedsDisplayInRect:[self rectForSwatch:mSel]];
 		}
 	}
@@ -450,7 +450,7 @@
 
 - (void)viewDidMoveToWindow
 {
-	NSWindow *win = [self window];
+	NSWindow *win = self.window;
 	if (win == nil)
 		[mInfoWin orderOut:nil];
 }
@@ -459,9 +459,9 @@
 #pragma mark As an NSResponder
 - (void)scrollWheel:(NSEvent *)event
 {
-	if ([self mode] == kDKColourPickerModeSpectrum) {
-		CGFloat deltay = [event deltaY] / 150.0;
-		[self setBrightness:[self brightness] - deltay];
+	if (self.mode == kDKColourPickerModeSpectrum) {
+		CGFloat deltay = event.deltaY / 150.0;
+		self.brightness = self.brightness - deltay;
 		[self updateInfoAtPoint:NSMakePoint(-1, -1)];
 	}
 }

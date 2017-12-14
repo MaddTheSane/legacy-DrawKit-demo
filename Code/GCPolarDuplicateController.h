@@ -37,6 +37,6 @@
 
 - (void)doPolarDuplicateCopies:(NSInteger)copies centre:(NSPoint)cp incAngle:(CGFloat)angle rotateCopies:(BOOL)rotCopies;
 - (void)doAutoPolarDuplicateWithCentre:(NSPoint)cp;
-- (NSInteger)countOfItemsInSelection;
+@property (readonly) NSInteger countOfItemsInSelection;
 
 @end

@@ -51,10 +51,10 @@
 
 - (NSImage *)cachedImageForSize:(NSSize)size
 {
-	NSImage *img = [self image];
+	NSImage *img = self.image;
 	if (img == nil) {
 		img = [self makeCacheImageWithSize:size];
-		[self setObjectValue:img];
+		self.objectValue = img;
 	}
 	return img;
 }
@@ -129,10 +129,10 @@
 	[super drawWithFrame:cellFrame inView:controlView];
 
 	if ([controlView isKindOfClass:[GCGradientWell class]]) {
-		if ([(GCGradientWell *)controlView isActiveWell]) {
+		if (((GCGradientWell *)controlView).activeWell) {
 			NSBezierPath *rr = [NSBezierPath roundRectInRect:NSInsetRect(cellFrame, 2, 2) andCornerRadius:5];
 
-			[rr setLineWidth:3];
+			rr.lineWidth = 3;
 
 			[[NSColor colorForControlTint:[NSColor currentControlTint]] set];
 			[rr stroke];
@@ -158,32 +158,31 @@
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
 {
 #pragma unused(cellFrame, untilMouseUp)
-	NSPoint p = [controlView convertPoint:[theEvent locationInWindow] fromView:nil];
+	NSPoint p = [controlView convertPoint:theEvent.locationInWindow fromView:nil];
 
 	if ([self startTrackingAt:p inView:controlView]) {
-		NSEventMask mask;
 		NSEvent *event = nil;
 		BOOL loop = YES;
 		NSPoint currentPoint, lastPoint;
 
 		mEnableCache = NO;
-		mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
+		NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
 		lastPoint = p;
 
 		while (loop) {
-			event = [[controlView window] nextEventMatchingMask:mask];
+			event = [controlView.window nextEventMatchingMask:mask];
 
-			currentPoint = [controlView convertPoint:[event locationInWindow] fromView:nil];
+			currentPoint = [controlView convertPoint:event.locationInWindow fromView:nil];
 
-			switch ([event type]) {
+			switch (event.type) {
 				case NSLeftMouseUp:
 					[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:YES];
 					loop = NO;
 
 					// set active if allowed to become (default is YES)
 
-					if ([[self controlView] isKindOfClass:[GCGradientWell class]])
-						[(GCGradientWell *)[self controlView] toggleActiveWell];
+					if ([self.controlView isKindOfClass:[GCGradientWell class]])
+						[(GCGradientWell *)self.controlView toggleActiveWell];
 					break;
 
 				case NSLeftMouseDragged:
@@ -198,7 +197,7 @@
 
 			lastPoint = currentPoint;
 		}
-		[[controlView window] discardEventsMatchingMask:mask beforeEvent:event];
+		[controlView.window discardEventsMatchingMask:mask beforeEvent:event];
 		mEnableCache = YES;
 	}
 
@@ -208,7 +207,7 @@
 #pragma mark -
 #pragma mark As an NSObject
 
-- (id)init
+- (instancetype)init
 {
 	self = [super initImageCell:nil];
 	if (self != nil) {
@@ -220,8 +219,8 @@
 	}
 	if (self != nil) {
 		[self setContinuous:YES];
-		[self setImageFrameStyle:NSImageFrameGrayBezel];
-		[self setImageScaling:NSScaleToFit];
+		self.imageFrameStyle = NSImageFrameGrayBezel;
+		self.imageScaling = NSScaleToFit;
 	}
 	return self;
 }

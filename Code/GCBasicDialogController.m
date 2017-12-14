@@ -25,9 +25,9 @@
 {
 	mRunningAsSheet = NO;
 
-	NSModalResponse result = [NSApp runModalForWindow:[self window]];
+	NSModalResponse result = [NSApp runModalForWindow:self.window];
 
-	[[self window] orderOut:self];
+	[self.window orderOut:self];
 
 	return result;
 }
@@ -36,7 +36,7 @@
 {
 	mRunningAsSheet = YES;
 
-	[NSApp beginSheet:[self window]
+	[NSApp beginSheet:self.window
 		modalForWindow:parent
 		 modalDelegate:delegate
 		didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
@@ -55,8 +55,8 @@
 #pragma unused(sender)
 
 	if (mRunningAsSheet) {
-		[[self window] orderOut:self];
-		[NSApp endSheet:[self window] returnCode:NSOKButton];
+		[self.window orderOut:self];
+		[NSApp endSheet:self.window returnCode:NSOKButton];
 	} else
 		[NSApp stopModalWithCode:NSOKButton];
 }
@@ -66,8 +66,8 @@
 #pragma unused(sender)
 
 	if (mRunningAsSheet) {
-		[[self window] orderOut:self];
-		[NSApp endSheet:[self window] returnCode:NSCancelButton];
+		[self.window orderOut:self];
+		[NSApp endSheet:self.window returnCode:NSCancelButton];
 	} else
 		[NSApp stopModalWithCode:NSCancelButton];
 }

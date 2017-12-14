@@ -18,7 +18,7 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 
 	[mLayersTable reloadData];
 	if (drawing != nil) {
-		NSInteger row = [drawing indexOfLayer:[drawing activeLayer]];
+		NSInteger row = [drawing indexOfLayer:drawing.activeLayer];
 
 		LogEvent_(kReactiveEvent, @"index of active layer = %ld", (long)row);
 
@@ -38,23 +38,23 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 #pragma unused(sender)
 
 	DKLayer *layer = [[DKObjectDrawingLayer alloc] init];
-	[[self drawing] addLayer:layer andActivateIt:YES];
+	[self.drawing addLayer:layer andActivateIt:YES];
 
-	NSString *action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Add Layer", @""), [layer layerName]];
+	NSString *action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Add Layer", @""), layer.layerName];
 
-	[[[self drawing] undoManager] setActionName:action];
+	[self.drawing.undoManager setActionName:action];
 }
 
 - (IBAction)removeLayerButtonAction:(id)sender
 {
 #pragma unused(sender)
 
-	DKLayer *active = [[self drawing] activeLayer];
+	DKLayer *active = self.drawing.activeLayer;
 
-	NSString *action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Delete Layer", @""), [active layerName]];
-	[[self drawing] removeLayer:active andActivateLayer:nil];
+	NSString *action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Delete Layer", @""), active.layerName];
+	[self.drawing removeLayer:active andActivateLayer:nil];
 
-	[[[self drawing] undoManager] setActionName:action];
+	[self.drawing.undoManager setActionName:action];
 }
 
 - (IBAction)autoActivationAction:(id)sender
@@ -62,7 +62,7 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 	DKViewController *vc = [self currentMainViewController];
 
 	if (vc != nil)
-		[vc setActivatesLayersAutomatically:[sender integerValue]];
+		vc.activatesLayersAutomatically = [sender integerValue];
 }
 
 #pragma mark -
@@ -70,31 +70,31 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 {
 #pragma unused(note)
 
-	[self setDrawing:[self drawing]];
+	self.drawing = self.drawing;
 }
 
 #pragma mark -
 #pragma mark As an NSTableView delegate
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
-	if ([aNotification object] == mLayersTable) {
-		NSInteger row = [mLayersTable selectedRow];
+	if (aNotification.object == mLayersTable) {
+		NSInteger row = mLayersTable.selectedRow;
 
 		LogEvent_(kReactiveEvent, @"layer selection changed to %ld", (long)row);
 
 		if (row != -1)
-			[[self drawing] setActiveLayer:[[self drawing] objectInLayersAtIndex:row]];
+			[self.drawing setActiveLayer:[self.drawing objectInLayersAtIndex:row]];
 	}
 }
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-	if ([[tableColumn identifier] isEqualToString:@"name"]) {
+	if ([tableColumn.identifier isEqualToString:@"name"]) {
 		NSColor *fontColor;
 		//NSColor *shadowColor;
 		NSFont *font = [cell font];
 
-		if ([[tableView selectedRowIndexes] containsIndex:row] && ([tableView editedRow] != row)) {
+		if ([tableView.selectedRowIndexes containsIndex:row] && (tableView.editedRow != row)) {
 			fontColor = [NSColor whiteColor];
 			//shadowColor = [NSColor colorWithDeviceRed:(127.0/255.0) green:(140.0/255.0) blue:(160.0/255.0) alpha:1.0];
 
@@ -123,7 +123,7 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
 #pragma unused(aTableView)
-	return [[self drawing] countOfLayers];
+	return self.drawing.countOfLayers;
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
@@ -133,13 +133,13 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 	NSData *rowData = [pboard dataForType:kDKTableRowInternalDragPasteboardType];
 	NSIndexSet *rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowData];
 
-	NSInteger dragRow = [rowIndexes firstIndex];
+	NSInteger dragRow = rowIndexes.firstIndex;
 
-	DKLayer *layer = [[self drawing] objectInLayersAtIndex:dragRow];
+	DKLayer *layer = [self.drawing objectInLayersAtIndex:dragRow];
 
 	if (layer) {
-		[[self drawing] moveLayer:layer toIndex:row];
-		[[[self drawing] undoManager] setActionName:NSLocalizedString(@"Reorder Layers", @"")];
+		[self.drawing moveLayer:layer toIndex:row];
+		[self.drawing.undoManager setActionName:NSLocalizedString(@"Reorder Layers", @"")];
 		return YES;
 	} else
 		return NO;
@@ -148,14 +148,14 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 #pragma unused(aTableView)
-	DKLayer *layer = [[self drawing] objectInLayersAtIndex:rowIndex];
-	id val = [layer valueForKey:[aTableColumn identifier]];
+	DKLayer *layer = [self.drawing objectInLayersAtIndex:rowIndex];
+	id val = [layer valueForKey:aTableColumn.identifier];
 
 	// hack - if a temporary colour is set for the requested row and column, return it instead of getting it from the drawing.
 	// this permits the cutsom cells that display this colour in the table to update "live" without having to change the data model
 	// which is potentially very expensive.
 
-	if (rowIndex == mTemporaryColourRow && mTemporaryColour != nil && [[aTableColumn identifier] isEqualToString:@"selectionColour"])
+	if (rowIndex == mTemporaryColourRow && mTemporaryColour != nil && [aTableColumn.identifier isEqualToString:@"selectionColour"])
 		val = mTemporaryColour;
 
 	//NSLog(@"table value = %@", [val stringValue] );
@@ -166,8 +166,8 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
 #pragma unused(aTableView)
-	DKLayer *layer = [[self drawing] objectInLayersAtIndex:rowIndex];
-	[layer setValue:anObject forKey:[aTableColumn identifier]];
+	DKLayer *layer = [self.drawing objectInLayersAtIndex:rowIndex];
+	[layer setValue:anObject forKey:aTableColumn.identifier];
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)indexes toPasteboard:(NSPasteboard *)pb
@@ -175,7 +175,7 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 #pragma unused(aTableView)
 	NSData *data = [NSKeyedArchiver archivedDataWithRootObject:indexes];
 
-	[pb declareTypes:[NSArray arrayWithObject:kDKTableRowInternalDragPasteboardType] owner:self];
+	[pb declareTypes:@[kDKTableRowInternalDragPasteboardType] owner:self];
 	[pb setData:data forType:kDKTableRowInternalDragPasteboardType];
 	return YES;
 }
@@ -205,34 +205,34 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 - (void)redisplayContentForSelection:(NSArray *)selection
 {
 #pragma unused(selection)
-	[self setDrawing:[self currentDrawing]];
+	self.drawing = [self currentDrawing];
 }
 
 - (void)documentDidChange:(NSNotification *)note
 {
-	LogEvent_(kReactiveEvent, @"layers palette got document change, main = %@", [note object]);
+	LogEvent_(kReactiveEvent, @"layers palette got document change, main = %@", note.object);
 
-	if ([[note name] isEqualToString:NSWindowDidResignMainNotification]) {
+	if ([note.name isEqualToString:NSWindowDidResignMainNotification]) {
 		// delay here to ensure that the document/drawing has really gone for reloading the table
 		[self performSelector:@selector(setDrawing:) withObject:nil afterDelay:0.2];
 	} else {
-		DKDrawing *drawing = [self drawingForTargetWindow:[note object]];
+		DKDrawing *drawing = [self drawingForTargetWindow:note.object];
 
-		[self setDrawing:drawing];
-		[[self window] setTitle:[NSString stringWithFormat:@"%@ - Layers", [[note object] title]]];
+		self.drawing = drawing;
+		self.window.title = [NSString stringWithFormat:@"%@ - Layers", [note.object title]];
 
 		// see if the window contains a DKDrawingView and controller
 
-		id view = [[note object] firstResponder];
+		id view = [note.object firstResponder];
 
 		// if view is nil try initial first responder
 
 		if (view == nil)
-			view = [[note object] initialFirstResponder];
+			view = [note.object initialFirstResponder];
 
 		if (view != nil && [view isKindOfClass:[DKDrawingView class]]) {
-			DKViewController *vc = [(DKDrawingView *)view controller];
-			[mAutoActivateCheckbox setIntValue:[vc activatesLayersAutomatically]];
+			DKViewController *vc = ((DKDrawingView *)view).controller;
+			mAutoActivateCheckbox.intValue = vc.activatesLayersAutomatically;
 		}
 	}
 }
@@ -241,36 +241,36 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 #pragma mark As an NSWindowController
 - (void)windowDidLoad
 {
-	[(NSPanel *)[self window] setFloatingPanel:YES];
-	[(NSPanel *)[self window] setBecomesKeyOnlyIfNeeded:YES];
+	[(NSPanel *)self.window setFloatingPanel:YES];
+	[(NSPanel *)self.window setBecomesKeyOnlyIfNeeded:YES];
 
 	[mLayersTable setAllowsEmptySelection:YES];
 
 	// set the cell type of the colours column to GCColourCell
 
 	GCColourCell *cc = [[GCColourCell alloc] init];
-	[[mLayersTable tableColumnWithIdentifier:@"selectionColour"] setDataCell:cc];
+	[mLayersTable tableColumnWithIdentifier:@"selectionColour"].dataCell = cc;
 
 	// subscribe to active layer notifications so the table can be kept in synch
 
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawingDidReorderLayersNotification:) name:kDKLayerGroupDidReorderLayers object:[self drawing]];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawingDidReorderLayersNotification:) name:kDKLayerGroupDidAddLayer object:[self drawing]];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawingDidReorderLayersNotification:) name:kDKLayerGroupDidRemoveLayer object:[self drawing]];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawingDidReorderLayersNotification:) name:kDKLayerGroupDidReorderLayers object:self.drawing];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawingDidReorderLayersNotification:) name:kDKLayerGroupDidAddLayer object:self.drawing];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawingDidReorderLayersNotification:) name:kDKLayerGroupDidRemoveLayer object:self.drawing];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(layerDidChange:) name:kDKLayerVisibleStateDidChange object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(layerDidChange:) name:kDKLayerLockStateDidChange object:nil];
 
 	// position the palette at the right hand edge of the screen
 
-	NSRect panelFrame = [[self window] frame];
-	NSRect screenFrame = [[[NSScreen screens] objectAtIndex:0] visibleFrame];
+	NSRect panelFrame = self.window.frame;
+	NSRect screenFrame = [NSScreen screens][0].visibleFrame;
 
 	panelFrame.origin.x = NSMaxX(screenFrame) - NSWidth(panelFrame) - 20;
-	[[self window] setFrameOrigin:panelFrame.origin];
+	[self.window setFrameOrigin:panelFrame.origin];
 
 	// select the active layer in the table
 
-	if ([self drawing] != nil) {
-		NSInteger row = [[self drawing] indexOfLayer:[[self drawing] activeLayer]];
+	if (self.drawing != nil) {
+		NSInteger row = [self.drawing indexOfLayer:self.drawing.activeLayer];
 
 		if (row != NSNotFound)
 			[mLayersTable selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
@@ -278,13 +278,13 @@ NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPaste
 
 	// allow row-drag reordering
 
-	[mLayersTable registerForDraggedTypes:[NSArray arrayWithObject:kDKTableRowInternalDragPasteboardType]];
-	[[self window] setTitle:[NSString stringWithFormat:@"%@ - Layers", [[NSApp mainWindow] title]]];
+	[mLayersTable registerForDraggedTypes:@[kDKTableRowInternalDragPasteboardType]];
+	self.window.title = [NSString stringWithFormat:@"%@ - Layers", NSApp.mainWindow.title];
 
 	// ready to go - set delegate. This isn't set in the nib to avoid the race condition that occurs due to the delegate getting a premature
 	// selection change notification while awaking from nib that incorrectly switches the active layer to index #0.
 
-	[mLayersTable setDelegate:self];
+	mLayersTable.delegate = self;
 }
 
 - (NSString *)windowNibName

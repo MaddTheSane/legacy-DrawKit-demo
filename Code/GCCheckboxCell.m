@@ -19,20 +19,20 @@
 	NSEvent *evt;
 	BOOL loop = YES;
 	BOOL wasIn, isIn;
-	int mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
+	NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
 
 	wasIn = YES;
 
 	while (loop) {
-		evt = [[controlView window] nextEventMatchingMask:mask];
+		evt = [controlView.window nextEventMatchingMask:mask];
 
-		switch ([evt type]) {
+		switch (evt.type) {
 			case NSLeftMouseDragged: {
-				NSPoint p = [controlView convertPoint:[evt locationInWindow] fromView:nil];
+				NSPoint p = [controlView convertPoint:evt.locationInWindow fromView:nil];
 				isIn = NSPointInRect(p, cellFrame);
 
 				if (isIn != wasIn) {
-					[self setHighlighted:isIn];
+					self.highlighted = isIn;
 					[controlView setNeedsDisplayInRect:cellFrame];
 					wasIn = isIn;
 				}
@@ -52,7 +52,7 @@
 	// if the mouse was in the cell when it was released, flip the checkbox state
 
 	if (wasIn)
-		[self setIntValue:![self intValue]];
+		self.intValue = !self.intValue;
 
 	[controlView setNeedsDisplayInRect:cellFrame];
 
@@ -63,7 +63,7 @@
 
 - (char)charValue
 {
-	return (char)[self intValue];
+	return (char)self.intValue;
 }
 
 @end

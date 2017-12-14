@@ -45,7 +45,7 @@ static NSInteger sMFlags = 0;
 	// gradient modes/types
 
 	mMiniControls = [[GCMiniControlCluster alloc] initWithBounds:NSZeroRect inCluster:nil];
-	[mMiniControls setDelegate:self];
+	mMiniControls.delegate = self;
 	[mMiniControls forceVisible:NO];
 
 	GCMiniControlCluster *mcc;
@@ -100,9 +100,9 @@ static NSInteger sMFlags = 0;
 	GCMiniRadialControls *rc;
 
 	if ([ident isEqualToString:kLinearAngleControlID] || [ident isEqualToString:kSweepAngleControlID]) {
-		[[self gradient] setAngle:[ctrl value]];
+		[self gradient].angle = ctrl.value;
 	} else if ([ident isEqualToString:kSweepSegmentsControlID]) {
-		NSInteger seg = [ctrl value] * 50;
+		NSInteger seg = ctrl.value * 50;
 		if (seg < 4)
 			seg = 0;
 
@@ -112,16 +112,16 @@ static NSInteger sMFlags = 0;
 
 		//	LogEvent_(kStateEvent, @"setting starting radius: %f", [rc radius]);
 
-		NSPoint p = [[self gradient] mapPoint:[rc centre] fromRect:mControlBoundsRect];
+		NSPoint p = [[self gradient] mapPoint:rc.centre fromRect:mControlBoundsRect];
 		[[self gradient] setRadialStartingPoint:p];
-		[[self gradient] setRadialStartingRadius:[rc radius] / mControlBoundsRect.size.width];
+		[[self gradient] setRadialStartingRadius:rc.radius / mControlBoundsRect.size.width];
 	} else if ([ident isEqualToString:kRadialEndControlID]) {
 		rc = (GCMiniRadialControls *)ctrl;
 
 		//	LogEvent_(kStateEvent, @"setting ending radius: %f", [rc radius]);
-		NSPoint p = [[self gradient] mapPoint:[rc centre] fromRect:mControlBoundsRect];
+		NSPoint p = [[self gradient] mapPoint:rc.centre fromRect:mControlBoundsRect];
 		[[self gradient] setRadialEndingPoint:p];
-		[[self gradient] setRadialEndingRadius:[rc radius] / mControlBoundsRect.size.width];
+		[[self gradient] setRadialEndingRadius:rc.radius / mControlBoundsRect.size.width];
 	}
 }
 
@@ -133,7 +133,7 @@ static NSInteger sMFlags = 0;
 	// not bother with that.
 
 	NSRect cframe = NSInsetRect(cellframe, 20, 20);
-	[mMiniControls setView:[self controlView]];
+	mMiniControls.view = self.controlView;
 
 	// linear:
 
@@ -167,7 +167,7 @@ static NSInteger sMFlags = 0;
 	GCMiniControl *mc = [mMiniControls controlForKey:key];
 
 	if (mc)
-		[mc setBounds:br];
+		mc.bounds = br;
 }
 
 - (void)drawMiniControlsForMode:(DKGradientWellMode)mode
@@ -208,7 +208,7 @@ static NSInteger sMFlags = 0;
 
 	switch (mode) {
 		case kDKGradientWellAngleMode:
-			[[self miniControlForIdentifier:kLinearAngleControlID] setValue:[[self gradient] angle]];
+			[self miniControlForIdentifier:kLinearAngleControlID].value = [self gradient].angle;
 			break;
 
 		case kDKGradientWellRadialMode:
@@ -217,15 +217,15 @@ static NSInteger sMFlags = 0;
 				GCMiniRadialControl2 *rc = (GCMiniRadialControl2 *)[mMiniControls controlForKey:kRadialStartControlID];
 
 				[rc setRingRadiusScale:0.85];
-				[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect]];
-				[rc setRadius:[[self gradient] radialStartingRadius] * mControlBoundsRect.size.width];
-				[rc setTabColor:[[self gradient] colorAtValue:0.0]];
+				rc.centre = [[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect];
+				rc.radius = [[self gradient] radialStartingRadius] * mControlBoundsRect.size.width;
+				rc.tabColor = [[self gradient] colorAtValue:0.0];
 
 				rc = (GCMiniRadialControl2 *)[mMiniControls controlForKey:kRadialEndControlID];
 
-				[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialEndingPoint] toRect:mControlBoundsRect]];
-				[rc setRadius:[[self gradient] radialEndingRadius] * mControlBoundsRect.size.width];
-				[rc setTabColor:[[self gradient] colorAtValue:1.0]];
+				rc.centre = [[self gradient] mapPoint:[[self gradient] radialEndingPoint] toRect:mControlBoundsRect];
+				rc.radius = [[self gradient] radialEndingRadius] * mControlBoundsRect.size.width;
+				rc.tabColor = [[self gradient] colorAtValue:1.0];
 			}
 			break;
 
@@ -234,7 +234,7 @@ static NSInteger sMFlags = 0;
 
 			GCMiniRadialControls *rc = (GCMiniRadialControls *)[mMiniControls controlForKey:kSweepCentreControlID];
 
-			[rc setCentre:[[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect]];
+			rc.centre = [[self gradient] mapPoint:[[self gradient] radialStartingPoint] toRect:mControlBoundsRect];
 
 			NSInteger seg = 100; //[[self gradient] numberOfAngularSegments];
 			CGFloat v = (CGFloat)seg / 50.0;
@@ -242,8 +242,8 @@ static NSInteger sMFlags = 0;
 			if (seg < 4)
 				v = 0.0;
 
-			[[self miniControlForIdentifier:kSweepSegmentsControlID] setValue:v];
-			[[self miniControlForIdentifier:kSweepAngleControlID] setValue:[[self gradient] angle]];
+			[self miniControlForIdentifier:kSweepSegmentsControlID].value = v;
+			[self miniControlForIdentifier:kSweepAngleControlID].value = [self gradient].angle;
 		} break;
 
 		default:
@@ -261,7 +261,7 @@ static NSInteger sMFlags = 0;
 
 	br = NSInsetRect(rect, 8, 9);
 
-	ir.size = [ficon size];
+	ir.size = ficon.size;
 	ir.origin.x = NSMaxX(br) - ir.size.width;
 	ir.origin.y = NSMaxY(br) - ir.size.height;
 
@@ -271,8 +271,8 @@ static NSInteger sMFlags = 0;
 #pragma mark -
 - (void)setControlVisible:(BOOL)vis
 {
-	[mMiniControls setVisible:vis];
-	[[self controlView] setNeedsDisplay:YES];
+	mMiniControls.visible = vis;
+	[self.controlView setNeedsDisplay:YES];
 }
 
 #pragma mark -
@@ -288,7 +288,7 @@ static NSInteger sMFlags = 0;
 		[super drawInteriorWithFrame:cellFrame inView:controlView];
 
 		mControlBoundsRect = cellFrame;
-		id control = [self controlView];
+		id control = self.controlView;
 
 		if ([control isKindOfClass:[GCGradientWell class]]) {
 			[control setupTrackingRect];
@@ -331,10 +331,10 @@ static NSInteger sMFlags = 0;
 #pragma unused(lastPoint)
 	if ([controlView isKindOfClass:[GCGradientWell class]]) {
 		if (mHitPart == kDKHitMiniControl) {
-			DKGradientWellMode cmode = [(GCGradientWell *)controlView controlMode];
+			DKGradientWellMode cmode = ((GCGradientWell *)controlView).controlMode;
 			GCMiniControlCluster *cc = [self controlClusterForMode:cmode];
 
-			return [cc mouseDraggedAt:currentPoint inPart:0 modifierFlags:[self mouseDownFlags]];
+			return [cc mouseDraggedAt:currentPoint inPart:0 modifierFlags:self.mouseDownFlags];
 		}
 	}
 	return NO;
@@ -354,7 +354,7 @@ static NSInteger sMFlags = 0;
 	if ([controlView isKindOfClass:[GCGradientWell class]]) {
 		// hit in proxy icon?
 
-		if ([(GCGradientWell *)controlView displaysProxyIcon]) {
+		if (((GCGradientWell *)controlView).displaysProxyIcon) {
 			NSRect ir = [self proxyIconRectInCellFrame:mControlBoundsRect];
 
 			if (NSPointInRect(startPoint, ir)) {
@@ -363,10 +363,10 @@ static NSInteger sMFlags = 0;
 			}
 		}
 
-		NSInteger cmode = [(GCGradientWell *)controlView controlMode];
+		NSInteger cmode = ((GCGradientWell *)controlView).controlMode;
 		GCMiniControlCluster *cc = [self controlClusterForMode:cmode];
 
-		if ([cc mouseDownAt:startPoint inPart:0 modifierFlags:[self mouseDownFlags]]) {
+		if ([cc mouseDownAt:startPoint inPart:0 modifierFlags:self.mouseDownFlags]) {
 			mHitPart = kDKHitMiniControl; // for any mini-control
 			return YES;
 		}
@@ -380,10 +380,10 @@ static NSInteger sMFlags = 0;
 #pragma unused(lastPoint, flag)
 	if ([controlView isKindOfClass:[GCGradientWell class]]) {
 		if (mHitPart == kDKHitMiniControl) {
-			int cmode = [(GCGradientWell *)controlView controlMode];
+			int cmode = ((GCGradientWell *)controlView).controlMode;
 			GCMiniControlCluster *cc = [self controlClusterForMode:cmode];
 
-			[cc mouseUpAt:stopPoint inPart:0 modifierFlags:[self mouseDownFlags]];
+			[cc mouseUpAt:stopPoint inPart:0 modifierFlags:self.mouseDownFlags];
 		}
 	}
 }
@@ -391,33 +391,32 @@ static NSInteger sMFlags = 0;
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
 {
 #pragma unused(cellFrame, untilMouseUp)
-	NSPoint p = [controlView convertPoint:[theEvent locationInWindow] fromView:nil];
+	NSPoint p = [controlView convertPoint:theEvent.locationInWindow fromView:nil];
 
-	sMFlags = [theEvent modifierFlags];
+	sMFlags = theEvent.modifierFlags;
 	[mMiniControls flagsChanged:sMFlags];
 	[mMiniControls setVisible:YES];
 
 	if ([self startTrackingAt:p inView:controlView]) {
-		NSEventMask mask;
 		NSEvent *event = nil;
 		BOOL loop = YES;
 		NSPoint currentPoint, lastPoint;
 
 		mEnableCache = NO;
-		mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSFlagsChangedMask;
+		NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSFlagsChangedMask;
 		lastPoint = p;
 
 		//	LogEvent_(kReactiveEvent, @"starting track loop, hit part = %d", mHitPart );
 
 		while (loop) {
-			event = [[controlView window] nextEventMatchingMask:mask];
+			event = [controlView.window nextEventMatchingMask:mask];
 
 			//	LogEvent_(kUIEvent, @"event = %@", event);
 
-			currentPoint = [controlView convertPoint:[event locationInWindow] fromView:nil];
-			sMFlags = [event modifierFlags];
+			currentPoint = [controlView convertPoint:event.locationInWindow fromView:nil];
+			sMFlags = event.modifierFlags;
 
-			switch ([event type]) {
+			switch (event.type) {
 				case NSLeftMouseUp:
 					//	LogEvent_(kReactiveEvent, @"mouse up");
 					[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:YES];
@@ -436,7 +435,7 @@ static NSInteger sMFlags = 0;
 					break;
 
 				case NSFlagsChanged:
-					[mMiniControls flagsChanged:[event modifierFlags]];
+					[mMiniControls flagsChanged:event.modifierFlags];
 					break;
 
 				default:
@@ -445,7 +444,7 @@ static NSInteger sMFlags = 0;
 
 			lastPoint = currentPoint;
 		}
-		[[controlView window] discardEventsMatchingMask:mask beforeEvent:event];
+		[controlView.window discardEventsMatchingMask:mask beforeEvent:event];
 		mHitPart = kDKHitNone;
 		mEnableCache = YES;
 		[mMiniControls flagsChanged:0];
@@ -458,7 +457,7 @@ static NSInteger sMFlags = 0;
 #pragma mark -
 #pragma mark As an NSObject
 
-- (id)init
+- (instancetype)init
 {
 	self = [super init];
 	if (self != nil) {
@@ -488,15 +487,15 @@ static NSInteger sMFlags = 0;
 
 		[self setControlledAttributeFromMiniControl:mc];
 
-		if ([[self controlView] isKindOfClass:[GCGradientWell class]])
-			[(GCGradientWell *)[self controlView] syncGradientToControlSettings];
+		if ([self.controlView isKindOfClass:[GCGradientWell class]])
+			[(GCGradientWell *)self.controlView syncGradientToControlSettings];
 	}
 }
 
 - (CGFloat)miniControlWillUpdateInfoWindow:(GCMiniControl *)mc withValue:(CGFloat)val
 {
 	if ([[mc identifier] isEqualToString:kSweepSegmentsControlID]) {
-		int seg = [mc value] * 50;
+		int seg = mc.value * 50;
 		if (seg < 4)
 			seg = 0;
 

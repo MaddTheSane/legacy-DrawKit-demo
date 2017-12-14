@@ -30,7 +30,7 @@
 #pragma mark -
 - (void)setLineWidth:(CGFloat)width
 {
-	[mPath setLineWidth:width];
+	mPath.lineWidth = width;
 	[self setNeedsDisplay:YES];
 }
 
@@ -41,7 +41,7 @@
 
 - (void)setLineCapStyle:(NSLineCapStyle)lcs
 {
-	[mPath setLineCapStyle:lcs];
+	mPath.lineCapStyle = lcs;
 	[self setNeedsDisplay:YES];
 }
 
@@ -52,7 +52,7 @@
 
 - (void)setLineJoinStyle:(NSLineJoinStyle)ljs
 {
-	[mPath setLineJoinStyle:ljs];
+	mPath.lineJoinStyle = ljs;
 	[self setNeedsDisplay:YES];
 }
 
@@ -76,28 +76,28 @@
 - (void)calcHandles
 {
 	NSRect hr, br;
-	NSInteger i, c;
-	CGFloat scale = [[self dash] scalesToLineWidth] ? [mPath lineWidth] : 1.0;
+	NSInteger c;
+	CGFloat scale = self.dash.scalesToLineWidth ? mPath.lineWidth : 1.0;
 	CGFloat d[8];
 	CGFloat phase;
 
 	hr.size = kDKStandardHandleRectSize;
-	br = [self bounds];
+	br = self.bounds;
 	[mHandles removeAllObjects];
-	[[self dash] getDashPattern:d count:&c];
+	[self.dash getDashPattern:d count:&c];
 
-	phase = [[self dash] phase] * scale;
+	phase = self.dash.phase * scale;
 
 	hr.origin.x = kDKDashEditInset - (hr.size.width * 0.5f) + phase;
 
-	for (i = 0; i < c; ++i) {
+	for (NSInteger i = 0; i < c; ++i) {
 		hr.origin.x += (d[i] * scale);
 		hr.origin.y = 12 + (NSMinY(br) + NSMaxY(br)) / 4.0;
 
 		// if this collides with the previous rect, offset it downwards
 
 		if (i > 0) {
-			NSRect kr, pr = [[mHandles objectAtIndex:i - 1] rectValue];
+			NSRect kr, pr = [mHandles[i - 1] rectValue];
 
 			kr = hr;
 			kr.size.height += 100;
@@ -117,13 +117,12 @@
 
 - (NSInteger)mouseInHandle:(NSPoint)mp
 {
-	NSInteger i, c;
+	NSInteger c = mHandles.count;
 
-	c = [mHandles count];
-
-	for (i = 0; i < c; ++i) {
-		if (NSPointInRect(mp, [[mHandles objectAtIndex:i] rectValue]))
+	for (NSInteger i = 0; i < c; ++i) {
+		if (NSPointInRect(mp, [mHandles[i] rectValue])) {
 			return i;
+		}
 	}
 
 	if (NSPointInRect(mp, mPhaseHandle))
@@ -136,16 +135,16 @@
 {
 	NSBezierPath *temp = [NSBezierPath bezierPath];
 
-	NSInteger i, c;
+	NSInteger c;
 	NSRect hr, br;
 	NSPoint a, b;
-	c = [mHandles count];
-	br = [self bounds];
+	c = mHandles.count;
+	br = self.bounds;
 
 	// draw the selected one highlighted
 
 	if (mSelected != -1 && mSelected != 99) {
-		[temp appendBezierPathWithOvalInRect:[[mHandles objectAtIndex:mSelected] rectValue]];
+		[temp appendBezierPathWithOvalInRect:[mHandles[mSelected] rectValue]];
 		[[NSColor greenColor] set];
 		[temp fill];
 		[temp removeAllPoints];
@@ -153,8 +152,8 @@
 
 	a.y = 3 + (NSMinY(br) + NSMaxY(br)) / 4.0;
 
-	for (i = 0; i < c; ++i) {
-		hr = [[mHandles objectAtIndex:i] rectValue];
+	for (NSInteger i = 0; i < c; ++i) {
+		hr = [mHandles[i] rectValue];
 
 		a.x = b.x = hr.origin.x + (hr.size.width * 0.5f);
 		b.y = hr.origin.y;
@@ -171,8 +170,8 @@
 - (void)calcDashForPoint:(NSPoint)mp
 {
 	CGFloat d[8];
-	CGFloat scale = [[self dash] scalesToLineWidth] ? [mPath lineWidth] : 1.0;
-	CGFloat phase = [[self dash] phase] * scale;
+	CGFloat scale = self.dash.scalesToLineWidth ? mPath.lineWidth : 1.0;
+	CGFloat phase = self.dash.phase * scale;
 	CGFloat fixedAmount = kDKDashEditInset;
 	NSInteger i, c;
 
@@ -180,10 +179,10 @@
 		// dragging the phase
 
 		phase = MAX(0, (mp.x - fixedAmount) / scale);
-		[[self dash] setPhase:phase];
+		self.dash.phase = phase;
 	} else {
 		fixedAmount += phase;
-		[[self dash] getDashPattern:d count:&c];
+		[self.dash getDashPattern:d count:&c];
 
 		// sanity check the value of selected:
 
@@ -202,7 +201,7 @@
 
 		// write the value back to the dash
 
-		[[self dash] setDashPattern:d count:c];
+		[self.dash setDashPattern:d count:c];
 	}
 	// inform delegate
 
@@ -224,8 +223,8 @@
 	NSRectFill(rect);
 
 	[[NSColor lightGrayColor] set];
-	NSFrameRectWithWidth([self bounds], 1.0);
-	NSRect br = [self bounds];
+	NSFrameRectWithWidth(self.bounds, 1.0);
+	NSRect br = self.bounds;
 	NSPoint a, b;
 
 	a.y = b.y = (NSMinY(br) + NSMaxY(br)) / 4.0;
@@ -236,7 +235,7 @@
 	[mPath moveToPoint:a];
 	[mPath lineToPoint:b];
 
-	[[self dash] applyToPath:mPath];
+	[self.dash applyToPath:mPath];
 
 	[mLineColour set];
 	[mPath stroke];
@@ -256,7 +255,7 @@
 	[path fill];
 }
 
-- (id)initWithFrame:(NSRect)frame
+- (instancetype)initWithFrame:(NSRect)frame
 {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
@@ -265,12 +264,12 @@
 		mPath = [NSBezierPath bezierPath];
 		mSelected = -1;
 		NSAssert(mDelegateRef == nil, @"Expected init to zero");
-		[self setLineColour:[NSColor grayColor]];
+		self.lineColour = [NSColor grayColor];
 
 		if (mHandles == nil || mPath == nil || mLineColour == nil) {
 			return nil;
 		}
-		[mPath setLineWidth:5.0];
+		mPath.lineWidth = 5.0;
 	}
 
 	return self;
@@ -285,7 +284,7 @@
 #pragma mark As an NSResponder
 - (void)mouseDown:(NSEvent *)event
 {
-	NSPoint mp = [self convertPoint:[event locationInWindow] fromView:nil];
+	NSPoint mp = [self convertPoint:event.locationInWindow fromView:nil];
 	mSelected = [self mouseInHandle:mp];
 	[self setNeedsDisplay:YES];
 
@@ -294,7 +293,7 @@
 
 - (void)mouseDragged:(NSEvent *)event
 {
-	NSPoint mp = [self convertPoint:[event locationInWindow] fromView:nil];
+	NSPoint mp = [self convertPoint:event.locationInWindow fromView:nil];
 
 	if (mSelected != -1) {
 		[self calcDashForPoint:mp];

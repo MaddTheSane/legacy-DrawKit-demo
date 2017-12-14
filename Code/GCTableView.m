@@ -12,14 +12,14 @@
 	// this overrides the standard behaviour so that ending text editing does not select a new cell for editing
 	// Instead the delegate is called as normal but then the table is made 1stR.
 
-	NSString *theString = [[aNotification object] string];
+	NSString *theString = [aNotification.object string];
 
 	//NSLog(@"column = %d, string = %@", [self editedColumn], theString);
 
-	NSTableColumn *theColumn = [[self tableColumns] objectAtIndex:[self editedColumn]];
-	[(id<NSTableViewDataSource>)[self delegate] tableView:self setObjectValue:theString forTableColumn:theColumn row:[self selectedRow]];
+	NSTableColumn *theColumn = self.tableColumns[self.editedColumn];
+	[(id<NSTableViewDataSource>)self.delegate tableView:self setObjectValue:theString forTableColumn:theColumn row:self.selectedRow];
 	[self abortEditing];
-	[[self window] makeFirstResponder:self];
+	[self.window makeFirstResponder:self];
 }
 
 - (void)highlightSelectionInClipRect:(NSRect)clipRect
@@ -28,11 +28,11 @@
 
 	NSRange rows = [self rowsInRect:clipRect];
 
-	if (NSLocationInRange([self selectedRow], rows)) {
-		NSRect sr = [self rectOfRow:[self selectedRow]];
+	if (NSLocationInRange(self.selectedRow, rows)) {
+		NSRect sr = [self rectOfRow:self.selectedRow];
 
 		DKGradient *aqua = [DKGradient sourceListSelectedGradient];
-		[aqua setAngleInDegrees:-90];
+		aqua.angleInDegrees = -90;
 		[aqua fillRect:sr];
 
 		[[NSColor blackColor] set];
@@ -55,13 +55,13 @@
 #pragma mark As an NSResponder
 - (void)mouseDown:(NSEvent *)event
 {
-	NSPoint p = [self convertPoint:[event locationInWindow] fromView:nil];
+	NSPoint p = [self convertPoint:event.locationInWindow fromView:nil];
 
 	// which column and cell has been hit?
 
 	NSInteger column = [self columnAtPoint:p];
 	NSInteger row = [self rowAtPoint:p];
-	NSTableColumn *theColumn = [[self tableColumns] objectAtIndex:column];
+	NSTableColumn *theColumn = self.tableColumns[column];
 	id dataCell = [theColumn dataCellForRow:row];
 
 	// if the checkbox column, handle click in checkbox without selecting the row
@@ -76,7 +76,7 @@
 
 		if ([dataCell trackMouse:event inRect:cellFrame ofView:self untilMouseUp:YES]) {
 			// call the data source to handle the checkbox state change as normal
-			[[self dataSource] tableView:self setObjectValue:[dataCell objectValue] forTableColumn:theColumn row:row];
+			[self.dataSource tableView:self setObjectValue:[dataCell objectValue] forTableColumn:theColumn row:row];
 			[self updateCell:dataCell];
 		}
 	} else
@@ -114,7 +114,7 @@
 	// allows the cell to update live even though the cell is shared with all the other cells in the column.
 
 	if ([mControlView isKindOfClass:[NSTableView class]]) {
-		id ds = [(NSTableView *)mControlView dataSource];
+		id ds = ((NSTableView *)mControlView).dataSource;
 		NSRange rows = [(NSTableView *)mControlView rowsInRect:mFrame];
 
 		[ds setTemporaryColour:[sender color] forTableView:(NSTableView *)mControlView row:rows.location];
@@ -200,7 +200,7 @@
 	GCColourPickerView *picker = [[GCColourPickerView alloc] initWithFrame:sr];
 	GCWindowMenu *popup = [GCWindowMenu windowMenuWithContentView:picker];
 
-	[picker setMode:kDKColourPickerModeSwatches];
+	picker.mode = kDKColourPickerModeSwatches;
 	//[picker setMode:kDKColourPickerModeSpectrum];
 
 	[picker setTarget:self];
@@ -215,7 +215,7 @@
 	[self setState:NO];
 
 	if ([mControlView isKindOfClass:[NSTableView class]]) {
-		id ds = [(NSTableView *)controlView dataSource];
+		id ds = ((NSTableView *)controlView).dataSource;
 		[ds setTemporaryColour:nil forTableView:(NSTableView *)mControlView row:-1];
 	}
 	[controlView setNeedsDisplayInRect:cellFrame];

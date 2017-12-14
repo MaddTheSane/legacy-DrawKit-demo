@@ -31,11 +31,9 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	static NSArray *types = nil;
 
 	if (types == nil) {
-		types = [[NSArray alloc] initWithObjects:
-									 GPGradientPasteboardType,
-									 NSFileContentsPboardType,
-									 NSFilenamesPboardType,
-									 nil];
+		types = @[GPGradientPasteboardType,
+				  NSFileContentsPboardType,
+				  NSFilenamesPboardType];
 	}
 
 	return types;
@@ -123,11 +121,11 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	} else if ([NSFilenamesPboardType isEqualToString:bestType]) {
 		NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
 		// Can't handle more than one.
-		if ([files count] != 1)
+		if (files.count != 1)
 			return nil;
 
-		NSString *filePath = [files objectAtIndex:0];
-		if ([[filePath pathExtension] isEqualToString:GradientFileExtension]) {
+		NSString *filePath = files[0];
+		if ([filePath.pathExtension isEqualToString:GradientFileExtension]) {
 			NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
 			id val = [dict unarchiveFromPropertyListFormat];
 			return val;
@@ -172,7 +170,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 
 - (BOOL)writeToPasteboard:(NSPasteboard *)pboard
 {
-	[pboard declareTypes:[NSArray arrayWithObject:GPGradientPasteboardType] owner:self];
+	[pboard declareTypes:@[GPGradientPasteboardType] owner:self];
 	[self writeType:GPGradientPasteboardType toPasteboard:pboard];
 	[self writeType:NSPDFPboardType toPasteboard:pboard];
 	//[self writeType:NSPostScriptPboardType toPasteboard:pboard];
@@ -204,14 +202,14 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 
 	//	LogEvent_(kReactiveEvent, @"writing type = %@", type);
 
-	[pboard addTypes:[NSArray arrayWithObject:type] owner:self];
+	[pboard addTypes:@[type] owner:self];
 
 	if ([GPGradientPasteboardType isEqualToString:type]) {
 		NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
 		result = [pboard setData:data forType:GPGradientPasteboardType];
 	} else if ([NSTIFFPboardType isEqualToString:type]) {
 		NSImage *image = [self swatchImageWithSize:sGradientPasteboardImageSize withBorder:NO];
-		result = [pboard setData:[image TIFFRepresentation] forType:NSTIFFPboardType];
+		result = [pboard setData:image.TIFFRepresentation forType:NSTIFFPboardType];
 	} else if ([NSPDFPboardType isEqualToString:type]) {
 		NSData *pdf = [self pdf];
 		result = [pboard setData:pdf forType:NSPDFPboardType];
@@ -219,7 +217,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 		NSData *eps = [self eps];
 		result = [pboard setData:eps forType:NSPostScriptPboardType];
 	} else if ([NSFilesPromisePboardType isEqualToString:type]) {
-		result = [pboard setPropertyList:[NSArray arrayWithObject:GradientFileExtension]
+		result = [pboard setPropertyList:@[GradientFileExtension]
 								 forType:NSFilesPromisePboardType];
 	} else if ([NSFilenamesPboardType isEqualToString:type]) {
 		// we do not have a file already in existence, so we wish to handle this
@@ -350,15 +348,13 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 - (NSFileWrapper *)fileWrapperRepresentation
 {
 	NSFileWrapper *wrap = [[NSFileWrapper alloc] initRegularFileWithContents:[self fileRepresentation]];
-	[wrap setPreferredFilename:@"untitled gradient.gradient"];
+	wrap.preferredFilename = @"untitled gradient.gradient";
 
-	NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-												 [NSNumber numberWithBool:YES], NSFileExtensionHidden,
-												 NSFileTypeRegular, NSFileType,
-												 [NSNumber numberWithUnsignedLong:420], NSFilePosixPermissions, // <--- 0644 octal (-wrr) -> 420 decimal
-												 nil];
+	NSDictionary *attributes = @{NSFileExtensionHidden: @YES,
+								 NSFileType: NSFileTypeRegular,
+								 NSFilePosixPermissions: @420UL/* <--- 0644 octal (-wrr) -> 420 decimal*/};
 
-	[wrap setFileAttributes:attributes];
+	wrap.fileAttributes = attributes;
 
 	return wrap;
 }
@@ -408,7 +404,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 		NSString *path = [fm writeContents:[self fileRepresentation] toUniqueTemporaryFile:@"untitled gradient.gradient"];
 
 		if (path)
-			[pboard setPropertyList:[NSArray arrayWithObject:path] forType:NSFilenamesPboardType];
+			[pboard setPropertyList:@[path] forType:NSFilenamesPboardType];
 	} else if ([NSFileContentsPboardType isEqualToString:type]) {
 		[pboard writeFileWrapper:[self fileWrapperRepresentation]];
 	}

@@ -67,7 +67,7 @@ typedef NS_ENUM(NSInteger, DKControlInfoWindowMode) {
 
 + (NSColor *)miniControlThemeColor:(DKControlThemeElement)themeElementID withAlpha:(CGFloat)alpha;
 
-- (id)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust;
+- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust NS_DESIGNATED_INITIALIZER;
 @property (weak) GCMiniControlCluster *cluster;
 @property (readonly, strong) NSView *view;
 
@@ -99,8 +99,7 @@ typedef NS_ENUM(NSInteger, DKControlInfoWindowMode) {
 - (void)notifyDelegateWillChange:(id)value;
 - (void)notifyDelegateDidChange:(id)value;
 
-- (void)setIdentifier:(NSString *)name;
-- (NSString *)identifier;
+@property (copy) NSString *identifier;
 
 @property (nonatomic) CGFloat value;
 @property (nonatomic) CGFloat maxValue;

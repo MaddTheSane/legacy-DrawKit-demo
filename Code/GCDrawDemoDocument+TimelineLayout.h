@@ -22,7 +22,7 @@
 
 - (DKDrawablePath *)leaderLineFromPoint:(NSPoint)p1 toPoint:(NSPoint)p2;
 - (NSBezierPath *)leaderLinePathFromPoint:(NSPoint)p1 toPoint:(NSPoint)p2;
-- (DKStyle *)leaderLineStyle;
+@property (readonly, copy) DKStyle *leaderLineStyle;
 
 - (IBAction)timelineAction:(id)sender;
 
