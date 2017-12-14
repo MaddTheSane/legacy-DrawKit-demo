@@ -28,6 +28,8 @@
 		55C9690F1FE33684009AD729 /* StyleManager.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C969111FE33684009AD729 /* StyleManager.xib */; };
 		55C969121FE33688009AD729 /* ToolPalette.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C969141FE33688009AD729 /* ToolPalette.xib */; };
 		55C969151FE33693009AD729 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55C969171FE33693009AD729 /* Credits.rtf */; };
+		55C9691A1FE337A2009AD729 /* GCSOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C969191FE337A2009AD729 /* GCSOutlineView.swift */; };
+		55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */; };
 		55EFF2231FDE8DE0007A4610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EFF2221FDE8DE0007A4610 /* Assets.xcassets */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
@@ -186,6 +188,8 @@
 		55C969101FE33684009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StyleManager.xib; sourceTree = "<group>"; };
 		55C969131FE33688009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		55C969161FE33693009AD729 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		55C969191FE337A2009AD729 /* GCSOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSOutlineView.swift; sourceTree = "<group>"; };
+		55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSDrawDemoDocument.swift; sourceTree = "<group>"; };
 		55EFF2221FDE8DE0007A4610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GCDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -443,6 +447,8 @@
 			isa = PBXGroup;
 			children = (
 				55C968C21FE33509009AD729 /* AppDelegate.swift */,
+				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
+				55C969191FE337A2009AD729 /* GCSOutlineView.swift */,
 				55C968C41FE33509009AD729 /* Assets.xcassets */,
 				55C968C91FE33509009AD729 /* Info.plist */,
 				55C969171FE33693009AD729 /* Credits.rtf */,
@@ -677,7 +683,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */,
 				55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */,
+				55C9691A1FE337A2009AD729 /* GCSOutlineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
