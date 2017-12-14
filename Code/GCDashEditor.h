@@ -42,12 +42,12 @@
 
 - (void)				openDashEditorInParentWindow:(NSWindow*) pw modalDelegate:(id<GCDashEditorDelegate>) del;
 - (void)				updateForDash;
-@property (nonatomic, retain) DKStrokeDash *dash;
+@property (nonatomic, strong) DKStrokeDash *dash;
 
 @property CGFloat lineWidth;
 @property NSLineCapStyle lineCapStyle;
 @property NSLineJoinStyle lineJoinStyle;
-@property (retain) NSColor *lineColour;
+@property (strong) NSColor *lineColour;
 
 //! The relevant number of fields.
 @property NSInteger dashCount;

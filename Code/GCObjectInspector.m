@@ -310,11 +310,10 @@
 	
 	if ([[aTableColumn identifier] isEqualToString:@"key"])
 	{
-		DKMetadataItem* item = [[mSel metadataItemForKey:oldKey] retain];
+		DKMetadataItem* item = [mSel metadataItemForKey:oldKey];
 		
 		[mSel removeMetadataForKey:oldKey];
 		[mSel setMetadataItem:item forKey:anObject];
-		[item release];
 	}
 	else
 		[mSel setMetadataItemValue:anObject forKey:oldKey];

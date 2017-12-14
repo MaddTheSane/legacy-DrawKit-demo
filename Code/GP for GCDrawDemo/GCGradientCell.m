@@ -61,8 +61,6 @@ static NSInteger		sMFlags = 0;
 	
 	mini = [[GCMiniCircularSlider alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kLinearAngleControlID];
-	[mini release];
-	[mcc release];
 	
 	// second has twin radial controls
 	
@@ -75,12 +73,9 @@ static NSInteger		sMFlags = 0;
 	
 	mini = [[GCMiniRadialControl2 alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kRadialEndControlID];
-	[mini release];
 	
 	mini = [[GCMiniRadialControl2 alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kRadialStartControlID];
-	[mini release];
-	[mcc release];
 	
 	// third has circular slider + single radial control + straight slider
 	// n.b. order is important as controls overlap. hit testing is done in reverse order to
@@ -91,18 +86,14 @@ static NSInteger		sMFlags = 0;
 
 	mini = [[GCMiniCircularSlider alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kSweepAngleControlID];
-	[mini release];
 
 	mini = [[GCMiniSlider alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kSweepSegmentsControlID];
 	[mini setInfoWindowMode:kDKMiniControlInfoWindowCentred];
 	[mini setInfoWindowFormat:@"0"];
-	[mini release];
 
 	mini = [[GCMiniRadialControls alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kSweepCentreControlID];
-	[mini release];
-	[mcc release];
 }
 
 
@@ -517,13 +508,6 @@ static NSInteger		sMFlags = 0;
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void) dealloc
-{
-	[mMiniControls release];
-	
-	[super dealloc];
-}
-
 
 - (id)	init
 {
@@ -537,12 +521,8 @@ static NSInteger		sMFlags = 0;
 		
 		if (mMiniControls == nil)
 		{
-			[self autorelease];
-			self = nil;
+			return nil;
 		}
-	}
-	if (self != nil)
-	{
 		NSAssert([self isContinuous], @"Expected isContinuous set in base class");
 	}
 	return self;

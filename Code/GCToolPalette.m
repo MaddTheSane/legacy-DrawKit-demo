@@ -143,7 +143,6 @@
 {
 	NSImage* swatch = [[style styleSwatchWithSize:NSMakeSize( 112, 112 ) type:kDKStyleSwatchAutomatic] copy];
 	[mStylePreviewView setImage:swatch];
-	[swatch release];
 }
 
 

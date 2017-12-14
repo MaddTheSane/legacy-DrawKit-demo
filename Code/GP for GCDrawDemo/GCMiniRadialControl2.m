@@ -11,6 +11,7 @@
 
 #import "NSBezierPath+GCAdditions.h"
 #import <DKDrawKit/LogEvent.h>
+#import "GCMiniControlCluster.h"
 
 
 @implementation GCMiniRadialControl2
@@ -72,8 +73,6 @@
 #pragma mark -
 - (void)setTabColor:(NSColor*) colour
 {
-	[colour retain];
-	[mTabColour release];
 	mTabColour = colour;
 	[self setNeedsDisplay];
 }
@@ -132,9 +131,9 @@
 		
 		NSSize  tabs = NSMakeSize( width * 1.5, width * 1.5 );
 		
-		mIrisPath = [[NSBezierPath bezierPathWithIrisRingWithRadius:[self ringRadius]
+		mIrisPath = [NSBezierPath bezierPathWithIrisRingWithRadius:[self ringRadius]
 										width:width
-										tabSize:tabs] retain];
+										tabSize:tabs];
 	}									
 
 	NSAffineTransform*  tfm = [NSAffineTransform transform];
@@ -156,9 +155,9 @@
 
 		NSSize  tabs = NSMakeSize( width * 0.67, width * 0.67 );
 
-		mTabPath = [[NSBezierPath bezierPathWithIrisTabWithRadius:[self ringRadius]
+		mTabPath = [NSBezierPath bezierPathWithIrisTabWithRadius:[self ringRadius]
 										width:width
-										tabSize:tabs] retain];
+										tabSize:tabs];
 	}									
 
 	NSAffineTransform*  tfm = [NSAffineTransform transform];
@@ -174,13 +173,8 @@
 
 - (void)			invalidatePathCache
 {
-	[mTabPath release];
 	mTabPath = nil;
-	
-	[mHitTabPath release];
 	mHitTabPath = nil;
-	
-	[mIrisPath release];
 	mIrisPath = nil;
 }
 
@@ -198,9 +192,9 @@
 
 		NSSize  tabs = NSMakeSize( width * 1.5, width * 1.5 );
 
-		mHitTabPath = [[NSBezierPath bezierPathWithIrisTabWithRadius:[self ringRadius]
+		mHitTabPath = [NSBezierPath bezierPathWithIrisTabWithRadius:[self ringRadius]
 														width:width
-													  tabSize:tabs] retain];
+													  tabSize:tabs];
 	}									
 	
 	NSAffineTransform*  tfm = [NSAffineTransform transform];
@@ -328,8 +322,7 @@
 		
 		if (mTabColour == nil)
 		{
-			[self autorelease];
-			self = nil;
+			return nil;
 		}
 	}
 	if (self != nil)
@@ -403,9 +396,6 @@
 - (void)				dealloc
 {
 	[self invalidatePathCache];
-	[mTabColour release];
-	
-	[super dealloc];
 }
 
 @end

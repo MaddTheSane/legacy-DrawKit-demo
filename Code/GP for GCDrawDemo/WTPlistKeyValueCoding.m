@@ -124,7 +124,7 @@ WTKeyValueEncodeObject (id val)
 	if (type != nil) {
 		Class factory = NSClassFromString(type);
 		id nob = [[factory alloc] initWithCoder:(NSCoder*)self];
-		return [nob autorelease];
+		return nob;
 	} else {
 		NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:[self count]];
 		NSEnumerator *curs = [self keyEnumerator];

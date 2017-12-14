@@ -254,8 +254,7 @@
 		if (mControls == nil 
 				|| mControlNames == nil)
 		{
-			[self autorelease];
-			self = nil;
+			return nil;
 		}
 	}
 	return self;
@@ -358,13 +357,5 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)dealloc
-{
-	[mControlNames release];
-	[mControls release];
-	
-	[super dealloc];
-}
-
 
 @end

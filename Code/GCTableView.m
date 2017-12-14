@@ -107,8 +107,6 @@
 
 - (void)		setColorValue:(NSColor*) colour
 {
-	[colour retain];
-	[mColour release];
 	mColour = colour;
 	
 	[(NSControl*)mControlView updateCellInside:self];
@@ -236,7 +234,6 @@
 	[picker setAction:@selector(colourChangeFromPicker:)];
 	[picker setColorForUndefinedSelection:[self colorValue]];
 	[picker setShowsInfo:NO];
-	[picker release];
 	
 	[GCWindowMenu popUpWindowMenu:popup atPoint:loc withEvent:theEvent forView:controlView];
 

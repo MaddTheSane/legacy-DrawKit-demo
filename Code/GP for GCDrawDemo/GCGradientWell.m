@@ -143,7 +143,6 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 	{
 		DKGradient* copyGrad = [[self gradient] copy];
 		//[[GCGradientPanel sharedGradientPanel] setGradient:copyGrad];
-		[copyGrad release];
 	}
 	else
 	{
@@ -163,7 +162,6 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 	{
 		DKGradient* copyGrad = [[self gradient] copy];
 		[self setGradient:copyGrad];
-		[copyGrad release];
 	}
 
 	[self setNeedsDisplay:YES];
@@ -229,7 +227,6 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 		
 		DKGradient* copyGrad = [[self gradient] copy];
 		//[[GCGradientPanel sharedGradientPanel] setGradient:copyGrad];
-		[copyGrad release];
 	}
 }
 
@@ -354,7 +351,7 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 		[item setTarget:self];
 	}
 
-	return [contextualMenu autorelease];
+	return contextualMenu;
 }
 
 
@@ -429,8 +426,6 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 - (void)	dealloc
 {
 	[self removeTrackingRect:mTrackingTag];
-	
-	[super dealloc];
 }
 
 
@@ -503,7 +498,6 @@ static GCGradientWell*		sCurrentActiveWell	= nil;
 		
 		DKGradient* copyGrad = [[self gradient] copy];
 		//[[GCGradientPanel sharedGradientPanel] setGradient:copyGrad];
-		[copyGrad release];
 	}
 	
 	return YES;

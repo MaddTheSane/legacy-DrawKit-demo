@@ -36,7 +36,7 @@
 
 - (void)addMiniControl:(GCMiniControl*) mc;
 - (void)removeMiniControl:(GCMiniControl*) mc;
-@property (readonly, retain) NSArray<GCMiniControl*> *controls;
+@property (readonly, strong) NSArray<GCMiniControl*> *controls;
 - (GCMiniControl*)controlAtIndex:(NSInteger) n;
 
 - (void)					setControl:(GCMiniControl*) ctrl forKey:(NSString*) key;
@@ -45,7 +45,7 @@
 - (void)forceVisible:(BOOL) vis;
 @property (nonatomic) BOOL visible;
 
-@property (readwrite, nonatomic, assign) NSView *view;
+@property (readwrite, nonatomic, weak) NSView *view;
 
 @property (nonatomic) CGFloat alpha;
 - (void)					fadeControlAlphaWithTimeInterval:(NSTimeInterval) t;

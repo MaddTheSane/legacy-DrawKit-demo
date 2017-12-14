@@ -152,17 +152,6 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)		dealloc
-{
-	[mStyleManager release];
-	[mLayersController release];
-	[mObjectInspector release];
-	[mToolPalette release];
-	[mStyleInspector release];
-	
-	[super dealloc];
-}
-
 
 #pragma mark -
 #pragma mark As an NSApplication delegate

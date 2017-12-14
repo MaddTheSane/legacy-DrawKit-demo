@@ -149,9 +149,6 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 		
 		[mDrawing setPaperColour:mSavedPaperColour];
 	}
-	[mSavedUnits release];
-	[mSavedGridColour release];
-	[mSavedPaperColour release];
 }
 
 
@@ -162,7 +159,7 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 	
 	// save off the current grid settings in case we cancel:
 	
-	mSavedPaperColour = [[drawing paperColour] retain];
+	mSavedPaperColour = [drawing paperColour];
 	
 	DKGridLayer* grid = [mDrawing gridLayer];
 	
@@ -171,8 +168,8 @@ static NSString*	sUnitNames[]		= { @"Pixels", @"Picas", @"Inches", @"Millimetres
 		mSavedSpan = [grid spanDistance];
 		mSavedDivs = [grid divisions];
 		mSavedMajors = [grid majors];
-		mSavedGridColour = [[grid spanColour] retain];
-		mSavedUnits = [[drawing drawingUnits] retain];
+		mSavedGridColour = [grid spanColour];
+		mSavedUnits = [drawing drawingUnits];
 	}
 	
 	[mUnitsComboBox setStringValue:[drawing drawingUnits]];

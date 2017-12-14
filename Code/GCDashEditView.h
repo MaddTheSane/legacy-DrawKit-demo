@@ -24,21 +24,21 @@
 	NSMutableArray*	mHandles;
 	NSBezierPath*	mPath;
 	NSInteger mSelected;
-	id<DashEditViewDelegate> mDelegateRef;
+	id<DashEditViewDelegate> __unsafe_unretained mDelegateRef;
 	NSColor*		mLineColour;
 	NSRect			mPhaseHandle;
 }
 
-@property (nonatomic, retain) DKStrokeDash *dash;
+@property (nonatomic, strong) DKStrokeDash *dash;
 
 @property CGFloat lineWidth;
 @property NSLineCapStyle lineCapStyle;
 @property NSLineJoinStyle lineJoinStyle;
-@property (nonatomic, retain) NSColor *lineColour;
+@property (nonatomic, strong) NSColor *lineColour;
 
 
 
-@property (assign) id<DashEditViewDelegate> delegate;
+@property (unsafe_unretained) id<DashEditViewDelegate> delegate;
 
 //! calculates where the handle rects are given the current dash
 - (void)calcHandles;

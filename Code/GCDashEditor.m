@@ -30,7 +30,7 @@
 		[self setDash:[DKStrokeDash defaultDash]];
 	
 	mDelegateRef = del;
-	[NSApp beginSheet:[self window] modalForWindow:pw modalDelegate:del didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:self];
+	[NSApp beginSheet:[self window] modalForWindow:pw modalDelegate:del didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:(__bridge void * _Null_unspecified)(self)];
 	[self notifyDelegate];
 }
 
@@ -48,8 +48,6 @@
 
 - (void)setDash:(DKStrokeDash*) dash
 {
-	[dash retain];
-	[mDash release];
 	mDash = dash;
 	
 	[self updateForDash];
@@ -205,12 +203,6 @@
 	[[self dash] setPhase:[sender floatValue]];
 	[self notifyDelegate];
 	[mDashPreviewEditView setNeedsDisplay:YES];
-}
-
-- (void)dealloc
-{
-	[mDash release];
-	[super dealloc];
 }
 
 #pragma mark -

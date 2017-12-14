@@ -41,7 +41,7 @@
 			modalForWindow:parent
 			modalDelegate:delegate
 			didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
-			contextInfo:self];
+			contextInfo:(__bridge void * _Null_unspecified)(self)];
 }
 
 

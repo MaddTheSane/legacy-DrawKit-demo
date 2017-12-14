@@ -161,11 +161,10 @@ static NSComparisonResult compareLocations( DKDrawableObject* a, DKDrawableObjec
 	if ( routePath != nil )
 	{
 		[layer removeObject:routePath];
-		[routePath release];
 	}
 	
 	[layer addObject:path];
-	routePath = [path retain];
+	routePath = path;
 	
 	NSWindow* win = [NSApp mainWindow];
 	[win displayIfNeeded];

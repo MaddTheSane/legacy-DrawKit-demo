@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, DKGradientWellMode) {
 @property (class, nonatomic, assign) GCGradientWell *activeWell;
 + (void)				clearAllActiveWells;
 
-@property (retain) DKGradient *gradient;
+@property (strong) DKGradient *gradient;
 - (void)				syncGradientToControlSettings;
 - (void)				initiateGradientDragWithEvent:(NSEvent*) theEvent;
 

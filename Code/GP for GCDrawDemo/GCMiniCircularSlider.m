@@ -8,6 +8,7 @@
 
 #include <tgmath.h>
 #import "GCMiniCircularSlider.h"
+#import "GCMiniControlCluster.h"
 
 
 #pragma mark Static Vars

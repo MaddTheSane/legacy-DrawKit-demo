@@ -50,7 +50,7 @@ static NSSize				sGradientPasteboardImageSize = {256.0, 256.0};
 	static NSArray *types = nil;
 	if (types == nil)
 	{
-		types = [@[GPGradientPasteboardType] retain];
+		types = @[GPGradientPasteboardType];
 	}
 	
 	return types;
@@ -394,7 +394,7 @@ static NSSize				sGradientPasteboardImageSize = {256.0, 256.0};
 	
 	[wrap setFileAttributes:attributes];
 	
-	return [wrap autorelease];
+	return wrap;
 }
 
 

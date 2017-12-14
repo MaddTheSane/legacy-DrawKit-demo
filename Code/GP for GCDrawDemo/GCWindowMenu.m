@@ -72,8 +72,6 @@
 	if ( menu == nil )
 		menu = [GCWindowMenu windowMenu];
 	
-	[menu retain];
-	
 	loc = [[view window] convertBaseToScreen:loc];
 	[menu setFrameTopLeftPoint:loc];
 	
@@ -90,7 +88,6 @@
 	BOOL shift = NO; //(([[NSApp currentEvent] modifierFlags] & NSShiftKeyMask) != 0);
 	
 	[menu fadeWithTimeInterval:shift? 1.5 : 0.15];
-	[menu release];
 	
 //	LogEvent_(kReactiveEvent, @"pop-up complete");
 }
@@ -124,7 +121,7 @@
 	// will cause a crash due to the stale reference
 
 	[fi setReleasedWhenClosed:NO];	// **** important!! ****
-	return [fi autorelease];
+	return fi;
 }
 
 
@@ -343,8 +340,6 @@ static	NSTimeInterval sFadeStartTime = 0.0;
 	
 	if ([self isVisible])
 	{
-		[self retain];
-		
 		sFadeStartTime = [NSDate timeIntervalSinceReferenceDate];
 		
 		[NSTimer scheduledTimerWithTimeInterval:1/30.0
@@ -383,7 +378,6 @@ static	NSTimeInterval sFadeStartTime = 0.0;
 	{
 		[timer invalidate];
 		[self orderOut:self];
-		[self release];
 	}
 }
 

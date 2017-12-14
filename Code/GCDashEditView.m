@@ -22,8 +22,6 @@
 #pragma mark As a GCDashEditView
 - (void)setDash:(DKStrokeDash*) dash
 {
-	[dash retain];
-	[mDash release];
 	mDash = dash;
 	[self setNeedsDisplay:YES];
 }
@@ -66,8 +64,6 @@
 
 - (void)setLineColour:(NSColor*) colour
 {
-	[colour retain];
-	[mLineColour release];
 	mLineColour = colour;
 	[self setNeedsDisplay:YES];
 }
@@ -283,7 +279,7 @@
 	{
 		NSAssert(mDash == nil, @"Expected init to zero");
 		mHandles = [[NSMutableArray alloc] init];
-		mPath = [[NSBezierPath bezierPath] retain];
+		mPath = [NSBezierPath bezierPath];
 		mSelected = -1;
 		NSAssert(mDelegateRef == nil, @"Expected init to zero");
 		[self setLineColour:[NSColor grayColor]];
@@ -292,12 +288,8 @@
 				|| mPath == nil 
 				|| mLineColour == nil)
 		{
-			[self autorelease];
-			self = nil;
+			return nil;
 		}
-    }
-	if (self != nil)
-	{
 		[mPath setLineWidth:5.0];
 	}
    
@@ -345,15 +337,5 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)dealloc
-{
-	[mLineColour release];
-	[mPath release];
-	[mHandles release];
-	[mDash release];
-	
-	[super dealloc];
-}
-
 
 @end

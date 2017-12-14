@@ -81,7 +81,7 @@
 	
 	if ( specImage == nil )
 	{
-		specImage = [[[NSBundle bundleForClass:[self class]] imageForResource:@"NSColorWheelImage"] retain];
+		specImage = [[NSBundle bundleForClass:[self class]] imageForResource:@"NSColorWheelImage"];
 		
 		[specImage setFlipped:YES];
 	}
@@ -270,7 +270,7 @@
 		while( (c = [iter nextObject]) != nil)
 		//	LogEvent_(kInfoEvent, @"%@", [c name]);
 		//*/
-		cList = [[NSColorList colorListNamed:@"Web Safe Colors"] retain]; //Web Safe Colors
+		cList = [NSColorList colorListNamed:@"Web Safe Colors"]; //Web Safe Colors
 	//	LogEvent_(kReactiveEvent, @"clist = %@; colours = %d", cList, [[cList allKeys] count] );
 	}
 	
@@ -385,8 +385,6 @@
 {
 	// set a colour to be returned when the selection doesn't resolve
 	
-	[colour retain];
-	[mNonSelectColour release];
 	mNonSelectColour = colour;
 
 	// set brightness to the colours brightness
@@ -427,7 +425,7 @@
     if (self != nil)
 	{
 		[self setColorForUndefinedSelection:[NSColor grayColor]];
-		mInfoWin = [[GCInfoFloater infoFloater] retain];
+		mInfoWin = [GCInfoFloater infoFloater];
 		NSAssert(mTargetRef == nil, @"Expected init to zero");
 		mMode = kDKColourPickerModeSpectrum;
 		mSel = NSMakePoint( -1, -1 );
@@ -438,8 +436,7 @@
 		if (mNonSelectColour == nil 
 				|| mInfoWin == nil)
 		{
-			[self autorelease];
-			self = nil;
+			return nil;
 		}
     }
     if (self != nil)
@@ -532,13 +529,5 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)	dealloc
-{
-	[mInfoWin release];
-	[mNonSelectColour release];
-	
-	[super dealloc];
-}
-
 
 @end

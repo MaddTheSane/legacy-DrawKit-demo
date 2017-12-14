@@ -19,6 +19,8 @@
 #import "GCDashEditor.h"
 #import "GCDashEditView.h"
 #import "GCBasicDialogController.h"
+#import "GCOutlineView.h"
+#import "WTGradientControl.h"
 
 #import <CoreImage/CIFilter.h>
 #import <DKDrawKit/NSShadow+Scaling.h>
@@ -34,8 +36,6 @@
 		if ( mStyle )
 			[[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:mStyle];
 
-		[style retain];
-		[mStyle release];
 		mStyle = style;
 		
 		// listen for style change notifications so we can track changes made by undo, etc
@@ -132,7 +132,6 @@
 
 	NSImage* img = [[[self style] styleSwatchWithSize:is type:kDKStyleSwatchAutomatic] copy];
 	[mStylePreviewImageWell setImage:img];
-	[img release];
 }
 
 
@@ -618,11 +617,10 @@
 #pragma mark -
 - (void)				openDashEditor
 {
-	mSavedDash = [[(id)mSelectedRendererRef dash] retain];	// in case the editor is doing live preview
+	mSavedDash = [(id)mSelectedRendererRef dash];	// in case the editor is doing live preview
 	
 	DKStrokeDash* dash = [[(id)mSelectedRendererRef dash] copy];
 	[mDashEditController setDash:dash];
-	[dash release];
 	
 	// as long as the current renderer supports these methods, the dash editor will work:
 	
@@ -771,7 +769,6 @@
 	
 	[(DKFill*) mSelectedRendererRef setGradient:grad];
 
-	[grad release];
 	mIsChangingGradient = NO;
 }
 
@@ -819,7 +816,6 @@
 		NSImage* image = [[NSImage alloc] initWithPasteboard:pb];
 		[(DKFill*) mSelectedRendererRef setColour:[NSColor colorWithPatternImage:image]];
 		[mFillPatternImagePreview setImage:image];
-		[image release];
 			
 		LogEvent_(kInfoEvent, @"color space name: %@", [[(DKFill*)mSelectedRendererRef colour] colorSpaceName]);
 	}
@@ -965,7 +961,6 @@
 		[self redisplayContentForSelection:selection];
 	}
 	
-	[clone release];
 	[[[self currentDocument] undoManager] setActionName:NSLocalizedString(@"Clone Style", @"")];
 }
 
@@ -1077,7 +1072,6 @@
 	NSAssert( rend != nil, @"renderer was nil - can't continue");
 	
 	[self addAndSelectNewRenderer:rend];
-	[rend release];
 		
 	[[[self currentDocument] undoManager] setActionName:NSLocalizedString(@"Add Style Component", @"")];
 }
@@ -1129,7 +1123,6 @@
 	id newItem = [sel copy];
 	
 	[self addAndSelectNewRenderer:newItem];
-	[newItem release];
 	[[[self currentDocument] undoManager] setActionName:NSLocalizedString(@"Duplicate Style Component", @"")];
 }
 
@@ -1201,7 +1194,6 @@
 			[mFillPatternImagePreview setImage:image];
 		}
 		
-		[image release];
 	
 	}
 }
@@ -1446,7 +1438,6 @@
 	{
 		NSImage* image = [[NSImage alloc] initWithPasteboard:pb];
 		[(DKPathDecorator*) mSelectedRendererRef setImage:image];
-		[image release];
 	}
 }
 
@@ -1524,7 +1515,6 @@
 	{
 		NSImage* image = [[NSImage alloc] initWithPasteboard:pb];
 		[(DKQuartzBlendRastGroup*) mSelectedRendererRef setMaskImage:image];
-		[image release];
 	}
 }
 
@@ -1539,7 +1529,6 @@
 	NSShadow* shad = [[(DKFill*)mSelectedRendererRef shadow] copy];
 	[shad setAngleInDegrees:[sender floatValue]];
 	[(DKFill*)mSelectedRendererRef setShadow:shad];
-	[shad release];
 }
 
 
@@ -1548,7 +1537,6 @@
 	NSShadow* shad = [[(DKFill*)mSelectedRendererRef shadow] copy];
 	[shad setDistance:[sender floatValue]];
 	[(DKFill*)mSelectedRendererRef setShadow:shad];
-	[shad release];
 }
 
 
@@ -1557,7 +1545,6 @@
 	NSShadow* shad = [[(DKFill*)mSelectedRendererRef shadow] copy];
 	[shad setShadowBlurRadius:[sender floatValue]];
 	[(DKFill*)mSelectedRendererRef setShadow:shad];
-	[shad release];
 }
 
 
@@ -1566,7 +1553,6 @@
 	NSShadow* shad = [[(DKFill*)mSelectedRendererRef shadow] copy];
 	[shad setShadowColor:[sender color]];
 	[(DKFill*)mSelectedRendererRef setShadow:shad];
-	[shad release];
 }
 
 
@@ -1579,14 +1565,13 @@
 #pragma unused (sheet)
 //	LogEvent_(kReactiveEvent, @"sheet ended, return code = %d", returnCode);
 	
-	if((id)contextInfo == mDashEditController )
+	if((__bridge id)contextInfo == mDashEditController )
 	{
 		if( returnCode == NSOKButton )
 			[(id)mSelectedRendererRef setDash:[mDashEditController dash]];
 		else
 			[(id)mSelectedRendererRef setDash:mSavedDash];
 		
-		[mSavedDash release];
 		mSavedDash = nil;
 	}
 }
@@ -1783,11 +1768,9 @@
 		// moving to another group in the hierarchy
 		
 		[[self style] notifyClientsBeforeChange];
-		[mDragItem retain];
 		[[mDragItem container] removeRenderer:mDragItem];
 		[group addRenderer:mDragItem];
 		[group moveRendererAtIndex:[group countOfRenderList] - 1 toIndex:childIndex];
-		[mDragItem release];
 		[[self style] notifyClientsAfterChange];
 	
 		[olv reloadData];

@@ -33,8 +33,8 @@ static NSComparisonResult metaDataSortFunction( id a, id b, void* context)
 	id na;
 	id nb;
 	
-	na = [a metadataObjectForKey:(NSString*) context];
-	nb = [b metadataObjectForKey:(NSString*) context];
+	na = [a metadataObjectForKey:(__bridge NSString*) context];
+	nb = [b metadataObjectForKey:(__bridge NSString*) context];
 
 	return [na compare:nb];
 }
@@ -275,7 +275,7 @@ static NSComparisonResult metaDataSortFunction( id a, id b, void* context)
 	
 	if ( style == nil )
 	{
-		style = [[DKStyle styleWithFillColour:nil strokeColour:[NSColor grayColor] strokeWidth:0.5] retain];
+		style = [DKStyle styleWithFillColour:nil strokeColour:[NSColor grayColor] strokeWidth:0.5];
 		[style setStyleSharable:YES];
 	}
 				

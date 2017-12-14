@@ -46,13 +46,12 @@
 - (id)			initWithBounds:(NSRect) rect inCluster:(GCMiniControlCluster*) clust
 {
 	self = [super init];
-	if (self != nil)
-	{
+	if (self != nil) {
 		[self setBounds:rect];
 		mClusterRef = clust;
 		NSAssert(mIdent == nil, @"Expected init to zero");
 		NSAssert(mDelegateRef == nil, @"Expected init to zero");
-		mInfoWin = [[GCInfoFloater infoFloater] retain];
+		mInfoWin = [GCInfoFloater infoFloater];
 		
 		NSAssert(mValue == 0.0, @"Expected init to zero");
 		NSAssert(mMinValue == 0.0, @"Expected init to zero");
@@ -60,15 +59,10 @@
 		NSAssert(mInfoWMode == kDKMiniControlNoInfoWindow, @"Expected init to zero");
 		mApplyShadow = YES;
 		
-		if (mInfoWin == nil)
-		{
-			[self autorelease];
-			self = nil;
+		if (mInfoWin == nil) {
+			return nil;
 		}
-	}if (self != nil)
-	{
-		if ( clust != nil)
-		{
+		if (clust != nil) {
 			[clust addMiniControl:self];
 		}
 	}
@@ -107,7 +101,7 @@
 {
 	if ( mApplyShadow )
 	{
-		NSShadow*	shadowObj = [[[NSShadow alloc] init] autorelease];
+		NSShadow*	shadowObj = [[NSShadow alloc] init];
 		
 		[shadowObj setShadowColor:[NSColor blackColor]];
 		[shadowObj setShadowOffset:NSMakeSize( 2, -2 )];
@@ -213,7 +207,7 @@
 	if ( mInfoWMode != kDKMiniControlNoInfoWindow )
 	{
 		if ( mInfoWin == nil )
-			mInfoWin = [[GCInfoFloater infoFloater] retain];
+			mInfoWin = [GCInfoFloater infoFloater];
 		
 		if ( format )
 			[self setInfoWindowFormat:format];
@@ -304,8 +298,6 @@
 {
 	// stores the control against <name> in the owning cluster, so it can easily be located by name
 	
-	[name retain];
-	[mIdent release];
 	mIdent = name;
 	[[self cluster] setControl:self forKey:name];
 }
@@ -372,13 +364,6 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)dealloc
-{
-	[mInfoWin release];
-	[mIdent release];
-	
-	[super dealloc];
-}
 
 
 @end

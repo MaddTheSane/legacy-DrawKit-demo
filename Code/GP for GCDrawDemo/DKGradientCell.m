@@ -25,8 +25,6 @@
 
 		[[NSNotificationCenter defaultCenter] removeObserver:self name:nil object:mGradient];
 		[mGradient tearDownKVOForObserver:self];
-		[value retain];
-		[mGradient release];
 		mGradient = value;
 		[mGradient setUpKVOForObserver:self];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gradientDidChange:) name:kDKNotificationGradientDidAddColorStop object:mGradient];
@@ -81,7 +79,7 @@
 	[[self gradient] fillRect:box];
 	[swatchImage unlockFocus];
 	
-	return [swatchImage autorelease];
+	return swatchImage;
 }
 
 
@@ -117,7 +115,7 @@
 		
 		if ( pat == nil )
 		{
-			pat = [[[NSBundle bundleForClass:[self class]] imageForResource:@"chequered"] retain];
+			pat = [[NSBundle bundleForClass:[self class]] imageForResource:@"chequered"];
 		}
 		
 		if ( pat )
@@ -238,13 +236,6 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void) dealloc
-{
-	[mGradient release];
-	
-	[super dealloc];
-}
-
 
 - (id)	init
 {

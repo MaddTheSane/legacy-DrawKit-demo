@@ -259,7 +259,6 @@
 				while( j != NSNotFound );
 			}
 		}
-		[hits release];
 	}
 	return mSBArray;
 }
@@ -269,7 +268,6 @@
 {
 //	LogEvent_(kReactiveEvent, @"invalidating stops rects");
 	
-	[mSBArray release];
 	mSBArray = nil;
 }
 
@@ -441,7 +439,7 @@
 	[self drawStop:stop inRect:sr state:kDKNormalState];
 	[img unlockFocus];
 	
-	return [img autorelease];
+	return img;
 }
 
 
@@ -456,8 +454,6 @@
 	
 	if ( sCurs == nil || stop != sStop )
 	{
-		if ( sCurs != nil )
-			[sCurs release];
 		
 		NSImage* poofImage = [[NSCursor disappearingItemCursor] image];
 		NSImage* stopImg = [self dragImageForStop:stop];
@@ -640,7 +636,7 @@
 	
 	if ( pat == nil )
 	{
-		pat = [[[NSBundle bundleForClass:[self class]] imageForResource:@"chequered"] retain];
+		pat = [[NSBundle bundleForClass:[self class]] imageForResource:@"chequered"];
 	}
 	
 	if ( pat )
@@ -665,7 +661,6 @@
 	end = NSMakePoint( NSMaxX( clip ), NSMidY( clip ));
 	
 	[gradCopy fillPath:path startingAtPoint:start startRadius:0.0 endingAtPoint:end endRadius:0.0];
-	[gradCopy release];
 	
 	// Draw the swatches
 	[self drawStopsInRect:clip];
@@ -680,7 +675,7 @@
 		NSAssert(mDragStopRef == nil, @"Expected init to zero");
 		NSAssert(mSelectedStopRef == nil, @"Expected init to zero");
 		NSAssert(mDeletionCandidateRef == nil, @"Expected init to zero");
-		mInfoWin = [[GCInfoFloater infoFloater] retain];
+		mInfoWin = [GCInfoFloater infoFloater];
 		
 		mUnsortedStops = [[NSMutableArray alloc] init];
 		NSAssert(mSBArray == nil, @"Expected init to zero");
@@ -692,12 +687,8 @@
 		
 		if (mInfoWin == nil)
 		{
-			[self autorelease];
-			self = nil;
+			return nil;
 		}
-    }
-	if (self != nil)
-	{
 		[mInfoWin setFormat:@"0.0%"];
 		[self setGradient:[DKGradient defaultGradient]];
 	}
@@ -749,7 +740,6 @@
 		[picker setAction:@selector(changeColor:)];
 		[picker setColorForUndefinedSelection:[stop color]];
 		[picker setShowsInfo:YES];
-		[picker release];
 		
 		[GCWindowMenu popUpWindowMenu:popup atPoint:loc withEvent:theEvent forView:self];
 	
@@ -937,16 +927,6 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)		dealloc
-{
-	[mSBArray release];
-	[mUnsortedStops release];
-	
-	[mInfoWin release];
-	
-	[super dealloc];
-}
-
 
 #pragma mark -
 #pragma mark As part of NSDraggingDestination  Protocol

@@ -58,9 +58,9 @@ typedef NS_ENUM(NSInteger, DKControlInfoWindowMode) {
 @interface GCMiniControl : NSObject
 {
 	NSRect					mBounds;		// area fully enclosing the control
-	GCMiniControlCluster*   mClusterRef;	// cluster we belong to, if any
+	GCMiniControlCluster*   __weak mClusterRef;	// cluster we belong to, if any
 	NSString*				mIdent;			// control's identifier, if any
-	id<GCMiniControlDelegate>mDelegateRef;	// delegate, if any
+	id<GCMiniControlDelegate>__unsafe_unretained mDelegateRef;	// delegate, if any
 	GCInfoFloater*			mInfoWin;		// optional info window
 	
 	CGFloat					mValue;			// current value
@@ -73,8 +73,8 @@ typedef NS_ENUM(NSInteger, DKControlInfoWindowMode) {
 + (NSColor*)				miniControlThemeColor:(DKControlThemeElement) themeElementID withAlpha:(CGFloat) alpha;
 
 - (id)						initWithBounds:(NSRect) rect inCluster:(GCMiniControlCluster*) clust;
-@property (assign) GCMiniControlCluster *cluster;
-@property (readonly, retain) NSView *view;
+@property (weak) GCMiniControlCluster *cluster;
+@property (readonly, strong) NSView *view;
 
 @property (nonatomic) NSRect bounds;
 - (void)					draw;
@@ -100,7 +100,7 @@ typedef NS_ENUM(NSInteger, DKControlInfoWindowMode) {
 - (void)					setInfoWindowFormat:(NSString*) format;
 - (void)					setInfoWindowValue:(CGFloat) value;
 
-@property (nonatomic, assign) id<GCMiniControlDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<GCMiniControlDelegate> delegate;
 - (void)					notifyDelegateWillChange:(id) value;
 - (void)					notifyDelegateDidChange:(id) value;
 

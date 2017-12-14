@@ -54,7 +54,7 @@
 - (void)sheetDidEnd:(NSWindow*) sheet returnCode:(NSInteger) returnCode  contextInfo:(void*) contextInfo
 {
 #pragma unused (returnCode)
-	NSString* context = (NSString*)contextInfo;
+	NSString* context = (__bridge NSString*)contextInfo;
 	
 	if([context isEqualToString:@"save"])
 	{
@@ -82,7 +82,7 @@
 #pragma unused (alert)
 	if(returnCode == NSAlertDefaultReturn )
 	{
-		NSString* op = (NSString*)contextInfo;
+		NSString* op = (__bridge NSString*)contextInfo;
 		
 		// do the deed
 		
@@ -212,7 +212,6 @@
 						
 			cell = [mStyleIconMatrix cellAtRow:y column:x];
 			[cell setImage:swatch];
-			[swatch release];
 			
 			[cell setRepresentedObject:style];
 			[mStyleIconMatrix setToolTip:[style name] forCell:cell];
@@ -259,9 +258,6 @@
 
 - (void)				updateUIForCategory:(NSString*) category
 {
-	
-	[category retain];
-	[mSelectedCategory release];
 	mSelectedCategory = category;
 	
 	[self populateMatrixWithStyleInCategory:category];
@@ -416,7 +412,7 @@
 		
 			[swatch setSize:NSMakeSize( 22, 22 )];
 			
-			return [swatch autorelease];
+			return swatch;
 		}
 	}
 	

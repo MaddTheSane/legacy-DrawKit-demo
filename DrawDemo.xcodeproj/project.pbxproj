@@ -690,6 +690,7 @@
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = dkicon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -717,6 +718,7 @@
 			baseConfigurationReference = AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = dkicon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = Code/DrawDemo_Prefix.pch;

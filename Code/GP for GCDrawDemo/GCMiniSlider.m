@@ -10,6 +10,7 @@
 
 #import "GCGradientPanel.h"
 #import "NSBezierPath+GCAdditions.h"
+#import "GCMiniControlCluster.h"
 
 
 @implementation GCMiniSlider
@@ -95,13 +96,11 @@
 	{
 		//mKnobImage = [[NSImage imageNamed:@"smallBlueKnob"] retain];
 		
-		mKnobImage = [[NSImage imageNamed:@"smallBlueKnob" fromBundleForClass:[self class]] retain];
+		mKnobImage = [NSImage imageNamed:@"smallBlueKnob" fromBundleForClass:[self class]];
 
 		NSAssert(!mShowTicks, @"Expected init to zero");
 		
-		if (mKnobImage == nil)
-		{
-			[self autorelease];
+		if (mKnobImage == nil) {
 			return nil;
 		}
 		[mKnobImage setFlipped:YES];
@@ -138,12 +137,5 @@
 
 #pragma mark -
 #pragma mark As an NSObject
-- (void)		dealloc
-{
-	[mKnobImage release];
-	
-	[super dealloc];
-}
-
 
 @end

@@ -16,7 +16,7 @@
 	NSInteger mTemporaryColourRow;
 }
 
-@property (retain) DKDrawing *drawing;
+@property (strong) DKDrawing *drawing;
 
 - (IBAction)		addLayerButtonAction:(id)sender;
 - (IBAction)		removeLayerButtonAction:(id)sender;

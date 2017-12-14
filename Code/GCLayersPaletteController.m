@@ -45,7 +45,6 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	[[self drawing] addLayer:layer andActivateIt:YES];
 	
 	NSString* action = [NSString stringWithFormat:@"%@ \u201C%@\u201D", NSLocalizedString(@"Add Layer", @""), [layer layerName]];
-	[layer release];
 
 	[[[self drawing] undoManager] setActionName:action];
 }
@@ -223,8 +222,6 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	
 	//NSLog(@"setting temp colour: %@, row = %d", [aColour stringValue], row);
 	
-	[aColour retain];
-	[mTemporaryColour release];
 	mTemporaryColour = aColour;
 	mTemporaryColourRow = row;
 }
@@ -284,7 +281,7 @@ NSString*		kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPast
 	
 	// set the cell type of the colours column to GCColourCell
 	
-	GCColourCell* cc = [[[GCColourCell alloc] init] autorelease];
+	GCColourCell* cc = [[GCColourCell alloc] init];
 	[[mLayersTable tableColumnWithIdentifier:@"selectionColour"] setDataCell:cc];
 
 	// subscribe to active layer notifications so the table can be kept in synch
