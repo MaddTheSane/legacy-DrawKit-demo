@@ -48,7 +48,7 @@
 	[DKObjectCreationTool setStyleForCreatedObjects:ss];
 
 	NSString* toolname = [[mToolMatrix selectedCell] title];
-	DKDrawingTool* tool = [DKDrawingTool drawingToolWithName:toolname];
+	DKDrawingTool* tool = [[DKToolRegistry sharedToolRegistry] drawingToolWithName:toolname];
 	[self selectToolWithName:[tool registeredName]];
 }
 
@@ -95,7 +95,7 @@
 				
 				// set the preview image to the tool prototype's style, if any
 				
-				DKDrawingTool* tool = [DKDrawingTool drawingToolWithName:name];
+				DKDrawingTool* tool = [[DKToolRegistry sharedToolRegistry] drawingToolWithName:name];
 				
 				if ( tool && [tool isKindOfClass:[DKObjectCreationTool class]] )
 				{
@@ -202,7 +202,7 @@
 			[cell setEnabled:NO];
 		else
 		{	
-			DKDrawingTool* tool = [DKDrawingTool drawingToolWithName:[cell title]];
+			DKDrawingTool* tool = [[DKToolRegistry sharedToolRegistry] drawingToolWithName:[cell title]];
 			[cell setRepresentedObject:tool];
 			[mToolMatrix setToolTip:[cell title] forCell:cell];
 		}

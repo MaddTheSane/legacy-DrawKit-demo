@@ -26,7 +26,8 @@
 		// convert to CFURL and thence to path
 		
 		CFURLRef url = CFURLCreateFromFSRef( kCFAllocatorSystemDefault, &ref );
-		path = (NSString*) CFURLCopyFileSystemPath( url, kCFURLPOSIXPathStyle );
+		path = CFBridgingRelease(CFURLCopyFileSystemPath( url, kCFURLPOSIXPathStyle ));
+		CFRelease(url);
 	}
 	
 	return path;

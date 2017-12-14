@@ -104,7 +104,7 @@
 #pragma unused (note)
 	// a new tool was registered. Add it to the tool menu if it's not known already.
 	
-	NSArray*		names = [DKDrawingTool toolNames];
+	NSArray*		names = [[DKToolRegistry sharedToolRegistry] toolNames];
 	NSMenu*			menu = mUserToolMenu;
 	NSInteger 		m;
 	NSMenuItem*		item;
@@ -120,7 +120,7 @@
 	} while( m );
 		
 	for (NSString *name in names) {
-		tool = [DKDrawingTool drawingToolWithName:name];
+		tool = [[DKToolRegistry sharedToolRegistry] drawingToolWithName:name];
 		
 		item = [menu addItemWithTitle:name action:@selector(selectDrawingToolByName:) keyEquivalent:@""];
 		[item setTarget:nil];

@@ -34,9 +34,9 @@
 	IBOutlet GCDashEditView *mDashPreviewEditView;
 	IBOutlet NSButton *mPreviewCheckbox;
 	IBOutlet NSSlider *mPhaseSlider;
-	DKStrokeDash*			mDash;
+	DKStrokeDash*		mDash;
 	NSTextField*		mEF[8];
-	id					mDelegateRef;
+	id<GCDashEditorDelegate> mDelegateRef;
 }
 
 

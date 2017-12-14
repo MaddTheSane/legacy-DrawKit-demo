@@ -1,13 +1,14 @@
 /* GCStyleManagerDialog */
 
 #import <Cocoa/Cocoa.h>
+#import <DKDrawKit/DKStyleRegistry.h>
+#import "GCTableView.h"
 
 
 @class DKStyleRegistry, DKStyle;
 @class GCBasicDialogController;
-@class GCTableView;
 
-@interface GCStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
+@interface GCStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate, DKStyleRegistryDelegate>
 {
     IBOutlet NSButton *mAddCategoryButton;
     IBOutlet NSButton *mDeleteCategoryButton;
