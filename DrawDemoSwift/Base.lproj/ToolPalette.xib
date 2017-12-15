@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GCToolPalette">
+        <customObject id="-2" userLabel="File's Owner" customClass="GCSToolPalette">
             <connections>
                 <outlet property="mStylePopUpButton" destination="29" id="45"/>
                 <outlet property="mStylePreviewView" destination="39" id="46"/>

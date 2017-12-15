@@ -1,65 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GCDrawDemoPrefsController">
+        <customObject id="-2" userLabel="File's Owner" customClass="GCSDrawDemoPrefsController" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mQualityThrottlingCheckbox" destination="5" id="8"/>
-                <outlet property="mStorageTypeCheckbox" destination="13" id="16"/>
-                <outlet property="mUndoSelectionsCheckbox" destination="9" id="12"/>
+                <outlet property="qualityThrottlingCheckbox" destination="5" id="yXK-wh-vXP"/>
+                <outlet property="storageTypeCheckbox" destination="13" id="eIL-AG-T3U"/>
+                <outlet property="undoSelectionsCheckbox" destination="9" id="dha-Dj-rYd"/>
                 <outlet property="window" destination="1" id="4"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" frameAutosaveName="drawdemo_prefs_window" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="677" y="550" width="277" height="100"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="contentRect" x="677" y="550" width="197" height="100"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="277" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="240" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button imageHugsTitle="YES" id="5">
-                        <rect key="frame" x="17" y="64" width="244" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Enable Drawing Quality Modulation" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="6">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="qualityThrottlingAction:" target="-2" id="7"/>
-                        </connections>
-                    </button>
-                    <button imageHugsTitle="YES" id="9">
-                        <rect key="frame" x="17" y="44" width="243" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Undo Selection Changes" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="10">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                            <connections>
-                                <action selector="undoableSelectionAction:" target="-2" id="11"/>
-                            </connections>
-                        </buttonCell>
-                    </button>
-                    <button toolTip="Check to use BSP object storage, uncheck for Linear. Takes effect for new layers/documents only." imageHugsTitle="YES" id="13">
-                        <rect key="frame" x="17" y="24" width="242" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Use BSP Object Storage" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="14">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="smallSystem"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="setStorageTypeAction:" target="-2" id="15"/>
-                        </connections>
-                    </button>
+                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0X-BD-2Oy">
+                        <rect key="frame" x="20" y="28" width="200" height="52"/>
+                        <subviews>
+                            <button imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                                <rect key="frame" x="-3" y="37" width="205" height="18"/>
+                                <buttonCell key="cell" type="check" title="Enable Drawing Quality Modulation" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="6">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="qualityThrottlingAction:" target="-2" id="7"/>
+                                </connections>
+                            </button>
+                            <button imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                                <rect key="frame" x="-3" y="17" width="152" height="18"/>
+                                <buttonCell key="cell" type="check" title="Undo Selection Changes" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="10">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <connections>
+                                        <action selector="undoableSelectionAction:" target="-2" id="11"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                            <button toolTip="Check to use BSP object storage, uncheck for Linear. Takes effect for new layers/documents only." imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13">
+                                <rect key="frame" x="-3" y="-3" width="150" height="18"/>
+                                <buttonCell key="cell" type="check" title="Use BSP Object Storage" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="14">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="setStorageTypeAction:" target="-2" id="15"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="g0X-BD-2Oy" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20" symbolic="YES" id="5Jq-1Q-a5i"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="g0X-BD-2Oy" secondAttribute="bottom" constant="20" symbolic="YES" id="8J4-uG-tVa"/>
+                    <constraint firstAttribute="trailing" secondItem="g0X-BD-2Oy" secondAttribute="trailing" constant="20" symbolic="YES" id="OGz-wA-zHp"/>
+                    <constraint firstItem="g0X-BD-2Oy" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="Waz-bg-F8E"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="98.5" y="162"/>
         </window>
     </objects>
 </document>

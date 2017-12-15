@@ -24,7 +24,7 @@
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSDocumentClass</key>
-			<string>$(PRODUCT_MODULE_NAME).GCSDrawDemoDocument</string>
+			<string>GCSDrawDemoDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>XML</string>
 		</dict>
@@ -41,10 +41,10 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>

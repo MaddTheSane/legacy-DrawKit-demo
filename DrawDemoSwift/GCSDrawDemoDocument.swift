@@ -9,7 +9,7 @@
 import Cocoa
 import DKDrawKit
 
-class GCSDrawDemoDocument: DKDrawingDocument {
+class DrawDemoDocument: DKDrawingDocument {
 
     /*
     override var windowNibName: String? {

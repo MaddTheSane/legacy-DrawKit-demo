@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GCStyleInspector">
+        <customObject id="-2" userLabel="File's Owner" customClass="GCSStyleInspector">
             <connections>
                 <outlet property="mActionsPopUpButton" destination="359" id="1612"/>
                 <outlet property="mAddRendererPopUpButton" destination="3216" id="3240"/>
@@ -343,7 +343,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
-                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="243" customClass="GCCheckboxCell">
+                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="243" customClass="GCSCheckboxCell">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="cellTitle"/>
                                                             </buttonCell>
@@ -2285,7 +2285,7 @@
                             <action selector="dashScaleCheckboxAction:" target="315" id="339"/>
                         </connections>
                     </button>
-                    <customView id="312" customClass="GCDashEditView">
+                    <customView id="312" customClass="GCSDashEditView">
                         <rect key="frame" x="20" y="45" width="280" height="60"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </customView>
@@ -2331,7 +2331,7 @@ Gw
                 <outlet property="delegate" destination="315" id="317"/>
             </connections>
         </window>
-        <customObject id="315" userLabel="GCDashEditor" customClass="GCDashEditor">
+        <customObject id="315" userLabel="GCDashEditor" customClass="GCSDashEditor">
             <connections>
                 <outlet property="mDashCountButtonMatrix" destination="304" id="1457"/>
                 <outlet property="mDashMarkTextField1" destination="288" id="1458"/>
@@ -2425,7 +2425,7 @@ Gw
                 </subviews>
             </view>
         </window>
-        <customObject id="3174" customClass="GCBasicDialogController">
+        <customObject id="3174" customClass="GCSBasicDialogController">
             <connections>
                 <outlet property="mCancel" destination="377" id="3175"/>
                 <outlet property="mOK" destination="376" id="3176"/>

@@ -62,12 +62,12 @@
 		55C969A91FE34099009AD729 /* GCSStyleManagerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */; };
 		55C969AA1FE34099009AD729 /* GCSStyleInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9697A1FE34099009AD729 /* GCSStyleInspector.m */; };
 		55C969AB1FE34099009AD729 /* GCSBasicDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9697B1FE34099009AD729 /* GCSBasicDialogController.m */; };
-		55C969AC1FE34099009AD729 /* GCSDrawDemoPrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9697C1FE34099009AD729 /* GCSDrawDemoPrefsController.m */; };
 		55C969AD1FE343E1009AD729 /* NSWindow+SheetAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3579740DEE5F5C00C9B16D /* NSWindow+SheetAdditions.m */; };
 		55C969AE1FE348DA009AD729 /* NSBezierPath+GCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58CFFE0C7526A6009B85CC /* NSBezierPath+GCAdditions.m */; };
 		55C969AF1FE348F3009AD729 /* NSFolderManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58D0000C7526A6009B85CC /* NSFolderManagerAdditions.m */; };
 		55C969B11FE351CB009AD729 /* GCSMiniControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969341FE34099009AD729 /* GCSMiniControl.m */; };
 		55C969B21FE3525E009AD729 /* GCSMiniSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969281FE34099009AD729 /* GCSMiniSlider.m */; };
+		55C969B71FE3553C009AD729 /* GCSDrawDemoPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */; };
 		55EFF2231FDE8DE0007A4610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EFF2221FDE8DE0007A4610 /* Assets.xcassets */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
@@ -274,7 +274,6 @@
 		55C9695D1FE34099009AD729 /* GCSDrawKitAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSDrawKitAppDelegate.h; sourceTree = "<group>"; };
 		55C9695F1FE34099009AD729 /* GCSDashEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDashEditor.m; sourceTree = "<group>"; };
 		55C969611FE34099009AD729 /* GCSDashEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDashEditView.m; sourceTree = "<group>"; };
-		55C969631FE34099009AD729 /* GCSDrawDemoPrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSDrawDemoPrefsController.h; sourceTree = "<group>"; };
 		55C969641FE34099009AD729 /* GCSStyleInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSStyleInspector.h; sourceTree = "<group>"; };
 		55C969651FE34099009AD729 /* GCSBasicDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSBasicDialogController.h; sourceTree = "<group>"; };
 		55C969661FE34099009AD729 /* GCSExportOptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSExportOptionsController.h; sourceTree = "<group>"; };
@@ -295,10 +294,11 @@
 		55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSStyleManagerDialog.m; sourceTree = "<group>"; };
 		55C9697A1FE34099009AD729 /* GCSStyleInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSStyleInspector.m; sourceTree = "<group>"; };
 		55C9697B1FE34099009AD729 /* GCSBasicDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSBasicDialogController.m; sourceTree = "<group>"; };
-		55C9697C1FE34099009AD729 /* GCSDrawDemoPrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDrawDemoPrefsController.m; sourceTree = "<group>"; };
 		55C9697E1FE34099009AD729 /* GCSDashEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSDashEditView.h; sourceTree = "<group>"; };
 		55C969B31FE35360009AD729 /* GCSGradientPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSGradientPanel.h; sourceTree = "<group>"; };
 		55C969B41FE35361009AD729 /* GCSGradientPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSGradientPanel.m; sourceTree = "<group>"; };
+		55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSDrawDemoPrefsController.swift; sourceTree = "<group>"; };
+		55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawDemoKit_Bridge.h; sourceTree = "<group>"; };
 		55EFF2221FDE8DE0007A4610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GCDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -560,6 +560,8 @@
 				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
 				55C969191FE337A2009AD729 /* GCSOutlineView.swift */,
 				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
+				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
+				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
 				55C968C41FE33509009AD729 /* Assets.xcassets */,
 				55C968C91FE33509009AD729 /* Info.plist */,
 				55C969171FE33693009AD729 /* Credits.rtf */,
@@ -606,8 +608,6 @@
 				55C9695B1FE34099009AD729 /* GCSDrawDemoDocument+ShortestRoute.m */,
 				55C969751FE34099009AD729 /* GCSDrawDemoDocument+TimelineLayout.h */,
 				55C9695A1FE34099009AD729 /* GCSDrawDemoDocument+TimelineLayout.m */,
-				55C969631FE34099009AD729 /* GCSDrawDemoPrefsController.h */,
-				55C9697C1FE34099009AD729 /* GCSDrawDemoPrefsController.m */,
 				55C9695D1FE34099009AD729 /* GCSDrawKitAppDelegate.h */,
 				55C969731FE34099009AD729 /* GCSDrawKitAppDelegate.m */,
 				55C969661FE34099009AD729 /* GCSExportOptionsController.h */,
@@ -911,11 +911,11 @@
 				55C9691E1FE33EB1009AD729 /* WTPlistKeyValueCoding.m in Sources */,
 				55C969B21FE3525E009AD729 /* GCSMiniSlider.m in Sources */,
 				55C969B11FE351CB009AD729 /* GCSMiniControl.m in Sources */,
+				55C969B71FE3553C009AD729 /* GCSDrawDemoPrefsController.swift in Sources */,
 				55C969921FE34099009AD729 /* GCSColourPickerView.m in Sources */,
 				55C969A71FE34099009AD729 /* GCSPolarDuplicateController.m in Sources */,
 				55C969A61FE34099009AD729 /* GCSTableView.m in Sources */,
 				55C969A21FE34099009AD729 /* GCSLinearDuplicateController.m in Sources */,
-				55C969AC1FE34099009AD729 /* GCSDrawDemoPrefsController.m in Sources */,
 				55C969201FE33FDB009AD729 /* DKSGradientCell.swift in Sources */,
 				55C969AD1FE343E1009AD729 /* NSWindow+SheetAdditions.m in Sources */,
 				55C969A11FE34099009AD729 /* GCSDrawingSizeController.m in Sources */,
@@ -1224,6 +1224,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.DrawDemoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = DrawDemoSwift/DrawDemoKit_Bridge.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1256,6 +1257,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.DrawDemoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = DrawDemoSwift/DrawDemoKit_Bridge.h;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

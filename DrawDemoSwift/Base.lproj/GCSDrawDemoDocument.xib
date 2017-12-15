@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GCSDrawDemoDocument" customModule="DrawDemoSwift" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="GCSDrawDemoDocument">
             <connections>
                 <outlet property="mExportController" destination="376" id="403"/>
                 <outlet property="mLinearDuplicateController" destination="325" id="357"/>
@@ -129,7 +129,7 @@ Gw
                 </subviews>
             </view>
         </window>
-        <customObject id="67" userLabel="GCBasicDialogController" customClass="GCBasicDialogController">
+        <customObject id="67" userLabel="GCSBasicDialogController" customClass="GCSBasicDialogController">
             <connections>
                 <outlet property="mCancel" destination="64" id="246"/>
                 <outlet property="mOK" destination="63" id="245"/>
@@ -321,7 +321,7 @@ Gw
                 </subviews>
             </view>
         </window>
-        <customObject id="96" userLabel="GCPolarDuplicateController" customClass="GCPolarDuplicateController">
+        <customObject id="96" userLabel="GCSPolarDuplicateController" customClass="GCSPolarDuplicateController">
             <connections>
                 <outlet property="mAngleIncrementTextField" destination="92" id="251"/>
                 <outlet property="mAutoFitCircleCheckbox" destination="120" id="253"/>
@@ -335,7 +335,7 @@ Gw
                 <outlet property="window" destination="80" id="97"/>
             </connections>
         </customObject>
-        <customObject id="325" customClass="GCLinearDuplicateController">
+        <customObject id="325" customClass="GCSLinearDuplicateController">
             <connections>
                 <outlet property="mNumberOfCopiesTextField" destination="333" id="349"/>
                 <outlet property="mOKButton" destination="328" id="352"/>
@@ -671,7 +671,7 @@ Gw
                 </popUpButton>
             </subviews>
         </customView>
-        <customObject id="376" userLabel="Export Controller" customClass="GCExportOptionsController">
+        <customObject id="376" userLabel="Export Controller" customClass="GCSExportOptionsController">
             <connections>
                 <outlet property="mExportAccessoryView" destination="363" id="377"/>
                 <outlet property="mExportFormatPopUpButton" destination="364" id="378"/>
