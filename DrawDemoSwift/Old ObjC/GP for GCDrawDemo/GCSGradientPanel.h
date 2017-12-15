@@ -8,10 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class GCGradient, GCGradientWell, WTGradientControl, DKSwatchMatrix, WTToolbar, DKGradientController, GCRecentItemsList;
+@class GCGradient, GCSGradientWell, WTGradientControl, DKSwatchMatrix, WTToolbar, DKGradientController, GCRecentItemsList;
 
 @interface GCSGradientPanel : NSWindowController {
-	IBOutlet GCGradientWell *gWell;
+	IBOutlet GCSGradientWell *gWell;
 	IBOutlet WTGradientControl *gControl;
 	IBOutlet DKSwatchMatrix *gSwatchMatrix;
 	IBOutlet NSView *gDrawerTopEdge;

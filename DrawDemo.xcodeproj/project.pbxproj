@@ -68,6 +68,7 @@
 		55C969B11FE351CB009AD729 /* GCSMiniControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969341FE34099009AD729 /* GCSMiniControl.m */; };
 		55C969B21FE3525E009AD729 /* GCSMiniSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969281FE34099009AD729 /* GCSMiniSlider.m */; };
 		55C969B71FE3553C009AD729 /* GCSDrawDemoPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */; };
+		55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969BA1FE37334009AD729 /* LogEventSwift.m */; };
 		55EFF2231FDE8DE0007A4610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EFF2221FDE8DE0007A4610 /* Assets.xcassets */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
@@ -271,7 +272,6 @@
 		55C9695A1FE34099009AD729 /* GCSDrawDemoDocument+TimelineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCSDrawDemoDocument+TimelineLayout.m"; sourceTree = "<group>"; };
 		55C9695B1FE34099009AD729 /* GCSDrawDemoDocument+ShortestRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCSDrawDemoDocument+ShortestRoute.m"; sourceTree = "<group>"; };
 		55C9695C1FE34099009AD729 /* GCSToolPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSToolPalette.h; sourceTree = "<group>"; };
-		55C9695D1FE34099009AD729 /* GCSDrawKitAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSDrawKitAppDelegate.h; sourceTree = "<group>"; };
 		55C9695F1FE34099009AD729 /* GCSDashEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDashEditor.m; sourceTree = "<group>"; };
 		55C969611FE34099009AD729 /* GCSDashEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDashEditView.m; sourceTree = "<group>"; };
 		55C969641FE34099009AD729 /* GCSStyleInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSStyleInspector.h; sourceTree = "<group>"; };
@@ -286,7 +286,6 @@
 		55C9696E1FE34099009AD729 /* GCSLinearDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSLinearDuplicateController.m; sourceTree = "<group>"; };
 		55C969701FE34099009AD729 /* GCSDashEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSDashEditor.h; sourceTree = "<group>"; };
 		55C969721FE34099009AD729 /* GCSToolPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSToolPalette.m; sourceTree = "<group>"; };
-		55C969731FE34099009AD729 /* GCSDrawKitAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDrawKitAppDelegate.m; sourceTree = "<group>"; };
 		55C969741FE34099009AD729 /* GCSDrawDemoDocument+ShortestRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCSDrawDemoDocument+ShortestRoute.h"; sourceTree = "<group>"; };
 		55C969751FE34099009AD729 /* GCSDrawDemoDocument+TimelineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCSDrawDemoDocument+TimelineLayout.h"; sourceTree = "<group>"; };
 		55C969761FE34099009AD729 /* GCSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSTableView.m; sourceTree = "<group>"; };
@@ -299,6 +298,8 @@
 		55C969B41FE35361009AD729 /* GCSGradientPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSGradientPanel.m; sourceTree = "<group>"; };
 		55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSDrawDemoPrefsController.swift; sourceTree = "<group>"; };
 		55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawDemoKit_Bridge.h; sourceTree = "<group>"; };
+		55C969B91FE37325009AD729 /* LogEventSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogEventSwift.h; sourceTree = "<group>"; };
+		55C969BA1FE37334009AD729 /* LogEventSwift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogEventSwift.m; sourceTree = "<group>"; };
 		55EFF2221FDE8DE0007A4610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* GCDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -562,6 +563,8 @@
 				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
 				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
 				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
+				55C969B91FE37325009AD729 /* LogEventSwift.h */,
+				55C969BA1FE37334009AD729 /* LogEventSwift.m */,
 				55C968C41FE33509009AD729 /* Assets.xcassets */,
 				55C968C91FE33509009AD729 /* Info.plist */,
 				55C969171FE33693009AD729 /* Credits.rtf */,
@@ -608,8 +611,6 @@
 				55C9695B1FE34099009AD729 /* GCSDrawDemoDocument+ShortestRoute.m */,
 				55C969751FE34099009AD729 /* GCSDrawDemoDocument+TimelineLayout.h */,
 				55C9695A1FE34099009AD729 /* GCSDrawDemoDocument+TimelineLayout.m */,
-				55C9695D1FE34099009AD729 /* GCSDrawKitAppDelegate.h */,
-				55C969731FE34099009AD729 /* GCSDrawKitAppDelegate.m */,
 				55C969661FE34099009AD729 /* GCSExportOptionsController.h */,
 				55C969521FE34099009AD729 /* GCSExportOptionsController.m */,
 				55C969691FE34099009AD729 /* GCSLayersPaletteController.h */,
@@ -902,6 +903,7 @@
 				55C969811FE34099009AD729 /* GCSLayersPaletteController.m in Sources */,
 				55C969831FE34099009AD729 /* GCSGradientPasteboard.m in Sources */,
 				55C969881FE34099009AD729 /* DKSGradientCell.m in Sources */,
+				55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */,
 				55C969971FE34099009AD729 /* GCSExportOptionsController.m in Sources */,
 				55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */,
 				55C9691A1FE337A2009AD729 /* GCSOutlineView.swift in Sources */,

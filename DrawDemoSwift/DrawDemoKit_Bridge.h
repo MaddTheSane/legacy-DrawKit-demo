@@ -10,6 +10,12 @@
 #define DrawDemoKit_Bridge_h
 
 #import "GCSDrawDemoDocument.h"
+#import "GCSStyleInspector.h"
+#import "GCSToolPalette.h"
+#import "GCSObjectInspector.h"
+#import "GCSLayersPaletteController.h"
+#import "GCSStyleManagerDialog.h"
 
+#import "LogEventSwift.h"
 
 #endif /* DrawDemoKit_Bridge_h */
