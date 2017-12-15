@@ -86,7 +86,7 @@
 	}
 
 	[NSGraphicsContext currentContext].imageInterpolation = NSImageInterpolationHigh;
-	[specImage drawInRect:rect fromRect:rect operation:NSCompositeCopy fraction:self.brightness];
+	[specImage drawInRect:rect fromRect:rect operation:NSCompositingOperationCopy fraction:self.brightness];
 
 	// draw the current colour location
 
@@ -366,7 +366,7 @@
 
 - (void)flagsChanged:(NSEvent *)theEvent
 {
-	if (theEvent.modifierFlags & NSAlternateKeyMask)
+	if (theEvent.modifierFlags & NSEventModifierFlagOption)
 		self.mode = kDKSColourPickerModeSwatches;
 	else
 		self.mode = kDKSColourPickerModeSpectrum;

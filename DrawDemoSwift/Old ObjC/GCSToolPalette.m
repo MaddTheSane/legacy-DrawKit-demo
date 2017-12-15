@@ -167,12 +167,12 @@
 
 	// set up button cells with the respective images - the cell title is used to look up the image resource
 
-	NSEnumerator *iter = [mToolMatrix.cells objectEnumerator];
-	NSActionCell *cell;
-	NSImage *icon;
+	//NSEnumerator *iter = [mToolMatrix.cells objectEnumerator];
+	//NSActionCell *cell;
+	//NSImage *icon;
 
-	while ((cell = (NSActionCell *)[iter nextObject]) != nil) {
-		icon = [NSImage imageNamed:cell.title];
+	for (NSActionCell *cell in mToolMatrix.cells) {
+		NSImage *icon = [NSImage imageNamed:cell.title];
 
 		if (icon)
 			cell.image = icon;

@@ -19,7 +19,7 @@
 	NSEvent *evt;
 	BOOL loop = YES;
 	BOOL wasIn, isIn;
-	NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
+	NSEventMask mask = NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged;
 
 	wasIn = YES;
 
@@ -27,7 +27,7 @@
 		evt = [controlView.window nextEventMatchingMask:mask];
 
 		switch (evt.type) {
-			case NSLeftMouseDragged: {
+			case NSEventTypeLeftMouseDragged: {
 				NSPoint p = [controlView convertPoint:evt.locationInWindow fromView:nil];
 				isIn = NSPointInRect(p, cellFrame);
 
@@ -38,7 +38,7 @@
 				}
 			} break;
 
-			case NSLeftMouseUp:
+			case NSEventTypeLeftMouseUp:
 				loop = NO;
 				break;
 

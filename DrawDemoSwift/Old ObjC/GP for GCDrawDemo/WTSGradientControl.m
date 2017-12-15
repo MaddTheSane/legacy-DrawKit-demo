@@ -435,8 +435,8 @@
 
 		[newImage setFlipped:YES];
 		[newImage lockFocus];
-		[stopImg drawInRect:b fromRect:NSZeroRect operation:NSCompositeCopy fraction:0.5];
-		[poofImage drawInRect:a fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+		[stopImg drawInRect:b fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:0.5];
+		[poofImage drawInRect:a fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 
 		/*
 		[[NSColor redColor] set];
@@ -465,18 +465,18 @@
 	// Note - this is called from mouseDown, so do not call it again.
 
 	BOOL loop = YES;
-	NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
+	NSEventMask mask = NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged;
 
 	while (loop) {
 		event = [self.window nextEventMatchingMask:mask];
 
 		switch (event.type) {
-			case NSLeftMouseUp:
+			case NSEventTypeLeftMouseUp:
 				[self mouseUp:event];
 				loop = NO;
 				break;
 
-			case NSLeftMouseDragged:
+			case NSEventTypeLeftMouseDragged:
 				[self mouseDragged:event];
 				break;
 
@@ -653,7 +653,7 @@
 		GCSColourPickerView *picker = [[GCSColourPickerView alloc] initWithFrame:sr];
 		GCSWindowMenu *popup = [GCSWindowMenu windowMenuWithContentView:picker];
 
-		if (theEvent.modifierFlags & NSAlternateKeyMask)
+		if (theEvent.modifierFlags & NSEventModifierFlagOption)
 			picker.mode = kDKSColourPickerModeSwatches;
 		else
 			picker.mode = kDKSColourPickerModeSpectrum;
@@ -778,7 +778,7 @@
 				[mInfoWin show];
 
 			// round gPos to "grid" clicks if desired
-			if (event.modifierFlags & NSShiftKeyMask)
+			if (event.modifierFlags & NSEventModifierFlagShift)
 				gPos = round(gPos * 100) / 100;
 
 			[self updateInfoWithPosition:gPos];

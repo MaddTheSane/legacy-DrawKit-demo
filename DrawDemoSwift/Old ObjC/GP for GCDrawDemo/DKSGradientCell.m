@@ -166,7 +166,7 @@
 		NSPoint currentPoint, lastPoint;
 
 		mEnableCache = NO;
-		NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask;
+		NSEventMask mask = NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged;
 		lastPoint = p;
 
 		while (loop) {
@@ -175,7 +175,7 @@
 			currentPoint = [controlView convertPoint:event.locationInWindow fromView:nil];
 
 			switch (event.type) {
-				case NSLeftMouseUp:
+				case NSEventTypeLeftMouseUp:
 					[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:YES];
 					loop = NO;
 
@@ -185,7 +185,7 @@
 						[(GCSGradientWell *)self.controlView toggleActiveWell];
 					break;
 
-				case NSLeftMouseDragged:
+				case NSEventTypeLeftMouseDragged:
 					loop = NO;
 					[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:NO];
 					[controlView initiateGradientDragWithEvent:theEvent];
@@ -220,7 +220,7 @@
 	if (self != nil) {
 		[self setContinuous:YES];
 		self.imageFrameStyle = NSImageFrameGrayBezel;
-		self.imageScaling = NSScaleToFit;
+		self.imageScaling = NSImageScaleAxesIndependently;
 	}
 	return self;
 }
