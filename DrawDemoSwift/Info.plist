@@ -24,7 +24,7 @@
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSDocumentClass</key>
-			<string>GCDrawDemoDocument</string>
+			<string>$(PRODUCT_MODULE_NAME).GCSDrawDemoDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>XML</string>
 		</dict>
