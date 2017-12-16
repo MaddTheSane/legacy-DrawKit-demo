@@ -412,8 +412,7 @@ static NSTimeInterval sFadeStartTime = 0.0;
 								defer:deferCreation];
 	if (self != nil) {
 		NSAssert(mMainViewRef == nil, @"Expected init to zero");
-	}
-	if (self != nil) {
+
 		self.level = NSPopUpMenuWindowLevel;
 		[self setHasShadow:YES];
 		self.alphaValue = 0.95;

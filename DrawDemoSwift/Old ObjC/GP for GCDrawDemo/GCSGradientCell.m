@@ -66,7 +66,7 @@ static NSInteger sMFlags = 0;
 
 	// allow shift key to move both minicontrols together:
 
-	[mcc setLinkControlPart:kDKRadial2HitIris modifierKeyMask:NSShiftKeyMask];
+	[mcc setLinkControlPart:kDKRadial2HitIris modifierKeyMask:NSEventModifierFlagShift];
 
 	mini = [[GCSMiniRadialControl2 alloc] initWithBounds:NSZeroRect inCluster:mcc];
 	[mini setIdentifier:kRadialEndControlID];
@@ -303,7 +303,7 @@ static NSInteger sMFlags = 0;
 			if ([control displaysProxyIcon]) {
 				NSImage *ficon = [NSImage imageNamed:@"fileiconsmall"];
 				[ficon setFlipped:YES];
-				[ficon drawInRect:[self proxyIconRectInCellFrame:cellFrame] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:0.8];
+				[ficon drawInRect:[self proxyIconRectInCellFrame:cellFrame] fromRect:NSZeroRect operation:NSCompositingOperationSourceAtop fraction:0.8];
 			}
 		}
 	}
@@ -403,7 +403,7 @@ static NSInteger sMFlags = 0;
 		NSPoint currentPoint, lastPoint;
 
 		mEnableCache = NO;
-		NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSFlagsChangedMask;
+		NSEventMask mask = NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged | NSEventMaskFlagsChanged;
 		lastPoint = p;
 
 		//	LogEvent_(kReactiveEvent, @"starting track loop, hit part = %d", mHitPart );
@@ -417,13 +417,13 @@ static NSInteger sMFlags = 0;
 			sMFlags = event.modifierFlags;
 
 			switch (event.type) {
-				case NSLeftMouseUp:
+				case NSEventTypeLeftMouseUp:
 					//	LogEvent_(kReactiveEvent, @"mouse up");
 					[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:YES];
 					loop = NO;
 					break;
 
-				case NSLeftMouseDragged:
+				case NSEventTypeLeftMouseDragged:
 					loop = [self continueTracking:lastPoint at:currentPoint inView:controlView];
 					if (!loop) {
 						[self stopTracking:lastPoint at:currentPoint inView:controlView mouseIsUp:NO];
@@ -434,7 +434,7 @@ static NSInteger sMFlags = 0;
 					}
 					break;
 
-				case NSFlagsChanged:
+				case NSEventTypeFlagsChanged:
 					[mMiniControls flagsChanged:event.modifierFlags];
 					break;
 

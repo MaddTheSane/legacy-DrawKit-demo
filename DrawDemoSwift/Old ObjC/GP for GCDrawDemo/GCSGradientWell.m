@@ -69,7 +69,7 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 
 - (void)initiateGradientDragWithEvent:(NSEvent *)theEvent
 {
-	[self.gradient writeFileToPasteboard:[NSPasteboard pasteboardWithName:NSDragPboard]];
+	[self.gradient writeFileToPasteboard:[NSPasteboard pasteboardWithName:NSPasteboardNameDrag]];
 	[self dragStandardSwatchGradient:self.gradient slideBack:YES event:theEvent];
 }
 
@@ -308,7 +308,7 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 											keyEquivalent:@""];
 	item.target = self;
 	[item setAlternate:YES];
-	item.keyEquivalentModifierMask = NSAlternateKeyMask;
+	item.keyEquivalentModifierMask = NSEventModifierFlagOption;
 
 	if (self.controlMode == kDKGradientWellRadialMode || self.controlMode == kDKGradientWellSweepMode) {
 		[contextualMenu addItem:[NSMenuItem separatorItem]];

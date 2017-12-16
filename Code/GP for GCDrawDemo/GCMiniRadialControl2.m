@@ -302,8 +302,7 @@
 		if (mTabColour == nil) {
 			return nil;
 		}
-	}
-	if (self != nil) {
+
 		mMaxValue = 60;
 		[self setInfoWindowMode:kDKMiniControlInfoWindowFollowsMouse];
 	}

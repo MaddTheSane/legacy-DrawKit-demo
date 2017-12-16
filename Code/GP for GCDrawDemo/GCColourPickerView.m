@@ -388,8 +388,7 @@
 		if (mNonSelectColour == nil || mInfoWin == nil) {
 			return nil;
 		}
-	}
-	if (self != nil) {
+
 		[mInfoWin setWindowOffset:NSZeroSize];
 	}
 	return self;

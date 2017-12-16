@@ -10,10 +10,10 @@
 
 #import "GCSPolarDuplicateController.h"
 #import "GCSLinearDuplicateController.h"
-#import "GCSDrawingSizeController.h"
 #import "GCSBasicDialogController.h"
 #import "GCSExportOptionsController.h"
 #import <DKDrawKit/DKDrawKit.h>
+#import "DrawDemoSwift-Swift.h"
 
 @implementation GCSDrawDemoDocument
 #pragma mark As a GCDrawDemoDocument

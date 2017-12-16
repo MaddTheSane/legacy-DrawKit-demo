@@ -1,0 +1,357 @@
+//
+//  GCSDrawingSizeController.swift
+//  DrawDemoSwift
+//
+//  Created by C.W. Betts on 12/15/17.
+//  Copyright © 2017 DrawKit. All rights reserved.
+//
+
+import Cocoa
+import DKDrawKit
+import DKDrawKit.DKDrawing
+import DKDrawKit.DKGridLayer
+import DrawKitSwift
+
+private let units: [(name: DKDrawingUnit, factor: CGFloat)] = [(.pixels, 1), (.picas, 12), (.inches, 72.0), (.millimetres, 2.8346456692913), (.centimetres, 28.346456692913), (.metres, 2834.6456692913), (.kilometres, 28346.456692913)]
+
+class GCSDrawingSizeController: NSWindowController {
+	@IBOutlet weak var bottomMarginTextField: NSTextField!
+	@IBOutlet weak var gridDivsTextField: NSTextField!
+	@IBOutlet weak var gridMajorsTextField: NSTextField!
+	@IBOutlet weak var gridPreviewCheckbox: NSButton!
+	@IBOutlet weak var gridSpanTextField: NSTextField!
+	@IBOutlet weak var gridThemeColourWell: NSColorWell!
+	@IBOutlet weak var heightTextField: NSTextField!
+	@IBOutlet weak var leftMarginTextField: NSTextField!
+	@IBOutlet weak var rightMarginTextField: NSTextField!
+	@IBOutlet weak var topMarginTextField: NSTextField!
+	@IBOutlet weak var tweakMarginsCheckbox: NSButton!
+	@IBOutlet weak var unitsComboBox: NSComboBox!
+	@IBOutlet weak var widthTextField: NSTextField!
+	@IBOutlet weak var gridControlsBox: NSBox!
+	@IBOutlet weak var gridDivsSpinControl: NSStepper!
+	@IBOutlet weak var gridMajorsSpinControl: NSStepper!
+	@IBOutlet weak var gridAbbrevUnitsText: NSTextField!
+	@IBOutlet weak var gridPrintCheckbox: NSButton!
+	@IBOutlet weak var gridRulerStepsTextField: NSTextField!
+	@IBOutlet weak var gridRulerStepsSpinControl: NSStepper!
+	@IBOutlet weak var conversionFactorTextField: NSTextField!
+	@IBOutlet weak var conversionFactorSpinControl: NSStepper!
+	@IBOutlet weak var conversionFactorLabelText: NSTextField!
+	@IBOutlet weak var paperColourWell: NSColorWell!
+	
+	var drawing: DKDrawing?
+	var livePreview = false
+	var unitConversionFactor: CGFloat = 1
+	var savedSpan: CGFloat = 1
+	var savedCF: CGFloat = 1
+	var savedDivs = 1
+	var savedMajors = 0
+	var savedUnits: DKDrawingUnit?
+	var savedGridColour: NSColor?
+	var savedPaperColour: NSColor?
+	
+	//- (void)beginDrawingSizeDialog:(NSWindow *)parent withDrawing:(DKDrawing *)drawing;
+	@objc(beginDrawingSizeDialog:withDrawing:)
+	func beginDrawingSizeDialog(_ parent: NSWindow, with drawing: DKDrawing) {
+		self.drawing = drawing
+		unitConversionFactor = drawing.unitToPointsConversionFactor
+		savedCF = unitConversionFactor
+		
+		// save off the current grid settings in case we cancel:
+		savedPaperColour = drawing.paperColour
+		
+		if let grid = drawing.gridLayer {
+			savedSpan = grid.spanDistance;
+			savedDivs = Int(grid.divisions);
+			savedMajors = Int(grid.majors);
+			savedGridColour = grid.spanColour;
+			savedUnits = drawing.drawingUnits;
+		}
+		
+		unitsComboBox.stringValue = drawing.drawingUnits?.rawValue ?? ""
+		conversionFactorLabelText.stringValue = "1 \(drawing.drawingUnits?.rawValue ?? "") occupies"
+		prepareDialog(with: drawing)
+		
+		NSApp.beginSheet(self.window!, modalFor: parent, modalDelegate: self, didEnd: #selector(GCSDrawingSizeController.sheetDidEnd(_:returnCode:contextInfo:)), contextInfo: /*"drawing_size"*/nil)
+	}
+	
+	@IBAction func cancelAction(_ sender: Any?) {
+		window?.orderOut(self)
+		NSApp.endSheet(window!, returnCode: NSCancelButton)
+	}
+	
+	@IBAction func gridDivsAction(_ sender: AnyObject?) {
+		let newDivs: UInt = {
+			if let newInt = sender?.integerValue {
+				return UInt(newInt)
+			}
+			return 1
+		}()
+
+		
+		if livePreview, let grid = drawing?.gridLayer {
+			let span = grid.spanDistance / unitConversionFactor
+			let majs = grid.majors
+			
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: span, divisions: newDivs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+		}
+		
+		if sender === gridDivsSpinControl {
+			gridDivsTextField.integerValue = Int(newDivs)
+		} else {
+			gridDivsSpinControl.integerValue = Int(newDivs)
+		}
+	}
+	
+	@IBAction func gridMajorsAction(_ sender: AnyObject?) {
+		let newInt: Int = {
+			if let sendInt = sender?.integerValue {
+				return sendInt
+			}
+			return 1
+		}()
+		
+		if livePreview, let grid = drawing?.gridLayer {
+			let span = grid.spanDistance / unitConversionFactor
+			let divs = grid.divisions
+			
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: span, divisions: divs, majors: UInt(newInt), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+		}
+		
+		if sender === gridMajorsSpinControl {
+			gridMajorsTextField.integerValue = newInt
+		} else {
+			gridMajorsSpinControl.integerValue = newInt
+		}
+	}
+	
+	@IBAction func gridSpanAction(_ sender: Any?) {
+		if livePreview, let grid = drawing?.gridLayer {
+			let divs = grid.divisions
+			let majs = grid.majors
+			
+			let spanVal: CGFloat = {
+				guard let dv = (sender as AnyObject?)?.doubleValue else {
+					return 1
+				}
+				return CGFloat(dv)
+			}()
+			
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: spanVal, divisions: divs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+		}
+	}
+	
+	@IBAction func gridRulerStepsAction(_ sender: AnyObject?) {
+		let newSteps: Int = {
+			if let newVal = sender?.integerValue {
+				return newVal
+			}
+			return 1
+		}()
+		
+		if livePreview, let grid = drawing?.gridLayer {
+			grid.rulerSteps = UInt(newSteps)
+		}
+		
+		if sender === gridRulerStepsSpinControl {
+			gridRulerStepsTextField.integerValue = newSteps
+		} else {
+			gridRulerStepsSpinControl.integerValue = newSteps
+		}
+	}
+	
+	@IBAction func gridThemeColourAction(_ sender: NSColorWell?) {
+		if livePreview, let grid = drawing?.gridLayer {
+			grid.setGridThemeColour(sender?.color)
+		}
+	}
+	
+	@IBAction func gridPrintAction(_ sender: NSButton?) {
+		drawing?.gridLayer?.shouldDrawToPrinter = sender?.state == .on
+	}
+	
+	@IBAction func livePreviewAction(_ sender: NSButton?) {
+		livePreview = sender?.state == .on
+	}
+	
+	@IBAction func okAction(_ sender: Any?) {
+		window?.orderOut(self)
+		NSApp.endSheet(window!, returnCode: NSOKButton)
+	}
+	
+	@IBAction func unitsComboBoxAction(_ sender: AnyObject?) {
+		let strVal = sender?.stringValue ?? ""
+		
+		let indx = unitsComboBox.indexOfItem(withObjectValue: strVal)
+		
+		if indx == NSNotFound {
+			unitConversionFactor = 1
+		} else {
+			unitConversionFactor = units[indx].factor
+		}
+		
+		conversionFactorLabelText.stringValue = "1 \(strVal) occupies"
+		drawing?.setDrawingUnits(DKDrawingUnit(rawValue: strVal), unitToPointsConversionFactor: unitConversionFactor)
+		
+		if livePreview {
+			drawing?.gridLayer?.synchronizeRulers()
+		}
+		
+		self.prepareDialog(with: drawing!)
+	}
+	
+	@IBAction func conversionFactorAction(_ sender: AnyObject?) {
+		let oldUCF = unitConversionFactor
+		
+		let newConvFact: CGFloat = {
+			if let doub = sender?.doubleValue {
+				return CGFloat(doub)
+			}
+			return oldUCF
+		}()
+		unitConversionFactor = newConvFact
+		
+		if sender === conversionFactorSpinControl {
+			conversionFactorTextField.objectValue = newConvFact
+		} else {
+			conversionFactorSpinControl.objectValue = newConvFact
+		}
+		
+		if livePreview, let grid = drawing?.gridLayer {
+			let divs = grid.divisions
+			let majs = grid.majors
+			let span = grid.spanDistance / oldUCF
+			
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: span, divisions: divs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+		}
+	}
+	
+	@IBAction func paperColourAction(_ sender: NSColorWell?) {
+		if livePreview {
+			drawing?.paperColour = sender?.color
+		}
+	}
+	
+	override func windowDidLoad() {
+        super.windowDidLoad()
+		
+		livePreview = true
+		setUpComboBox(currentUnit: drawing!.drawingUnits)
+		unitsComboBox.stringValue = drawing?.drawingUnits.rawValue ?? ""
+		conversionFactorLabelText.stringValue = "1 \(drawing!.drawingUnits!.rawValue) occupies"
+		//[self prepareDialogWithDrawing:mDrawing];
+	}
+	
+	/// set up the dialog elements with the current drawing settings
+	func prepareDialog(with drawing: DKDrawing) {
+		let size = drawing.drawingSize
+		
+		widthTextField.objectValue = size.width / unitConversionFactor
+		heightTextField.objectValue = size.height / unitConversionFactor
+		
+		topMarginTextField.objectValue = drawing.topMargin / unitConversionFactor;
+		leftMarginTextField.objectValue = drawing.leftMargin / unitConversionFactor;
+		rightMarginTextField.objectValue = drawing.rightMargin / unitConversionFactor;
+		bottomMarginTextField.objectValue = drawing.bottomMargin / unitConversionFactor;
+		
+		conversionFactorTextField.objectValue = unitConversionFactor
+		conversionFactorSpinControl.objectValue = unitConversionFactor
+		paperColourWell.color = drawing.paperColour
+
+		if let grid = drawing.gridLayer {
+			gridSpanTextField.objectValue = grid.spanDistance / unitConversionFactor;
+			gridDivsTextField.integerValue = Int(grid.divisions);
+			gridDivsSpinControl.integerValue = Int(grid.divisions);
+			gridMajorsTextField.integerValue = Int(grid.majors);
+			gridMajorsSpinControl.integerValue = Int(grid.majors);
+			gridThemeColourWell.color = grid.spanColour;
+			gridPrintCheckbox.state = grid.shouldDrawToPrinter ? .on : .off
+			gridAbbrevUnitsText.stringValue = drawing.abbreviatedDrawingUnits;
+			gridRulerStepsTextField.integerValue = Int(grid.rulerSteps);
+			gridRulerStepsSpinControl.integerValue = Int(grid.rulerSteps);
+
+			gridPreviewCheckbox.state = livePreview ? .on : .off
+		}
+	}
+	
+	/// populate the combobox with default units
+	func setUpComboBox(currentUnit: DKDrawingUnit) {
+		unitsComboBox.hasVerticalScroller = false
+		unitsComboBox.addItems(withObjectValues: units.map({$0.name}))
+		unitsComboBox.numberOfVisibleItems = units.count
+	}
+	
+	@objc(sheetDidEnd:returnCode:contextInfo:)
+	func sheetDidEnd(_ sheet: NSWindow, returnCode: Int, contextInfo: UnsafeMutableRawPointer) {
+		if returnCode == NSOKButton {
+			// apply the settings to the drawing.
+			
+			let dwgSize = NSSize(width: ((widthTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor, height: ((heightTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor)
+			
+			let t = ((topMarginTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor
+			let l = ((leftMarginTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor
+			let b = ((bottomMarginTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor
+			let r = ((rightMarginTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor
+			drawing?.drawingSize = dwgSize
+			drawing?.margins = (l, t, b, r)
+			drawing?.setDrawingUnits(DKDrawingUnit(rawValue: unitsComboBox.stringValue), unitToPointsConversionFactor: unitConversionFactor)
+			drawing?.paperColour = paperColourWell.color
+			
+			if let grid = drawing?.gridLayer {
+				let span = CGFloat(gridSpanTextField.doubleValue) * unitConversionFactor
+				let divs = gridDivsTextField.integerValue
+				let majs = gridMajorsTextField.integerValue
+				
+				grid.setDistanceForUnitSpan(span, drawingUnits: DKDrawingUnit(unitsComboBox.stringValue), span: 1, divisions: UInt(divs), majors: UInt(majs), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+				
+				if tweakMarginsCheckbox.state == .on {
+					grid.tweakDrawingMargins()
+				}
+				
+				grid.setGridThemeColour(gridThemeColourWell.color)
+			}
+			
+			drawing?.setNeedsDisplay(true)
+		} else if returnCode == NSCancelButton {
+			// restore saved grid settings
+			
+			if let grid = drawing?.gridLayer {
+				grid.setDistanceForUnitSpan(savedSpan, drawingUnits: savedUnits, span: 1, divisions: UInt(savedDivs), majors: UInt(savedMajors), rulerSteps: 2)
+				
+				grid.setGridThemeColour(savedGridColour)
+			}
+			
+			drawing?.paperColour = savedPaperColour
+		}
+	}
+	
+	/*
+#pragma mark -
+- (IBAction)gridDivsAction:(id)sender
+{
+	DKGridLayer *grid = mDrawing.gridLayer;
+
+	if (mLivePreview && grid) {
+		CGFloat span;
+		NSInteger majs;
+
+		span = grid.spanDistance / mUnitConversionFactor;
+		majs = grid.majors;
+
+		[grid setDistanceForUnitSpan:mUnitConversionFactor
+						drawingUnits:mDrawing.drawingUnits
+								span:span
+						   divisions:[sender intValue]
+							  majors:majs
+						  rulerSteps:mGridRulerStepsTextField.intValue];
+	}
+
+	if (sender == mGridDivsSpinControl)
+		mGridDivsTextField.integerValue = [sender integerValue];
+	else
+		mGridDivsSpinControl.integerValue = [sender integerValue];
+}
+
+*/
+}

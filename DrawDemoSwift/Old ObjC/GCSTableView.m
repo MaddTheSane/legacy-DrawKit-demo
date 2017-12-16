@@ -158,7 +158,7 @@
 		if (img != nil) {
 			[img setFlipped:YES];
 			NSPoint mp = NSMakePoint(NSMaxX(theFrame) - 18, NSMaxY(theFrame) - 13);
-			[img drawAtPoint:mp fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:1.0];
+			[img drawAtPoint:mp fromRect:NSZeroRect operation:NSCompositingOperationSourceAtop fraction:1.0];
 		}
 	}
 }
