@@ -11,13 +11,11 @@ import DKDrawKit
 
 class DrawDemoDocument: DKDrawingDocument {
 
-    /*
-    override var windowNibName: String? {
+    override var windowNibName: NSNib.Name? {
         // Override returning the nib file name of the document
         // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
-        return "GCSDrawDemoDocument"
+        return NSNib.Name("GCSDrawDemoDocument")
     }
-    */
 
     override func windowControllerDidLoadNib(_ aController: NSWindowController) {
         super.windowControllerDidLoadNib(aController)

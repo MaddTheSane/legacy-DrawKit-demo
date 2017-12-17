@@ -10,6 +10,8 @@ import Cocoa
 import DKDrawKit
 import DKDrawKit.DKDrawing
 import DKDrawKit.DKGridLayer
+import DKDrawKit.DKCategoryManager
+import DKDrawKit.DKStyleRegistry
 import DrawKitSwift
 
 private let units: [(name: DKDrawingUnit, factor: CGFloat)] = [(.pixels, 1), (.picas, 12), (.inches, 72.0), (.millimetres, 2.8346456692913), (.centimetres, 28.346456692913), (.metres, 2834.6456692913), (.kilometres, 28346.456692913)]

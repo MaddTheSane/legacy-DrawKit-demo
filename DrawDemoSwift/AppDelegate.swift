@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import DKDrawKit.LogEvent
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
