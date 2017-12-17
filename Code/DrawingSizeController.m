@@ -158,6 +158,7 @@ static NSString *sUnitNames[] = {@"Pixels", @"Picas", @"Inches", @"Millimetres",
 		mSavedUnits = drawing.drawingUnits;
 	}
 
+	[self window];
 	mUnitsComboBox.stringValue = drawing.drawingUnits;
 	mConversionFactorLabelText.stringValue = [NSString stringWithFormat:@"1 %@ occupies", drawing.drawingUnits];
 	[self prepareDialogWithDrawing:drawing];
