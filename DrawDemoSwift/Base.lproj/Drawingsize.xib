@@ -8,30 +8,30 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GCSDrawingSizeController" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mBottomMarginTextField" destination="27" id="194"/>
-                <outlet property="mConversionFactorLabelText" destination="141" id="195"/>
-                <outlet property="mConversionFactorSpinControl" destination="139" id="196"/>
-                <outlet property="mConversionFactorTextField" destination="138" id="197"/>
-                <outlet property="mGridAbbrevUnitsText" destination="124" id="198"/>
-                <outlet property="mGridControlsBox" destination="35" id="199"/>
-                <outlet property="mGridDivsSpinControl" destination="117" id="200"/>
-                <outlet property="mGridDivsTextField" destination="39" id="201"/>
-                <outlet property="mGridMajorsSpinControl" destination="118" id="202"/>
-                <outlet property="mGridMajorsTextField" destination="40" id="203"/>
-                <outlet property="mGridPreviewCheckbox" destination="60" id="204"/>
-                <outlet property="mGridPrintCheckbox" destination="126" id="205"/>
-                <outlet property="mGridRulerStepsSpinControl" destination="130" id="206"/>
-                <outlet property="mGridRulerStepsTextField" destination="129" id="207"/>
-                <outlet property="mGridSpanTextField" destination="37" id="208"/>
-                <outlet property="mGridThemeColourWell" destination="41" id="209"/>
-                <outlet property="mHeightTextField" destination="12" id="210"/>
-                <outlet property="mLeftMarginTextField" destination="24" id="211"/>
-                <outlet property="mPaperColourWell" destination="151" id="252"/>
-                <outlet property="mRightMarginTextField" destination="26" id="253"/>
-                <outlet property="mTopMarginTextField" destination="25" id="254"/>
-                <outlet property="mTweakMarginsCheckbox" destination="42" id="255"/>
-                <outlet property="mUnitsComboBox" destination="20" id="256"/>
-                <outlet property="mWidthTextField" destination="11" id="257"/>
+                <outlet property="bottomMarginTextField" destination="27" id="194"/>
+                <outlet property="conversionFactorLabelText" destination="141" id="195"/>
+                <outlet property="conversionFactorSpinControl" destination="139" id="196"/>
+                <outlet property="conversionFactorTextField" destination="138" id="197"/>
+                <outlet property="gridAbbrevUnitsText" destination="124" id="198"/>
+                <outlet property="gridControlsBox" destination="35" id="199"/>
+                <outlet property="gridDivsSpinControl" destination="117" id="200"/>
+                <outlet property="gridDivsTextField" destination="39" id="201"/>
+                <outlet property="gridMajorsSpinControl" destination="118" id="202"/>
+                <outlet property="gridMajorsTextField" destination="40" id="203"/>
+                <outlet property="gridPreviewCheckbox" destination="60" id="204"/>
+                <outlet property="gridPrintCheckbox" destination="126" id="205"/>
+                <outlet property="gridRulerStepsSpinControl" destination="130" id="206"/>
+                <outlet property="gridRulerStepsTextField" destination="129" id="207"/>
+                <outlet property="gridSpanTextField" destination="37" id="208"/>
+                <outlet property="gridThemeColourWell" destination="41" id="209"/>
+                <outlet property="heightTextField" destination="12" id="210"/>
+                <outlet property="leftMarginTextField" destination="24" id="211"/>
+                <outlet property="paperColourWell" destination="151" id="252"/>
+                <outlet property="rightMarginTextField" destination="26" id="253"/>
+                <outlet property="topMarginTextField" destination="25" id="254"/>
+                <outlet property="tweakMarginsCheckbox" destination="42" id="255"/>
+                <outlet property="unitsComboBox" destination="20" id="256"/>
+                <outlet property="widthTextField" destination="11" id="257"/>
                 <outlet property="window" destination="7" id="97"/>
             </connections>
         </customObject>

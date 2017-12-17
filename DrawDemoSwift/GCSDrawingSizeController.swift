@@ -69,6 +69,7 @@ class GCSDrawingSizeController: NSWindowController {
 			savedUnits = drawing.drawingUnits;
 		}
 		
+		_=self.window
 		unitsComboBox.stringValue = drawing.drawingUnits?.rawValue ?? ""
 		conversionFactorLabelText.stringValue = "1 \(drawing.drawingUnits?.rawValue ?? "") occupies"
 		prepareDialog(with: drawing)
@@ -278,7 +279,7 @@ class GCSDrawingSizeController: NSWindowController {
 	/// populate the combobox with default units
 	func setUpComboBox(currentUnit: DKDrawingUnit) {
 		unitsComboBox.hasVerticalScroller = false
-		unitsComboBox.addItems(withObjectValues: units.map({$0.name}))
+		unitsComboBox.addItems(withObjectValues: units.map({$0.name.rawValue}))
 		unitsComboBox.numberOfVisibleItems = units.count
 	}
 	
@@ -325,33 +326,4 @@ class GCSDrawingSizeController: NSWindowController {
 			drawing?.paperColour = savedPaperColour
 		}
 	}
-	
-	/*
-#pragma mark -
-- (IBAction)gridDivsAction:(id)sender
-{
-	DKGridLayer *grid = mDrawing.gridLayer;
-
-	if (mLivePreview && grid) {
-		CGFloat span;
-		NSInteger majs;
-
-		span = grid.spanDistance / mUnitConversionFactor;
-		majs = grid.majors;
-
-		[grid setDistanceForUnitSpan:mUnitConversionFactor
-						drawingUnits:mDrawing.drawingUnits
-								span:span
-						   divisions:[sender intValue]
-							  majors:majs
-						  rulerSteps:mGridRulerStepsTextField.intValue];
-	}
-
-	if (sender == mGridDivsSpinControl)
-		mGridDivsTextField.integerValue = [sender integerValue];
-	else
-		mGridDivsSpinControl.integerValue = [sender integerValue];
-}
-
-*/
 }
