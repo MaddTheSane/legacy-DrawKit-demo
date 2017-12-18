@@ -6,13 +6,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GCSDrawDemoDocument">
+        <customObject id="-2" userLabel="File's Owner" customClass="DrawDemoDocument" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mExportController" destination="376" id="403"/>
-                <outlet property="mLinearDuplicateController" destination="325" id="357"/>
+                <outlet property="exportController" destination="376" id="403"/>
+                <outlet property="linearDuplicateController" destination="325" id="357"/>
                 <outlet property="mMainDrawingView" destination="21" id="362"/>
-                <outlet property="mPolarDuplicateController" destination="96" id="181"/>
-                <outlet property="mToolNamePanelController" destination="67" id="180"/>
+                <outlet property="polarDuplicateController" destination="96" id="181"/>
+                <outlet property="toolNamePanelController" destination="67" id="180"/>
                 <outlet property="window" destination="5" id="358"/>
             </connections>
         </customObject>

@@ -147,13 +147,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	func applicationWillFinishLaunching(_ aNotification: Notification) {
 		let qm = UserDefaults.standard.bool(forKey: "GCDrawDemo_defaultQualityModulationFlag")
-		GCSDrawDemoDocument.defaultQualityModulation = qm
+		DrawDemoDocument.defaultQualityModulation = qm
 	}
 	
 	func applicationWillTerminate(_ aNotification: Notification) {
 		LogEvent(.infoEvent, "app quitting...")
 		
-		UserDefaults.standard.set(GCSDrawDemoDocument.defaultQualityModulation, forKey: "GCDrawDemo_defaultQualityModulationFlag")
+		UserDefaults.standard.set(DrawDemoDocument.defaultQualityModulation, forKey: "GCDrawDemo_defaultQualityModulationFlag")
 	}
 	
 	@IBAction func showAboutBox(_ sender: Any?) {

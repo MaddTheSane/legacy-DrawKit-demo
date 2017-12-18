@@ -18,16 +18,16 @@ class GCSDrawDemoPrefsController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
 		
-		qualityThrottlingCheckbox.state = GCSDrawDemoDocument.defaultQualityModulation ? .on : .off
+		qualityThrottlingCheckbox.state = DrawDemoDocument.defaultQualityModulation ? .on : .off
 		undoSelectionsCheckbox.state = DKObjectDrawingLayer.defaultSelectionChangesAreUndoable ? .on : .off
 		storageTypeCheckbox.state = .off
 	}
 
 	@IBAction func qualityThrottlingAction(_ sender: NSButton?) {
 		if sender?.state == .on {
-			GCSDrawDemoDocument.defaultQualityModulation = true
+			DrawDemoDocument.defaultQualityModulation = true
 		} else {
-			GCSDrawDemoDocument.defaultQualityModulation = false
+			DrawDemoDocument.defaultQualityModulation = false
 		}
 	}
 	

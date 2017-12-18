@@ -57,7 +57,7 @@ typedef NS_ENUM(NSInteger, GCSExportFileTypes) {
 
 @protocol GCSExportControllerDelegate <NSObject>
 
-- (void)performExportType:(GCSExportFileTypes)fileType withOptions:(NSDictionary<NSString *, id> *)options;
+- (void)performExportType:(GCSExportFileTypes)fileType withOptions:(NSDictionary<NSString *, id> *)options NS_SWIFT_NAME(performExport(type:withOptions:));
 
 @end
 
