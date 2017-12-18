@@ -219,7 +219,7 @@ extension DrawDemoDocument {
 	
 	static var leaderLineStyle: DKStyle = {
 		// set the style to something appropriate:
-		let style = DKStyle(fillColour: nil, strokeColour: NSColor.gray, strokeWidth: 0.5)!
+		let style = DKStyle(fillColour: nil, strokeColour: NSColor.gray, strokeWidth: 0.5)
 		style.isStyleSharable = true
 		
 		return style

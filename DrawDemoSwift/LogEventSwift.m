@@ -10,5 +10,10 @@
 
 BOOL LogEventSwift(LCEventType eventType, NSString* format)
 {
+#if defined(qUseLogEvent) && qUseLogEvent
 	return LogEvent_(eventType, @"%@", format);
+#else
+#pragma unused(eventType, format)
+	return NO;
+#endif
 }
