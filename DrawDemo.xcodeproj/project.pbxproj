@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		550616F01FE48FCF00C5EE66 /* GCSDrawingSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */; };
 		551B08531FDF5650008AE439 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551B08551FDF5650008AE439 /* Localizable.strings */; };
+		5523ED141FE89DBB00639846 /* GCSToolPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523ED131FE89DBB00639846 /* GCSToolPalette.swift */; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
 		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
 		55C968D01FE3351C009AD729 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
@@ -53,7 +54,6 @@
 		55C9699D1FE34099009AD729 /* GCSDashEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969611FE34099009AD729 /* GCSDashEditView.m */; };
 		55C969A01FE34099009AD729 /* GCSCheckboxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969681FE34099009AD729 /* GCSCheckboxCell.m */; };
 		55C969A21FE34099009AD729 /* GCSLinearDuplicateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9696E1FE34099009AD729 /* GCSLinearDuplicateController.m */; };
-		55C969A41FE34099009AD729 /* GCSToolPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969721FE34099009AD729 /* GCSToolPalette.m */; };
 		55C969A61FE34099009AD729 /* GCSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969761FE34099009AD729 /* GCSTableView.m */; };
 		55C969A71FE34099009AD729 /* GCSPolarDuplicateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969771FE34099009AD729 /* GCSPolarDuplicateController.m */; };
 		55C969A91FE34099009AD729 /* GCSStyleManagerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */; };
@@ -211,6 +211,7 @@
 		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawDemo_Prefix.pch; path = Code/DrawDemo_Prefix.pch; sourceTree = "<group>"; };
 		550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSDrawingSizeController.swift; sourceTree = "<group>"; };
 		551B08541FDF5650008AE439 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5523ED131FE89DBB00639846 /* GCSToolPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSToolPalette.swift; sourceTree = "<group>"; };
 		55C968C01FE33509009AD729 /* DrawDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C968C21FE33509009AD729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C968C41FE33509009AD729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -267,7 +268,6 @@
 		55C969571FE34099009AD729 /* GCSStyleManagerDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSStyleManagerDialog.h; sourceTree = "<group>"; };
 		55C969581FE34099009AD729 /* GCSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSTableView.h; sourceTree = "<group>"; };
 		55C969591FE34099009AD729 /* GCSPolarDuplicateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSPolarDuplicateController.h; sourceTree = "<group>"; };
-		55C9695C1FE34099009AD729 /* GCSToolPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSToolPalette.h; sourceTree = "<group>"; };
 		55C9695F1FE34099009AD729 /* GCSDashEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDashEditor.m; sourceTree = "<group>"; };
 		55C969611FE34099009AD729 /* GCSDashEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSDashEditView.m; sourceTree = "<group>"; };
 		55C969641FE34099009AD729 /* GCSStyleInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSStyleInspector.h; sourceTree = "<group>"; };
@@ -279,7 +279,6 @@
 		55C9696C1FE34099009AD729 /* GCSObjectInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSObjectInspector.h; sourceTree = "<group>"; };
 		55C9696E1FE34099009AD729 /* GCSLinearDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSLinearDuplicateController.m; sourceTree = "<group>"; };
 		55C969701FE34099009AD729 /* GCSDashEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSDashEditor.h; sourceTree = "<group>"; };
-		55C969721FE34099009AD729 /* GCSToolPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSToolPalette.m; sourceTree = "<group>"; };
 		55C969761FE34099009AD729 /* GCSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSTableView.m; sourceTree = "<group>"; };
 		55C969771FE34099009AD729 /* GCSPolarDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSPolarDuplicateController.m; sourceTree = "<group>"; };
 		55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSStyleManagerDialog.m; sourceTree = "<group>"; };
@@ -552,6 +551,7 @@
 			children = (
 				55C969211FE34099009AD729 /* Old ObjC */,
 				55C968C21FE33509009AD729 /* AppDelegate.swift */,
+				5523ED131FE89DBB00639846 /* GCSToolPalette.swift */,
 				550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */,
 				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
 				55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */,
@@ -616,8 +616,6 @@
 				55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */,
 				55C969581FE34099009AD729 /* GCSTableView.h */,
 				55C969761FE34099009AD729 /* GCSTableView.m */,
-				55C9695C1FE34099009AD729 /* GCSToolPalette.h */,
-				55C969721FE34099009AD729 /* GCSToolPalette.m */,
 				55C9696A1FE34099009AD729 /* RSSVerticallyCenteredTextFieldCell.h */,
 				55C969231FE34099009AD729 /* RSSVerticallyCenteredTextFieldCell.m */,
 			);
@@ -871,7 +869,6 @@
 			files = (
 				55C969A01FE34099009AD729 /* GCSCheckboxCell.m in Sources */,
 				55C969871FE34099009AD729 /* WTSGradientControl.m in Sources */,
-				55C969A41FE34099009AD729 /* GCSToolPalette.m in Sources */,
 				55C969AA1FE34099009AD729 /* GCSStyleInspector.m in Sources */,
 				55C969801FE34099009AD729 /* RSSVerticallyCenteredTextFieldCell.m in Sources */,
 				55C969931FE34099009AD729 /* GCSGradientCell.m in Sources */,
@@ -884,6 +881,7 @@
 				55C969941FE34099009AD729 /* GCSGradientWell.m in Sources */,
 				55FD3DC01FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift in Sources */,
 				55FD3DBD1FE734AE003705D0 /* DrawDemoDocument+ShortestRoute.swift in Sources */,
+				5523ED141FE89DBB00639846 /* GCSToolPalette.swift in Sources */,
 				55C969981FE34099009AD729 /* GCSObjectInspector.m in Sources */,
 				55C969901FE34099009AD729 /* GCSSpecialColorWell.m in Sources */,
 				550616F01FE48FCF00C5EE66 /* GCSDrawingSizeController.swift in Sources */,
