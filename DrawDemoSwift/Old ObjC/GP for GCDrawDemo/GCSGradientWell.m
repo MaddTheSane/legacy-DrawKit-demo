@@ -69,7 +69,7 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 
 - (void)initiateGradientDragWithEvent:(NSEvent *)theEvent
 {
-	[self.gradient writeFileToPasteboard:[NSPasteboard pasteboardWithName:NSPasteboardNameDrag]];
+	[self.gradient writeFileToPasteboard:[NSPasteboard pasteboardWithName:NSDragPboard]];
 	[self dragStandardSwatchGradient:self.gradient slideBack:YES event:theEvent];
 }
 

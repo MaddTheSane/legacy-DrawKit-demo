@@ -43,7 +43,9 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 			let tool = DKToolRegistry.shared.drawingTool(withName: DKToolName(toolname)) else {
 				return
 		}
-		selectTool(withName: tool.registeredName)
+		if let toolName = tool.registeredName {
+			selectTool(withName: toolName)
+		}
 	}
 	
 	@IBAction func toolDoubleClick(_ sender: Any?) {
@@ -97,15 +99,11 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 	
 	@objc open func toolChangedNotification(_ note: Notification) {
 		let tc = note.object as? DKToolController
-		var tn = tc?.drawingTool.registeredName
+		let tn = tc?.drawingTool.registeredName ?? DKToolName.standardSelectionToolName
 		
-		LogEvent(.reactiveEvent, "tool did change to ‘\(tn?.rawValue ?? "(nil)")’");
+		LogEvent(.reactiveEvent, "tool did change to ‘\(tn.rawValue)’");
 		
-		if tn == nil {
-			tn = DKToolName.standardSelectionToolName
-		}
-		
-		selectTool(withName: tn!)
+		selectTool(withName: tn)
 	}
 	
 	open func populatePopUpButton(withLibraryStyles button: NSPopUpButton) {
@@ -127,18 +125,14 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 	
 	// MARK: - As an DKDrawkitInspectorBase
 	
-	override func documentDidChange(_ note: Notification!) {
+	override func documentDidChange(_ note: Notification) {
 		if let firstRE = (note.object as AnyObject?)?.firstResponder, let firstR = firstRE,
 			let tool2 = (firstR as AnyObject?)?.drawingTool, let tool = tool2 {
-			var tn = tool.registeredName
+			let tn = tool.registeredName ?? DKToolName.standardSelectionToolName
 			
-			LogEvent(.reactiveEvent, "tool will change to ‘\(tn?.rawValue ?? "(nil)")’");
-
-			if tn == nil {
-				tn = DKToolName.standardSelectionToolName
-			}
+			LogEvent(.reactiveEvent, "tool will change to ‘\(tn.rawValue)’");
 			
-			selectTool(withName: tn!)
+			selectTool(withName: tn)
 		}
 	}
 	
