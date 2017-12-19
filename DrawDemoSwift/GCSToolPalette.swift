@@ -99,7 +99,7 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 		let tc = note.object as? DKToolController
 		var tn = tc?.drawingTool.registeredName
 		
-		LogEvent(.reactiveEvent, "tool did change to \(tn?.rawValue ?? "(nil)")");
+		LogEvent(.reactiveEvent, "tool did change to ‘\(tn?.rawValue ?? "(nil)")’");
 		
 		if tn == nil {
 			tn = DKToolName.standardSelectionToolName
@@ -132,7 +132,7 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 			let tool2 = (firstR as AnyObject?)?.drawingTool, let tool = tool2 {
 			var tn = tool.registeredName
 			
-			LogEvent(.reactiveEvent, "tool will change to '\(tn?.rawValue ?? "(nil)")'");
+			LogEvent(.reactiveEvent, "tool will change to ‘\(tn?.rawValue ?? "(nil)")’");
 
 			if tn == nil {
 				tn = DKToolName.standardSelectionToolName

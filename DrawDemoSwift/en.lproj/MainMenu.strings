@@ -1,0 +1,678 @@
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "5"; */
+"5.title" = "Bring All to Front";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "19"; */
+"19.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23"; */
+"23.title" = "Minimize";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "24"; */
+"24.title" = "Window";
+
+/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
+"29.title" = "MainMenu";
+
+/* Class = "NSMenuItem"; title = "Drawkit Demo"; ObjectID = "56"; */
+"56.title" = "Drawkit Demo";
+
+/* Class = "NSMenu"; title = "Drawkit Demo"; ObjectID = "57"; */
+"57.title" = "Drawkit Demo";
+
+/* Class = "NSMenuItem"; title = "About Drawkit Demo"; ObjectID = "58"; */
+"58.title" = "About Drawkit Demo";
+
+/* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
+"72.title" = "Open…";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
+"73.title" = "Close";
+
+/* Class = "NSMenuItem"; title = "Save"; ObjectID = "75"; */
+"75.title" = "Save";
+
+/* Class = "NSMenuItem"; title = "Page Setup…"; ObjectID = "77"; */
+"77.title" = "Page Setup…";
+
+/* Class = "NSMenuItem"; title = "Print…"; ObjectID = "78"; */
+"78.title" = "Print…";
+
+/* Class = "NSMenuItem"; title = "Save As…"; ObjectID = "80"; */
+"80.title" = "Save As…";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "81"; */
+"81.title" = "File";
+
+/* Class = "NSMenuItem"; title = "New"; ObjectID = "82"; */
+"82.title" = "New";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "83"; */
+"83.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "103"; */
+"103.title" = "Help";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "106"; */
+"106.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "Drawkit Demo Help"; ObjectID = "111"; */
+"111.title" = "Drawkit Demo Help";
+
+/* Class = "NSMenuItem"; title = "Revert"; ObjectID = "112"; */
+"112.title" = "Revert";
+
+/* Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "124"; */
+"124.title" = "Open Recent";
+
+/* Class = "NSMenu"; title = "Open Recent"; ObjectID = "125"; */
+"125.title" = "Open Recent";
+
+/* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "126"; */
+"126.title" = "Clear Menu";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
+"129.title" = "Preferences…";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
+"130.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
+"131.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Hide Drawkit Demo"; ObjectID = "134"; */
+"134.title" = "Hide Drawkit Demo";
+
+/* Class = "NSMenuItem"; title = "Quit Drawkit Demo"; ObjectID = "136"; */
+"136.title" = "Quit Drawkit Demo";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
+"145.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "150"; */
+"150.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "154"; */
+"154.title" = "Find…";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "155"; */
+"155.title" = "Jump to Selection";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "157"; */
+"157.title" = "Copy";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "158"; */
+"158.title" = "Undo";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "159"; */
+"159.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "160"; */
+"160.title" = "Cut";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "161"; */
+"161.title" = "Use Selection for Find";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "162"; */
+"162.title" = "Find Previous";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "163"; */
+"163.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "164"; */
+"164.title" = "Delete";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "167"; */
+"167.title" = "Find Next";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "168"; */
+"168.title" = "Find";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "169"; */
+"169.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "171"; */
+"171.title" = "Paste";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "172"; */
+"172.title" = "Select All";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "173"; */
+"173.title" = "Redo";
+
+/* Class = "NSMenuItem"; title = "Spelling"; ObjectID = "184"; */
+"184.title" = "Spelling";
+
+/* Class = "NSMenu"; title = "Spelling"; ObjectID = "185"; */
+"185.title" = "Spelling";
+
+/* Class = "NSMenuItem"; title = "Spelling…"; ObjectID = "187"; */
+"187.title" = "Spelling…";
+
+/* Class = "NSMenuItem"; title = "Check Spelling"; ObjectID = "189"; */
+"189.title" = "Check Spelling";
+
+/* Class = "NSMenuItem"; title = "Check Spelling as You Type"; ObjectID = "191"; */
+"191.title" = "Check Spelling as You Type";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "203"; */
+"203.title" = "Zoom";
+
+/* Class = "NSMenuItem"; title = "View"; ObjectID = "227"; */
+"227.title" = "View";
+
+/* Class = "NSMenu"; title = "View"; ObjectID = "228"; */
+"228.title" = "View";
+
+/* Class = "NSMenuItem"; title = "Layer"; ObjectID = "230"; */
+"230.title" = "Layer";
+
+/* Class = "NSMenu"; title = "Layer"; ObjectID = "231"; */
+"231.title" = "Layer";
+
+/* Class = "NSMenuItem"; title = "Object"; ObjectID = "233"; */
+"233.title" = "Object";
+
+/* Class = "NSMenu"; title = "Object"; ObjectID = "234"; */
+"234.title" = "Object";
+
+/* Class = "NSMenuItem"; title = "Zoom In"; ObjectID = "236"; */
+"236.title" = "Zoom In";
+
+/* Class = "NSMenuItem"; title = "Zoom Out"; ObjectID = "237"; */
+"237.title" = "Zoom Out";
+
+/* Class = "NSMenuItem"; title = "Actual Size"; ObjectID = "238"; */
+"238.title" = "Actual Size";
+
+/* Class = "NSMenuItem"; title = "Zoom To Fit"; ObjectID = "239"; */
+"239.title" = "Zoom To Fit";
+
+/* Class = "NSMenuItem"; title = "Show Rulers"; ObjectID = "241"; */
+"241.title" = "Show Rulers";
+
+/* Class = "NSMenuItem"; title = "Snap To Grid"; ObjectID = "242"; */
+"242.title" = "Snap To Grid";
+
+/* Class = "NSMenuItem"; title = "New Empty Drawing Layer"; ObjectID = "249"; */
+"249.title" = "New Empty Drawing Layer";
+
+/* Class = "NSMenuItem"; title = "Bring To Front"; ObjectID = "260"; */
+"260.title" = "Bring To Front";
+
+/* Class = "NSMenuItem"; title = "Bring Forward"; ObjectID = "261"; */
+"261.title" = "Bring Forward";
+
+/* Class = "NSMenuItem"; title = "Send Backward"; ObjectID = "262"; */
+"262.title" = "Send Backward";
+
+/* Class = "NSMenuItem"; title = "Send To Back"; ObjectID = "263"; */
+"263.title" = "Send To Back";
+
+/* Class = "NSMenuItem"; title = "Lock"; ObjectID = "265"; */
+"265.title" = "Lock";
+
+/* Class = "NSMenuItem"; title = "Unlock"; ObjectID = "266"; */
+"266.title" = "Unlock";
+
+/* Class = "NSMenuItem"; title = "Show"; ObjectID = "268"; */
+"268.title" = "Show";
+
+/* Class = "NSMenuItem"; title = "Hide"; ObjectID = "269"; */
+"269.title" = "Hide";
+
+/* Class = "NSMenuItem"; title = "Bring To Front"; ObjectID = "287"; */
+"287.title" = "Bring To Front";
+
+/* Class = "NSMenuItem"; title = "Bring Forwards"; ObjectID = "288"; */
+"288.title" = "Bring Forwards";
+
+/* Class = "NSMenuItem"; title = "Send Backwards"; ObjectID = "289"; */
+"289.title" = "Send Backwards";
+
+/* Class = "NSMenuItem"; title = "Send To Back"; ObjectID = "290"; */
+"290.title" = "Send To Back";
+
+/* Class = "NSMenuItem"; title = "Lock"; ObjectID = "292"; */
+"292.title" = "Lock";
+
+/* Class = "NSMenuItem"; title = "Unlock"; ObjectID = "293"; */
+"293.title" = "Unlock";
+
+/* Class = "NSMenuItem"; title = "Show All Hidden Objects"; ObjectID = "295"; */
+"295.title" = "Show All Hidden Objects";
+
+/* Class = "NSMenuItem"; title = "Hide"; ObjectID = "296"; */
+"296.title" = "Hide";
+
+/* Class = "NSMenuItem"; title = "Group"; ObjectID = "298"; */
+"298.title" = "Group";
+
+/* Class = "NSMenuItem"; title = "Ungroup"; ObjectID = "299"; */
+"299.title" = "Ungroup";
+
+/* Class = "NSMenuItem"; title = "Align"; ObjectID = "300"; */
+"300.title" = "Align";
+
+/* Class = "NSMenu"; title = "Align"; ObjectID = "301"; */
+"301.title" = "Align";
+
+/* Class = "NSMenuItem"; title = "Distribute Vertical Space"; ObjectID = "302"; */
+"302.title" = "Distribute Vertical Space";
+
+/* Class = "NSMenuItem"; title = "Right Edges"; ObjectID = "303"; */
+"303.title" = "Right Edges";
+
+/* Class = "NSMenuItem"; title = "Distribute Horizontally"; ObjectID = "307"; */
+"307.title" = "Distribute Horizontally";
+
+/* Class = "NSMenuItem"; title = "Distribute Vertically"; ObjectID = "308"; */
+"308.title" = "Distribute Vertically";
+
+/* Class = "NSMenuItem"; title = "Left Edges"; ObjectID = "309"; */
+"309.title" = "Left Edges";
+
+/* Class = "NSMenuItem"; title = "Bottom Edges"; ObjectID = "310"; */
+"310.title" = "Bottom Edges";
+
+/* Class = "NSMenuItem"; title = "Distribute Horizontal Space"; ObjectID = "311"; */
+"311.title" = "Distribute Horizontal Space";
+
+/* Class = "NSMenuItem"; title = "Top Edges"; ObjectID = "312"; */
+"312.title" = "Top Edges";
+
+/* Class = "NSMenuItem"; title = "Horizontal Centres"; ObjectID = "313"; */
+"313.title" = "Horizontal Centres";
+
+/* Class = "NSMenuItem"; title = "Vertical Centres"; ObjectID = "314"; */
+"314.title" = "Vertical Centres";
+
+/* Class = "NSMenuItem"; title = "Style"; ObjectID = "315"; */
+"315.title" = "Style";
+
+/* Class = "NSMenu"; title = "Style"; ObjectID = "316"; */
+"316.title" = "Style";
+
+/* Class = "NSMenuItem"; title = "Copy Drawing Style"; ObjectID = "317"; */
+"317.title" = "Copy Drawing Style";
+
+/* Class = "NSMenuItem"; title = "Paste Drawing Style"; ObjectID = "318"; */
+"318.title" = "Paste Drawing Style";
+
+/* Class = "NSMenuItem"; title = "Convert To Path"; ObjectID = "322"; */
+"322.title" = "Convert To Path";
+
+/* Class = "NSMenuItem"; title = "Convert To Shape"; ObjectID = "323"; */
+"323.title" = "Convert To Shape";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "352"; */
+"352.title" = "Text";
+
+/* Class = "NSMenu"; title = "Text"; ObjectID = "353"; */
+"353.title" = "Text";
+
+/* Class = "NSMenuItem"; title = "Font"; ObjectID = "355"; */
+"355.title" = "Font";
+
+/* Class = "NSMenu"; title = "Font"; ObjectID = "356"; */
+"356.title" = "Font";
+
+/* Class = "NSMenuItem"; title = "Bigger"; ObjectID = "358"; */
+"358.title" = "Bigger";
+
+/* Class = "NSMenuItem"; title = "Show Colors"; ObjectID = "359"; */
+"359.title" = "Show Colors";
+
+/* Class = "NSMenuItem"; title = "Smaller"; ObjectID = "360"; */
+"360.title" = "Smaller";
+
+/* Class = "NSMenuItem"; title = "Underline"; ObjectID = "361"; */
+"361.title" = "Underline";
+
+/* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "364"; */
+"364.title" = "Copy Style";
+
+/* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "365"; */
+"365.title" = "Paste Style";
+
+/* Class = "NSMenuItem"; title = "Bold"; ObjectID = "367"; */
+"367.title" = "Bold";
+
+/* Class = "NSMenuItem"; title = "Italic"; ObjectID = "368"; */
+"368.title" = "Italic";
+
+/* Class = "NSMenuItem"; title = "Show Fonts"; ObjectID = "369"; */
+"369.title" = "Show Fonts";
+
+/* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "370"; */
+"370.title" = "Baseline";
+
+/* Class = "NSMenu"; title = "Baseline"; ObjectID = "371"; */
+"371.title" = "Baseline";
+
+/* Class = "NSMenuItem"; title = "Raise"; ObjectID = "372"; */
+"372.title" = "Raise";
+
+/* Class = "NSMenuItem"; title = "Lower"; ObjectID = "373"; */
+"373.title" = "Lower";
+
+/* Class = "NSMenuItem"; title = "Superscript"; ObjectID = "374"; */
+"374.title" = "Superscript";
+
+/* Class = "NSMenuItem"; title = "Subscript"; ObjectID = "375"; */
+"375.title" = "Subscript";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "376"; */
+"376.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Kern"; ObjectID = "377"; */
+"377.title" = "Kern";
+
+/* Class = "NSMenu"; title = "Kern"; ObjectID = "378"; */
+"378.title" = "Kern";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "379"; */
+"379.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Tighten"; ObjectID = "380"; */
+"380.title" = "Tighten";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "381"; */
+"381.title" = "Use None";
+
+/* Class = "NSMenuItem"; title = "Loosen"; ObjectID = "382"; */
+"382.title" = "Loosen";
+
+/* Class = "NSMenuItem"; title = "Ligature"; ObjectID = "383"; */
+"383.title" = "Ligature";
+
+/* Class = "NSMenu"; title = "Ligature"; ObjectID = "384"; */
+"384.title" = "Ligature";
+
+/* Class = "NSMenuItem"; title = "Use All"; ObjectID = "385"; */
+"385.title" = "Use All";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "386"; */
+"386.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "387"; */
+"387.title" = "Use None";
+
+/* Class = "NSMenuItem"; title = "Align Left"; ObjectID = "389"; */
+"389.title" = "Align Left";
+
+/* Class = "NSMenuItem"; title = "Center"; ObjectID = "390"; */
+"390.title" = "Center";
+
+/* Class = "NSMenuItem"; title = "Justify"; ObjectID = "391"; */
+"391.title" = "Justify";
+
+/* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "392"; */
+"392.title" = "Align Right";
+
+/* Class = "NSMenuItem"; title = "Copy Ruler"; ObjectID = "394"; */
+"394.title" = "Copy Ruler";
+
+/* Class = "NSMenuItem"; title = "Paste Ruler"; ObjectID = "395"; */
+"395.title" = "Paste Ruler";
+
+/* Class = "NSMenuItem"; title = "Top"; ObjectID = "397"; */
+"397.title" = "Top";
+
+/* Class = "NSMenuItem"; title = "Middle"; ObjectID = "398"; */
+"398.title" = "Middle";
+
+/* Class = "NSMenuItem"; title = "Bottom"; ObjectID = "399"; */
+"399.title" = "Bottom";
+
+/* Class = "NSMenuItem"; title = "Copy Drawing"; ObjectID = "434"; */
+"434.title" = "Copy Drawing";
+
+/* Class = "NSMenuItem"; title = "Duplicate"; ObjectID = "437"; */
+"437.title" = "Duplicate";
+
+/* Class = "NSMenuItem"; title = "Select None"; ObjectID = "438"; */
+"438.title" = "Select None";
+
+/* Class = "NSMenuItem"; title = "Style Inspector"; ObjectID = "449"; */
+"449.title" = "Style Inspector";
+
+/* Class = "NSMenuItem"; title = "Transform"; ObjectID = "456"; */
+"456.title" = "Transform";
+
+/* Class = "NSMenu"; title = "Transform"; ObjectID = "457"; */
+"457.title" = "Transform";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "458"; */
+"458.title" = "None";
+
+/* Class = "NSMenuItem"; title = "Shear Horizontally"; ObjectID = "459"; */
+"459.title" = "Shear Horizontally";
+
+/* Class = "NSMenuItem"; title = "Shear Vertically"; ObjectID = "461"; */
+"461.title" = "Shear Vertically";
+
+/* Class = "NSMenuItem"; title = "Perspective"; ObjectID = "462"; */
+"462.title" = "Perspective";
+
+/* Class = "NSMenuItem"; title = "Free Distortion"; ObjectID = "463"; */
+"463.title" = "Free Distortion";
+
+/* Class = "NSMenuItem"; title = "Boolean Ops"; ObjectID = "474"; */
+"474.title" = "Boolean Ops";
+
+/* Class = "NSMenu"; title = "Boolean Ops"; ObjectID = "475"; */
+"475.title" = "Boolean Ops";
+
+/* Class = "NSMenuItem"; title = "Union"; ObjectID = "476"; */
+"476.title" = "Union";
+
+/* Class = "NSMenuItem"; title = "Intersection"; ObjectID = "478"; */
+"478.title" = "Intersection";
+
+/* Class = "NSMenuItem"; title = "Difference"; ObjectID = "479"; */
+"479.title" = "Difference";
+
+/* Class = "NSMenuItem"; title = "Exclusive Or"; ObjectID = "480"; */
+"480.title" = "Exclusive Or";
+
+/* Class = "NSMenuItem"; title = "Combine"; ObjectID = "492"; */
+"492.title" = "Combine";
+
+/* Class = "NSMenuItem"; title = "Reset Bounding Box"; ObjectID = "494"; */
+"494.title" = "Reset Bounding Box";
+
+/* Class = "NSMenuItem"; title = "Snap To Guides"; ObjectID = "579"; */
+"579.title" = "Snap To Guides";
+
+/* Class = "NSMenuItem"; title = "Tool Palette"; ObjectID = "590"; */
+"590.title" = "Tool Palette";
+
+/* Class = "NSMenuItem"; title = "Debug"; ObjectID = "599"; */
+"599.title" = "Debug";
+
+/* Class = "NSMenu"; title = "Debug"; ObjectID = "600"; */
+"600.title" = "Debug";
+
+/* Class = "NSMenuItem"; title = "Force Clip to Bounds"; ObjectID = "601"; */
+"601.title" = "Force Clip to Bounds";
+
+/* Class = "NSMenuItem"; title = "Show Text Layout Boxes"; ObjectID = "602"; */
+"602.title" = "Show Text Layout Boxes";
+
+/* Class = "NSMenuItem"; title = "Show Bounding Box"; ObjectID = "604"; */
+"604.title" = "Show Bounding Box";
+
+/* Class = "NSMenuItem"; title = "Imperial Grid"; ObjectID = "609"; */
+"609.title" = "Imperial Grid";
+
+/* Class = "NSMenuItem"; title = "Metric Grid"; ObjectID = "610"; */
+"610.title" = "Metric Grid";
+
+/* Class = "NSMenuItem"; title = "Show Partcodes"; ObjectID = "613"; */
+"613.title" = "Show Partcodes";
+
+/* Class = "NSMenuItem"; title = "Show Page Breaks"; ObjectID = "620"; */
+"620.title" = "Show Page Breaks";
+
+/* Class = "NSMenuItem"; title = "Polar Duplicate..."; ObjectID = "623"; */
+"623.title" = "Polar Duplicate...";
+
+/* Class = "NSMenuItem"; title = "Linear Duplicate..."; ObjectID = "624"; */
+"624.title" = "Linear Duplicate...";
+
+/* Class = "NSMenuItem"; title = "Test"; ObjectID = "627"; */
+"627.title" = "Test";
+
+/* Class = "NSMenuItem"; title = "Object Inspector"; ObjectID = "634"; */
+"634.title" = "Object Inspector";
+
+/* Class = "NSMenuItem"; title = "Select Matching Styles"; ObjectID = "642"; */
+"642.title" = "Select Matching Styles";
+
+/* Class = "NSMenuItem"; title = "Align Edges To Grid"; ObjectID = "645"; */
+"645.title" = "Align Edges To Grid";
+
+/* Class = "NSMenuItem"; title = "Align Objects To Grid"; ObjectID = "646"; */
+"646.title" = "Align Objects To Grid";
+
+/* Class = "NSMenuItem"; title = "Snap To Other Objects"; ObjectID = "652"; */
+"652.title" = "Snap To Other Objects";
+
+/* Class = "NSMenuItem"; title = "Flip"; ObjectID = "657"; */
+"657.title" = "Flip";
+
+/* Class = "NSMenu"; title = "Flip"; ObjectID = "658"; */
+"658.title" = "Flip";
+
+/* Class = "NSMenuItem"; title = "Horizontally"; ObjectID = "659"; */
+"659.title" = "Horizontally";
+
+/* Class = "NSMenuItem"; title = "Vertically"; ObjectID = "660"; */
+"660.title" = "Vertically";
+
+/* Class = "NSMenuItem"; title = "Curve Fitting Policy"; ObjectID = "663"; */
+"663.title" = "Curve Fitting Policy";
+
+/* Class = "NSMenu"; title = "Curve Fitting Policy"; ObjectID = "664"; */
+"664.title" = "Curve Fitting Policy";
+
+/* Class = "NSMenuItem"; title = "Automatic"; ObjectID = "665"; */
+"665.title" = "Automatic";
+
+/* Class = "NSMenuItem"; title = "Never Curve Fit"; ObjectID = "666"; */
+"666.title" = "Never Curve Fit";
+
+/* Class = "NSMenuItem"; title = "Always Curve Fit"; ObjectID = "667"; */
+"667.title" = "Always Curve Fit";
+
+/* Class = "NSMenuItem"; title = "Layers Palette"; ObjectID = "671"; */
+"671.title" = "Layers Palette";
+
+/* Class = "NSMenuItem"; title = "Styles Registry Manager"; ObjectID = "673"; */
+"673.title" = "Styles Registry Manager";
+
+/* Class = "NSMenuItem"; title = "Clear Guides"; ObjectID = "675"; */
+"675.title" = "Clear Guides";
+
+/* Class = "NSMenuItem"; title = "Show Hit-test target bounds"; ObjectID = "680"; */
+"680.title" = "Show Hit-test target bounds";
+
+/* Class = "NSMenuItem"; title = "Cluster"; ObjectID = "682"; */
+"682.title" = "Cluster";
+
+/* Class = "NSMenuItem"; title = "New Drawing Layer With Selection"; ObjectID = "692"; */
+"692.title" = "New Drawing Layer With Selection";
+
+/* Class = "NSMenuItem"; title = "Drawing Size & Grid..."; ObjectID = "695"; */
+"695.title" = "Drawing Size & Grid...";
+
+/* Class = "NSMenuItem"; title = "Hide Guides"; ObjectID = "699"; */
+"699.title" = "Hide Guides";
+
+/* Class = "NSMenuItem"; title = "Hide Grid"; ObjectID = "700"; */
+"700.title" = "Hide Grid";
+
+/* Class = "NSMenuItem"; title = "Image"; ObjectID = "703"; */
+"703.title" = "Image";
+
+/* Class = "NSMenu"; title = "Image"; ObjectID = "704"; */
+"704.title" = "Image";
+
+/* Class = "NSMenuItem"; title = "Scale To Path"; ObjectID = "705"; */
+"705.title" = "Scale To Path";
+
+/* Class = "NSMenuItem"; title = "Vectorize"; ObjectID = "706"; */
+"706.title" = "Vectorize";
+
+/* Class = "NSMenuItem"; title = "Crop To Path"; ObjectID = "707"; */
+"707.title" = "Crop To Path";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "710"; */
+"710.title" = "Text";
+
+/* Class = "NSMenu"; title = "Text"; ObjectID = "711"; */
+"711.title" = "Text";
+
+/* Class = "NSMenuItem"; title = "Edit Text"; ObjectID = "713"; */
+"713.title" = "Edit Text";
+
+/* Class = "NSMenuItem"; title = "Size To Fit Text"; ObjectID = "714"; */
+"714.title" = "Size To Fit Text";
+
+/* Class = "NSMenuItem"; title = "Path"; ObjectID = "715"; */
+"715.title" = "Path";
+
+/* Class = "NSMenu"; title = "Path"; ObjectID = "716"; */
+"716.title" = "Path";
+
+/* Class = "NSMenuItem"; title = "Add Randomness"; ObjectID = "718"; */
+"718.title" = "Add Randomness";
+
+/* Class = "NSMenuItem"; title = "Convert To Outline"; ObjectID = "719"; */
+"719.title" = "Convert To Outline";
+
+/* Class = "NSMenuItem"; title = "Parallel Copy"; ObjectID = "720"; */
+"720.title" = "Parallel Copy";
+
+/* Class = "NSMenuItem"; title = "Smooth More"; ObjectID = "721"; */
+"721.title" = "Smooth More";
+
+/* Class = "NSMenuItem"; title = "Smooth"; ObjectID = "722"; */
+"722.title" = "Smooth";
+
+/* Class = "NSMenuItem"; title = "Break Apart"; ObjectID = "723"; */
+"723.title" = "Break Apart";
+
+/* Class = "NSMenuItem"; title = "Join Paths Colinearly"; ObjectID = "724"; */
+"724.title" = "Join Paths Colinearly";
+
+/* Class = "NSMenuItem"; title = "Join Paths"; ObjectID = "725"; */
+"725.title" = "Join Paths";
+
+/* Class = "NSMenuItem"; title = "Paste Path Into Shape"; ObjectID = "737"; */
+"737.title" = "Paste Path Into Shape";
+
+/* Class = "NSMenuItem"; title = "Draw Image On Top Of Style"; ObjectID = "739"; */
+"739.title" = "Draw Image On Top Of Style";
+
+/* Class = "NSMenuItem"; title = "Paste Image"; ObjectID = "741"; */
+"741.title" = "Paste Image";
+
+/* Class = "NSMenuItem"; title = "Size To Fit Image"; ObjectID = "744"; */
+"744.title" = "Size To Fit Image";
+
+/* Class = "NSMenuItem"; title = "Roughen"; ObjectID = "747"; */
+"747.title" = "Roughen";
+
+/* Class = "NSMenuItem"; title = "Use Style Text Attributes"; ObjectID = "749"; */
+"749.title" = "Use Style Text Attributes";
+
+/* Class = "NSMenuItem"; title = "Export As..."; ObjectID = "751"; */
+"751.title" = "Export As...";
+
+/* Class = "NSMenuItem"; title = "Divide"; ObjectID = "753"; */
+"753.title" = "Divide";
+
+/* Class = "NSMenuItem"; title = "Find Shortest Route"; ObjectID = "755"; */
+"755.title" = "Find Shortest Route";

@@ -1,0 +1,162 @@
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "5"; */
+"5.title" = "Window";
+
+/* Class = "NSWindow"; title = "Panel"; ObjectID = "60"; */
+"60.title" = "Panel";
+
+/* Class = "NSWindow"; title = "Polar Duplicate"; ObjectID = "80"; */
+"80.title" = "Polar Duplicate";
+
+/* Class = "NSBox"; title = "Manual settings"; ObjectID = "276"; */
+"276.title" = "Manual settings";
+
+/* Class = "NSButtonCell"; title = "Save"; ObjectID = "305"; */
+"305.title" = "Save";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "306"; */
+"306.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "Name the tool:"; ObjectID = "307"; */
+"307.title" = "Name the tool:";
+
+/* Class = "NSButtonCell"; title = "Duplicate"; ObjectID = "308"; */
+"308.title" = "Duplicate";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "309"; */
+"309.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "Centre"; ObjectID = "311"; */
+"311.title" = "Centre";
+
+/* Class = "NSTextFieldCell"; title = "X:"; ObjectID = "313"; */
+"313.title" = "X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "314"; */
+"314.title" = "Y:";
+
+/* Class = "NSButtonCell"; title = "Fit into a circle automatically"; ObjectID = "315"; */
+"315.title" = "Fit into a circle automatically";
+
+/* Class = "NSTextFieldCell"; title = "Make"; ObjectID = "317"; */
+"317.title" = "Make";
+
+/* Class = "NSTextFieldCell"; title = "copies of the selection"; ObjectID = "318"; */
+"318.title" = "copies of the selection";
+
+/* Class = "NSTextFieldCell"; title = "Angular increment:"; ObjectID = "320"; */
+"320.title" = "Angular increment:";
+
+/* Class = "NSButtonCell"; title = "Rotate copies around centre"; ObjectID = "321"; */
+"321.title" = "Rotate copies around centre";
+
+/* Class = "NSTextFieldCell"; title = "°"; ObjectID = "322"; */
+"322.title" = "°";
+
+/* Class = "NSWindow"; title = "Linear Duplicate"; ObjectID = "326"; */
+"326.title" = "Linear Duplicate";
+
+/* Class = "NSButtonCell"; title = "Duplicate"; ObjectID = "329"; */
+"329.title" = "Duplicate";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "331"; */
+"331.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "Make"; ObjectID = "335"; */
+"335.title" = "Make";
+
+/* Class = "NSTextFieldCell"; title = "copies of the selection"; ObjectID = "337"; */
+"337.title" = "copies of the selection";
+
+/* Class = "NSTextFieldCell"; title = "X:"; ObjectID = "344"; */
+"344.title" = "X:";
+
+/* Class = "NSTextFieldCell"; title = "Y:"; ObjectID = "345"; */
+"345.title" = "Y:";
+
+/* Class = "NSTextFieldCell"; title = "Offset by"; ObjectID = "347"; */
+"347.title" = "Offset by";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "366"; */
+"366.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "PDF"; ObjectID = "367"; */
+"367.title" = "PDF";
+
+/* Class = "NSMenuItem"; title = "TIFF"; ObjectID = "368"; */
+"368.title" = "TIFF";
+
+/* Class = "NSMenuItem"; title = "JPEG"; ObjectID = "369"; */
+"369.title" = "JPEG";
+
+/* Class = "NSTextFieldCell"; title = "Format:"; ObjectID = "371"; */
+"371.title" = "Format:";
+
+/* Class = "NSButtonCell"; title = "Include grid"; ObjectID = "373"; */
+"373.title" = "Include grid";
+
+/* Class = "NSMenuItem"; title = "PNG"; ObjectID = "374"; */
+"374.title" = "PNG";
+
+/* Class = "NSTabViewItem"; label = "PDF"; ObjectID = "381"; */
+"381.label" = "PDF";
+
+/* Class = "NSTabViewItem"; label = "JPEG"; ObjectID = "382"; */
+"382.label" = "JPEG";
+
+/* Class = "NSTabViewItem"; label = "PNG"; ObjectID = "385"; */
+"385.label" = "PNG";
+
+/* Class = "NSTabViewItem"; label = "TIFF"; ObjectID = "387"; */
+"387.label" = "TIFF";
+
+/* Class = "NSTextFieldCell"; title = "Quality:"; ObjectID = "394"; */
+"394.title" = "Quality:";
+
+/* Class = "NSTextFieldCell"; title = "Low"; ObjectID = "396"; */
+"396.title" = "Low";
+
+/* Class = "NSTextFieldCell"; title = "High"; ObjectID = "398"; */
+"398.title" = "High";
+
+/* Class = "NSButtonCell"; title = "Progressive"; ObjectID = "401"; */
+"401.title" = "Progressive";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "409"; */
+"409.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "410"; */
+"410.title" = "None";
+
+/* Class = "NSMenuItem"; title = "LZW"; ObjectID = "411"; */
+"411.title" = "LZW";
+
+/* Class = "NSMenuItem"; title = "PackBits"; ObjectID = "412"; */
+"412.title" = "PackBits";
+
+/* Class = "NSTextFieldCell"; title = "TIFF Compression:"; ObjectID = "414"; */
+"414.title" = "TIFF Compression:";
+
+/* Class = "NSButtonCell"; title = "Interlaced"; ObjectID = "417"; */
+"417.title" = "Interlaced";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "423"; */
+"423.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "72 dpi"; ObjectID = "424"; */
+"424.title" = "72 dpi";
+
+/* Class = "NSMenuItem"; title = "144 dpi"; ObjectID = "425"; */
+"425.title" = "144 dpi";
+
+/* Class = "NSMenuItem"; title = "150 dpi"; ObjectID = "426"; */
+"426.title" = "150 dpi";
+
+/* Class = "NSTextFieldCell"; title = "Resolution:"; ObjectID = "428"; */
+"428.title" = "Resolution:";
+
+/* Class = "NSMenuItem"; title = "300 dpi"; ObjectID = "429"; */
+"429.title" = "300 dpi";
+
+/* Class = "NSButtonCell"; title = "Preserve alpha"; ObjectID = "433"; */
+"433.title" = "Preserve alpha";

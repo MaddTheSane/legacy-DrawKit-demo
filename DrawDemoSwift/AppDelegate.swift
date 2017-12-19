@@ -95,7 +95,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@objc(drawingToolRegistrationNote:)
 	func drawingToolRegistration(note: Notification) {
 		// a new tool was registered. Add it to the tool menu if it's not known already.
-		let names = DKToolRegistry.shared.toolNames()!
+		let names = DKToolRegistry.shared.toolNames
 		
 		guard let menu = userToolMenu, menu.numberOfItems > 0 else {
 			return

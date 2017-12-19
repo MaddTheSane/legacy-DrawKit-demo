@@ -1,0 +1,126 @@
+
+/* Class = "NSWindow"; title = "Object Inspector"; ObjectID = "7"; */
+"7.title" = "Object Inspector";
+
+/* Class = "NSTabViewItem"; label = "Multiple Selection"; ObjectID = "10"; */
+"10.label" = "Multiple Selection";
+
+/* Class = "NSTabViewItem"; label = "No Selection"; ObjectID = "12"; */
+"12.label" = "No Selection";
+
+/* Class = "NSTabViewItem"; label = "Object"; ObjectID = "17"; */
+"17.label" = "Object";
+
+/* Class = "NSTabViewItem"; label = "Group"; ObjectID = "19"; */
+"19.label" = "Group";
+
+/* Class = "NSTabViewItem"; label = "User Info"; ObjectID = "22"; */
+"22.label" = "User Info";
+
+/* Class = "NSTabViewItem"; label = "Geometry"; ObjectID = "24"; */
+"24.label" = "Geometry";
+
+/* Class = "NSTableColumn"; headerCell.title = "Identifier"; ObjectID = "28"; */
+"28.headerCell.title" = "Identifier";
+
+/* Class = "NSTableColumn"; headerCell.title = "Value"; ObjectID = "29"; */
+"29.headerCell.title" = "Value";
+
+/* Class = "NSButtonCell"; title = "Base co-ordinates"; ObjectID = "67"; */
+"67.title" = "Base co-ordinates";
+
+/* Class = "NSButtonCell"; title = "Grid co-ordinates"; ObjectID = "68"; */
+"68.title" = "Grid co-ordinates";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "85"; */
+"85.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Integer"; ObjectID = "87"; */
+"87.title" = "Integer";
+
+/* Class = "NSMenuItem"; title = "String"; ObjectID = "88"; */
+"88.title" = "String";
+
+/* Class = "NSMenuItem"; title = "Real Number"; ObjectID = "89"; */
+"89.title" = "Real Number";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "92"; */
+"92.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "93"; */
+"93.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Multiple Items Selected"; ObjectID = "145"; */
+"145.title" = "Multiple Items Selected";
+
+/* Class = "NSTextFieldCell"; title = "Items selected:"; ObjectID = "146"; */
+"146.title" = "Items selected:";
+
+/* Class = "NSTextFieldCell"; title = "-100"; ObjectID = "147"; */
+"147.title" = "-100";
+
+/* Class = "NSTextFieldCell"; title = "No Selection"; ObjectID = "148"; */
+"148.title" = "No Selection";
+
+/* Class = "NSButtonCell"; title = "Button"; ObjectID = "149"; */
+"149.title" = "Button";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "151"; */
+"151.title" = "Width:";
+
+/* Class = "NSTextFieldCell"; title = "Height:"; ObjectID = "152"; */
+"152.title" = "Height:";
+
+/* Class = "NSTextFieldCell"; title = "Angle:"; ObjectID = "153"; */
+"153.title" = "Angle:";
+
+/* Class = "NSTextFieldCell"; title = "Location X:"; ObjectID = "154"; */
+"154.title" = "Location X:";
+
+/* Class = "NSTextFieldCell"; title = "Location Y:"; ObjectID = "155"; */
+"155.title" = "Location Y:";
+
+/* Class = "NSTextFieldCell"; title = "Style:"; ObjectID = "156"; */
+"156.title" = "Style:";
+
+/* Class = "NSTextFieldCell"; title = "<Object Type>"; ObjectID = "158"; */
+"158.title" = "<Object Type>";
+
+/* Class = "NSTextFieldCell"; title = "-100.23"; ObjectID = "159"; */
+"159.title" = "-100.23";
+
+/* Class = "NSTextFieldCell"; title = "-100.23"; ObjectID = "160"; */
+"160.title" = "-100.23";
+
+/* Class = "NSTextFieldCell"; title = "-100.23°"; ObjectID = "161"; */
+"161.title" = "-100.23°";
+
+/* Class = "NSTextFieldCell"; title = "-100.23"; ObjectID = "162"; */
+"162.title" = "-100.23";
+
+/* Class = "NSTextFieldCell"; title = "-100.23"; ObjectID = "163"; */
+"163.title" = "-100.23";
+
+/* Class = "NSTextFieldCell"; title = "?"; ObjectID = "164"; */
+"164.title" = "?";
+
+/* Class = "NSTextFieldCell"; title = "Group count:"; ObjectID = "165"; */
+"165.title" = "Group count:";
+
+/* Class = "NSTextFieldCell"; title = "-100"; ObjectID = "166"; */
+"166.title" = "-100";
+
+/* Class = "NSTextFieldCell"; title = "Group Object"; ObjectID = "167"; */
+"167.title" = "Group Object";
+
+/* Class = "NSButtonCell"; title = "Ungroup"; ObjectID = "168"; */
+"168.title" = "Ungroup";
+
+/* Class = "NSTextFieldCell"; title = "Objects in group:"; ObjectID = "169"; */
+"169.title" = "Objects in group:";
+
+/* Class = "NSTextFieldCell"; title = "-100"; ObjectID = "170"; */
+"170.title" = "-100";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "171"; */
+"171.title" = "Radio";

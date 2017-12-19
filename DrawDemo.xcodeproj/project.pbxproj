@@ -212,6 +212,16 @@
 		550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCSDrawingSizeController.swift; sourceTree = "<group>"; };
 		551B08541FDF5650008AE439 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5523ED131FE89DBB00639846 /* GCSToolPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSToolPalette.swift; sourceTree = "<group>"; };
+		5523ED171FE8D64A00639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LayersPalette.strings; sourceTree = "<group>"; };
+		5523ED191FE8D65600639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		5523ED1B1FE8D65D00639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ObjectInspector.strings; sourceTree = "<group>"; };
+		5523ED1D1FE8D66300639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Preferences.strings; sourceTree = "<group>"; };
+		5523ED1F1FE8D66900639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StyleInspector.strings; sourceTree = "<group>"; };
+		5523ED211FE8D67800639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StyleManager.strings; sourceTree = "<group>"; };
+		5523ED231FE8D67E00639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ToolPalette.strings; sourceTree = "<group>"; };
+		5523ED251FE8D68600639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DKGraphicInspector.strings; sourceTree = "<group>"; };
+		5523ED271FE8D68D00639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Drawingsize.strings; sourceTree = "<group>"; };
+		5523ED291FE8D69000639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GCSDrawDemoDocument.strings; sourceTree = "<group>"; };
 		55C968C01FE33509009AD729 /* DrawDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C968C21FE33509009AD729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C968C41FE33509009AD729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1015,6 +1025,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C968F81FE3365D009AD729 /* Base */,
+				5523ED251FE8D68600639846 /* en */,
 			);
 			name = DKGraphicInspector.xib;
 			sourceTree = "<group>";
@@ -1023,6 +1034,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C968FB1FE33663009AD729 /* Base */,
+				5523ED271FE8D68D00639846 /* en */,
 			);
 			name = Drawingsize.xib;
 			sourceTree = "<group>";
@@ -1031,6 +1043,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C968FE1FE33668009AD729 /* Base */,
+				5523ED291FE8D69000639846 /* en */,
 			);
 			name = GCSDrawDemoDocument.xib;
 			sourceTree = "<group>";
@@ -1039,6 +1052,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C969011FE3366E009AD729 /* Base */,
+				5523ED171FE8D64A00639846 /* en */,
 			);
 			name = LayersPalette.xib;
 			sourceTree = "<group>";
@@ -1047,6 +1061,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C969041FE33672009AD729 /* Base */,
+				5523ED191FE8D65600639846 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1055,6 +1070,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C969071FE33677009AD729 /* Base */,
+				5523ED1B1FE8D65D00639846 /* en */,
 			);
 			name = ObjectInspector.xib;
 			sourceTree = "<group>";
@@ -1063,6 +1079,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C9690A1FE3367B009AD729 /* Base */,
+				5523ED1D1FE8D66300639846 /* en */,
 			);
 			name = Preferences.xib;
 			sourceTree = "<group>";
@@ -1071,6 +1088,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C9690D1FE33680009AD729 /* Base */,
+				5523ED1F1FE8D66900639846 /* en */,
 			);
 			name = StyleInspector.xib;
 			sourceTree = "<group>";
@@ -1079,6 +1097,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C969101FE33684009AD729 /* Base */,
+				5523ED211FE8D67800639846 /* en */,
 			);
 			name = StyleManager.xib;
 			sourceTree = "<group>";
@@ -1087,6 +1106,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				55C969131FE33688009AD729 /* Base */,
+				5523ED231FE8D67E00639846 /* en */,
 			);
 			name = ToolPalette.xib;
 			sourceTree = "<group>";

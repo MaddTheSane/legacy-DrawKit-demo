@@ -1,0 +1,93 @@
+
+/* Class = "NSWindow"; title = "Styles Registry Manager"; ObjectID = "7"; */
+"7.title" = "Styles Registry Manager";
+
+/* Class = "NSScrollView"; ibShadowedToolTip = "Select a category to show its contents. Checkbox adds and removed selected style from category."; ObjectID = "11"; */
+"11.ibShadowedToolTip" = "Select a category to show its contents. Checkbox adds and removed selected style from category.";
+
+/* Class = "NSTableColumn"; headerCell.title = "Categories"; ObjectID = "14"; */
+"14.headerCell.title" = "Categories";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add a new category."; ObjectID = "16"; */
+"16.ibShadowedToolTip" = "Add a new category.";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete the selected category."; ObjectID = "17"; */
+"17.ibShadowedToolTip" = "Delete the selected category.";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "66"; */
+"66.title" = "Text Cell";
+
+/* Class = "NSScrollView"; ibShadowedToolTip = "Select a style to edit it. Checkboxes show which categories include it."; ObjectID = "84"; */
+"84.ibShadowedToolTip" = "Select a style to edit it. Checkboxes show which categories include it.";
+
+/* Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "121"; */
+"121.title" = "Name:";
+
+/* Class = "NSImageView"; ibShadowedToolTip = "The selected style."; ObjectID = "122"; */
+"122.ibShadowedToolTip" = "The selected style.";
+
+/* Class = "NSTextFieldCell"; title = "Preview"; ObjectID = "125"; */
+"125.title" = "Preview";
+
+/* Class = "NSTabView"; ibShadowedToolTip = "Switch between an icon view of the styles and a list view."; ObjectID = "127"; */
+"127.ibShadowedToolTip" = "Switch between an icon view of the styles and a list view.";
+
+/* Class = "NSTabViewItem"; label = "Icons"; ObjectID = "128"; */
+"128.label" = "Icons";
+
+/* Class = "NSTabViewItem"; label = "List"; ObjectID = "130"; */
+"130.label" = "List";
+
+/* Class = "NSTableView"; ibShadowedToolTip = "Select a style to edit its name and choose which categories it appears in."; ObjectID = "136"; */
+"136.ibShadowedToolTip" = "Select a style to edit its name and choose which categories it appears in.";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "139"; */
+"139.headerCell.title" = "Name";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Style Name"; ObjectID = "140"; */
+"140.placeholderString" = "Style Name";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "140"; */
+"140.title" = "Text Cell";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Deletes the style permanently from all categories."; ObjectID = "146"; */
+"146.ibShadowedToolTip" = "Deletes the style permanently from all categories.";
+
+/* Class = "NSButtonCell"; title = "Remove Style..."; ObjectID = "147"; */
+"147.title" = "Remove Style...";
+
+/* Class = "NSTextFieldCell"; title = "Registry"; ObjectID = "155"; */
+"155.title" = "Registry";
+
+/* Class = "NSTextFieldCell"; title = "Styles"; ObjectID = "158"; */
+"158.title" = "Styles";
+
+/* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "160"; */
+"160.title" = "Label";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "167"; */
+"167.title" = "Window";
+
+/* Class = "NSButtonCell"; title = "Change"; ObjectID = "171"; */
+"171.title" = "Change";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "173"; */
+"173.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "New Key:"; ObjectID = "177"; */
+"177.title" = "New Key:";
+
+/* Class = "NSTextFieldCell"; title = "Change Style's Registry Key"; ObjectID = "179"; */
+"179.title" = "Change Style's Registry Key";
+
+/* Class = "NSTextFieldCell"; title = "The key identifies the style in the registry. If you change it, documents that you have already saved will still use the old key. This will cause the style to be listed separately under both keys when the document is opened later, which may be undesirable.\n\nStyles should be named appropriately when they are first registered to avoid this problem."; ObjectID = "181"; */
+"181.title" = "The key identifies the style in the registry. If you change it, documents that you have already saved will still use the old key. This will cause the style to be listed separately under both keys when the document is opened later, which may be undesirable.\n\nStyles should be named appropriately when they are first registered to avoid this problem.";
+
+/* Class = "NSButtonCell"; title = "Clear Registry..."; ObjectID = "187"; */
+"187.title" = "Clear Registry...";
+
+/* Class = "NSButtonCell"; title = "Save To File..."; ObjectID = "190"; */
+"190.title" = "Save To File...";
+
+/* Class = "NSButtonCell"; title = "Load From File..."; ObjectID = "192"; */
+"192.title" = "Load From File...";
