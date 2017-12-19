@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,15 +19,14 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="930" y="650" width="86" height="362"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <value key="minSize" type="size" width="80" height="113"/>
             <view key="contentView" id="8">
                 <rect key="frame" x="0.0" y="0.0" width="86" height="362"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <matrix verticalHuggingPriority="750" selectionByRect="NO" allowsEmptySelection="NO" id="10">
-                        <rect key="frame" x="7" y="130" width="72" height="225"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <matrix verticalHuggingPriority="750" selectionByRect="NO" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                        <rect key="frame" x="7" y="130" width="72" height="224"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         <size key="cellSize" width="35" height="28"/>
                         <size key="intercellSpacing" width="2" height="0.0"/>
@@ -109,9 +108,8 @@
                             <action selector="toolButtonMatrixAction:" target="-2" id="35"/>
                         </connections>
                     </matrix>
-                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="29">
-                        <rect key="frame" x="2" y="4" width="80" height="22"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29">
+                        <rect key="frame" x="2" y="4" width="82" height="22"/>
                         <popUpButtonCell key="cell" type="push" title="Style" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" pullsDown="YES" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="33" id="49">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystem"/>
@@ -122,12 +120,27 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <imageView id="39">
-                        <rect key="frame" x="6" y="39" width="71" height="75"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                    <imageView translatesAutoresizingMaskIntoConstraints="NO" id="39">
+                        <rect key="frame" x="8" y="39" width="71" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="71" id="uNn-cc-SLz"/>
+                            <constraint firstAttribute="height" constant="75" id="vIK-fW-46O"/>
+                        </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="50"/>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="29" firstAttribute="top" secondItem="39" secondAttribute="bottom" constant="14" id="6oj-me-cHj"/>
+                    <constraint firstItem="29" firstAttribute="leading" secondItem="8" secondAttribute="leading" constant="5" id="EPo-vf-l7e"/>
+                    <constraint firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="7" id="MG5-FM-2A9"/>
+                    <constraint firstItem="39" firstAttribute="top" secondItem="10" secondAttribute="bottom" constant="16" id="Ppw-z4-QKj"/>
+                    <constraint firstItem="10" firstAttribute="leading" secondItem="8" secondAttribute="leading" constant="7" id="Tyn-Zm-ko2"/>
+                    <constraint firstItem="29" firstAttribute="centerX" secondItem="8" secondAttribute="centerX" id="fv2-yv-Ct7"/>
+                    <constraint firstItem="39" firstAttribute="centerX" secondItem="8" secondAttribute="centerX" id="mCE-LF-gas"/>
+                    <constraint firstItem="39" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8" secondAttribute="leading" constant="6" id="mt1-cD-oYw"/>
+                    <constraint firstAttribute="bottom" secondItem="29" secondAttribute="bottom" constant="7" id="xb6-6S-sBs"/>
+                    <constraint firstItem="10" firstAttribute="top" secondItem="8" secondAttribute="top" constant="8" id="zLt-gZ-jzt"/>
+                </constraints>
             </view>
         </window>
     </objects>

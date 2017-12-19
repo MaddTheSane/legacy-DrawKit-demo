@@ -23,13 +23,13 @@ private var lowestEdge: CGFloat = -10000
 
 extension DrawDemoDocument {
 	
-	/// this function is an experiment to illustrate the kinds of automatic functionality you can easily create using the
+	/// This function is an experiment to illustrate the kinds of automatic functionality you can easily create using the
 	/// drawkit. This makes the following assumptions:
 	///
-	/// 1. that there exists in the drawing (text) objects occupying a rectangular area containing metadata "year" and an integer value.
-	/// 2. that the drawing scale/grid is set up such that a linear timeline of integral years is available horizontally
+	/// 1. That there exists in the drawing (text) objects occupying a rectangular area containing metadata "year" and an integer value.
+	/// 2. That the drawing scale/grid is set up such that a linear timeline of integral years is available horizontally.
 	///
-	/// what it does is this: it first finds all such objects having metadata "year" key. Then it sorts them into chronological
+	/// What it does is this: it first finds all such objects having metadata "year" key. Then it sorts them into chronological
 	/// order by year. Then it assigns a position to them in the drawing where the horizontal position is set to the year (plus a
 	/// small "leader" offet) and the vertical position is calculated to avoid colliding with any labels already laid down and
 	/// in such a vertical order that the leader lines do not cross over.
@@ -135,7 +135,7 @@ extension DrawDemoDocument {
 
 			var j = indx;
 			
-			while (j < tlObjects.count) {
+			while j < tlObjects.count {
 				let colObj = tlObjects[j];
 				
 				var colObjRect = NSRect(origin: colObj.location, size: colObj.size)
