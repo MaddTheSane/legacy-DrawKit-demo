@@ -11,7 +11,7 @@ import DKDrawKit.DKObjectDrawingLayer
 import DKDrawKit.DKDrawablePath
 import DKDrawKit.DKStyle
 import DKDrawKit.DKObjectDrawingLayer
-import DKDrawKit.DKDrawableObject_Metadata
+import DKDrawKit.DKDrawableObject.Metadata
 import DKDrawKit.DKGridLayer
 import DKDrawKit.DKDrawing
 import DKDrawKit.DKDrawablePath
