@@ -26,7 +26,7 @@
 
 	CGFloat mControlAlpha;
 	GCControlHitTest mHitPart;
-	int mLinkPart;
+	GCControlHitTest mLinkPart;
 	NSEventModifierFlags mLinkModFlagsMask;
 	BOOL mVisible;
 }
@@ -48,6 +48,6 @@
 - (void)fadeControlAlphaWithTimeInterval:(NSTimeInterval)t;
 - (void)timerFadeCallback:(NSTimer *)timer;
 
-- (void)setLinkControlPart:(int)partcode modifierKeyMask:(NSEventModifierFlags)mask;
+- (void)setLinkControlPart:(GCControlHitTest)partcode modifierKeyMask:(NSEventModifierFlags)mask;
 
 @end

@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, GCSExportFileTypes) {
 };
 
 @interface GCSExportOptionsController : NSObject {
-	IBOutlet NSView *mExportAccessoryView;
+	IBOutlet __strong NSView *mExportAccessoryView;
 	IBOutlet NSPopUpButton *mExportFormatPopUpButton;
 	IBOutlet NSPopUpButton *mExportResolutionPopUpButton;
 	IBOutlet NSButton *mExportIncludeGridCheckbox;

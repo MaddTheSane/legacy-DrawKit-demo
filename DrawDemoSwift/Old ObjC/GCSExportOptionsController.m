@@ -42,6 +42,7 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 	[sp beginSheetModalForWindow:parent
 			   completionHandler:^(NSModalResponse result) {
 				   [self exportPanelDidEnd:sp returnCode:result contextInfo:NULL];
+				   mSavePanel = nil;
 			   }];
 }
 
@@ -141,7 +142,7 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 {
 #pragma unused(contextInfo)
 
-	if (returnCode == NSOKButton) {
+	if (returnCode == NSModalResponseOK) {
 		if (mDelegate && [mDelegate respondsToSelector:@selector(performExportType:withOptions:)]) {
 			// call the delegate to perform the export with the data we've obtained from the user.
 

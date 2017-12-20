@@ -8,9 +8,9 @@
 
 #import "GCSGradientWell.h"
 
-#import "GCSGradientCell.h"
 #import "GCSGradientPasteboard.h"
 #import "NSFolderManagerAdditions.h"
+#import "DrawDemoSwift-Swift.h"
 
 #import <DKDrawKit/DKGradientExtensions.h>
 #import <DKDrawKit/LogEvent.h>
@@ -228,12 +228,12 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 - (IBAction)resetRadial:(id)sender
 {
 #pragma unused(sender)
-	if (self.controlMode == kDKGradientWellRadialMode) {
+	if (self.controlMode == kDKSGradientWellRadialMode) {
 		[self.gradient setRadialStartingPoint:NSMakePoint(0.5, 0.5)];
 		[self.gradient setRadialEndingPoint:NSMakePoint(0.5, 0.5)];
 		[self.gradient setRadialStartingRadius:0.0];
 		[self.gradient setRadialEndingRadius:0.5];
-	} else if (self.controlMode == kDKGradientWellSweepMode) {
+	} else if (self.controlMode == kDKSGradientWellSweepMode) {
 		[self.gradient setRadialStartingPoint:NSMakePoint(0.5, 0.5)];
 	}
 	[self syncGradientToControlSettings];
@@ -259,7 +259,7 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 {
 	self = [super initWithFrame:frame];
 	if (self != nil) {
-		self.controlMode = kDKGradientWellDisplayMode;
+		self.controlMode = kDKSGradientWellDisplayMode;
 		NSAssert(mTrackingTag == 0, @"Expected init to zero");
 		NSAssert(!mForceSquare, @"Expected init to zero");
 		NSAssert(!mShowProxyIcon, @"Expected init to zero");
@@ -310,7 +310,7 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 	[item setAlternate:YES];
 	item.keyEquivalentModifierMask = NSEventModifierFlagOption;
 
-	if (self.controlMode == kDKGradientWellRadialMode || self.controlMode == kDKGradientWellSweepMode) {
+	if (self.controlMode == kDKSGradientWellRadialMode || self.controlMode == kDKSGradientWellSweepMode) {
 		[contextualMenu addItem:[NSMenuItem separatorItem]];
 		item = (NSMenuItem *)[contextualMenu addItemWithTitle:NSLocalizedString(@"Reset Radial Gradient", @"") action:@selector(resetRadial:) keyEquivalent:@""];
 		item.target = self;

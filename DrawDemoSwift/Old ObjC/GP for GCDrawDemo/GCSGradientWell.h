@@ -10,10 +10,10 @@
 #import <DKDrawKit/DKGradient.h>
 
 typedef NS_ENUM(NSInteger, DKSGradientWellMode) {
-	kDKGradientWellDisplayMode = 0,
-	kDKGradientWellAngleMode = 1,
-	kDKGradientWellRadialMode = 2,
-	kDKGradientWellSweepMode = 3
+	kDKSGradientWellDisplayMode = 0,
+	kDKSGradientWellAngleMode = 1,
+	kDKSGradientWellRadialMode = 2,
+	kDKSGradientWellSweepMode = 3
 };
 
 @interface GCSGradientWell : NSControl {

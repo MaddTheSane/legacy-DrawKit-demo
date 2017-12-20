@@ -41,6 +41,6 @@
 
 @end
 
-NS_ENUM(GCControlHitTest){
+NS_ENUM(GCControlHitTest) {
 	kDKRadial2HitIris = 17,
 	kDKRadial2HitTab = 18};

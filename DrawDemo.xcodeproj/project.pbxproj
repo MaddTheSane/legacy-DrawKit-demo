@@ -10,6 +10,7 @@
 		550616F01FE48FCF00C5EE66 /* GCSDrawingSizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */; };
 		551B08531FDF5650008AE439 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551B08551FDF5650008AE439 /* Localizable.strings */; };
 		5523ED141FE89DBB00639846 /* GCSToolPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523ED131FE89DBB00639846 /* GCSToolPalette.swift */; };
+		5523ED301FE9F59C00639846 /* GCSGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
 		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
 		55C968D01FE3351C009AD729 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
@@ -39,13 +40,11 @@
 		55C969831FE34099009AD729 /* GCSGradientPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969291FE34099009AD729 /* GCSGradientPasteboard.m */; };
 		55C969861FE34099009AD729 /* GCSMiniRadialControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */; };
 		55C969871FE34099009AD729 /* WTSGradientControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969301FE34099009AD729 /* WTSGradientControl.m */; };
-		55C969881FE34099009AD729 /* DKSGradientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969321FE34099009AD729 /* DKSGradientCell.m */; };
 		55C969891FE34099009AD729 /* GCSMiniControlCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969331FE34099009AD729 /* GCSMiniControlCluster.m */; };
 		55C9698D1FE34099009AD729 /* GCSMiniRadialControl2.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693A1FE34099009AD729 /* GCSMiniRadialControl2.m */; };
 		55C9698F1FE34099009AD729 /* GCSWindowMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693E1FE34099009AD729 /* GCSWindowMenu.m */; };
 		55C969901FE34099009AD729 /* GCSSpecialColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */; };
 		55C969921FE34099009AD729 /* GCSColourPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969451FE34099009AD729 /* GCSColourPickerView.m */; };
-		55C969931FE34099009AD729 /* GCSGradientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969491FE34099009AD729 /* GCSGradientCell.m */; };
 		55C969941FE34099009AD729 /* GCSGradientWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9694E1FE34099009AD729 /* GCSGradientWell.m */; };
 		55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969511FE34099009AD729 /* GCSMiniCircularSlider.m */; };
 		55C969971FE34099009AD729 /* GCSExportOptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969521FE34099009AD729 /* GCSExportOptionsController.m */; };
@@ -222,6 +221,7 @@
 		5523ED251FE8D68600639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DKGraphicInspector.strings; sourceTree = "<group>"; };
 		5523ED271FE8D68D00639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Drawingsize.strings; sourceTree = "<group>"; };
 		5523ED291FE8D69000639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GCSDrawDemoDocument.strings; sourceTree = "<group>"; };
+		5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSGradientCell.swift; sourceTree = "<group>"; };
 		55C968C01FE33509009AD729 /* DrawDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C968C21FE33509009AD729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C968C41FE33509009AD729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -251,10 +251,8 @@
 		55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniRadialControls.m; sourceTree = "<group>"; };
 		55C969301FE34099009AD729 /* WTSGradientControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSGradientControl.m; sourceTree = "<group>"; };
 		55C969311FE34099009AD729 /* GCSColourPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSColourPickerView.h; sourceTree = "<group>"; };
-		55C969321FE34099009AD729 /* DKSGradientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSGradientCell.m; sourceTree = "<group>"; };
 		55C969331FE34099009AD729 /* GCSMiniControlCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControlCluster.m; sourceTree = "<group>"; };
 		55C969341FE34099009AD729 /* GCSMiniControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControl.m; sourceTree = "<group>"; };
-		55C969361FE34099009AD729 /* GCSGradientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSGradientCell.h; sourceTree = "<group>"; };
 		55C969381FE34099009AD729 /* GCSMiniCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniCircularSlider.h; sourceTree = "<group>"; };
 		55C9693A1FE34099009AD729 /* GCSMiniRadialControl2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniRadialControl2.m; sourceTree = "<group>"; };
 		55C9693B1FE34099009AD729 /* GCSGradientWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSGradientWell.h; sourceTree = "<group>"; };
@@ -262,11 +260,9 @@
 		55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSSpecialColorWell.m; sourceTree = "<group>"; };
 		55C969411FE34099009AD729 /* GCSMiniSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniSlider.h; sourceTree = "<group>"; };
 		55C969421FE34099009AD729 /* GCSGradientPasteboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSGradientPasteboard.h; sourceTree = "<group>"; };
-		55C969441FE34099009AD729 /* DKSGradientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSGradientCell.h; sourceTree = "<group>"; };
 		55C969451FE34099009AD729 /* GCSColourPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSColourPickerView.m; sourceTree = "<group>"; };
 		55C969461FE34099009AD729 /* WTSGradientControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSGradientControl.h; sourceTree = "<group>"; };
 		55C969471FE34099009AD729 /* GCSMiniRadialControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniRadialControls.h; sourceTree = "<group>"; };
-		55C969491FE34099009AD729 /* GCSGradientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSGradientCell.m; sourceTree = "<group>"; };
 		55C9694B1FE34099009AD729 /* GCSMiniControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniControl.h; sourceTree = "<group>"; };
 		55C9694C1FE34099009AD729 /* GCSMiniControlCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniControlCluster.h; sourceTree = "<group>"; };
 		55C9694E1FE34099009AD729 /* GCSGradientWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSGradientWell.m; sourceTree = "<group>"; };
@@ -568,6 +564,7 @@
 				55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */,
 				55C969191FE337A2009AD729 /* GCSOutlineView.swift */,
 				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
+				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
 				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
 				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
 				55C969B91FE37325009AD729 /* LogEventSwift.h */,
@@ -637,12 +634,8 @@
 			children = (
 				55C969B31FE35360009AD729 /* GCSGradientPanel.h */,
 				55C969B41FE35361009AD729 /* GCSGradientPanel.m */,
-				55C969441FE34099009AD729 /* DKSGradientCell.h */,
-				55C969321FE34099009AD729 /* DKSGradientCell.m */,
 				55C969311FE34099009AD729 /* GCSColourPickerView.h */,
 				55C969451FE34099009AD729 /* GCSColourPickerView.m */,
-				55C969361FE34099009AD729 /* GCSGradientCell.h */,
-				55C969491FE34099009AD729 /* GCSGradientCell.m */,
 				55C969421FE34099009AD729 /* GCSGradientPasteboard.h */,
 				55C969291FE34099009AD729 /* GCSGradientPasteboard.m */,
 				55C9693B1FE34099009AD729 /* GCSGradientWell.h */,
@@ -881,9 +874,9 @@
 				55C969871FE34099009AD729 /* WTSGradientControl.m in Sources */,
 				55C969AA1FE34099009AD729 /* GCSStyleInspector.m in Sources */,
 				55C969801FE34099009AD729 /* RSSVerticallyCenteredTextFieldCell.m in Sources */,
-				55C969931FE34099009AD729 /* GCSGradientCell.m in Sources */,
 				55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */,
 				55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */,
+				5523ED301FE9F59C00639846 /* GCSGradientCell.swift in Sources */,
 				55C9698F1FE34099009AD729 /* GCSWindowMenu.m in Sources */,
 				55C969861FE34099009AD729 /* GCSMiniRadialControls.m in Sources */,
 				55C969AF1FE348F3009AD729 /* NSFolderManagerAdditions.m in Sources */,
@@ -899,7 +892,6 @@
 				55C969A91FE34099009AD729 /* GCSStyleManagerDialog.m in Sources */,
 				55C969811FE34099009AD729 /* GCSLayersPaletteController.m in Sources */,
 				55C969831FE34099009AD729 /* GCSGradientPasteboard.m in Sources */,
-				55C969881FE34099009AD729 /* DKSGradientCell.m in Sources */,
 				55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */,
 				55C969971FE34099009AD729 /* GCSExportOptionsController.m in Sources */,
 				55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */,
@@ -1227,6 +1219,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = DrawDemoSwift/DrawDemoKit_Bridge.h;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1254,6 +1247,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.DrawDemoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = DrawDemoSwift/DrawDemoKit_Bridge.h;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

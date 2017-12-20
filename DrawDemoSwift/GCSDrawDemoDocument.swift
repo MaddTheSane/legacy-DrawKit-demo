@@ -130,7 +130,7 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 			return
 		}
 		
-		LogEvent(.fileEvent, "exporting file to URL '\(url)'")
+		LogEvent(.fileEvent, "exporting file to URL ‘\(url)’")
 		
 		var saveGrid = false
 		let drawGrid = options[kGCIncludeGridInExportedFile] as? Bool ?? false

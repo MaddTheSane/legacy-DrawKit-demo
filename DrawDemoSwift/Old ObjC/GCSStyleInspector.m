@@ -15,7 +15,6 @@
 #import "GCSStyleInspector.h"
 
 #import "GCSGradientWell.h"
-#import "GCSGradientCell.h"
 #import "GCSDashEditor.h"
 #import "GCSDashEditView.h"
 #import "GCSBasicDialogController.h"
