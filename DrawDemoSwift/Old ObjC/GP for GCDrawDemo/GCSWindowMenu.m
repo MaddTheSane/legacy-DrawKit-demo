@@ -12,11 +12,11 @@
 ///
 ///**********************************************************************************************************************************
 
-#import "GCWindowMenu.h"
+#import "GCSWindowMenu.h"
 
 #import <DKDrawKit/LogEvent.h>
 
-@implementation GCWindowMenu
+@implementation GCSWindowMenu
 #pragma mark As a GCWindowMenu
 ///*********************************************************************************************************************
 ///
@@ -35,7 +35,7 @@
 ///
 ///********************************************************************************************************************
 
-+ (void)popUpWindowMenu:(GCWindowMenu *)menu withEvent:(NSEvent *)event forView:(NSView *)view
++ (void)popUpWindowMenu:(GCSWindowMenu *)menu withEvent:(NSEvent *)event forView:(NSView *)view
 {
 	NSPoint loc = event.locationInWindow;
 	loc.x -= 10;
@@ -61,14 +61,14 @@
 ///
 ///********************************************************************************************************************
 
-+ (void)popUpWindowMenu:(GCWindowMenu *)menu atPoint:(NSPoint)loc withEvent:(NSEvent *)event forView:(NSView *)view
++ (void)popUpWindowMenu:(GCSWindowMenu *)menu atPoint:(NSPoint)loc withEvent:(NSEvent *)event forView:(NSView *)view
 {
 	// pop up a window menu, and track it until the mouse goes up. Implements standard menu behaviour
 	// but uses a completely custom view. If <menu> is nil creates a default window. <loc> is the point in window
 	// coordinates that <view> belongs to.
 
 	if (menu == nil)
-		menu = [GCWindowMenu windowMenu];
+		menu = [GCSWindowMenu windowMenu];
 
 	loc = [view.window convertBaseToScreen:loc];
 	[menu setFrameTopLeftPoint:loc];
@@ -106,10 +106,10 @@
 ///
 ///********************************************************************************************************************
 
-+ (GCWindowMenu *)windowMenu
++ (GCSWindowMenu *)windowMenu
 {
-	GCWindowMenu *fi = [[GCWindowMenu alloc] initWithContentRect:NSZeroRect
-													   styleMask:NSBorderlessWindowMask
+	GCSWindowMenu *fi = [[GCSWindowMenu alloc] initWithContentRect:NSZeroRect
+														 styleMask:NSWindowStyleMaskBorderless
 														 backing:NSBackingStoreBuffered
 														   defer:YES];
 
@@ -135,9 +135,9 @@
 ///
 ///********************************************************************************************************************
 
-+ (GCWindowMenu *)windowMenuWithContentView:(NSView *)view
++ (GCSWindowMenu *)windowMenuWithContentView:(NSView *)view
 {
-	GCWindowMenu *menu = [self windowMenu];
+	GCSWindowMenu *menu = [self windowMenu];
 
 	[menu setMainView:view sizeToFit:YES];
 	return menu;
@@ -176,57 +176,57 @@
 	BOOL keepOn = YES;
 	BOOL invertedTracking = NO;
 
-	NSEventMask mask = NSLeftMouseUpMask | NSLeftMouseDraggedMask |
-		   NSRightMouseUpMask | NSRightMouseDraggedMask |
-		   NSAppKitDefinedMask | NSFlagsChangedMask |
-		   NSScrollWheelMask;
+	NSEventMask mask = NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged |
+	NSEventMaskRightMouseUp | NSEventMaskRightMouseDragged |
+	NSEventMaskAppKitDefined | NSEventMaskFlagsChanged |
+	NSEventMaskScrollWheel;
 
 	while (keepOn) {
 		theEvent = [self transmogrify:[self nextEventMatchingMask:mask]];
 
 		switch (theEvent.type) {
 			//case NSMouseMovedMask:
-			case NSRightMouseDragged:
-			case NSLeftMouseDragged:
+			case NSEventTypeRightMouseDragged:
+			case NSEventTypeLeftMouseDragged:
 				[[self mainView] mouseDragged:theEvent];
 				break;
 
-			case NSRightMouseUp:
-			case NSLeftMouseUp:
+			case NSEventTypeRightMouseUp:
+			case NSEventTypeLeftMouseUp:
 				// if this is within a very short time of the mousedown, leave the menu up but track it
 				// using mouse moved and mouse down to end.
 
 				if (theEvent.timestamp - startTime < 0.25) {
 					invertedTracking = YES;
-					mask |= (NSLeftMouseDownMask | NSRightMouseDownMask);
+					mask |= (NSEventMaskLeftMouseDown | NSEventMaskRightMouseDown);
 				} else {
 					[[self mainView] mouseUp:theEvent];
 					keepOn = NO;
 				}
 				break;
 
-			case NSRightMouseDown:
-			case NSLeftMouseDown:
+			case NSEventTypeRightMouseDown:
+			case NSEventTypeLeftMouseDown:
 				if (!NSPointInRect(theEvent.locationInWindow, [self mainView].frame))
 					keepOn = NO;
 				else
 					[[self mainView] mouseDown:theEvent];
 				break;
 
-			case NSPeriodic:
+			case NSEventTypePeriodic:
 				break;
 
-			case NSFlagsChanged:
+			case NSEventTypeFlagsChanged:
 				[[self mainView] flagsChanged:theEvent];
 				break;
 
-			case NSAppKitDefined:
+			case NSEventTypeAppKitDefined:
 				//	LogEvent_(kReactiveEvent, @"appkit event: %@", theEvent);
-				if (theEvent.subtype == NSApplicationDeactivatedEventType)
+				if (theEvent.subtype == NSEventSubtypeApplicationDeactivated)
 					keepOn = NO;
 				break;
 
-			case NSScrollWheel:
+			case NSEventTypeScrollWheel:
 				[[self mainView] scrollWheel:theEvent];
 				break;
 
@@ -237,7 +237,7 @@
 	}
 
 	//[self setAcceptsMouseMovedEvents:NO];
-	[self discardEventsMatchingMask:NSAnyEventMask beforeEvent:theEvent];
+	[self discardEventsMatchingMask:NSEventMaskAny beforeEvent:theEvent];
 
 	//[NSEvent stopPeriodicEvents];
 	//	LogEvent_(kReactiveEvent, @"ending tracking...");
@@ -447,15 +447,15 @@ static NSTimeInterval sFadeStartTime = 0.0;
 
 	NSEventType t = self.type;
 
-	return (t == NSLeftMouseDown ||
-			t == NSLeftMouseUp ||
-			t == NSRightMouseDown ||
-			t == NSRightMouseUp ||
-			t == NSLeftMouseDragged ||
-			t == NSRightMouseDragged ||
-			t == NSOtherMouseDown ||
-			t == NSOtherMouseUp ||
-			t == NSOtherMouseDragged);
+	return (t == NSEventTypeLeftMouseDown ||
+			t == NSEventTypeLeftMouseUp ||
+			t == NSEventTypeRightMouseDown ||
+			t == NSEventTypeRightMouseUp ||
+			t == NSEventTypeLeftMouseDragged ||
+			t == NSEventTypeRightMouseDragged ||
+			t == NSEventTypeOtherMouseDown ||
+			t == NSEventTypeOtherMouseUp ||
+			t == NSEventTypeOtherMouseDragged);
 }
 
 @end

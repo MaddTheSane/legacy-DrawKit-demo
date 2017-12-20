@@ -1,0 +1,15 @@
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "1"; */
+"1.title" = "Preferences";
+
+/* Class = "NSButtonCell"; title = "Enable Drawing Quality Modulation"; ObjectID = "6"; */
+"6.title" = "Enable Drawing Quality Modulation";
+
+/* Class = "NSButtonCell"; title = "Undo Selection Changes"; ObjectID = "10"; */
+"10.title" = "Undo Selection Changes";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Check to use BSP object storage, uncheck for Linear. Takes effect for new layers/documents only."; ObjectID = "13"; */
+"13.ibShadowedToolTip" = "Check to use BSP object storage, uncheck for Linear. Takes effect for new layers/documents only.";
+
+/* Class = "NSButtonCell"; title = "Use BSP Object Storage"; ObjectID = "14"; */
+"14.title" = "Use BSP Object Storage";

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DKSGraphicInspector">
+            <connections>
+                <outlet property="controller" destination="58" id="64"/>
+                <outlet property="outlineView" destination="113" id="116"/>
+                <outlet property="styleDetail" destination="119" id="122"/>
+                <outlet property="well" destination="166" id="176"/>
+                <outlet property="window" destination="7" id="65"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Style Inspector" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="style_inspector" animationBehavior="default" id="7" userLabel="Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES" utility="YES" nonactivatingPanel="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="730" y="516" width="321" height="459"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1400" height="1028"/>
+            <value key="minSize" type="size" width="213" height="113"/>
+            <view key="contentView" id="8">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="459"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tabView id="151">
+                        <rect key="frame" x="0.0" y="5" width="320" height="454"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems>
+                            <tabViewItem label="Shape" identifier="" id="153">
+                                <view key="view" id="155">
+                                    <rect key="frame" x="10" y="33" width="300" height="408"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button imageHugsTitle="YES" id="156">
+                                            <rect key="frame" x="17" y="384" width="80" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="check" title="Locked" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="209">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.locked" id="163"/>
+                                            </connections>
+                                        </button>
+                                        <button imageHugsTitle="YES" id="157">
+                                            <rect key="frame" x="182" y="387" width="80" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="check" title="Visible" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="210">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.visible" id="161"/>
+                                            </connections>
+                                        </button>
+                                        <textField verticalHuggingPriority="750" id="158">
+                                            <rect key="frame" x="20" y="265" width="227" height="105"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="211">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.styleScript" id="165"/>
+                                            </connections>
+                                        </textField>
+                                        <colorWell id="166">
+                                            <rect key="frame" x="20" y="200" width="52" height="36"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="color" red="0.058130499000000002" green="0.055541898999999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.style.fill.colour" id="173"/>
+                                            </connections>
+                                        </colorWell>
+                                        <slider verticalHuggingPriority="750" id="167">
+                                            <rect key="frame" x="18" y="165" width="128" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="20" tickMarkPosition="above" sliderType="linear" id="212">
+                                                <font key="font" size="12" name="Helvetica"/>
+                                            </sliderCell>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.style.stroke.width" id="175"/>
+                                            </connections>
+                                        </slider>
+                                        <colorWell id="171">
+                                            <rect key="frame" x="20" y="137" width="52" height="24"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="color" red="0.058130499000000002" green="0.055541898999999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.style.stroke.colour" id="174"/>
+                                            </connections>
+                                        </colorWell>
+                                        <textField verticalHuggingPriority="750" id="177">
+                                            <rect key="frame" x="105" y="139" width="39" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="213">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.style.stroke.width" id="179"/>
+                                            </connections>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" id="193">
+                                            <rect key="frame" x="20" y="95" width="260" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="214">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.styleName" id="195"/>
+                                            </connections>
+                                        </textField>
+                                        <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="196">
+                                            <rect key="frame" x="17" y="51" width="266" height="26"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <popUpButtonCell key="cell" type="push" title="Item1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="199" id="215">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" title="OtherViews" id="197">
+                                                    <items>
+                                                        <menuItem title="Item1" state="on" id="199"/>
+                                                        <menuItem title="Item2" id="200"/>
+                                                        <menuItem title="Item3" id="198"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <binding destination="58" name="selectedValue" keyPath="selection.styleName" previousBinding="201" id="204">
+                                                    <dictionary key="options">
+                                                        <integer key="NSRaisesForNotApplicableKeys" value="0"/>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="-2" name="contentValues" keyPath="styleNames" id="201"/>
+                                            </connections>
+                                        </popUpButton>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Style" identifier="" id="152">
+                                <view key="view" id="154">
+                                    <rect key="frame" x="10" y="33" width="300" height="408"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="112">
+                                            <rect key="frame" x="20" y="197" width="260" height="191"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                            <clipView key="contentView" id="s1F-oL-H7N">
+                                                <rect key="frame" x="1" y="1" width="258" height="189"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" autosaveColumns="NO" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="115" id="113">
+                                                        <rect key="frame" x="0.0" y="0.0" width="258" height="189"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableColumns>
+                                                            <tableColumn identifier="label" width="255" minWidth="16" maxWidth="1000" id="115">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="216">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            </tableColumn>
+                                                        </tableColumns>
+                                                    </outlineView>
+                                                </subviews>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="218">
+                                                <rect key="frame" x="1" y="174" width="258" height="16"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="217">
+                                                <rect key="frame" x="243" y="1" width="16" height="189"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
+                                        <textField verticalHuggingPriority="750" id="119">
+                                            <rect key="frame" x="20" y="163" width="260" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="206">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="127" name="value" keyPath="selection.name" id="185"/>
+                                            </connections>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" id="180">
+                                            <rect key="frame" x="20" y="127" width="260" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="207">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="58" name="value" keyPath="selection.style.name" id="192">
+                                                    <dictionary key="options">
+                                                        <integer key="NSRaisesForNotApplicableKeys" value="0"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textField>
+                                        <colorWell id="183">
+                                            <rect key="frame" x="20" y="75" width="52" height="24"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="color" red="0.058130499000000002" green="0.055541898999999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <binding destination="127" name="value" keyPath="selection.colour" id="184"/>
+                                            </connections>
+                                        </colorWell>
+                                        <slider verticalHuggingPriority="750" id="186">
+                                            <rect key="frame" x="131" y="80" width="151" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="208">
+                                                <font key="font" size="12" name="Helvetica"/>
+                                            </sliderCell>
+                                        </slider>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="117"/>
+                <outlet property="initialFirstResponder" destination="113" id="118"/>
+            </connections>
+        </window>
+        <arrayController id="58" userLabel="ShapesController">
+            <declaredKeys>
+                <string>style.stroke</string>
+                <string>style.stroke.shadow</string>
+                <string>style.stroke.width</string>
+                <string>selectedGraphics.style.stroke.width</string>
+                <string>style.fillColour</string>
+                <string>style.strokeWidth</string>
+                <string>showShadow</string>
+                <string>strokeWidth</string>
+                <string>stroke.color</string>
+                <string>stroke.colour</string>
+                <string>strokeColor</string>
+                <string>showDash</string>
+                <string>showStroke</string>
+                <string>locked</string>
+                <string>visible</string>
+                <string>styleScript</string>
+                <string>style.stroke.colour</string>
+                <string>style.fill.colour</string>
+                <string>style.name</string>
+                <string>styleName</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="selectedGraphics" id="77">
+                    <dictionary key="options">
+                        <integer key="NSSelectsAllWhenSettingContent" value="1"/>
+                    </dictionary>
+                </binding>
+                <binding destination="-2" name="contentArrayForMultipleSelection" keyPath="selectedGraphics" previousBinding="77" id="78">
+                    <dictionary key="options">
+                        <integer key="NSSelectsAllWhenSettingContent" value="1"/>
+                    </dictionary>
+                </binding>
+            </connections>
+        </arrayController>
+        <arrayController editable="NO" selectsInsertedObjects="NO" id="127" userLabel="StylesController">
+            <declaredKeys>
+                <string>selection.styleScript</string>
+                <string>styleScript</string>
+                <string>label</string>
+                <string>style.stroke.width</string>
+                <string>style.stroke.colour</string>
+                <string>colour</string>
+                <string>name</string>
+                <string>stroke.width</string>
+                <string>width</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="outlineController.selectedObjects" id="145"/>
+                <binding destination="-2" name="contentArrayForMultipleSelection" keyPath="outlineController.selectedObjects" previousBinding="145" id="146"/>
+            </connections>
+        </arrayController>
+    </objects>
+</document>

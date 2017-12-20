@@ -216,8 +216,7 @@
 		NSAssert(mAction == nil, @"Expected init to zero");
 		[self setInset:kDKDefaultGradientCellInset];
 		mEnableCache = YES;
-	}
-	if (self != nil) {
+
 		[self setContinuous:YES];
 		self.imageFrameStyle = NSImageFrameGrayBezel;
 		self.imageScaling = NSScaleToFit;

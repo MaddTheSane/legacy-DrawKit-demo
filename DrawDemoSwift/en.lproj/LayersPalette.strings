@@ -1,0 +1,42 @@
+
+/* Class = "NSWindow"; title = "Layers"; ObjectID = "7"; */
+"7.title" = "Layers";
+
+/* Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "11"; */
+"11.headerCell.title" = "Name";
+
+/* Class = "NSTableColumn"; headerToolTip = "The layer's name. Double-click to edit it."; ObjectID = "11"; */
+"11.headerToolTip" = "The layer's name. Double-click to edit it.";
+
+/* Class = "NSTableColumn"; headerToolTip = "Shows a thumbnail of the layer's content."; ObjectID = "12"; */
+"12.headerToolTip" = "Shows a thumbnail of the layer's content.";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add a new drawing layer to the drawing"; ObjectID = "13"; */
+"13.ibShadowedToolTip" = "Add a new drawing layer to the drawing";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete the selected layer"; ObjectID = "14"; */
+"14.ibShadowedToolTip" = "Delete the selected layer";
+
+/* Class = "NSTableColumn"; headerCell.title = "Lock"; ObjectID = "15"; */
+"15.headerCell.title" = "Lock";
+
+/* Class = "NSTableColumn"; headerToolTip = "Click checkboxes to lock or unlock a layer."; ObjectID = "15"; */
+"15.headerToolTip" = "Click checkboxes to lock or unlock a layer.";
+
+/* Class = "NSTableColumn"; headerCell.title = "Vis"; ObjectID = "16"; */
+"16.headerCell.title" = "Vis";
+
+/* Class = "NSTableColumn"; headerToolTip = "Click checkboxes to show or hide a layer."; ObjectID = "16"; */
+"16.headerToolTip" = "Click checkboxes to show or hide a layer.";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "20"; */
+"20.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerToolTip = "The layer's selection colour. Click to select another one."; ObjectID = "36"; */
+"36.headerToolTip" = "The layer's selection colour. Click to select another one.";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "51"; */
+"51.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Layer Auto-activation"; ObjectID = "56"; */
+"56.title" = "Layer Auto-activation";

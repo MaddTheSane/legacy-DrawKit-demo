@@ -1,0 +1,27 @@
+
+/* Class = "NSWindow"; title = "Style Inspector"; ObjectID = "7"; */
+"7.title" = "Style Inspector";
+
+/* Class = "NSTabViewItem"; label = "Style"; ObjectID = "152"; */
+"152.label" = "Style";
+
+/* Class = "NSTabViewItem"; label = "Shape"; ObjectID = "153"; */
+"153.label" = "Shape";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "197"; */
+"197.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Item3"; ObjectID = "198"; */
+"198.title" = "Item3";
+
+/* Class = "NSMenuItem"; title = "Item1"; ObjectID = "199"; */
+"199.title" = "Item1";
+
+/* Class = "NSMenuItem"; title = "Item2"; ObjectID = "200"; */
+"200.title" = "Item2";
+
+/* Class = "NSButtonCell"; title = "Locked"; ObjectID = "209"; */
+"209.title" = "Locked";
+
+/* Class = "NSButtonCell"; title = "Visible"; ObjectID = "210"; */
+"210.title" = "Visible";

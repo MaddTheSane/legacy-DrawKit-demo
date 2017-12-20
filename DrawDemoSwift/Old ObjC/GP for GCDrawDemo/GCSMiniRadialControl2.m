@@ -7,13 +7,13 @@
 //
 
 #include <tgmath.h>
-#import "GCMiniRadialControl2.h"
+#import "GCSMiniRadialControl2.h"
 
 #import "NSBezierPath+GCAdditions.h"
 #import <DKDrawKit/LogEvent.h>
-#import "GCMiniControlCluster.h"
+#import "GCSMiniControlCluster.h"
 
-@implementation GCMiniRadialControl2
+@implementation GCSMiniRadialControl2
 #pragma mark As a GCMiniRadialControl2
 - (void)setCentre:(NSPoint)p
 {
@@ -281,7 +281,7 @@
 	return kDKMiniControlNoPart;
 }
 
-- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCMiniControlCluster *)clust
+- (instancetype)initWithBounds:(NSRect)rect inCluster:(GCSMiniControlCluster *)clust
 {
 	self = [super initWithBounds:rect inCluster:clust];
 	if (self != nil) {

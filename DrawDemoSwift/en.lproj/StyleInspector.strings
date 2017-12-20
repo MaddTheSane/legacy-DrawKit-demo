@@ -1,0 +1,696 @@
+
+/* Class = "NSWindow"; title = "Styles"; ObjectID = "5"; */
+"5.title" = "Styles";
+
+/* Class = "NSTableColumn"; headerCell.title = "Style Components"; ObjectID = "10"; */
+"10.headerCell.title" = "Style Components";
+
+/* Class = "NSTabViewItem"; label = "DKFill"; ObjectID = "13"; */
+"13.label" = "DKFill";
+
+/* Class = "NSTabViewItem"; label = "DKStroke"; ObjectID = "15"; */
+"15.label" = "DKStroke";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "23"; */
+"23.title" = "Text Cell";
+
+/* Class = "NSTabViewItem"; label = "Multiple_Selection"; ObjectID = "24"; */
+"24.label" = "Multiple_Selection";
+
+/* Class = "NSTabViewItem"; label = "No_Selection"; ObjectID = "26"; */
+"26.label" = "No_Selection";
+
+/* Class = "NSTabViewItem"; label = "DKDrawingStyle"; ObjectID = "28"; */
+"28.label" = "DKDrawingStyle";
+
+/* Class = "NSTabViewItem"; label = "Pattern"; ObjectID = "45"; */
+"45.label" = "Pattern";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Selects whether the style can be shared among multiple objects"; ObjectID = "61"; */
+"61.ibShadowedToolTip" = "Selects whether the style can be shared among multiple objects";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Shows all registered styles. Select a style to apply it to the selection."; ObjectID = "62"; */
+"62.ibShadowedToolTip" = "Shows all registered styles. Select a style to apply it to the selection.";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "63"; */
+"63.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Save Library As..."; ObjectID = "66"; */
+"66.title" = "Save Library As...";
+
+/* Class = "NSMenuItem"; title = "Style Library"; ObjectID = "69"; */
+"69.title" = "Style Library";
+
+/* Class = "NSMenuItem"; title = "Load Library..."; ObjectID = "70"; */
+"70.title" = "Load Library...";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "89"; */
+"89.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Other..."; ObjectID = "90"; */
+"90.title" = "Other...";
+
+/* Class = "NSMenuItem"; title = "Solid Line"; ObjectID = "91"; */
+"91.title" = "Solid Line";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Deletes a renderer from the style"; ObjectID = "107"; */
+"107.ibShadowedToolTip" = "Deletes a renderer from the style";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "Style's Library Name"; ObjectID = "119"; */
+"119.ibShadowedToolTip" = "Style's Library Name";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Copy the Style"; ObjectID = "121"; */
+"121.ibShadowedToolTip" = "Copy the Style";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add To Library"; ObjectID = "125"; */
+"125.ibShadowedToolTip" = "Add To Library";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Remove From Library"; ObjectID = "126"; */
+"126.ibShadowedToolTip" = "Remove From Library";
+
+/* Class = "NSTabViewItem"; label = "DKImageRenderer"; ObjectID = "133"; */
+"133.label" = "DKImageRenderer";
+
+/* Class = "NSTabViewItem"; label = "Core_Image"; ObjectID = "135"; */
+"135.label" = "Core_Image";
+
+/* Class = "NSTabViewItem"; label = "DKTextRenderer"; ObjectID = "139"; */
+"139.label" = "DKTextRenderer";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "149"; */
+"149.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Centred"; ObjectID = "150"; */
+"150.title" = "Centred";
+
+/* Class = "NSMenuItem"; title = "Left"; ObjectID = "151"; */
+"151.title" = "Left";
+
+/* Class = "NSMenuItem"; title = "Right"; ObjectID = "152"; */
+"152.title" = "Right";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "155"; */
+"155.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Bottom"; ObjectID = "156"; */
+"156.title" = "Bottom";
+
+/* Class = "NSMenuItem"; title = "Top"; ObjectID = "157"; */
+"157.title" = "Top";
+
+/* Class = "NSMenuItem"; title = "Middle"; ObjectID = "162"; */
+"162.title" = "Middle";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "169"; */
+"169.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "x"; ObjectID = "171"; */
+"171.title" = "x";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "189"; */
+"189.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Fit Proportionally"; ObjectID = "190"; */
+"190.title" = "Fit Proportionally";
+
+/* Class = "NSMenuItem"; title = "Fit to Bounds"; ObjectID = "191"; */
+"191.title" = "Fit to Bounds";
+
+/* Class = "NSMenuItem"; title = "Scale Independently"; ObjectID = "192"; */
+"192.title" = "Scale Independently";
+
+/* Class = "NSTabViewItem"; label = "DKHatch"; ObjectID = "195"; */
+"195.label" = "DKHatch";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "206"; */
+"206.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Solid Line"; ObjectID = "208"; */
+"208.title" = "Solid Line";
+
+/* Class = "NSMenuItem"; title = "Other..."; ObjectID = "209"; */
+"209.title" = "Other...";
+
+/* Class = "NSWindow"; title = "Dash Editor"; ObjectID = "283"; */
+"283.title" = "Dash Editor";
+
+/* Class = "NSButtonCell"; title = "1"; ObjectID = "307"; */
+"307.title" = "1";
+
+/* Class = "NSButtonCell"; title = "2"; ObjectID = "308"; */
+"308.title" = "2";
+
+/* Class = "NSButtonCell"; title = "3"; ObjectID = "309"; */
+"309.title" = "3";
+
+/* Class = "NSButtonCell"; title = "4"; ObjectID = "310"; */
+"310.title" = "4";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Show other actions"; ObjectID = "359"; */
+"359.ibShadowedToolTip" = "Show other actions";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "360"; */
+"360.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Duplicate Renderer"; ObjectID = "365"; */
+"365.title" = "Duplicate Renderer";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Locked styles can't be accidentally edited"; ObjectID = "371"; */
+"371.ibShadowedToolTip" = "Locked styles can't be accidentally edited";
+
+/* Class = "NSWindow"; title = "Script Editor"; ObjectID = "372"; */
+"372.title" = "Script Editor";
+
+/* Class = "NSTextField"; ibShadowedToolTip = "The style is currently part of the library."; ObjectID = "380"; */
+"380.ibShadowedToolTip" = "The style is currently part of the library.";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "415"; */
+"415.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Inside Path"; ObjectID = "416"; */
+"416.title" = "Inside Path";
+
+/* Class = "NSMenuItem"; title = "Outside Path"; ObjectID = "417"; */
+"417.title" = "Outside Path";
+
+/* Class = "NSMenuItem"; title = "Text Block"; ObjectID = "418"; */
+"418.title" = "Text Block";
+
+/* Class = "NSTabViewItem"; label = "DKPathDecorator"; ObjectID = "425"; */
+"425.label" = "DKPathDecorator";
+
+/* Class = "NSTabViewItem"; label = "Blend_Group"; ObjectID = "447"; */
+"447.label" = "Blend_Group";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "450"; */
+"450.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Normal"; ObjectID = "451"; */
+"451.title" = "Normal";
+
+/* Class = "NSMenuItem"; title = "Screen"; ObjectID = "452"; */
+"452.title" = "Screen";
+
+/* Class = "NSMenuItem"; title = "Multiply"; ObjectID = "453"; */
+"453.title" = "Multiply";
+
+/* Class = "NSMenuItem"; title = "Overlay"; ObjectID = "455"; */
+"455.title" = "Overlay";
+
+/* Class = "NSMenuItem"; title = "Darken"; ObjectID = "456"; */
+"456.title" = "Darken";
+
+/* Class = "NSMenuItem"; title = "Lighten"; ObjectID = "457"; */
+"457.title" = "Lighten";
+
+/* Class = "NSMenuItem"; title = "Dodge"; ObjectID = "458"; */
+"458.title" = "Dodge";
+
+/* Class = "NSMenuItem"; title = "Burn"; ObjectID = "459"; */
+"459.title" = "Burn";
+
+/* Class = "NSMenuItem"; title = "Soft Light"; ObjectID = "460"; */
+"460.title" = "Soft Light";
+
+/* Class = "NSMenuItem"; title = "Hard Light"; ObjectID = "461"; */
+"461.title" = "Hard Light";
+
+/* Class = "NSMenuItem"; title = "Difference"; ObjectID = "462"; */
+"462.title" = "Difference";
+
+/* Class = "NSMenuItem"; title = "Exclusion"; ObjectID = "463"; */
+"463.title" = "Exclusion";
+
+/* Class = "NSMenuItem"; title = "Hue"; ObjectID = "464"; */
+"464.title" = "Hue";
+
+/* Class = "NSMenuItem"; title = "Saturation"; ObjectID = "465"; */
+"465.title" = "Saturation";
+
+/* Class = "NSMenuItem"; title = "Colour"; ObjectID = "466"; */
+"466.title" = "Colour";
+
+/* Class = "NSMenuItem"; title = "Luminosity"; ObjectID = "467"; */
+"467.title" = "Luminosity";
+
+/* Class = "NSButtonCell"; title = "Paste Pattern Image"; ObjectID = "3050"; */
+"3050.title" = "Paste Pattern Image";
+
+/* Class = "NSTextFieldCell"; title = "Fill:"; ObjectID = "3051"; */
+"3051.title" = "Fill:";
+
+/* Class = "NSButtonCell"; title = "Shadow"; ObjectID = "3055"; */
+"3055.title" = "Shadow";
+
+/* Class = "NSTextFieldCell"; title = "Dash:"; ObjectID = "3057"; */
+"3057.title" = "Dash:";
+
+/* Class = "NSSegmentedCell"; 3066.ibShadowedToolTips[0] = "Butt Cap"; ObjectID = "3066"; */
+"3066.ibShadowedToolTips[0]" = "Butt Cap";
+
+/* Class = "NSSegmentedCell"; 3066.ibShadowedToolTips[1] = "Round Cap"; ObjectID = "3066"; */
+"3066.ibShadowedToolTips[1]" = "Round Cap";
+
+/* Class = "NSSegmentedCell"; 3066.ibShadowedToolTips[2] = "Square Cap"; ObjectID = "3066"; */
+"3066.ibShadowedToolTips[2]" = "Square Cap";
+
+/* Class = "NSTextFieldCell"; title = "Cap:"; ObjectID = "3067"; */
+"3067.title" = "Cap:";
+
+/* Class = "NSSegmentedCell"; 3068.ibShadowedToolTips[0] = "Mitre Join"; ObjectID = "3068"; */
+"3068.ibShadowedToolTips[0]" = "Mitre Join";
+
+/* Class = "NSSegmentedCell"; 3068.ibShadowedToolTips[1] = "Round Join"; ObjectID = "3068"; */
+"3068.ibShadowedToolTips[1]" = "Round Join";
+
+/* Class = "NSSegmentedCell"; 3068.ibShadowedToolTips[2] = "Bevel Join"; ObjectID = "3068"; */
+"3068.ibShadowedToolTips[2]" = "Bevel Join";
+
+/* Class = "NSTextFieldCell"; title = "Join:"; ObjectID = "3069"; */
+"3069.title" = "Join:";
+
+/* Class = "NSTextFieldCell"; title = "Multiple Items"; ObjectID = "3070"; */
+"3070.title" = "Multiple Items";
+
+/* Class = "NSTextFieldCell"; title = "No Selection"; ObjectID = "3071"; */
+"3071.title" = "No Selection";
+
+/* Class = "NSButtonCell"; title = "Sharable Style"; ObjectID = "3072"; */
+"3072.title" = "Sharable Style";
+
+/* Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "3076"; */
+"3076.title" = "Name:";
+
+/* Class = "NSButtonCell"; title = "Clone Style"; ObjectID = "3077"; */
+"3077.title" = "Clone Style";
+
+/* Class = "NSButtonCell"; title = "Button"; ObjectID = "3078"; */
+"3078.title" = "Button";
+
+/* Class = "NSButtonCell"; title = "Button"; ObjectID = "3079"; */
+"3079.title" = "Button";
+
+/* Class = "NSButtonCell"; title = "Locked"; ObjectID = "3080"; */
+"3080.title" = "Locked";
+
+/* Class = "NSTextFieldCell"; title = "Registered Style"; ObjectID = "3081"; */
+"3081.title" = "Registered Style";
+
+/* Class = "NSTextFieldCell"; title = "Image:"; ObjectID = "3083"; */
+"3083.title" = "Image:";
+
+/* Class = "NSButtonCell"; title = "File..."; ObjectID = "3085"; */
+"3085.title" = "File...";
+
+/* Class = "NSTextFieldCell"; title = "Identifier:"; ObjectID = "3087"; */
+"3087.title" = "Identifier:";
+
+/* Class = "NSButtonCell"; title = "Clip to Path"; ObjectID = "3088"; */
+"3088.title" = "Clip to Path";
+
+/* Class = "NSTextFieldCell"; title = "Opacity:"; ObjectID = "3090"; */
+"3090.title" = "Opacity:";
+
+/* Class = "NSTextFieldCell"; title = "Scale:"; ObjectID = "3092"; */
+"3092.title" = "Scale:";
+
+/* Class = "NSTextFieldCell"; title = "Fitting:"; ObjectID = "3094"; */
+"3094.title" = "Fitting:";
+
+/* Class = "NSTextFieldCell"; title = "Angle:"; ObjectID = "3096"; */
+"3096.title" = "Angle:";
+
+/* Class = "NSTextFieldCell"; title = "Core Image Effect:"; ObjectID = "3097"; */
+"3097.title" = "Core Image Effect:";
+
+/* Class = "NSButtonCell"; title = "Clip to Path"; ObjectID = "3099"; */
+"3099.title" = "Clip to Path";
+
+/* Class = "NSTextFieldCell"; title = "Text:"; ObjectID = "3101"; */
+"3101.title" = "Text:";
+
+/* Class = "NSButtonCell"; title = "Font..."; ObjectID = "3104"; */
+"3104.title" = "Font...";
+
+/* Class = "NSButtonCell"; title = "Wrap Lines"; ObjectID = "3105"; */
+"3105.title" = "Wrap Lines";
+
+/* Class = "NSButtonCell"; title = "Clip to Path"; ObjectID = "3106"; */
+"3106.title" = "Clip to Path";
+
+/* Class = "NSTextFieldCell"; title = "Text Alignment:"; ObjectID = "3108"; */
+"3108.title" = "Text Alignment:";
+
+/* Class = "NSTextFieldCell"; title = "Vertical Alignment:"; ObjectID = "3110"; */
+"3110.title" = "Vertical Alignment:";
+
+/* Class = "NSTextFieldCell"; title = "Text or Label Item:"; ObjectID = "3111"; */
+"3111.title" = "Text or Label Item:";
+
+/* Class = "NSButtonCell"; title = "Angle Relative to Object"; ObjectID = "3112"; */
+"3112.title" = "Angle Relative to Object";
+
+/* Class = "NSTextFieldCell"; title = "Text Angle:"; ObjectID = "3114"; */
+"3114.title" = "Text Angle:";
+
+/* Class = "NSTextFieldCell"; title = "Layout:"; ObjectID = "3116"; */
+"3116.title" = "Layout:";
+
+/* Class = "NSTextFieldCell"; title = "Hatch:"; ObjectID = "3117"; */
+"3117.title" = "Hatch:";
+
+/* Class = "NSTextFieldCell"; title = "Spacing:"; ObjectID = "3120"; */
+"3120.title" = "Spacing:";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "3123"; */
+"3123.title" = "Width:";
+
+/* Class = "NSTextFieldCell"; title = "Dash:"; ObjectID = "3125"; */
+"3125.title" = "Dash:";
+
+/* Class = "NSTextFieldCell"; title = "Angle:"; ObjectID = "3128"; */
+"3128.title" = "Angle:";
+
+/* Class = "NSTextFieldCell"; title = "Lead-in:"; ObjectID = "3131"; */
+"3131.title" = "Lead-in:";
+
+/* Class = "NSButtonCell"; title = "Paste Motif"; ObjectID = "3132"; */
+"3132.title" = "Paste Motif";
+
+/* Class = "NSTextFieldCell"; title = "Spacing:"; ObjectID = "3135"; */
+"3135.title" = "Spacing:";
+
+/* Class = "NSTextFieldCell"; title = "Scale:"; ObjectID = "3136"; */
+"3136.title" = "Scale:";
+
+/* Class = "NSButtonCell"; title = "Rotate to path curvature"; ObjectID = "3137"; */
+"3137.title" = "Rotate to path curvature";
+
+/* Class = "NSTextFieldCell"; title = "Leader:"; ObjectID = "3139"; */
+"3139.title" = "Leader:";
+
+/* Class = "NSTextFieldCell"; title = "Alt:"; ObjectID = "3142"; */
+"3142.title" = "Alt:";
+
+/* Class = "NSTextFieldCell"; title = "Ramp:"; ObjectID = "3144"; */
+"3144.title" = "Ramp:";
+
+/* Class = "NSTextFieldCell"; title = "Blending Mode:"; ObjectID = "3146"; */
+"3146.title" = "Blending Mode:";
+
+/* Class = "NSTextFieldCell"; title = "Alpha:"; ObjectID = "3148"; */
+"3148.title" = "Alpha:";
+
+/* Class = "NSButtonCell"; title = "Paste Image"; ObjectID = "3149"; */
+"3149.title" = "Paste Image";
+
+/* Class = "NSButtonCell"; title = "Scale to path's stroke weight"; ObjectID = "3162"; */
+"3162.title" = "Scale to path's stroke weight";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "3163"; */
+"3163.title" = "OK";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "3164"; */
+"3164.title" = "Cancel";
+
+/* Class = "NSButtonCell"; title = "Preview"; ObjectID = "3165"; */
+"3165.title" = "Preview";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "3166"; */
+"3166.title" = "OK";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "3167"; */
+"3167.title" = "Cancel";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "3168"; */
+"3168.title" = "Radio";
+
+/* Class = "NSTextFieldCell"; title = "Style script:"; ObjectID = "3186"; */
+"3186.title" = "Style script:";
+
+/* Class = "NSButtonCell"; title = "File..."; ObjectID = "3189"; */
+"3189.title" = "File...";
+
+/* Class = "NSButtonCell"; title = "Image from File..."; ObjectID = "3192"; */
+"3192.title" = "Image from File...";
+
+/* Class = "NSTextFieldCell"; title = "Line Cap:"; ObjectID = "3206"; */
+"3206.title" = "Line Cap:";
+
+/* Class = "NSSegmentedCell"; 3207.ibShadowedToolTips[0] = "Butt Cap"; ObjectID = "3207"; */
+"3207.ibShadowedToolTips[0]" = "Butt Cap";
+
+/* Class = "NSSegmentedCell"; 3207.ibShadowedToolTips[1] = "Round Cap"; ObjectID = "3207"; */
+"3207.ibShadowedToolTips[1]" = "Round Cap";
+
+/* Class = "NSSegmentedCell"; 3207.ibShadowedToolTips[2] = "Square Cap"; ObjectID = "3207"; */
+"3207.ibShadowedToolTips[2]" = "Square Cap";
+
+/* Class = "NSButtonCell"; title = "Angle relative to object"; ObjectID = "3211"; */
+"3211.title" = "Angle relative to object";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Adds a new renderer to the style"; ObjectID = "3216"; */
+"3216.ibShadowedToolTip" = "Adds a new renderer to the style";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "3218"; */
+"3218.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Blend & Mask Effect Group"; ObjectID = "3223"; */
+"3223.title" = "Blend & Mask Effect Group";
+
+/* Class = "NSMenuItem"; title = "Core Image Effect Group"; ObjectID = "3224"; */
+"3224.title" = "Core Image Effect Group";
+
+/* Class = "NSMenuItem"; title = "Generic Group"; ObjectID = "3225"; */
+"3225.title" = "Generic Group";
+
+/* Class = "NSMenuItem"; title = "Path Decorator"; ObjectID = "3227"; */
+"3227.title" = "Path Decorator";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "3228"; */
+"3228.title" = "Text";
+
+/* Class = "NSMenuItem"; title = "Image"; ObjectID = "3229"; */
+"3229.title" = "Image";
+
+/* Class = "NSMenuItem"; title = "Hatch"; ObjectID = "3230"; */
+"3230.title" = "Hatch";
+
+/* Class = "NSMenuItem"; title = "Zig-Zag Fill"; ObjectID = "3231"; */
+"3231.title" = "Zig-Zag Fill";
+
+/* Class = "NSMenuItem"; title = "Pattern Fill"; ObjectID = "3232"; */
+"3232.title" = "Pattern Fill";
+
+/* Class = "NSMenuItem"; title = "Colour Fill"; ObjectID = "3233"; */
+"3233.title" = "Colour Fill";
+
+/* Class = "NSMenuItem"; title = "Zig-Zag Stroke"; ObjectID = "3234"; */
+"3234.title" = "Zig-Zag Stroke";
+
+/* Class = "NSMenuItem"; title = "Arrowed Stroke"; ObjectID = "3235"; */
+"3235.title" = "Arrowed Stroke";
+
+/* Class = "NSMenuItem"; title = "Stroke"; ObjectID = "3236"; */
+"3236.title" = "Stroke";
+
+/* Class = "NSMenuItem"; title = "STROKES"; ObjectID = "3239"; */
+"3239.title" = "STROKES";
+
+/* Class = "NSMenuItem"; title = "FILLS"; ObjectID = "3241"; */
+"3241.title" = "FILLS";
+
+/* Class = "NSMenuItem"; title = "GROUPS"; ObjectID = "3242"; */
+"3242.title" = "GROUPS";
+
+/* Class = "NSMenuItem"; title = "ADORNMENTS"; ObjectID = "3244"; */
+"3244.title" = "ADORNMENTS";
+
+/* Class = "NSTabViewItem"; label = "Solid"; ObjectID = "3252"; */
+"3252.label" = "Solid";
+
+/* Class = "NSTextFieldCell"; title = "wave:"; ObjectID = "3266"; */
+"3266.title" = "wave:";
+
+/* Class = "NSTextFieldCell"; title = "ampl.:"; ObjectID = "3267"; */
+"3267.title" = "ampl.:";
+
+/* Class = "NSTextFieldCell"; title = "spread:"; ObjectID = "3268"; */
+"3268.title" = "spread:";
+
+/* Class = "NSTabViewItem"; label = "Gradient"; ObjectID = "3269"; */
+"3269.label" = "Gradient";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add the gradient to the current style"; ObjectID = "3271"; */
+"3271.ibShadowedToolTip" = "Add the gradient to the current style";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add the gradient to the current style"; ObjectID = "3272"; */
+"3272.ibShadowedToolTip" = "Add the gradient to the current style";
+
+/* Class = "NSButtonCell"; title = "Add Gradient Fill"; ObjectID = "3274"; */
+"3274.title" = "Add Gradient Fill";
+
+/* Class = "NSButtonCell"; title = "Remove Gradient"; ObjectID = "3275"; */
+"3275.title" = "Remove Gradient";
+
+/* Class = "NSTextFieldCell"; title = "Angle"; ObjectID = "3296"; */
+"3296.title" = "Angle";
+
+/* Class = "NSButtonCell"; title = "Angle relative to object"; ObjectID = "3309"; */
+"3309.title" = "Angle relative to object";
+
+/* Class = "NSTextFieldCell"; title = "Wave:"; ObjectID = "3314"; */
+"3314.title" = "Wave:";
+
+/* Class = "NSTextFieldCell"; title = "Amplitude:"; ObjectID = "3316"; */
+"3316.title" = "Amplitude:";
+
+/* Class = "NSTextFieldCell"; title = "Spread:"; ObjectID = "3318"; */
+"3318.title" = "Spread:";
+
+/* Class = "NSTextFieldCell"; title = "Angle:"; ObjectID = "3326"; */
+"3326.title" = "Angle:";
+
+/* Class = "NSButtonCell"; title = "Pattern angle relative to object"; ObjectID = "3329"; */
+"3329.title" = "Pattern angle relative to object";
+
+/* Class = "NSMenuItem"; title = "Copy Renderer"; ObjectID = "3332"; */
+"3332.title" = "Copy Renderer";
+
+/* Class = "NSMenuItem"; title = "Paste Renderer"; ObjectID = "3333"; */
+"3333.title" = "Paste Renderer";
+
+/* Class = "NSMenuItem"; title = "Copy Renderer"; ObjectID = "3337"; */
+"3337.title" = "Copy Renderer";
+
+/* Class = "NSMenuItem"; title = "Paste Renderer"; ObjectID = "3338"; */
+"3338.title" = "Paste Renderer";
+
+/* Class = "NSMenuItem"; title = "Duplicate Renderer"; ObjectID = "3339"; */
+"3339.title" = "Duplicate Renderer";
+
+/* Class = "NSMenuItem"; title = "Delete Renderer"; ObjectID = "3340"; */
+"3340.title" = "Delete Renderer";
+
+/* Class = "NSTextFieldCell"; title = "Motif:"; ObjectID = "3352"; */
+"3352.title" = "Motif:";
+
+/* Class = "NSButtonCell"; title = "Motif angle relative to pattern"; ObjectID = "3354"; */
+"3354.title" = "Motif angle relative to pattern";
+
+/* Class = "NSTextFieldCell"; title = "clients"; ObjectID = "3358"; */
+"3358.title" = "clients";
+
+/* Class = "NSTextFieldCell"; title = "0"; ObjectID = "3360"; */
+"3360.title" = "0";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "3367"; */
+"3367.title" = "Width:";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "3370"; */
+"3370.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "3371"; */
+"3371.title" = "None";
+
+/* Class = "NSMenuItem"; title = "Standard Arrow Head"; ObjectID = "3372"; */
+"3372.title" = "Standard Arrow Head";
+
+/* Class = "NSMenuItem"; title = "Inflected"; ObjectID = "3373"; */
+"3373.title" = "Inflected";
+
+/* Class = "NSMenuItem"; title = "Round"; ObjectID = "3374"; */
+"3374.title" = "Round";
+
+/* Class = "NSMenuItem"; title = "1 Feather"; ObjectID = "3375"; */
+"3375.title" = "1 Feather";
+
+/* Class = "NSMenuItem"; title = "2 Feathers"; ObjectID = "3376"; */
+"3376.title" = "2 Feathers";
+
+/* Class = "NSMenuItem"; title = "3 Feathers"; ObjectID = "3377"; */
+"3377.title" = "3 Feathers";
+
+/* Class = "NSMenuItem"; title = "Dimension Bar"; ObjectID = "3378"; */
+"3378.title" = "Dimension Bar";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "3381"; */
+"3381.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Dimension Bar"; ObjectID = "3382"; */
+"3382.title" = "Dimension Bar";
+
+/* Class = "NSMenuItem"; title = "3 Feathers"; ObjectID = "3383"; */
+"3383.title" = "3 Feathers";
+
+/* Class = "NSMenuItem"; title = "2 Feathers"; ObjectID = "3384"; */
+"3384.title" = "2 Feathers";
+
+/* Class = "NSMenuItem"; title = "1 Feather"; ObjectID = "3385"; */
+"3385.title" = "1 Feather";
+
+/* Class = "NSMenuItem"; title = "Round"; ObjectID = "3386"; */
+"3386.title" = "Round";
+
+/* Class = "NSMenuItem"; title = "Inflected"; ObjectID = "3387"; */
+"3387.title" = "Inflected";
+
+/* Class = "NSMenuItem"; title = "Standard Arrow Head"; ObjectID = "3388"; */
+"3388.title" = "Standard Arrow Head";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "3389"; */
+"3389.title" = "None";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "3403"; */
+"3403.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "3404"; */
+"3404.title" = "None";
+
+/* Class = "NSMenuItem"; title = "Above The Line"; ObjectID = "3405"; */
+"3405.title" = "Above The Line";
+
+/* Class = "NSMenuItem"; title = "Below The Line"; ObjectID = "3406"; */
+"3406.title" = "Below The Line";
+
+/* Class = "NSTextFieldCell"; title = "Dimensioning:"; ObjectID = "3408"; */
+"3408.title" = "Dimensioning:";
+
+/* Class = "NSMenuItem"; title = "Within The Line"; ObjectID = "3409"; */
+"3409.title" = "Within The Line";
+
+/* Class = "NSBox"; title = "Shadow"; ObjectID = "3427"; */
+"3427.title" = "Shadow";
+
+/* Class = "NSTextFieldCell"; title = "Fill Colour:"; ObjectID = "3429"; */
+"3429.title" = "Fill Colour:";
+
+/* Class = "NSMenuItem"; title = "Rough Stroke"; ObjectID = "3437"; */
+"3437.title" = "Rough Stroke";
+
+/* Class = "NSTextFieldCell"; title = "Roughness:"; ObjectID = "3439"; */
+"3439.title" = "Roughness:";
+
+/* Class = "NSMenuItem"; title = "Remove Text Attributes"; ObjectID = "3440"; */
+"3440.title" = "Remove Text Attributes";
+
+/* Class = "NSMenuItem"; title = "Justified"; ObjectID = "3442"; */
+"3442.title" = "Justified";
+
+/* Class = "NSMenuItem"; title = "Text Flowed Into Path"; ObjectID = "3443"; */
+"3443.title" = "Text Flowed Into Path";
+
+/* Class = "NSTextFieldCell"; title = "Flowed Inset:"; ObjectID = "3447"; */
+"3447.title" = "Flowed Inset:";
+
+/* Class = "NSMenuItem"; title = "Square"; ObjectID = "3450"; */
+"3450.title" = "Square";
+
+/* Class = "NSMenuItem"; title = "Diamond"; ObjectID = "3451"; */
+"3451.title" = "Diamond";
+
+/* Class = "NSMenuItem"; title = "Square"; ObjectID = "3452"; */
+"3452.title" = "Square";
+
+/* Class = "NSMenuItem"; title = "Diamond"; ObjectID = "3453"; */
+"3453.title" = "Diamond";

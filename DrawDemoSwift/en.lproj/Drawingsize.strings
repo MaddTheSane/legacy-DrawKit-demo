@@ -1,0 +1,102 @@
+
+/* Class = "NSWindow"; title = "Drawing Size"; ObjectID = "7"; */
+"7.title" = "Drawing Size";
+
+/* Class = "NSBox"; title = "Drawing Size and Units"; ObjectID = "22"; */
+"22.title" = "Drawing Size and Units";
+
+/* Class = "NSBox"; title = "Grid & Rulers"; ObjectID = "35"; */
+"35.title" = "Grid & Rulers";
+
+/* Class = "NSMenu"; title = "Menu"; ObjectID = "50"; */
+"50.title" = "Menu";
+
+/* Class = "NSMenuItem"; title = "Pixels"; ObjectID = "51"; */
+"51.title" = "Pixels";
+
+/* Class = "NSMenuItem"; title = "Inches"; ObjectID = "52"; */
+"52.title" = "Inches";
+
+/* Class = "NSMenuItem"; title = "Millimetres"; ObjectID = "53"; */
+"53.title" = "Millimetres";
+
+/* Class = "NSMenuItem"; title = "Centimetres"; ObjectID = "54"; */
+"54.title" = "Centimetres";
+
+/* Class = "NSMenuItem"; title = "Metres"; ObjectID = "55"; */
+"55.title" = "Metres";
+
+/* Class = "NSMenuItem"; title = "Kilometres"; ObjectID = "56"; */
+"56.title" = "Kilometres";
+
+/* Class = "NSMenuItem"; title = "Other"; ObjectID = "57"; */
+"57.title" = "Other";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "259"; */
+"259.title" = "OK";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "260"; */
+"260.title" = "Cancel";
+
+/* Class = "NSTextFieldCell"; title = "Width:\n"; ObjectID = "268"; */
+"268.title" = "Width:\n";
+
+/* Class = "NSTextFieldCell"; title = "Height:"; ObjectID = "269"; */
+"269.title" = "Height:";
+
+/* Class = "NSTextFieldCell"; title = "Margins:"; ObjectID = "270"; */
+"270.title" = "Margins:";
+
+/* Class = "NSTextFieldCell"; title = "Top:"; ObjectID = "271"; */
+"271.title" = "Top:";
+
+/* Class = "NSTextFieldCell"; title = "Left:"; ObjectID = "272"; */
+"272.title" = "Left:";
+
+/* Class = "NSTextFieldCell"; title = "Bottom:"; ObjectID = "273"; */
+"273.title" = "Bottom:";
+
+/* Class = "NSTextFieldCell"; title = "Right:"; ObjectID = "274"; */
+"274.title" = "Right:";
+
+/* Class = "NSButtonCell"; title = "Tweak margins to fit grid"; ObjectID = "275"; */
+"275.title" = "Tweak margins to fit grid";
+
+/* Class = "NSTextFieldCell"; title = "1 <unit> occupies"; ObjectID = "278"; */
+"278.title" = "1 <unit> occupies";
+
+/* Class = "NSTextFieldCell"; title = "points in base coordinates"; ObjectID = "279"; */
+"279.title" = "points in base coordinates";
+
+/* Class = "NSTextFieldCell"; title = "Paper colour:"; ObjectID = "280"; */
+"280.title" = "Paper colour:";
+
+/* Class = "NSTextFieldCell"; title = "Grid Span:"; ObjectID = "284"; */
+"284.title" = "Grid Span:";
+
+/* Class = "NSTextFieldCell"; title = "Divisions per span:"; ObjectID = "285"; */
+"285.title" = "Divisions per span:";
+
+/* Class = "NSTextFieldCell"; title = "Major interval every"; ObjectID = "286"; */
+"286.title" = "Major interval every";
+
+/* Class = "NSTextFieldCell"; title = "spans"; ObjectID = "287"; */
+"287.title" = "spans";
+
+/* Class = "NSTextFieldCell"; title = "Theme colour:"; ObjectID = "288"; */
+"288.title" = "Theme colour:";
+
+/* Class = "NSButtonCell"; title = "Preview"; ObjectID = "289"; */
+"289.title" = "Preview";
+
+/* Class = "NSTextFieldCell"; title = "cm"; ObjectID = "292"; */
+"292.title" = "cm";
+
+/* Class = "NSButtonCell"; title = "Include grid in printed output"; ObjectID = "293"; */
+"293.title" = "Include grid in printed output";
+
+/* Class = "NSTextFieldCell"; title = "Label ruler every"; ObjectID = "296"; */
+"296.title" = "Label ruler every";
+
+/* Class = "NSTextFieldCell"; title = "spans"; ObjectID = "297"; */
+"297.title" = "spans";
