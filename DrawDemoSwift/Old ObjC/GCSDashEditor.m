@@ -143,14 +143,14 @@
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSOKButton];
+	[NSApp endSheet:self.window returnCode:NSModalResponseOK];
 }
 
 - (IBAction)cancel:(id)sender
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSCancelButton];
+	[NSApp endSheet:self.window returnCode:NSModalResponseCancel];
 }
 
 - (IBAction)dashValueAction:(id)sender

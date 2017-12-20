@@ -326,9 +326,10 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 
 - (NSData *)fileRepresentation
 {
-	return [NSPropertyListSerialization dataFromPropertyList:[self plistRepresentation]
+	return [NSPropertyListSerialization dataWithPropertyList:[self plistRepresentation]
 													  format:NSPropertyListXMLFormat_v1_0
-											errorDescription:nil];
+													 options:0
+													   error:nil];
 }
 
 ///*********************************************************************************************************************

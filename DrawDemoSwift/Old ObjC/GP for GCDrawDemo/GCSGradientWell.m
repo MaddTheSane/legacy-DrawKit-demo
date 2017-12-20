@@ -81,7 +81,7 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 		[self setNeedsDisplay:YES];
 		//[self setupTrackingRect];
 	}
-	//[(GCGradientCell*)[self cell] updateMiniControlsForMode:mode];
+	//[(GCSGradientCell*)[self cell] updateMiniControlsForMode:mode];
 }
 
 @synthesize controlMode = mControlMode;

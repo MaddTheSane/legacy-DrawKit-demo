@@ -1456,7 +1456,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(styleAttached:) name:kDKDrawableStyleWillBeDetachedNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(styleRegistered:) name:kDKStyleRegistryDidFlagPossibleUIChange object:nil];
 
-	//[mFillGradientWell setCell:[[GCGradientCell alloc] init]];
+	//[mFillGradientWell setCell:[[GCSGradientCell alloc] init]];
 	//[mFillGradientWell setCanBecomeActiveWell:NO];
 	[mFillGradientControlBar setCanBecomeActiveWell:NO];
 	mFillGradientControlBar.target = self;
