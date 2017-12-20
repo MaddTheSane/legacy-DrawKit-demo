@@ -14,7 +14,7 @@
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSCancelButton];
+	[NSApp endSheet:self.window returnCode:NSModalResponseCancel];
 }
 
 - (IBAction)centreAction:(id)sender
@@ -33,7 +33,7 @@
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSOKButton];
+	[NSApp endSheet:self.window returnCode:NSModalResponseOK];
 }
 
 - (IBAction)rotateCopiesAction:(id)sender
@@ -72,7 +72,7 @@
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(sheet, contextInfo)
-	if (returnCode == NSOKButton) {
+	if (returnCode == NSModalResponseOK) {
 		// extract parameters and do something with them
 
 		NSInteger copies = mCopiesTextField.integerValue;

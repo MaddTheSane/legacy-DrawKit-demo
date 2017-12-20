@@ -1061,7 +1061,7 @@
 	op.allowedFileTypes = NSImage.imageTypes;
 	NSInteger result = [op runModal];
 
-	if (result == NSOKButton) {
+	if (result == NSModalResponseOK) {
 		NSImage *image = [[NSImage alloc] initByReferencingFile:op.URL.path];
 
 		if ([mSelectedRendererRef respondsToSelector:@selector(setImage:)])
@@ -1382,7 +1382,7 @@
 	//	LogEvent_(kReactiveEvent, @"sheet ended, return code = %d", returnCode);
 
 	if ((__bridge id)contextInfo == mDashEditController) {
-		if (returnCode == NSOKButton)
+		if (returnCode == NSModalResponseOK)
 			[(id)mSelectedRendererRef setDash:mDashEditController.dash];
 		else
 			[(id)mSelectedRendererRef setDash:mSavedDash];

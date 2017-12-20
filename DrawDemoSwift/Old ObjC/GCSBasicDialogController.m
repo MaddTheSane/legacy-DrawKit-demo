@@ -56,9 +56,9 @@
 
 	if (mRunningAsSheet) {
 		[self.window orderOut:self];
-		[NSApp endSheet:self.window returnCode:NSOKButton];
+		[NSApp endSheet:self.window returnCode:NSModalResponseOK];
 	} else
-		[NSApp stopModalWithCode:NSOKButton];
+		[NSApp stopModalWithCode:NSModalResponseOK];
 }
 
 - (IBAction)cancel:(id)sender
@@ -67,9 +67,9 @@
 
 	if (mRunningAsSheet) {
 		[self.window orderOut:self];
-		[NSApp endSheet:self.window returnCode:NSCancelButton];
+		[NSApp endSheet:self.window returnCode:NSModalResponseCancel];
 	} else
-		[NSApp stopModalWithCode:NSCancelButton];
+		[NSApp stopModalWithCode:NSModalResponseCancel];
 }
 
 - (IBAction)primaryItemAction:(id)sender

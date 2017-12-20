@@ -28,14 +28,14 @@
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSOKButton];
+	[NSApp endSheet:self.window returnCode:NSModalResponseOK];
 }
 
 - (IBAction)cancelAction:(id)sender
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSCancelButton];
+	[NSApp endSheet:self.window returnCode:NSModalResponseCancel];
 }
 
 - (void)beginLinearDuplicationDialog:(NSWindow *)parentWindow linearDelegate:(id)delegate
@@ -54,7 +54,7 @@
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(sheet, contextInfo)
-	if (returnCode == NSOKButton) {
+	if (returnCode == NSModalResponseOK) {
 		// extract parameters and do something with them
 
 		int copies = mNumberOfCopiesTextField.intValue;

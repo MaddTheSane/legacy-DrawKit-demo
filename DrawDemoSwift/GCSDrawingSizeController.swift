@@ -81,7 +81,7 @@ class GCSDrawingSizeController: NSWindowController {
 	
 	@IBAction func cancelAction(_ sender: Any?) {
 		window?.orderOut(self)
-		NSApp.endSheet(window!, returnCode: NSCancelButton)
+		NSApp.endSheet(window!, returnCode: NSApplication.ModalResponse.cancel.rawValue)
 	}
 	
 	@IBAction func gridDivsAction(_ sender: AnyObject?) {
@@ -180,7 +180,7 @@ class GCSDrawingSizeController: NSWindowController {
 	
 	@IBAction func okAction(_ sender: Any?) {
 		window?.orderOut(self)
-		NSApp.endSheet(window!, returnCode: NSOKButton)
+		NSApp.endSheet(window!, returnCode: NSApplication.ModalResponse.OK.rawValue)
 	}
 	
 	@IBAction func unitsComboBoxAction(_ sender: AnyObject?) {
@@ -287,7 +287,7 @@ class GCSDrawingSizeController: NSWindowController {
 	
 	@objc(sheetDidEnd:returnCode:contextInfo:)
 	func sheetDidEnd(_ sheet: NSWindow, returnCode: Int, contextInfo: UnsafeMutableRawPointer) {
-		if returnCode == NSOKButton {
+		if returnCode == NSApplication.ModalResponse.OK.rawValue {
 			// apply the settings to the drawing.
 			
 			let dwgSize = NSSize(width: ((widthTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor, height: ((heightTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor)
@@ -316,7 +316,7 @@ class GCSDrawingSizeController: NSWindowController {
 			}
 			
 			drawing?.setNeedsDisplay(true)
-		} else if returnCode == NSCancelButton {
+		} else if returnCode == NSApplication.ModalResponse.cancel.rawValue {
 			// restore saved grid settings
 			
 			if let grid = drawing?.gridLayer {
