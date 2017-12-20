@@ -11,6 +11,8 @@
 		551B08531FDF5650008AE439 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 551B08551FDF5650008AE439 /* Localizable.strings */; };
 		5523ED141FE89DBB00639846 /* GCSToolPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523ED131FE89DBB00639846 /* GCSToolPalette.swift */; };
 		5523ED301FE9F59C00639846 /* GCSGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */; };
+		5523ED421FEB27A500639846 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		5523ED431FEB27A500639846 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
 		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
 		55C968D01FE3351C009AD729 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
@@ -398,8 +400,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5523ED431FEB27A500639846 /* QuartzCore.framework in Frameworks */,
 				55C968D01FE3351C009AD729 /* DKDrawKit.framework in Frameworks */,
 				55C968D41FE3351C009AD729 /* DrawKitSwift.framework in Frameworks */,
+				5523ED421FEB27A500639846 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+				965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -430,7 +435,6 @@
 				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
 				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
 				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
-				965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
