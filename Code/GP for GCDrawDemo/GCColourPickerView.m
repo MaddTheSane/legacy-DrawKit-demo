@@ -235,10 +235,8 @@
 
 	if (cList == nil) {
 		///*
-		NSEnumerator *iter = [[NSColorList availableColorLists] objectEnumerator];
-		NSColorList *c;
 
-		while ((c = [iter nextObject]) != nil)
+		//for (NSColorList *c in [NSColorList availableColorLists])
 			//	LogEvent_(kInfoEvent, @"%@", [c name]);
 			//*/
 			cList = [NSColorList colorListNamed:@"Web Safe Colors"]; //Web Safe Colors
@@ -247,7 +245,7 @@
 
 	NSArray *keys = cList.allKeys;
 
-	NSInteger i = (NSInteger)indx % keys.count;
+	NSInteger i = keys.count != 0 ? (NSInteger)indx % keys.count : 0;
 	return [cList colorWithKey:keys[i]];
 
 #else
