@@ -72,8 +72,8 @@ class GCSDrawingSizeController: NSWindowController {
 		}
 		
 		_=self.window
-		unitsComboBox.stringValue = drawing.drawingUnits?.rawValue ?? ""
-		conversionFactorLabelText.stringValue = "1 \(drawing.drawingUnits?.rawValue ?? "") occupies"
+		unitsComboBox.stringValue = drawing.drawingUnits.rawValue
+		conversionFactorLabelText.stringValue = "1 \(drawing.drawingUnits.rawValue) occupies"
 		prepareDialog(with: drawing)
 		
 		NSApp.beginSheet(self.window!, modalFor: parent, modalDelegate: self, didEnd: #selector(GCSDrawingSizeController.sheetDidEnd(_:returnCode:contextInfo:)), contextInfo: /*"drawing_size"*/nil)
@@ -242,7 +242,7 @@ class GCSDrawingSizeController: NSWindowController {
 		livePreview = true
 		setUpComboBox(currentUnit: drawing!.drawingUnits)
 		unitsComboBox.stringValue = drawing?.drawingUnits.rawValue ?? ""
-		conversionFactorLabelText.stringValue = "1 \(drawing!.drawingUnits!.rawValue) occupies"
+		conversionFactorLabelText.stringValue = "1 \(drawing!.drawingUnits.rawValue) occupies"
 		//[self prepareDialogWithDrawing:mDrawing];
 	}
 	
@@ -260,7 +260,7 @@ class GCSDrawingSizeController: NSWindowController {
 		
 		conversionFactorTextField.objectValue = unitConversionFactor
 		conversionFactorSpinControl.objectValue = unitConversionFactor
-		paperColourWell.color = drawing.paperColour
+		paperColourWell.color = drawing.paperColour ?? .white
 
 		if let grid = drawing.gridLayer {
 			gridSpanTextField.objectValue = grid.spanDistance / unitConversionFactor;

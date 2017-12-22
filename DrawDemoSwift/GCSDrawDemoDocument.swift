@@ -155,7 +155,7 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 		}
 		
 		if drawGrid {
-			drawing.gridLayer.shouldDrawToPrinter = saveGrid;
+			drawing.gridLayer?.shouldDrawToPrinter = saveGrid;
 		}
 		
 		if let data = data, data.count > 0 {
