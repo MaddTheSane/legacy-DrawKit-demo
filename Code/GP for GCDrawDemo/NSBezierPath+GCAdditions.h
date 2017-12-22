@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSBezierPath (GCAdditions)
 
 + (NSBezierPath *)bezierPathWithTargetInRect:(NSRect)rect;
@@ -22,3 +24,5 @@
 + (NSBezierPath *)bezierPathWithIrisTabWithRadius:(CGFloat)radius width:(CGFloat)width tabAngle:(CGFloat)angle tabSize:(NSSize)tabsize;
 
 @end
+
+NS_ASSUME_NONNULL_END
