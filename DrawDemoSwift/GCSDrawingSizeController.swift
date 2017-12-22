@@ -44,7 +44,7 @@ class GCSDrawingSizeController: NSWindowController {
 	
 	var drawing: DKDrawing?
 	var livePreview = false
-	var unitConversionFactor: CGFloat = 1
+	@objc dynamic var unitConversionFactor: CGFloat = 1
 	var savedSpan: CGFloat = 1
 	var savedCF: CGFloat = 1
 	var savedDivs = 1
@@ -64,11 +64,11 @@ class GCSDrawingSizeController: NSWindowController {
 		savedPaperColour = drawing.paperColour
 		
 		if let grid = drawing.gridLayer {
-			savedSpan = grid.spanDistance;
-			savedDivs = Int(grid.divisions);
-			savedMajors = Int(grid.majors);
-			savedGridColour = grid.spanColour;
-			savedUnits = drawing.drawingUnits;
+			savedSpan = grid.spanDistance
+			savedDivs = Int(grid.divisions)
+			savedMajors = Int(grid.majors)
+			savedGridColour = grid.spanColour
+			savedUnits = drawing.drawingUnits
 		}
 		
 		_=self.window
@@ -93,11 +93,11 @@ class GCSDrawingSizeController: NSWindowController {
 		}()
 
 		
-		if livePreview, let grid = drawing?.gridLayer {
+		if livePreview, let drawing = self.drawing, let grid = drawing.gridLayer {
 			let span = grid.spanDistance / unitConversionFactor
 			let majs = grid.majors
 			
-			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: span, divisions: newDivs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: span, divisions: newDivs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
 		}
 		
 		if sender === gridDivsSpinControl {
@@ -115,11 +115,11 @@ class GCSDrawingSizeController: NSWindowController {
 			return 1
 		}()
 		
-		if livePreview, let grid = drawing?.gridLayer {
+		if livePreview, let drawing = self.drawing, let grid = drawing.gridLayer {
 			let span = grid.spanDistance / unitConversionFactor
 			let divs = grid.divisions
 			
-			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: span, divisions: divs, majors: UInt(newInt), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: span, divisions: divs, majors: UInt(newInt), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
 		}
 		
 		if sender === gridMajorsSpinControl {
@@ -130,7 +130,7 @@ class GCSDrawingSizeController: NSWindowController {
 	}
 	
 	@IBAction func gridSpanAction(_ sender: Any?) {
-		if livePreview, let grid = drawing?.gridLayer {
+		if livePreview, let drawing = self.drawing, let grid = drawing.gridLayer {
 			let divs = grid.divisions
 			let majs = grid.majors
 			
@@ -141,7 +141,7 @@ class GCSDrawingSizeController: NSWindowController {
 				return CGFloat(dv)
 			}()
 			
-			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: spanVal, divisions: divs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: spanVal, divisions: divs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
 		}
 	}
 	
@@ -166,7 +166,7 @@ class GCSDrawingSizeController: NSWindowController {
 	
 	@IBAction func gridThemeColourAction(_ sender: NSColorWell?) {
 		if livePreview, let grid = drawing?.gridLayer {
-			grid.setGridThemeColour(sender?.color)
+			grid.setGridThemeColour(sender!.color)
 		}
 	}
 	
@@ -320,9 +320,9 @@ class GCSDrawingSizeController: NSWindowController {
 			// restore saved grid settings
 			
 			if let grid = drawing?.gridLayer {
-				grid.setDistanceForUnitSpan(savedSpan, drawingUnits: savedUnits, span: 1, divisions: UInt(savedDivs), majors: UInt(savedMajors), rulerSteps: 2)
+				grid.setDistanceForUnitSpan(savedSpan, drawingUnits: savedUnits!, span: 1, divisions: UInt(savedDivs), majors: UInt(savedMajors), rulerSteps: 2)
 				
-				grid.setGridThemeColour(savedGridColour)
+				grid.setGridThemeColour(savedGridColour!)
 			}
 			
 			drawing?.paperColour = savedPaperColour
