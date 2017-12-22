@@ -268,14 +268,11 @@
 {
 	// stores the control against <name> in the owning cluster, so it can easily be located by name
 
-	mIdent = name;
-	[self.cluster setControl:self forKey:name];
+	mIdent = [name copy];
+	[self.cluster setControl:self forKey:mIdent];
 }
 
-- (NSString *)identifier
-{
-	return mIdent;
-}
+@synthesize identifier=mIdent;
 
 #pragma mark -
 - (void)setValue:(CGFloat)v
@@ -290,10 +287,7 @@
 	}
 }
 
-- (CGFloat)value
-{
-	return mValue;
-}
+@synthesize value=mValue;
 
 #pragma mark -
 - (void)setMaxValue:(CGFloat)v
@@ -304,10 +298,7 @@
 		self.value = mMaxValue;
 }
 
-- (CGFloat)maxValue
-{
-	return mMaxValue;
-}
+@synthesize maxValue=mMaxValue;
 
 #pragma mark -
 - (void)setMinValue:(CGFloat)v
@@ -318,10 +309,7 @@
 		self.value = mMinValue;
 }
 
-- (CGFloat)minValue
-{
-	return mMinValue;
-}
+@synthesize minValue=mMinValue;
 
 #pragma mark -
 #pragma mark As an NSObject
