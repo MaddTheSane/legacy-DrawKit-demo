@@ -9,6 +9,7 @@
 #ifndef LogEventSwift_h
 #define LogEventSwift_h
 
+#import <Foundation/NSString.h>
 #import <DKDrawKit/LogEvent.h>
 
 NS_ASSUME_NONNULL_BEGIN
