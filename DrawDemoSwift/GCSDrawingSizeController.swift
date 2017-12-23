@@ -16,7 +16,7 @@ import DrawKitSwift
 
 private let units: [(name: DKDrawingUnit, factor: CGFloat)] = [(.pixels, 1), (.picas, 12), (.inches, 72.0), (.millimetres, 2.8346456692913), (.centimetres, 28.346456692913), (.metres, 2834.6456692913), (.kilometres, 28346.456692913)]
 
-class GCSDrawingSizeController: NSWindowController {
+class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	@IBOutlet weak var bottomMarginTextField: NSTextField!
 	@IBOutlet weak var gridDivsTextField: NSTextField!
 	@IBOutlet weak var gridMajorsTextField: NSTextField!
@@ -286,8 +286,8 @@ class GCSDrawingSizeController: NSWindowController {
 	}
 	
 	@objc(sheetDidEnd:returnCode:contextInfo:)
-	func sheetDidEnd(_ sheet: NSWindow, returnCode: Int, contextInfo: UnsafeMutableRawPointer) {
-		if returnCode == NSApplication.ModalResponse.OK.rawValue {
+	func sheetDidEnd(_ sheet: NSWindow, returnCode: NSApplication.ModalResponse, contextInfo: UnsafeMutableRawPointer) {
+		if returnCode == NSApplication.ModalResponse.OK {
 			// apply the settings to the drawing.
 			
 			let dwgSize = NSSize(width: ((widthTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor, height: ((heightTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor)
@@ -316,7 +316,7 @@ class GCSDrawingSizeController: NSWindowController {
 			}
 			
 			drawing?.setNeedsDisplay(true)
-		} else if returnCode == NSApplication.ModalResponse.cancel.rawValue {
+		} else if returnCode == NSApplication.ModalResponse.cancel {
 			// restore saved grid settings
 			
 			if let grid = drawing?.gridLayer {

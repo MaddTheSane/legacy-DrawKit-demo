@@ -1376,7 +1376,7 @@
 #pragma mark -
 #pragma mark modal sheet callback - called by selector, otherwise private
 
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(sheet)
 	//	LogEvent_(kReactiveEvent, @"sheet ended, return code = %d", returnCode);

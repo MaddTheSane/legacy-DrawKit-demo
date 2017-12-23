@@ -14,11 +14,6 @@
 
 #import "GCSBasicDialogController.h"
 
-@interface NSObject (SDEMethod)
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
-
-@end
-
 @implementation GCSBasicDialogController
 #pragma mark As a GCBasicDialogController
 - (NSModalResponse)runModal
@@ -32,7 +27,7 @@
 	return result;
 }
 
-- (void)runAsSheetInParentWindow:(NSWindow *)parent modalDelegate:(id)delegate
+- (void)runAsSheetInParentWindow:(NSWindow *)parent modalDelegate:(id<GCSBasicDialogDelegate>)delegate
 {
 	mRunningAsSheet = YES;
 

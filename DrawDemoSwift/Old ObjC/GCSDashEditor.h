@@ -15,6 +15,7 @@
 #import <Cocoa/Cocoa.h>
 #import <DKDrawKit/DKStrokeDash.h>
 #import "GCSDashEditView.h"
+#import "GCSBasicDialogController.h"
 
 @class DKStrokeDash;
 @class GCSDashEditView;
@@ -63,7 +64,7 @@
 
 #pragma mark -
 
-@protocol GCSDashEditorDelegate <NSObject>
+@protocol GCSDashEditorDelegate <GCSBasicDialogDelegate>
 
 - (void)dashDidChange:(id)sender;
 

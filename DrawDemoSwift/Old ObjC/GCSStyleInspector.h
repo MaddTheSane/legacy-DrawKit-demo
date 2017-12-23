@@ -15,13 +15,13 @@
 #import <Cocoa/Cocoa.h>
 #import <DKDrawKit/DKDrawkit.h>
 #import "GCSDashEditor.h"
+#import "GCSBasicDialogController.h"
 
 @class GCSDashEditor;
 @class GCSOutlineView;
-@class GCSBasicDialogController;
 @class WTSGradientControl;
 
-@interface GCSStyleInspector : DKDrawkitInspectorBase <NSOutlineViewDelegate, NSOutlineViewDataSource, GCSDashEditorDelegate, GCSDashEditViewDelegate> {
+@interface GCSStyleInspector : DKDrawkitInspectorBase <NSOutlineViewDelegate, NSOutlineViewDataSource, GCSDashEditorDelegate, GCSDashEditViewDelegate, GCSBasicDialogDelegate> {
 	IBOutlet GCSOutlineView *mOutlineView;
 	IBOutlet NSTabView *mTabView;
 	IBOutlet NSPopUpButton *mAddRendererPopUpButton;

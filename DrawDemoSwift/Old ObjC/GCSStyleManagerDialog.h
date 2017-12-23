@@ -4,11 +4,11 @@
 #import <DKDrawKit/DKStyle.h>
 #import <DKDrawKit/DKStyleRegistry.h>
 #import "GCSTableView.h"
+#import "GCSBasicDialogController.h"
 
 @class DKStyle;
-@class GCSBasicDialogController;
 
-@interface GCSStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate, DKStyleRegistryDelegate> {
+@interface GCSStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate, DKStyleRegistryDelegate, GCSBasicDialogDelegate> {
 	IBOutlet NSButton *mAddCategoryButton;
 	IBOutlet NSButton *mDeleteCategoryButton;
 	IBOutlet GCSTableView *mStyleCategoryList;
@@ -37,7 +37,6 @@
 - (void)updateUIForStyle:(DKStyle *)style;
 - (void)updateUIForCategory:(NSString *)category;
 
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 @end

@@ -14,23 +14,25 @@
 
 #import "GCSDashEditor.h"
 #import "GCSDashEditView.h"
+#import "GCSBasicDialogController.h"
 
 #import <DKDrawKit/DKStrokeDash.h>
 
-@interface NSObject (SDEMethod)
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
-
-@end
-
-@implementation GCSDashEditor
+@implementation GCSDashEditor {
+	NSWindow *parentWindow;
+}
 #pragma mark As a GCDashEditor
 - (void)openDashEditorInParentWindow:(NSWindow *)pw modalDelegate:(id)del
 {
 	if (self.dash == nil)
 		self.dash = [DKStrokeDash defaultDash];
 
+	parentWindow = pw;
 	mDelegateRef = del;
-	[NSApp beginSheet:self.window modalForWindow:pw modalDelegate:del didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:(__bridge void *_Null_unspecified)(self)];
+	[pw beginSheet:self.window completionHandler:^(NSModalResponse returnCode) {
+		[del sheetDidEnd:self.window returnCode:returnCode contextInfo:(__bridge void *_Null_unspecified)(self)];
+		parentWindow = nil;
+	}];
 	[self notifyDelegate];
 }
 
@@ -143,14 +145,14 @@
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSModalResponseOK];
+	[parentWindow endSheet:self.window returnCode:NSModalResponseOK];
 }
 
 - (IBAction)cancel:(id)sender
 {
 #pragma unused(sender)
 	[self.window orderOut:self];
-	[NSApp endSheet:self.window returnCode:NSModalResponseCancel];
+	[parentWindow endSheet:self.window returnCode:NSModalResponseCancel];
 }
 
 - (IBAction)dashValueAction:(id)sender

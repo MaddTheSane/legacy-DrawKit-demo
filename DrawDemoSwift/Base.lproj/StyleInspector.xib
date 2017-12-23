@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -343,7 +344,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
-                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="243" customClass="GCSCheckboxCell">
+                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="243" customClass="GCSCheckboxCell" customModule="DrawDemoSwift" customModuleProvider="target">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="cellTitle"/>
                                                             </buttonCell>

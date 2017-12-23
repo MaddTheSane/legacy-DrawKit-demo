@@ -25,7 +25,7 @@
 - (IBAction)cancelAction:(id)sender;
 
 - (void)beginLinearDuplicationDialog:(NSWindow *)parentWindow linearDelegate:(id<GCSLinearDuplicationDelegate>)delegate;
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo;
 
 - (void)conditionallyEnableOKButton;
 
