@@ -16,12 +16,13 @@ private var routePath: DKDrawablePath?
 private var origRoutePath: DKDrawablePath?
 
 extension DrawDemoDocument: DKRouteFinderProgressDelegate {
+	/// locate the target layer - active layer of class
 	@IBAction func computeShortestRoute(_ sender: Any?) {
-		// locate the target layer - active layer of class
-		
 		guard let layer = drawing.activeLayer(of: DKObjectOwnerLayer.self) else {
 			return
 		}
+		
+		layer.undoManager.disableUndoRegistration()
 		
 		if let routePath = routePath {
 			layer.removeObject(routePath)
@@ -59,13 +60,13 @@ extension DrawDemoDocument: DKRouteFinderProgressDelegate {
 		layer.undoManager.enableUndoRegistration()
 	}
 	
-	/// given an array of NSPoint values, construct a path object having those points.
+	/// given an array of `NSPoint` values, construct a path object having those points.
 	@objc(pathWithPoints:)
 	func path(with points: [NSValue]) -> DKDrawablePath? {
 		return path(with: points.map({$0.pointValue}))
 	}
 	
-	/// given an array of NSPoint values, construct a path object having those points.
+	/// given an array of `NSPoint`s, construct a path object having those points.
 	func path(with points: [NSPoint]) -> DKDrawablePath? {
 		var points2 = points
 		let path = NSBezierPath()
@@ -79,9 +80,9 @@ extension DrawDemoDocument: DKRouteFinderProgressDelegate {
 		return DKDrawablePath(bezierPath: path)
 	}
 
-	/// given an array of objects, sorts them by location x or y.
+	/// given an array of objects, sorts them by location `x` or `y`.
 	@objc(objectsInArray:sortedByXOrY:)
-	func objects(in array: [DKDrawableObject], sortedByX xory: Bool) -> [DKDrawableObject]{
+	func objects(in array: [DKDrawableObject], sortedByX xory: Bool) -> [DKDrawableObject] {
 		return array.sorted(by: { (a, b) -> Bool in
 			let pa = a.location
 			let pb = b.location

@@ -15,6 +15,7 @@
 		5523ED431FEB27A500639846 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */; };
 		5540CEA71FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */; };
 		5540CEAA1FEE590B0053C233 /* GCSCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */; };
+		55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
 		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
 		55C968D01FE3351C009AD729 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
@@ -226,6 +227,7 @@
 		5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSGradientCell.swift; sourceTree = "<group>"; };
 		5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSVerticallyCenteredTextFieldCell.swift; sourceTree = "<group>"; };
 		5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSCheckboxCell.swift; sourceTree = "<group>"; };
+		55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSColourPickerView.swift; sourceTree = "<group>"; };
 		55C968C01FE33509009AD729 /* DrawDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C968C21FE33509009AD729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C968C41FE33509009AD729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -560,6 +562,7 @@
 				55C969211FE34099009AD729 /* Old ObjC */,
 				55C968C21FE33509009AD729 /* AppDelegate.swift */,
 				5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */,
+				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
 				5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */,
 				5523ED131FE89DBB00639846 /* GCSToolPalette.swift */,
 				550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */,
@@ -892,6 +895,7 @@
 				55C969831FE34099009AD729 /* GCSGradientPasteboard.m in Sources */,
 				55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */,
 				55C969971FE34099009AD729 /* GCSExportOptionsController.m in Sources */,
+				55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */,
 				5540CEAA1FEE590B0053C233 /* GCSCheckboxCell.swift in Sources */,
 				55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */,
 				55C9691A1FE337A2009AD729 /* GCSOutlineView.swift in Sources */,

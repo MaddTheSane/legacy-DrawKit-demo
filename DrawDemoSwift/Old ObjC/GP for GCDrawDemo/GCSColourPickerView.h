@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, DKSColourPickerMode) {
 @interface GCSColourPickerView : NSView {
 	NSColor *mNonSelectColour;
 	GCInfoFloater *mInfoWin;
-	id mTargetRef;
+	__weak id mTargetRef;
 	DKSColourPickerMode mMode;
 	NSPoint mSel;
 	SEL mSelector;
