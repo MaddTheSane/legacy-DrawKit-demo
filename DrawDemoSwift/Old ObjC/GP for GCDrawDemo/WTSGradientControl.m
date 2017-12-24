@@ -14,10 +14,10 @@
 
 #import "WTSGradientControl.h"
 
-#import "GCSColourPickerView.h"
 #import "GCSGradientPasteboard.h"
 #import "GCSSpecialColorWell.h"
 #import "GCSWindowMenu.h"
+#import "DrawDemoSwift-Swift.h"
 
 #import <DKDrawKit/GCInfoFloater.h>
 #import <DKDrawKit/DKGradient+UISupport.h>
@@ -325,7 +325,7 @@
 
 - (DKColorStop *)selectedStop
 {
-	return mSelectedStopRef;
+    return mSelectedStopRef;
 }
 
 - (void)setColorOfSelectedStop:(NSColor *)Color
@@ -654,9 +654,9 @@
 		GCSWindowMenu *popup = [GCSWindowMenu windowMenuWithContentView:picker];
 
 		if (theEvent.modifierFlags & NSEventModifierFlagOption)
-			picker.mode = kDKSColourPickerModeSwatches;
+			picker.mode = DKSColourPickerModeSwatches;
 		else
-			picker.mode = kDKSColourPickerModeSpectrum;
+			picker.mode = DKSColourPickerModeSpectrum;
 
 		[picker setTarget:self];
 		[picker setAction:@selector(changeColor:)];

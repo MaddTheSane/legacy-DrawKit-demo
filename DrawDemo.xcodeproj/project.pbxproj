@@ -48,7 +48,6 @@
 		55C9698D1FE34099009AD729 /* GCSMiniRadialControl2.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693A1FE34099009AD729 /* GCSMiniRadialControl2.m */; };
 		55C9698F1FE34099009AD729 /* GCSWindowMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693E1FE34099009AD729 /* GCSWindowMenu.m */; };
 		55C969901FE34099009AD729 /* GCSSpecialColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */; };
-		55C969921FE34099009AD729 /* GCSColourPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969451FE34099009AD729 /* GCSColourPickerView.m */; };
 		55C969941FE34099009AD729 /* GCSGradientWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9694E1FE34099009AD729 /* GCSGradientWell.m */; };
 		55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969511FE34099009AD729 /* GCSMiniCircularSlider.m */; };
 		55C969971FE34099009AD729 /* GCSExportOptionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969521FE34099009AD729 /* GCSExportOptionsController.m */; };
@@ -254,7 +253,6 @@
 		55C9692D1FE34099009AD729 /* GCSWindowMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSWindowMenu.h; sourceTree = "<group>"; };
 		55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniRadialControls.m; sourceTree = "<group>"; };
 		55C969301FE34099009AD729 /* WTSGradientControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSGradientControl.m; sourceTree = "<group>"; };
-		55C969311FE34099009AD729 /* GCSColourPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSColourPickerView.h; sourceTree = "<group>"; };
 		55C969331FE34099009AD729 /* GCSMiniControlCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControlCluster.m; sourceTree = "<group>"; };
 		55C969341FE34099009AD729 /* GCSMiniControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControl.m; sourceTree = "<group>"; };
 		55C969381FE34099009AD729 /* GCSMiniCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniCircularSlider.h; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 		55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSSpecialColorWell.m; sourceTree = "<group>"; };
 		55C969411FE34099009AD729 /* GCSMiniSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniSlider.h; sourceTree = "<group>"; };
 		55C969421FE34099009AD729 /* GCSGradientPasteboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSGradientPasteboard.h; sourceTree = "<group>"; };
-		55C969451FE34099009AD729 /* GCSColourPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSColourPickerView.m; sourceTree = "<group>"; };
 		55C969461FE34099009AD729 /* WTSGradientControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSGradientControl.h; sourceTree = "<group>"; };
 		55C969471FE34099009AD729 /* GCSMiniRadialControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniRadialControls.h; sourceTree = "<group>"; };
 		55C9694B1FE34099009AD729 /* GCSMiniControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniControl.h; sourceTree = "<group>"; };
@@ -637,8 +634,6 @@
 			children = (
 				55C969B31FE35360009AD729 /* GCSGradientPanel.h */,
 				55C969B41FE35361009AD729 /* GCSGradientPanel.m */,
-				55C969311FE34099009AD729 /* GCSColourPickerView.h */,
-				55C969451FE34099009AD729 /* GCSColourPickerView.m */,
 				55C969421FE34099009AD729 /* GCSGradientPasteboard.h */,
 				55C969291FE34099009AD729 /* GCSGradientPasteboard.m */,
 				55C9693B1FE34099009AD729 /* GCSGradientWell.h */,
@@ -906,7 +901,6 @@
 				55C969B21FE3525E009AD729 /* GCSMiniSlider.m in Sources */,
 				55C969B11FE351CB009AD729 /* GCSMiniControl.m in Sources */,
 				55C969B71FE3553C009AD729 /* GCSDrawDemoPrefsController.swift in Sources */,
-				55C969921FE34099009AD729 /* GCSColourPickerView.m in Sources */,
 				55C969A71FE34099009AD729 /* GCSPolarDuplicateController.m in Sources */,
 				55C969A61FE34099009AD729 /* GCSTableView.m in Sources */,
 				55C969A21FE34099009AD729 /* GCSLinearDuplicateController.m in Sources */,

@@ -1,5 +1,5 @@
 #import "GCSTableView.h"
-#import "GCSColourPickerView.h"
+#import "DrawDemoSwift-Swift.h"
 #import "GCSWindowMenu.h"
 
 #import <DKDrawKit/DKGradient+UISupport.h>
@@ -200,7 +200,7 @@
 	GCSColourPickerView *picker = [[GCSColourPickerView alloc] initWithFrame:sr];
 	GCSWindowMenu *popup = [GCSWindowMenu windowMenuWithContentView:picker];
 
-	picker.mode = kDKSColourPickerModeSwatches;
+	picker.mode = DKSColourPickerModeSwatches;
 	//[picker setMode:kDKColourPickerModeSpectrum];
 
 	[picker setTarget:self];

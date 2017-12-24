@@ -19,14 +19,14 @@ private var ROWS: Int {
 }
 
 
-class GCSColourPickerView2: NSView {
-	@objc(DKSColourPickerMode2)
+class GCSColourPickerView: NSView {
+	@objc(DKSColourPickerMode)
 	enum Mode: Int {
 		case swatches = 0
 		case spectrum = 1
 	}
 	
-	private var colorForUndefinedSelection: NSColor = NSColor.gray {
+	@objc var colorForUndefinedSelection: NSColor = NSColor.gray {
 		didSet {
 			// set brightness to the colour's brightness
 			if let newBright = colorForUndefinedSelection.usingColorSpaceName(.calibratedRGB)?.brightnessComponent {

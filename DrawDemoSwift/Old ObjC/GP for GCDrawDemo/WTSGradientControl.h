@@ -19,11 +19,11 @@
 
 @interface WTSGradientControl : GCSGradientWell {
 	DKColorStop *mDragStopRef;
-	DKColorStop *mSelectedStopRef;
+	__weak DKColorStop *mSelectedStopRef;
 	DKColorStop *mDeletionCandidateRef;
 	GCInfoFloater *mInfoWin;
 
-	NSMutableArray *mUnsortedStops;
+	NSMutableArray<DKColorStop*> *mUnsortedStops;
 	NSMutableArray *mSBArray;
 
 	NSPoint mStopInsertHint;
@@ -39,7 +39,7 @@
 - (NSColor *)colorAtPoint:(NSPoint)point;
 
 - (NSRect)swatchBoxAtPosition:(CGFloat)position;
-@property (readonly, copy) NSArray *allSwatchBoxes;
+@property (readonly, copy) NSArray<NSValue*> *allSwatchBoxes;
 - (NSRect)swatchRectForStop:(DKColorStop *)stop;
 - (void)invalidate;
 
