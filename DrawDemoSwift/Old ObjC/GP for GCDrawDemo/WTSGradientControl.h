@@ -45,7 +45,7 @@
 
 - (void)drawStopsInRect:(NSRect)rect;
 - (DKColorStop *)stopAtPoint:(NSPoint)point;
-@property (copy) DKColorStop *selectedStop;
+@property (nonatomic, weak) DKColorStop *selectedStop;
 - (void)setColorOfSelectedStop:(NSColor *)Color;
 
 - (void)updateInfoWithPosition:(CGFloat)pos;

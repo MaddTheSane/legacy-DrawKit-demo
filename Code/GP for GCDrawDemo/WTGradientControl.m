@@ -323,10 +323,7 @@
 	}
 }
 
-- (DKColorStop *)selectedStop
-{
-	return mSelectedStopRef;
-}
+@synthesize selectedStop=mSelectedStopRef;
 
 - (void)setColorOfSelectedStop:(NSColor *)Color
 {
