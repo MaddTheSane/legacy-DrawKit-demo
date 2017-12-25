@@ -18,7 +18,7 @@
 	BOOL mEnableCache;
 }
 
-@property (copy) DKGradient *gradient;
+@property (nonatomic, strong) DKGradient *gradient;
 
 @property (nonatomic) NSSize inset;
 

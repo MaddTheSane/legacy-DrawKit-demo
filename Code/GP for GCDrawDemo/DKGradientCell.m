@@ -34,10 +34,7 @@
 	}
 }
 
-- (DKGradient *)gradient
-{
-	return mGradient;
-}
+@synthesize gradient=mGradient;
 
 #pragma mark -
 @synthesize inset = mInset;
