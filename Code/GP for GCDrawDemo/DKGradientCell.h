@@ -12,8 +12,6 @@
 
 @interface DKGradientCell : NSImageCell {
 	DKGradient *mGradient;
-	__unsafe_unretained id mTargetRef;
-	SEL mAction;
 	NSSize mInset;
 	BOOL mEnableCache;
 }

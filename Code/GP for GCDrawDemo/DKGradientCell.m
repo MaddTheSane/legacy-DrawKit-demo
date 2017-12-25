@@ -88,11 +88,6 @@
 
 #pragma mark -
 #pragma mark As an NSCell
-- (SEL)action
-{
-	return mAction;
-}
-
 - (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
 	if ([self gradient]) {
@@ -135,21 +130,6 @@
 			[rr stroke];
 		}
 	}
-}
-
-- (void)setAction:(SEL)action
-{
-	mAction = action;
-}
-
-- (void)setTarget:(id)target
-{
-	mTargetRef = target;
-}
-
-- (id)target
-{
-	return mTargetRef;
 }
 
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
@@ -209,8 +189,8 @@
 	self = [super initImageCell:nil];
 	if (self != nil) {
 		NSAssert(mGradient == nil, @"Expected init to zero");
-		NSAssert(mTargetRef == nil, @"Expected init to zero");
-		NSAssert(mAction == nil, @"Expected init to zero");
+		NSAssert(self.target == nil, @"Expected init to zero");
+		NSAssert(self.action == nil, @"Expected init to zero");
 		[self setInset:kDKDefaultGradientCellInset];
 		mEnableCache = YES;
 

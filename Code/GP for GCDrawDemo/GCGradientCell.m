@@ -277,11 +277,6 @@ static NSInteger sMFlags = 0;
 
 #pragma mark -
 #pragma mark As an DKGradientCell
-- (SEL)action
-{
-	return mAction;
-}
-
 - (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
 	if ([self gradient]) {
@@ -307,21 +302,6 @@ static NSInteger sMFlags = 0;
 			}
 		}
 	}
-}
-
-- (void)setAction:(SEL)action
-{
-	mAction = action;
-}
-
-- (void)setTarget:(id)target
-{
-	mTargetRef = target;
-}
-
-- (id)target
-{
-	return mTargetRef;
 }
 
 #pragma mark -
