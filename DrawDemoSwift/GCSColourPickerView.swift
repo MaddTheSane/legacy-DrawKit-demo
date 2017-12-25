@@ -36,7 +36,7 @@ class GCSColourPickerView: NSView {
 	}
 	let infoWin: GCInfoFloater = {
 		let newFloat = GCInfoFloater()
-		newFloat.setWindowOffset(.zero)
+		newFloat.windowOffset = .zero
 		return newFloat
 	}()
 	@objc var mode: Mode = .spectrum {
@@ -123,7 +123,7 @@ class GCSColourPickerView: NSView {
 	
 	// MARK: -
 	
-	var color: NSColor {
+	@objc var color: NSColor {
 		if mode == .swatches {
 			if sel.x < 0 || sel.x > CGFloat(COLS - 1) || sel.y < 0 || sel.y > CGFloat(ROWS - 1) {
 				return colorForUndefinedSelection
@@ -200,11 +200,11 @@ class GCSColourPickerView: NSView {
 	@objc(colorForSwatchX:y:)
 	func colorForSwatch(x: Int, y: Int) -> NSColor? {
 		let indx = y * COLS + x
-		let cList = NSColorList(name: NSColorList.Name(rawValue: "Web Safe Colors"))
+		let cList = NSColorList(named: NSColorList.Name(rawValue: "Web Safe Colors"))!
 		
 		let keys = cList.allKeys
 		
-		let i = indx % keys.count
+		let i = keys.count == 0 ? 0 : indx % keys.count
 		
 		return cList.color(withKey: keys[i])
 	}
