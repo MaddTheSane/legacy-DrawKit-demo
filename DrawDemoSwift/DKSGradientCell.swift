@@ -24,7 +24,7 @@ private var kDKDefaultGradientCellInset: NSSize {
 class DKSGradientCell: NSImageCell {
 	var enableCache = true
 	@objc var inset = kDKDefaultGradientCellInset
-	@NSCopying @objc var gradient: DKGradient? {
+	@objc var gradient: DKGradient? {
 		willSet {
 			if gradient !== newValue {
 				enableCache = true

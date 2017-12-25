@@ -260,12 +260,10 @@
 #pragma unused(rect)
 	NSArray *boxes = [self allSwatchBoxes]; // to detect overlaps
 
-	NSEnumerator *curs = [mUnsortedStops objectEnumerator];
-	DKColorStop *element;
 	NSRect sw;
 	int j = 0, state;
 
-	while ((element = [curs nextObject]) != nil) {
+	for (DKColorStop *element in mUnsortedStops) {
 		if (element != mDeletionCandidateRef) {
 			sw = [boxes[j] rectValue];
 
