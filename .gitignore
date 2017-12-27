@@ -2,3 +2,4 @@
 *.perspectivev?
 xcuserdata/
 build/
+project.xcworkspace/
