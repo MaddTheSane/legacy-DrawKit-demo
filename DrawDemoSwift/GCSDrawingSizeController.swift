@@ -52,6 +52,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	var savedUnits: DKDrawingUnit?
 	var savedGridColour: NSColor?
 	var savedPaperColour: NSColor?
+	private weak var parent: NSWindow?
 	
 	//- (void)beginDrawingSizeDialog:(NSWindow *)parent withDrawing:(DKDrawing *)drawing;
 	@objc(beginDrawingSizeDialog:withDrawing:)
@@ -76,12 +77,16 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 		conversionFactorLabelText.stringValue = "1 \(drawing.drawingUnits.rawValue) occupies"
 		prepareDialog(with: drawing)
 		
-		NSApp.beginSheet(self.window!, modalFor: parent, modalDelegate: self, didEnd: #selector(GCSDrawingSizeController.sheetDidEnd(_:returnCode:contextInfo:)), contextInfo: /*"drawing_size"*/nil)
+		self.parent = parent
+		parent.beginSheet(self.window!) { (returnCode) in
+			self.sheetDidEnd(self.window!, returnCode: returnCode, contextInfo: nil)
+			self.parent = nil
+		}
 	}
 	
 	@IBAction func cancelAction(_ sender: Any?) {
 		window?.orderOut(self)
-		NSApp.endSheet(window!, returnCode: NSApplication.ModalResponse.cancel.rawValue)
+		parent?.endSheet(window!, returnCode: .cancel)
 	}
 	
 	@IBAction func gridDivsAction(_ sender: AnyObject?) {
@@ -180,7 +185,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	
 	@IBAction func okAction(_ sender: Any?) {
 		window?.orderOut(self)
-		NSApp.endSheet(window!, returnCode: NSApplication.ModalResponse.OK.rawValue)
+		parent?.endSheet(window!, returnCode: .OK)
 	}
 	
 	@IBAction func unitsComboBoxAction(_ sender: AnyObject?) {
@@ -286,7 +291,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	}
 	
 	@objc(sheetDidEnd:returnCode:contextInfo:)
-	func sheetDidEnd(_ sheet: NSWindow, returnCode: NSApplication.ModalResponse, contextInfo: UnsafeMutableRawPointer) {
+	func sheetDidEnd(_ sheet: NSWindow, returnCode: NSApplication.ModalResponse, contextInfo: UnsafeMutableRawPointer?) {
 		if returnCode == NSApplication.ModalResponse.OK {
 			// apply the settings to the drawing.
 			
