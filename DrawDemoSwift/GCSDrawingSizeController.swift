@@ -14,7 +14,7 @@ import DKDrawKit.DKCategoryManager
 import DKDrawKit.DKStyleRegistry
 import DrawKitSwift
 
-private let units: [(name: DKDrawingUnit, factor: CGFloat)] = [(.pixels, 1), (.picas, 12), (.inches, 72.0), (.millimetres, 2.8346456692913), (.centimetres, 28.346456692913), (.metres, 2834.6456692913), (.kilometres, 28346.456692913)]
+private let units: [(name: DKDrawingUnits, factor: CGFloat)] = [(.pixels, 1), (.picas, 12), (.inches, 72.0), (.millimetres, 2.8346456692913), (.centimetres, 28.346456692913), (.metres, 2834.6456692913), (.kilometres, 28346.456692913)]
 
 class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	@IBOutlet weak var bottomMarginTextField: NSTextField!
@@ -49,7 +49,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	var savedCF: CGFloat = 1
 	var savedDivs = 1
 	var savedMajors = 0
-	var savedUnits: DKDrawingUnit?
+	var savedUnits: DKDrawingUnits?
 	var savedGridColour: NSColor?
 	var savedPaperColour: NSColor?
 	private weak var parent: NSWindow?
@@ -200,7 +200,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 		}
 		
 		conversionFactorLabelText.stringValue = "1 \(strVal) occupies"
-		drawing?.setDrawingUnits(DKDrawingUnit(rawValue: strVal), unitToPointsConversionFactor: unitConversionFactor)
+		drawing?.setDrawingUnits(DKDrawingUnits(rawValue: strVal), unitToPointsConversionFactor: unitConversionFactor)
 		
 		if livePreview {
 			drawing?.gridLayer?.synchronizeRulers()
@@ -284,7 +284,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	}
 	
 	/// populate the combobox with default units
-	func setUpComboBox(currentUnit: DKDrawingUnit) {
+	func setUpComboBox(currentUnit: DKDrawingUnits) {
 		unitsComboBox.hasVerticalScroller = false
 		unitsComboBox.addItems(withObjectValues: units.map({$0.name.rawValue}))
 		unitsComboBox.numberOfVisibleItems = units.count
@@ -303,7 +303,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 			let r = ((rightMarginTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor
 			drawing?.drawingSize = dwgSize
 			drawing?.margins = (l, t, b, r)
-			drawing?.setDrawingUnits(DKDrawingUnit(rawValue: unitsComboBox.stringValue), unitToPointsConversionFactor: unitConversionFactor)
+			drawing?.setDrawingUnits(DKDrawingUnits(rawValue: unitsComboBox.stringValue), unitToPointsConversionFactor: unitConversionFactor)
 			drawing?.paperColour = paperColourWell.color
 			
 			if let grid = drawing?.gridLayer {
@@ -311,7 +311,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 				let divs = gridDivsTextField.integerValue
 				let majs = gridMajorsTextField.integerValue
 				
-				grid.setDistanceForUnitSpan(span, drawingUnits: DKDrawingUnit(unitsComboBox.stringValue), span: 1, divisions: UInt(divs), majors: UInt(majs), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+				grid.setDistanceForUnitSpan(span, drawingUnits: DKDrawingUnits(unitsComboBox.stringValue), span: 1, divisions: UInt(divs), majors: UInt(majs), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
 				
 				if tweakMarginsCheckbox.state == .on {
 					grid.tweakDrawingMargins()
