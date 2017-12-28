@@ -60,7 +60,7 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.data</string>
+				<string>public.image</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>DrawKit Drawing</string>
@@ -73,6 +73,24 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>drawing</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.image</string>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>DrawKit XML Drawing</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.apptree.xmldrawing</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>xmldrawing</string>
 				</array>
 			</dict>
 		</dict>
