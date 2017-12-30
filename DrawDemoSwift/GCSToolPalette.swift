@@ -127,7 +127,7 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 	
 	override func documentDidChange(_ note: Notification) {
 		if let firstRE = (note.object as AnyObject?)?.firstResponder, let firstR = firstRE,
-			let tool2 = (firstR as AnyObject?)?.drawingTool, let tool = tool2 {
+			let tool = (firstR as AnyObject?)?.drawingTool {
 			let tn = tool.registeredName ?? DKToolName.standardSelectionToolName
 			
 			LogEvent(.reactiveEvent, "tool will change to ‘\(tn.rawValue)’");
