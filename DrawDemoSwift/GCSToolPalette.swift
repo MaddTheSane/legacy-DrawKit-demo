@@ -99,7 +99,7 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 	
 	@objc open func toolChangedNotification(_ note: Notification) {
 		let tc = note.object as? DKToolController
-		let tn = tc?.drawingTool.registeredName ?? DKToolName.standardSelectionToolName
+		let tn = tc?.drawingTool.registeredName ?? DKToolName.standardSelection
 		
 		LogEvent(.reactiveEvent, "tool did change to ‘\(tn.rawValue)’");
 		
@@ -128,7 +128,7 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 	override func documentDidChange(_ note: Notification) {
 		if let firstRE = (note.object as AnyObject?)?.firstResponder, let firstR = firstRE,
 			let tool = (firstR as AnyObject?)?.drawingTool {
-			let tn = tool.registeredName ?? DKToolName.standardSelectionToolName
+			let tn = tool.registeredName ?? DKToolName.standardSelection
 			
 			LogEvent(.reactiveEvent, "tool will change to ‘\(tn.rawValue)’");
 			
