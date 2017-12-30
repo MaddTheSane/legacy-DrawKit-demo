@@ -8,6 +8,7 @@
 
 import Cocoa
 import DKDrawKit
+import DKDrawKit.DKDrawing.Export
 
 class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExportControllerDelegate, GCSLinearDuplicationDelegate {
 	
@@ -165,10 +166,9 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 		}
 	}
 	
+	/// callback from dialog. Locate the selection and use the object drawing layer method to do the deed. Note - centre is passed
+	/// in grid coordinates so needs converting to the drawing, and the angle is in degrees and needs converting to radians.
 	func doPolarDuplicateCopies(_ copies: Int, centre cp: NSPoint, incAngle angle: CGFloat, rotateCopies rotCopies: Bool) {
-		// callback from dialog. Locate the selection and use the object drawing layer method to do the deed. Note - centre is passed
-		// in grid coordinates so needs converting to the drawing, and the angle is in degrees and needs converting to radians.
-
 		guard let odl = drawing.activeLayer(of: DKObjectDrawingLayer.self), let target = odl.selectedAvailableObjects, target.count > 0 else {
 			return
 		}

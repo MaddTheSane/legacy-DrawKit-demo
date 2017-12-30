@@ -145,11 +145,11 @@ extension DrawDemoDocument {
 				// if this object is beyond the x range of our object, we can jump out now since there
 				// is no more beyond j worth testing against
 				
-				if (colObjRect.origin.x > objRect.maxX) {
+				if colObjRect.origin.x > objRect.maxX {
 					break;
 				}
 				
-				if (NSIntersectsRect(objRect, colObjRect)) {
+				if NSIntersectsRect(objRect, colObjRect) {
 					// they collide, so try incrementing the vertical position and starting again
 					
 					objRect.origin.y -= gridVIncrement;
