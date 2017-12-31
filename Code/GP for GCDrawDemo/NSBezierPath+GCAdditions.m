@@ -13,8 +13,6 @@
 #pragma mark As a NSBezierPath
 + (NSBezierPath *)bezierPathWithTargetInRect:(NSRect)rect
 {
-	// makes a target cross and circle in the given rect
-
 	NSRect ir = NSInsetRect(rect, rect.size.width / 4, rect.size.height / 4);
 	NSBezierPath *path = [self bezierPathWithOvalInRect:ir];
 
@@ -41,9 +39,6 @@
 
 + (NSBezierPath *)bezierPathWithRoundEndedRectInRect:(NSRect)rect
 {
-	// returns a rect with rounded ends (half circles). If <rect> is square this returns a circle. The rounded ends are applied
-	// to the shorter sides.
-
 	if (rect.size.width == rect.size.height)
 		return [NSBezierPath bezierPathWithOvalInRect:rect];
 	else {
@@ -73,9 +68,6 @@
 
 + (NSBezierPath *)roundRectInRect:(NSRect)rect andCornerRadius:(CGFloat)radius
 {
-	// return a roundRect with given corner radius. Note: this code based on Uli Kusterer's NSBezierpathRoundRects class with
-	// grateful thanks.
-
 	// Make sure radius doesn't exceed a maximum size
 
 	if (radius >= (rect.size.height / 2))
@@ -113,9 +105,6 @@
 
 + (NSBezierPath *)bezierPathWithOffsetTargetInRect:(NSRect)rect offset:(NSInteger)off
 {
-	// returns a target centred in rect, but with a round-rect shaped centre region which extends to the
-	// left or right according to <off> (-1 to left, +1 to right, 0 = normal target)
-
 	if (off == 0)
 		return [NSBezierPath bezierPathWithTargetInRect:rect];
 	else {
@@ -153,11 +142,6 @@
 #pragma mark -
 + (NSBezierPath *)bezierPathWithIrisRingWithRadius:(CGFloat)radius width:(CGFloat)width tabAngle:(CGFloat)angle tabSize:(NSSize)tabsize
 {
-	// returns a complex path consisting of a ring with a square angled tab on the outer edge. The centre line
-	// of the ring lies at <radius>, centred at the origin. The path is equally distributed either side of
-	// the radius by half the width. The angle sets the tab orientation in radians and the tab size sets
-	// the width and height of the tab.
-
 	NSBezierPath *path = [NSBezierPath bezierPathWithIrisRingWithRadius:radius width:width tabSize:tabsize];
 
 	// now rotate the path to the desired angle
@@ -171,10 +155,6 @@
 
 + (NSBezierPath *)bezierPathWithIrisRingWithRadius:(CGFloat)radius width:(CGFloat)width tabSize:(NSSize)tabsize
 {
-	// returns a complex path consisting of a ring with a square angled tab on the outer edge. The centre line
-	// of the ring lies at <radius>, centred at the origin. The path is equally distributed either side of
-	// the radius by half the width. The tab size sets the width and height of the tab.
-
 	NSBezierPath *path = [NSBezierPath bezierPath];
 
 	path.windingRule = NSEvenOddWindingRule;
@@ -234,9 +214,6 @@
 
 + (NSBezierPath *)bezierPathWithIrisTabWithRadius:(CGFloat)radius width:(CGFloat)width tabSize:(NSSize)tabsize
 {
-	// returns a path representing just the tab area of the above path. Allows this area to be filled/stroked
-	// separately if desired.
-
 	NSBezierPath *path = [NSBezierPath bezierPath];
 
 	NSPoint rp;

@@ -115,7 +115,7 @@ class DKSGradientCell: NSImageCell {
 		
 		if let cv = controlView as? GCSGradientWell {
 			if cv.isActiveWell {
-				let rr = DKShapeFactory.roundRect(in: cellFrame.insetBy(dx: 2, dy: 2), andCornerRadius: 5)!
+				let rr = DKShapeFactory.roundRect(in: cellFrame.insetBy(dx: 2, dy: 2), andCornerRadius: 5)
 				
 				rr.lineWidth = 3
 				
