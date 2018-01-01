@@ -55,7 +55,7 @@ class GCSCheckboxCell: NSButtonCell {
 		
 		controlView.setNeedsDisplay(cellFrame)
 
-		//	LogEvent_(kReactiveEvent, @"tracking in checkbox ended");
+		LogEvent(.reactiveEvent, "tracking in checkbox ended");
 
 		return wasIn
 	}

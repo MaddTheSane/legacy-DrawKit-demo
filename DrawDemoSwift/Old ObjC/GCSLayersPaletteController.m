@@ -5,6 +5,7 @@
 #import <DKDrawKit/DKViewController.h>
 #import <DKDrawKit/DKDrawingView.h>
 #import <DKDrawKit/LogEvent.h>
+#import "DrawDemoSwift-Swift.h"
 
 #pragma mark Contants (Non-localized)
 NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPasteboardType";

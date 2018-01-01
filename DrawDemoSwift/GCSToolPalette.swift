@@ -48,11 +48,10 @@ class GCSToolPalette: DKDrawkitInspectorBase {
 		}
 	}
 	
+	/// double-clicking a tool turns OFF "auto return to selection". It is turned back on again
+	/// by manually selecting the selection tool. See \c DKToolController for details.
 	@IBAction func toolDoubleClick(_ sender: Any?) {
-		// double-clicking a tool turns OFF "auto return to selection". It is turned back on again
-		// by manually selecting the selection tool. See DKToolController for details
-		
-		//	LogEvent_(kInfoEvent, @"dbl-clik tool: %@", sender );
+		LogEvent(.infoEvent, "dbl-clik tool: \(sender ?? "<nil>")")
 
 		if let toolname = (sender as AnyObject?)?.selectedCell()?.title {
 			if toolname == "Zoom" {

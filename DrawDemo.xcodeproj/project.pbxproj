@@ -15,6 +15,7 @@
 		5523ED431FEB27A500639846 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965B6ACF0C28ACDB00FFCC95 /* QuartzCore.framework */; };
 		5540CEA71FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */; };
 		5540CEAA1FEE590B0053C233 /* GCSCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */; };
+		554B512A1FF8A416001E5B09 /* GCSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B51291FF8A416001E5B09 /* GCSTableView.swift */; };
 		55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
 		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
@@ -55,7 +56,6 @@
 		55C9699C1FE34099009AD729 /* GCSDashEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9695F1FE34099009AD729 /* GCSDashEditor.m */; };
 		55C9699D1FE34099009AD729 /* GCSDashEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969611FE34099009AD729 /* GCSDashEditView.m */; };
 		55C969A21FE34099009AD729 /* GCSLinearDuplicateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9696E1FE34099009AD729 /* GCSLinearDuplicateController.m */; };
-		55C969A61FE34099009AD729 /* GCSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969761FE34099009AD729 /* GCSTableView.m */; };
 		55C969A71FE34099009AD729 /* GCSPolarDuplicateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969771FE34099009AD729 /* GCSPolarDuplicateController.m */; };
 		55C969A91FE34099009AD729 /* GCSStyleManagerDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */; };
 		55C969AA1FE34099009AD729 /* GCSStyleInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9697A1FE34099009AD729 /* GCSStyleInspector.m */; };
@@ -226,6 +226,7 @@
 		5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSGradientCell.swift; sourceTree = "<group>"; };
 		5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSVerticallyCenteredTextFieldCell.swift; sourceTree = "<group>"; };
 		5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSCheckboxCell.swift; sourceTree = "<group>"; };
+		554B51291FF8A416001E5B09 /* GCSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSTableView.swift; sourceTree = "<group>"; };
 		55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSColourPickerView.swift; sourceTree = "<group>"; };
 		55C968C01FE33509009AD729 /* DrawDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C968C21FE33509009AD729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -284,7 +285,6 @@
 		55C9696C1FE34099009AD729 /* GCSObjectInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSObjectInspector.h; sourceTree = "<group>"; };
 		55C9696E1FE34099009AD729 /* GCSLinearDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSLinearDuplicateController.m; sourceTree = "<group>"; };
 		55C969701FE34099009AD729 /* GCSDashEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSDashEditor.h; sourceTree = "<group>"; };
-		55C969761FE34099009AD729 /* GCSTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSTableView.m; sourceTree = "<group>"; };
 		55C969771FE34099009AD729 /* GCSPolarDuplicateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSPolarDuplicateController.m; sourceTree = "<group>"; };
 		55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSStyleManagerDialog.m; sourceTree = "<group>"; };
 		55C9697A1FE34099009AD729 /* GCSStyleInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSStyleInspector.m; sourceTree = "<group>"; };
@@ -568,6 +568,7 @@
 				55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */,
 				55C969191FE337A2009AD729 /* GCSOutlineView.swift */,
 				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
+				554B51291FF8A416001E5B09 /* GCSTableView.swift */,
 				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
 				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
 				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
@@ -624,7 +625,6 @@
 				55C969571FE34099009AD729 /* GCSStyleManagerDialog.h */,
 				55C969791FE34099009AD729 /* GCSStyleManagerDialog.m */,
 				55C969581FE34099009AD729 /* GCSTableView.h */,
-				55C969761FE34099009AD729 /* GCSTableView.m */,
 			);
 			path = "Old ObjC";
 			sourceTree = "<group>";
@@ -902,12 +902,12 @@
 				55C969B11FE351CB009AD729 /* GCSMiniControl.m in Sources */,
 				55C969B71FE3553C009AD729 /* GCSDrawDemoPrefsController.swift in Sources */,
 				55C969A71FE34099009AD729 /* GCSPolarDuplicateController.m in Sources */,
-				55C969A61FE34099009AD729 /* GCSTableView.m in Sources */,
 				55C969A21FE34099009AD729 /* GCSLinearDuplicateController.m in Sources */,
 				55C969201FE33FDB009AD729 /* DKSGradientCell.swift in Sources */,
 				5540CEA71FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift in Sources */,
 				55C969AD1FE343E1009AD729 /* NSWindow+SheetAdditions.m in Sources */,
 				55C9699D1FE34099009AD729 /* GCSDashEditView.m in Sources */,
+				554B512A1FF8A416001E5B09 /* GCSTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

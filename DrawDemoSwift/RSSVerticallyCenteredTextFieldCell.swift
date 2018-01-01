@@ -10,7 +10,6 @@ import Cocoa
 
 class RSSVerticallyCenteredTextFieldCell: NSTextFieldCell {
 	private var isEditingOrSelecting = false
-	//	BOOL mIsEditingOrSelecting;
 
 	override func drawingRect(forBounds rect: NSRect) -> NSRect {
 		// Get the parent's idea of where we should draw

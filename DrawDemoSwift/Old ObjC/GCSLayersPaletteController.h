@@ -2,8 +2,9 @@
 
 #import <DKDrawKit/DKDrawkitInspectorBase.h>
 #import <DKDrawKit/DKDrawing.h>
+#import "GCSTableView.h"
 
-@interface GCSLayersPaletteController : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate> {
+@interface GCSLayersPaletteController : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate, GCSColourCellHack> {
 	IBOutlet NSTableView *mLayersTable;
 	IBOutlet NSButton *mAutoActivateCheckbox;
 	NSColor *mTemporaryColour;
@@ -19,4 +20,4 @@
 - (void)setTemporaryColour:(NSColor *)aColour forTableView:(NSTableView *)tView row:(NSInteger)row;
 @end
 
-extern NSString *kDKTableRowInternalDragPasteboardType;
+extern NSPasteboardType kDKTableRowInternalDragPasteboardType;

@@ -89,7 +89,7 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 	}
 	
 	@IBAction func exportAction(_ sender: Any?) {
-		exportController?.beginExportDialog(withParentWindow: windowForSheet, delegate: self)
+		exportController?.beginExportDialog(withParentWindow: windowForSheet!, delegate: self)
 	}
 	
 	// MARK: -
@@ -126,7 +126,7 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 		}
 	}
 	
-	func performExport(type fileType: GCSExportFileTypes, withOptions options: [String : Any]! = [:]) {
+	func performExport(type fileType: GCSExportFileTypes, withOptions options: [String : Any]) {
 		guard let url = options[kGCExportedFileURL] as? URL else {
 			return
 		}

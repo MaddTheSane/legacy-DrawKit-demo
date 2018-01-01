@@ -54,7 +54,6 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	var savedPaperColour: NSColor?
 	private weak var parent: NSWindow?
 	
-	//- (void)beginDrawingSizeDialog:(NSWindow *)parent withDrawing:(DKDrawing *)drawing;
 	@objc(beginDrawingSizeDialog:withDrawing:)
 	func beginDrawingSizeDialog(_ parent: NSWindow, with drawing: DKDrawing) {
 		self.drawing = drawing

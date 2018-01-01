@@ -4,6 +4,7 @@
 #import <DKDrawKit/DKStyle.h>
 #import <DKDrawKit/DKStyleRegistry.h>
 #import <DKDrawKit/LogEvent.h>
+#import "DrawDemoSwift-Swift.h"
 
 @implementation GCSStyleManagerDialog
 #pragma mark As a GCStyleManagerDialog
@@ -69,7 +70,7 @@
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(alert)
-	if (returnCode == NSAlertDefaultReturn) {
+	if (returnCode == NSModalResponseOK) {
 		NSString *op = (__bridge NSString *)contextInfo;
 
 		// do the deed

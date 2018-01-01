@@ -7,6 +7,7 @@
 #import "GCSBasicDialogController.h"
 
 @class DKStyle;
+@class GCSTableView;
 
 @interface GCSStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate, DKStyleRegistryDelegate, GCSBasicDialogDelegate> {
 	IBOutlet NSButton *mAddCategoryButton;

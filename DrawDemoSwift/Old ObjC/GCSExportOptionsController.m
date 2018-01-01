@@ -138,7 +138,7 @@ NSString *kGCExportedFileURL = @"kGCExportedFileURL";
 	mSavePanel.allowedFileTypes = @[ rft ];
 }
 
-- (void)exportPanelDidEnd:(NSSavePanel *)sp returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+- (void)exportPanelDidEnd:(NSSavePanel *)sp returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(contextInfo)
 

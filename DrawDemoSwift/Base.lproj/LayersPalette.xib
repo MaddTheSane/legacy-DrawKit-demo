@@ -31,7 +31,7 @@
                             <rect key="frame" x="1" y="0.0" width="267" height="167"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="28" headerView="54" id="10" customClass="GCSTableView">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="28" headerView="54" id="10" customClass="GCSTableView" customModule="DrawDemoSwift" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="267" height="144"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>

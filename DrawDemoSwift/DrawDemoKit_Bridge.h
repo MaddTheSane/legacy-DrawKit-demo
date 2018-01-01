@@ -19,6 +19,8 @@
 #import "GCSLinearDuplicateController.h"
 #import "GCSMiniControl.h"
 #import "GCSGradientWell.h"
+#import "GCSTableView.h"
+#import "GCSWindowMenu.h"
 
 #import "GCSMiniCircularSlider.h"
 #import "GCSMiniControlCluster.h"

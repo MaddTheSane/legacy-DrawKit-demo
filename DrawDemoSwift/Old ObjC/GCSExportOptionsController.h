@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol GCSExportControllerDelegate;
 
 typedef NS_ENUM(NSInteger, GCSExportFileTypes) {
@@ -39,17 +41,17 @@ typedef NS_ENUM(NSInteger, GCSExportFileTypes) {
 
 - (void)beginExportDialogWithParentWindow:(NSWindow *)parent delegate:(id<GCSExportControllerDelegate>)delegate;
 
-- (IBAction)formatPopUpAction:(id)sender;
-- (IBAction)resolutionPopUpAction:(id)sender;
-- (IBAction)formatIncludeGridAction:(id)sender;
-- (IBAction)jpegQualityAction:(id)sender;
-- (IBAction)jpegProgressiveAction:(id)sender;
-- (IBAction)tiffCompressionAction:(id)sender;
-- (IBAction)tiffAlphaAction:(id)sender;
-- (IBAction)pngInterlaceAction:(id)sender;
+- (IBAction)formatPopUpAction:(nullable id)sender;
+- (IBAction)resolutionPopUpAction:(nullable id)sender;
+- (IBAction)formatIncludeGridAction:(nullable id)sender;
+- (IBAction)jpegQualityAction:(nullable id)sender;
+- (IBAction)jpegProgressiveAction:(nullable id)sender;
+- (IBAction)tiffCompressionAction:(nullable id)sender;
+- (IBAction)tiffAlphaAction:(nullable id)sender;
+- (IBAction)pngInterlaceAction:(nullable id)sender;
 
 - (void)displayOptionsForFileType:(GCSExportFileTypes)type;
-- (void)exportPanelDidEnd:(NSSavePanel *)sp returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)exportPanelDidEnd:(NSSavePanel *)sp returnCode:(NSModalResponse)returnCode contextInfo:(nullable void *)contextInfo;
 
 @end
 
@@ -67,3 +69,5 @@ static const GCSExportFileTypes NSPDFFileType API_DEPRECATED_WITH_REPLACEMENT("G
 
 extern NSString *kGCIncludeGridInExportedFile; // BOOL property
 extern NSString *kGCExportedFileURL;		   // NSURL property
+
+NS_ASSUME_NONNULL_END
