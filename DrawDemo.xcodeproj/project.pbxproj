@@ -16,8 +16,9 @@
 		5540CEA71FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */; };
 		5540CEAA1FEE590B0053C233 /* GCSCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */; };
 		554B512A1FF8A416001E5B09 /* GCSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B51291FF8A416001E5B09 /* GCSTableView.swift */; };
-		554B514D1FFAC6EE001E5B09 /* DKQLPlug.qlgenerator in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 554B514B1FFAC6DD001E5B09 /* DKQLPlug.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		554B514D1FFAC6EE001E5B09 /* DKQLPlug.qlgenerator in Embed QuickLook PlugIn */ = {isa = PBXBuildFile; fileRef = 554B514B1FFAC6DD001E5B09 /* DKQLPlug.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */; };
+		55B2D0931FFAFB29008D7551 /* DKQLPlug.qlgenerator in Embed QuickLook PlugIn */ = {isa = PBXBuildFile; fileRef = 554B514B1FFAC6DD001E5B09 /* DKQLPlug.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
 		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
 		55C968D01FE3351C009AD729 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
@@ -144,6 +145,13 @@
 			remoteGlobalIDString = 554B51351FFAC6BF001E5B09;
 			remoteInfo = DKQLPlug;
 		};
+		55B2D0941FFAFB29008D7551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 554B51461FFAC6DD001E5B09 /* DKQLPlug.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 554B51351FFAC6BF001E5B09;
+			remoteInfo = DKQLPlug;
+		};
 		55C968D21FE3351C009AD729 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */;
@@ -189,15 +197,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		554B51501FFAC6EE001E5B09 /* Embed PlugIns */ = {
+		554B51501FFAC6EE001E5B09 /* Embed QuickLook PlugIn */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstPath = Contents/Library/QuickLook;
+			dstSubfolderSpec = 1;
 			files = (
-				554B514D1FFAC6EE001E5B09 /* DKQLPlug.qlgenerator in Embed PlugIns */,
+				554B514D1FFAC6EE001E5B09 /* DKQLPlug.qlgenerator in Embed QuickLook PlugIn */,
 			);
-			name = "Embed PlugIns";
+			name = "Embed QuickLook PlugIn";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55B2D0971FFAFB29008D7551 /* Embed QuickLook PlugIn */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/QuickLook;
+			dstSubfolderSpec = 1;
+			files = (
+				55B2D0931FFAFB29008D7551 /* DKQLPlug.qlgenerator in Embed QuickLook PlugIn */,
+			);
+			name = "Embed QuickLook PlugIn";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		55C968D81FE3351C009AD729 /* Embed Frameworks */ = {
@@ -758,12 +777,14 @@
 				55C968BD1FE33509009AD729 /* Frameworks */,
 				55C968BE1FE33509009AD729 /* Resources */,
 				55C968D81FE3351C009AD729 /* Embed Frameworks */,
+				55B2D0971FFAFB29008D7551 /* Embed QuickLook PlugIn */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				55C968D31FE3351C009AD729 /* PBXTargetDependency */,
 				55C968D71FE3351C009AD729 /* PBXTargetDependency */,
+				55B2D0951FFAFB29008D7551 /* PBXTargetDependency */,
 			);
 			name = DrawDemoSwift;
 			productName = DrawDemoSwift;
@@ -778,7 +799,7 @@
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 				AA89A27A0D7DCB800092F050 /* Copy Frameworks */,
-				554B51501FFAC6EE001E5B09 /* Embed PlugIns */,
+				554B51501FFAC6EE001E5B09 /* Embed QuickLook PlugIn */,
 			);
 			buildRules = (
 			);
@@ -1014,6 +1035,11 @@
 			isa = PBXTargetDependency;
 			name = DKQLPlug;
 			targetProxy = 554B514E1FFAC6EE001E5B09 /* PBXContainerItemProxy */;
+		};
+		55B2D0951FFAFB29008D7551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DKQLPlug;
+			targetProxy = 55B2D0941FFAFB29008D7551 /* PBXContainerItemProxy */;
 		};
 		55C968D31FE3351C009AD729 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
