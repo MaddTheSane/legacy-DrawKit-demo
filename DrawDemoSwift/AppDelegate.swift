@@ -9,6 +9,8 @@
 import Cocoa
 import DKDrawKit.LogEvent
 
+let defaultQualityModulationFlag = "GCDrawDemo_defaultQualityModulationFlag"
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var userToolMenu: NSMenu!
@@ -146,14 +148,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 	
 	func applicationWillFinishLaunching(_ aNotification: Notification) {
-		let qm = UserDefaults.standard.bool(forKey: "GCDrawDemo_defaultQualityModulationFlag")
+		let qm = UserDefaults.standard.bool(forKey: defaultQualityModulationFlag)
 		DrawDemoDocument.defaultQualityModulation = qm
 	}
 	
 	func applicationWillTerminate(_ aNotification: Notification) {
 		LogEvent(.infoEvent, "app quitting...")
 		
-		UserDefaults.standard.set(DrawDemoDocument.defaultQualityModulation, forKey: "GCDrawDemo_defaultQualityModulationFlag")
+		UserDefaults.standard.set(DrawDemoDocument.defaultQualityModulation, forKey: defaultQualityModulationFlag)
 	}
 	
 	@IBAction func showAboutBox(_ sender: Any?) {
