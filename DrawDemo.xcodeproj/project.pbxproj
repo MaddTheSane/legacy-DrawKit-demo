@@ -1356,6 +1356,7 @@
 					"VERSION_POSTFIX_=(Debug)",
 				);
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.apptree.gcdrawdemo;
 				PRODUCT_NAME = GCDrawDemo;
 				WRAPPER_EXTENSION = app;
@@ -1383,6 +1384,7 @@
 				);
 				INSTALL_PATH = "$(HOME)/Applications";
 				KEEP_PRIVATE_EXTERNS = NO;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.apptree.gcdrawdemo;
 				PRODUCT_NAME = GCDrawDemo;
 				WRAPPER_EXTENSION = app;
