@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -671,18 +672,18 @@ Gw
                 </popUpButton>
             </subviews>
         </customView>
-        <customObject id="376" userLabel="Export Controller" customClass="GCSExportOptionsController">
+        <customObject id="376" userLabel="Export Controller" customClass="GCSExportOptionsController" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mExportAccessoryView" destination="363" id="377"/>
-                <outlet property="mExportFormatPopUpButton" destination="364" id="378"/>
-                <outlet property="mExportIncludeGridCheckbox" destination="372" id="379"/>
-                <outlet property="mExportOptionsTabView" destination="380" id="406"/>
-                <outlet property="mExportResolutionPopUpButton" destination="421" id="431"/>
-                <outlet property="mJPEGProgressiveCheckbox" destination="400" id="405"/>
-                <outlet property="mJPEGQualitySlider" destination="391" id="404"/>
-                <outlet property="mPNGInterlaceCheckbox" destination="416" id="419"/>
-                <outlet property="mTIFFAlphaCheckbox" destination="432" id="435"/>
-                <outlet property="mTIFFCompressionTypePopUpButton" destination="407" id="420"/>
+                <outlet property="exportAccessoryView" destination="363" id="377"/>
+                <outlet property="exportFormatPopUpButton" destination="364" id="378"/>
+                <outlet property="exportIncludeGridCheckbox" destination="372" id="379"/>
+                <outlet property="exportOptionsTabView" destination="380" id="406"/>
+                <outlet property="exportResolutionPopUpButton" destination="421" id="431"/>
+                <outlet property="jpegProgressiveCheckbox" destination="400" id="405"/>
+                <outlet property="jpegQualitySlider" destination="391" id="404"/>
+                <outlet property="pngInterlaceCheckbox" destination="416" id="419"/>
+                <outlet property="tiffAlphaCheckbox" destination="432" id="435"/>
+                <outlet property="tiffCompressionTypePopUpButton" destination="407" id="420"/>
             </connections>
         </customObject>
     </objects>

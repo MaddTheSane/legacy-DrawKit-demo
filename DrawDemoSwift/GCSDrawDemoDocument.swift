@@ -9,6 +9,7 @@
 import Cocoa
 import DKDrawKit
 import DKDrawKit.DKDrawing.Export
+import DrawKitSwift
 
 class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExportControllerDelegate, GCSLinearDuplicationDelegate {
 	
@@ -126,15 +127,15 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 		}
 	}
 	
-	func performExport(type fileType: GCSExportFileTypes, withOptions options: [String : Any]) {
-		guard let url = options[kGCExportedFileURL] as? URL else {
+	func performExport(type fileType: GCSExportFileTypes, withOptions options: [NSBitmapImageRep.PropertyKey : Any]) {
+		guard let url = options[NSBitmapImageRep.PropertyKey.gcExportedFileURL] as? URL else {
 			return
 		}
 		
 		LogEvent(.fileEvent, "exporting file to URL ‘\(url)’")
 		
 		var saveGrid = false
-		let drawGrid = options[kGCIncludeGridInExportedFile] as? Bool ?? false
+		let drawGrid = options[NSBitmapImageRep.PropertyKey.gcIncludeGridInExportedFile] as? Bool ?? false
 		var data: Data?
 		if drawGrid {
 			saveGrid = drawing.gridLayer?.shouldDrawToPrinter ?? false

@@ -31,8 +31,6 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIconFile</key>
-	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -84,6 +82,8 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>DrawKit XML Drawing</string>
+			<key>UTTypeIconFile</key>
+			<string>dkdocument</string>
 			<key>UTTypeIdentifier</key>
 			<string>net.apptree.xmldrawing</string>
 			<key>UTTypeTagSpecification</key>

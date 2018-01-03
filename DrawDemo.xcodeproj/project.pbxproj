@@ -18,6 +18,7 @@
 		554B512A1FF8A416001E5B09 /* GCSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B51291FF8A416001E5B09 /* GCSTableView.swift */; };
 		554B514D1FFAC6EE001E5B09 /* DKQLPlug.qlgenerator in Embed QuickLook PlugIn */ = {isa = PBXBuildFile; fileRef = 554B514B1FFAC6DD001E5B09 /* DKQLPlug.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */; };
+		559B4F711FFC3D980000156A /* GCSExportOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */; };
 		55B2D0931FFAFB29008D7551 /* DKQLPlug.qlgenerator in Embed QuickLook PlugIn */ = {isa = PBXBuildFile; fileRef = 554B514B1FFAC6DD001E5B09 /* DKQLPlug.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
 		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
@@ -274,6 +275,7 @@
 		554B51291FF8A416001E5B09 /* GCSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSTableView.swift; sourceTree = "<group>"; };
 		554B51461FFAC6DD001E5B09 /* DKQLPlug.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DKQLPlug.xcodeproj; path = DrawKit/DKQLPlug/DKQLPlug.xcodeproj; sourceTree = "<group>"; };
 		55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSColourPickerView.swift; sourceTree = "<group>"; };
+		559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSExportOptionsController.swift; sourceTree = "<group>"; };
 		55C968C01FE33509009AD729 /* DrawDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C968C21FE33509009AD729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C968C41FE33509009AD729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */,
 				5523ED131FE89DBB00639846 /* GCSToolPalette.swift */,
 				550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */,
+				559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */,
 				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
 				55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */,
 				55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */,
@@ -956,6 +959,7 @@
 				550616F01FE48FCF00C5EE66 /* GCSDrawingSizeController.swift in Sources */,
 				55C9699C1FE34099009AD729 /* GCSDashEditor.m in Sources */,
 				55C969A91FE34099009AD729 /* GCSStyleManagerDialog.m in Sources */,
+				559B4F711FFC3D980000156A /* GCSExportOptionsController.swift in Sources */,
 				55C969811FE34099009AD729 /* GCSLayersPaletteController.m in Sources */,
 				55C969831FE34099009AD729 /* GCSGradientPasteboard.m in Sources */,
 				55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */,
