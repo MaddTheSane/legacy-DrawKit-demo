@@ -60,7 +60,7 @@ class GCSExportOptionsController: NSObject {
 			
 			self.optionsDict[.gcExportedFileURL] = sp.url
 			
-			LogEvent(.fileEvent, "export controller completed (OK), type = \(self.mFileType), dict = \(self.optionsDict)")
+			LogEvent(.fileEvent, "export controller completed (OK), type = \(self.mFileType.rawValue), dict = \(self.optionsDict)")
 			
 			delegate.performExport(type: self.mFileType, withOptions: self.optionsDict)
 		}
