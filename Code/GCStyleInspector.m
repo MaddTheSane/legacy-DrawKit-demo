@@ -529,13 +529,10 @@
 - (void)populateMenuWithDashes:(NSMenu *)menu
 {
 	NSArray *dashes = [DKStrokeDash registeredDashes];
-	NSEnumerator *iter = [dashes objectEnumerator];
-	DKStrokeDash *dash;
-	NSMenuItem *item;
-	int k = 1;
+	NSInteger k = 1;
 
-	while ((dash = [iter nextObject]) != nil) {
-		item = [menu insertItemWithTitle:@"" action:NULL keyEquivalent:@"" atIndex:k++];
+	for (DKStrokeDash *dash in dashes) {
+		NSMenuItem *item = [menu insertItemWithTitle:@"" action:NULL keyEquivalent:@"" atIndex:k++];
 
 		[item setEnabled:YES];
 		//[item setTarget:self];
@@ -548,13 +545,11 @@
 {
 	//NSArray*		categories = [NSArray arrayWithObjects:kCICategoryDistortionEffect, kCICategoryStylize, kCICategoryBlur, kCICategorySharpen, nil];
 	NSEnumerator *iter = [[CIFilter filterNamesInCategory:kCICategoryStillImage] objectEnumerator];
-	NSString *filter;
-	NSMenuItem *item;
 
 	[menu removeAllItems];
 
-	while ((filter = [iter nextObject]) != nil) {
-		item = [menu addItemWithTitle:[CIFilter localizedNameForFilterName:filter] action:NULL keyEquivalent:@""];
+	for (NSString *filter in iter) {
+		NSMenuItem *item = [menu addItemWithTitle:[CIFilter localizedNameForFilterName:filter] action:NULL keyEquivalent:@""];
 		item.representedObject = filter;
 	}
 }
