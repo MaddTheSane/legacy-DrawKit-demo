@@ -21,6 +21,7 @@
 #import "GCBasicDialogController.h"
 #import "GCOutlineView.h"
 #import "WTGradientControl.h"
+#import "GCDrawKitAppDelegate.h"
 
 #import <CoreImage/CIFilter.h>
 #import <DKDrawKit/NSShadow+Scaling.h>
