@@ -8,7 +8,7 @@
 
 import Cocoa
 import DKDrawKit.DKGradient.UISupport
-import DKDrawKit.NSColor_DKAdditions
+import DKDrawKit.DKAdditions.NSColor
 
 class GCSTableView: NSTableView {
 	// MARK: As an NSTableView

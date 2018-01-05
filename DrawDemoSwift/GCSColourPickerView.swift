@@ -8,7 +8,7 @@
 
 import Cocoa
 import DKDrawKit.GCInfoFloater
-import DKDrawKit.NSColor_DKAdditions
+import DKDrawKit.DKAdditions.NSColor
 
 private var COLS: Int {
 	return 16
