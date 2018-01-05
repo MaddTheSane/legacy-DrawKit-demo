@@ -50,7 +50,7 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 	var sel: DKDrawableObject?
 	var convertCoordinates = true
 
-	private func updateTab(at tab: SelectedItems, withSelection sel: [DKShapeGroup]?) {
+	private func updateTab(at tab: SelectedItems, withSelection sel: [DKDrawableObject]?) {
 		self.sel = nil
 		
 		switch tab {
@@ -61,7 +61,7 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 			multiInfoItemCountField.integerValue = sel!.count
 			
 		case .group:
-			updateGroupTab(withObject: sel!.last!)
+			updateGroupTab(withObject: sel!.last as? DKShapeGroup)
 			
 		case .single:
 			self.sel = sel!.last
@@ -243,7 +243,7 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 	override func redisplayContent(forSelection selection2: [DKDrawableObject]?) {
 		// this inspector really needs to work with the unfiltered selection, so fetch it:
 		
-		var selection: [DKDrawableObject]? = nil
+		var selection: [DKDrawableObject]? = selection2
 		
 		if let layer = currentActiveLayer as? DKObjectDrawingLayer,
 			let sel3 = layer.selection {
@@ -264,7 +264,7 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 		}
 		
 		metaTableView.reloadData()
-		updateTab(at: tab, withSelection: selection as? [DKShapeGroup])
+		updateTab(at: tab, withSelection: selection)
 		mainTabView.selectTabViewItem(at: tab.rawValue)
 	}
 	

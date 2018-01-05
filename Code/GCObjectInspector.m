@@ -4,7 +4,7 @@
 
 @implementation GCObjectInspector
 #pragma mark As a GCObjectInspector
-- (void)updateTabAtIndex:(NSInteger)tab withSelection:(NSArray *)sel
+- (void)updateTabAtIndex:(DKObjectInspectorTab)tab withSelection:(NSArray *)sel
 {
 	mSel = nil;
 
@@ -211,7 +211,8 @@
 		selection = ((DKObjectDrawingLayer *)layer).selection.allObjects;
 	}
 
-	NSInteger tab, oc = selection.count;
+	DKObjectInspectorTab tab;
+	NSInteger oc = selection.count;
 
 	if (oc == 0) {
 		mSel = nil;

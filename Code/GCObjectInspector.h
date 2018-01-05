@@ -6,6 +6,19 @@
 @class DKDrawableObject;
 @class DKShapeGroup;
 
+typedef NS_ENUM(NSInteger, DKObjectInspectorTab) {
+	kDKObjectInspectorTabNoItems = 0,
+	kDKObjectInspectorTabMultipleItems = 1,
+	kDKObjectInspectorTabSingleItem = 2,
+	kDKObjectInspectorTabGroupItem = 3,
+};
+
+typedef NS_ENUM(NSInteger, DKMetaDataItemType) {
+	kDKMetaDataItemTypeString = 0,
+	kDKMetaDataItemTypeInteger = 1,
+	kDKMetaDataItemTypeFloat = 2,
+};
+
 @interface GCObjectInspector : DKDrawkitInspectorBase <NSTableViewDataSource, NSTableViewDelegate> {
 	IBOutlet NSTextField *mGenInfoAngleField;
 	IBOutlet NSTextField *mGenInfoHeightField;
@@ -30,7 +43,7 @@
 	BOOL mConvertCoordinates;
 }
 
-- (void)updateTabAtIndex:(NSInteger)tab withSelection:(NSArray *)sel;
+- (void)updateTabAtIndex:(DKObjectInspectorTab)tab withSelection:(NSArray *)sel;
 - (void)updateGroupTabWithObject:(DKShapeGroup *)group;
 - (void)updateSingleItemTabWithObject:(DKDrawableObject *)obj;
 
@@ -48,18 +61,3 @@
 - (IBAction)changeAngleAction:(id)sender;
 
 @end
-
-enum {
-	kDKObjectInspectorTabNoItems = 0,
-	kDKObjectInspectorTabMultipleItems = 1,
-	kDKObjectInspectorTabSingleItem = 2,
-	kDKObjectInspectorTabGroupItem = 3
-}
-;
-
-enum {
-	kDKMetaDataItemTypeString = 0,
-	kDKMetaDataItemTypeInteger = 1,
-	kDKMetaDataItemTypeFloat = 2
-}
-;
