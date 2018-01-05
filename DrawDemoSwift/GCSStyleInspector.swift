@@ -217,7 +217,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	private var savedDash: DKStrokeDash?
 
 	/// set up the UI to match the style attached
-	func updateUIForStyle() {
+	private func updateUIForStyle() {
 		selectedRendererRef = nil
 		
 		outlineView.reloadData()
@@ -282,7 +282,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		stylePreviewImageWell.image = img
 	}
 	
-	@objc func styleChanged(_ note: Notification) {
+	@objc private func styleChanged(_ note: Notification) {
 		if (note.object as AnyObject?) === style {
 			if let mSelectedRendererRef = selectedRendererRef {
 				selectTabPane(forObject: mSelectedRendererRef)
@@ -298,7 +298,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	/// A style is being changed in some object - if the style being detached is our current style,
 	/// then update the UI to show the new one being attached, otherwise just ignore it. This allows this
 	/// UI to keep up with undo, style pasting, drag modifications and so on.
-	@objc func styleAttached(_ note: Notification) {
+	@objc private func styleAttached(_ note: Notification) {
 		if let theOldStyle = note.userInfo?[kDKDrawableOldStyleKey] as? DKStyle,
 			theOldStyle === style,
 			let theNewStyle = note.userInfo?[kDKDrawableNewStyleKey] as? DKStyle {
@@ -306,7 +306,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@objc func styleRegistered(_ note: Notification) {
+	@objc private func styleRegistered(_ note: Notification) {
 		populatePopUpButton(withLibraryStyles: styleLibraryPopUpButton)
 	}
 
@@ -314,7 +314,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	/// Given an item in the outline view, this selects the appropriate tab view and sets its widget contents
 	/// to match the object.
-	func selectTabPane(forObject obj: DKRasterizer?) {
+	private func selectTabPane(forObject obj: DKRasterizer?) {
 		if selectedRendererRef !== obj {
 			// reset the font manager's action, in case an earlier label editor changed it:
 
@@ -363,7 +363,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 	
 	/// Given a renderer object, this adds it to the end of the currently selected group and selects it.
-	func addAndSelectNewRenderer(_ obj: DKRasterizer) {
+	private func addAndSelectNewRenderer(_ obj: DKRasterizer) {
 		// need to determine which group is currently selected in the outline view to give the item a parent
 		let parent: DKRastGroup? = {
 			if let sel = outlineView.item(atRow: outlineView.selectedRow) {
@@ -396,7 +396,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	// MARK: - refreshing the UI for different selected rasterizers as the selection changes
 	
 	/// set UI widgets to match stroke's attributes
-	func updateSettings(for stroke: DKStroke) {
+	private func updateSettings(for stroke: DKStroke) {
 		strokeColourWell.color = stroke.colour
 		strokeSlider.objectValue = stroke.width
 		strokeTextField.objectValue = stroke.width
@@ -452,7 +452,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 	
 	/// which tab of the fill type view to display
-	func updateSettings(for fill: DKFill) {
+	private func updateSettings(for fill: DKFill) {
 		var tab = FillType.solid
 		
 		if fill.gradient != nil {
@@ -500,7 +500,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fillTypeTabView.selectTabViewItem(at: tab.rawValue)
 	}
 	
-	func updateSettings(forHatch hatch: DKHatching) {
+	private func updateSettings(forHatch hatch: DKHatching) {
 		hatchColourWell.color = hatch.colour
 		hatchSpacingSlider.objectValue = hatch.spacing
 		hatchSpacingTextField.objectValue = hatch.spacing
@@ -526,7 +526,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	func updateSettings(forImage ir: DKImageAdornment) {
+	private func updateSettings(forImage ir: DKImageAdornment) {
 		imageWell.image = ir.image;
 		imageOpacitySlider.objectValue = ir.opacity;
 		imageScaleSlider.objectValue = ir.scale;
@@ -544,14 +544,14 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	func updateSettings(forCoreImageEffect effg: DKCIFilterRastGroup!) {
+	private func updateSettings(forCoreImageEffect effg: DKCIFilterRastGroup!) {
 		ciFilterClipToPathCheckbox.state = effg.clipping != .none ? .on : .off
 		
 		// check and select the menu item corresponding to the current filter
 		ciFilterPopUpMenu.selectItem(at: (ciFilterPopUpMenu.menu!.indexOfItem(withRepresentedObject: effg.filter)))
 	}
 	
-	func updateSettings(forTextLabel tlr: DKTextAdornment) {
+	private func updateSettings(forTextLabel tlr: DKTextAdornment) {
 		textLabelTextField.stringValue = tlr.string ?? ""
 		textLayoutPopUpButton.selectItem(withTag: tlr.layoutMode.rawValue)
 		textAlignmentPopUpButton.selectItem(withTag: Int(tlr.alignment.rawValue))
@@ -595,7 +595,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		NSFontManager.shared.setSelectedAttributes(textAttrAnnoyingHack, isMultiple: false)
 	}
 
-	func updateSettings(for pd: DKPathDecorator) {
+	private func updateSettings(for pd: DKPathDecorator) {
 		pdIntervalSlider.objectValue = pd.interval
 		pdScaleSlider.objectValue = pd.scale
 		pdNormalToPathCheckbox.state = pd.normalToPath ? .on : .off
@@ -620,7 +620,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	func updateSettings(forBlendEffect brg: DKQuartzBlendRastGroup) {
+	private func updateSettings(forBlendEffect brg: DKQuartzBlendRastGroup) {
 		blendModePopUpButton.selectItem(withTag: Int(brg.blendMode.rawValue))
 		blendGroupAlphaSlider.objectValue = brg.alpha
 		blendGroupImagePreview.image = brg.maskImage
@@ -629,13 +629,13 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - setting up various menu listings:
 	
-	func populatePopUpButton(withLibraryStyles button: NSPopUpButton) {
+	private func populatePopUpButton(withLibraryStyles button: NSPopUpButton) {
 		let styleMenu = DKStyleRegistry.managedStylesMenu(withItemTarget: self, itemAction: #selector(GCSStyleInspector.libraryItemAction(_:)))
 		button.menu = styleMenu
 		button.title = "Style Library"
 	}
 	
-	func populateMenu(withDashes menu: NSMenu) {
+	private func populateMenu(withDashes menu: NSMenu) {
 		let dashes = DKStrokeDash.registeredDashes!
 		var k = 1
 		
@@ -649,7 +649,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	func populateMenu(withCoreImageFilters menu: NSMenu) {
+	private func populateMenu(withCoreImageFilters menu: NSMenu) {
 		let filt = CIFilter.filterNames(inCategory: kCICategoryStillImage)
 		
 		menu.removeAllItems()
@@ -663,7 +663,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - opening the subsidiary sheet for editing dashes:
 	
-	func openDashEditor() {
+	private func openDashEditor() {
 		if let dashRenderRef = selectedRendererRef as? DKDashable {
 			savedDash = dashRenderRef.dash
 			
@@ -1874,12 +1874,9 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	func dashDidChange(_ sender: Any!) {
 		// where Obj-C code is simpler than Swift:
 		if let dash2 = (sender as AnyObject?)?.dash, let dash1 = dash2 {
-			if let selRenRef = selectedRendererRef as? DKHatching {
-				selRenRef.dash = dash1
-			} else if let selRenRef = selectedRendererRef as? DKStroke {
+			if let selRenRef = selectedRendererRef as? DKDashable {
 				selRenRef.dash = dash1
 			}
-			//(selectedRendererRef as AnyObject?)?.dash = dash1
 		}
 	}
 	

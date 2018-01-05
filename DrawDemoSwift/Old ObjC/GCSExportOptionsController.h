@@ -6,7 +6,7 @@
 //  Copyright 2008 Apptree.net. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/NSBitmapImageRep.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -10,7 +10,6 @@
 #define DrawDemoKit_Bridge_h
 
 #import "GCFoundationAdditions.h"
-#import "GCSObjectInspector.h"
 #import "GCSLayersPaletteController.h"
 #import "GCSStyleManagerDialog.h"
 #import "GCSBasicDialogController.h"
