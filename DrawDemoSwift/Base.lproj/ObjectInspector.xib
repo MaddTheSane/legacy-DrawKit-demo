@@ -8,22 +8,22 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GCSObjectInspector" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mGenInfoAngleField" destination="55" id="129"/>
-                <outlet property="mGenInfoCoordinateRadioButtons" destination="66" id="130"/>
-                <outlet property="mGenInfoHeightField" destination="54" id="131"/>
-                <outlet property="mGenInfoLocationXField" destination="56" id="132"/>
-                <outlet property="mGenInfoLocationYField" destination="57" id="133"/>
-                <outlet property="mGenInfoStyleNameField" destination="58" id="134"/>
-                <outlet property="mGenInfoTypeField" destination="52" id="135"/>
-                <outlet property="mGenInfoWidthField" destination="53" id="136"/>
-                <outlet property="mGroupInfoItemCountField" destination="95" id="143"/>
-                <outlet property="mLockIconImageWell" destination="180" id="182"/>
-                <outlet property="mMainTabView" destination="9" id="142"/>
-                <outlet property="mMetaAddItemButton" destination="84" id="141"/>
-                <outlet property="mMetaRemoveItemButton" destination="31" id="140"/>
-                <outlet property="mMetaTableView" destination="27" id="139"/>
-                <outlet property="mMultiInfoItemCountField" destination="70" id="138"/>
-                <outlet property="mObjectTabView" destination="21" id="137"/>
+                <outlet property="genInfoAngleField" destination="55" id="129"/>
+                <outlet property="genInfoCoordinateRadioButtons" destination="66" id="130"/>
+                <outlet property="genInfoHeightField" destination="54" id="131"/>
+                <outlet property="genInfoLocationXField" destination="56" id="132"/>
+                <outlet property="genInfoLocationYField" destination="57" id="133"/>
+                <outlet property="genInfoStyleNameField" destination="58" id="134"/>
+                <outlet property="genInfoTypeField" destination="52" id="135"/>
+                <outlet property="genInfoWidthField" destination="53" id="136"/>
+                <outlet property="groupInfoItemCountField" destination="95" id="143"/>
+                <outlet property="lockIconImageWell" destination="180" id="182"/>
+                <outlet property="mainTabView" destination="9" id="142"/>
+                <outlet property="metaAddItemButton" destination="84" id="141"/>
+                <outlet property="metaRemoveItemButton" destination="31" id="140"/>
+                <outlet property="metaTableView" destination="27" id="139"/>
+                <outlet property="multiInfoItemCountField" destination="70" id="138"/>
+                <outlet property="objectTabView" destination="21" id="137"/>
                 <outlet property="window" destination="7" id="14"/>
             </connections>
         </customObject>

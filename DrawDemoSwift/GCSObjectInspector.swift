@@ -136,13 +136,13 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 	}
 	
 	
-	@objc func objectChanged(_ note: Notification!) {
+	@objc private func objectChanged(_ note: Notification!) {
 		if (note.object as AnyObject?) === sel {
 			updateSingleItemTab(with: sel!)
 		}
 	}
 	
-	@objc func styleChanged(_ note: Notification!) {
+	@objc private func styleChanged(_ note: Notification!) {
 		if (note.object as AnyObject?) === sel?.style {
 			updateSingleItemTab(with: sel!)
 		}
