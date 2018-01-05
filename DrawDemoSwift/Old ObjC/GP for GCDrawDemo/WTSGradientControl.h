@@ -32,7 +32,7 @@
 	BOOL mShowsInfo;
 }
 
-- (void)setGradient:(DKGradient *)aGradient;
+//- (void)setGradient:(DKGradient *)aGradient;
 
 - (void)removeColorStopAtPoint:(NSPoint)point;
 - (DKColorStop *)addColorStop:(NSColor *)color atPoint:(NSPoint)point;

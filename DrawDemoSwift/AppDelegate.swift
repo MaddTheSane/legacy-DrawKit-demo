@@ -83,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	@IBAction func changeAttributes(_ sender: Any?) {
-		styleInspector?.textChangeFontAction(sender)
+		styleInspector?.changeTextAttributes(sender as! NSFontManager)
 	}
 
 	func openStyleInspector() {

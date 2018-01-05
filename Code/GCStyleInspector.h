@@ -15,6 +15,7 @@
 #import <Cocoa/Cocoa.h>
 #import <DKDrawKit/DKDrawkit.h>
 #import "GCDashEditor.h"
+#import "GCFoundationAdditions.h"
 
 @class GCDashEditor;
 @class GCOutlineView;
@@ -151,7 +152,7 @@
 
 // general state management:
 
-@property (copy) DKStyle *style;
+@property (strong) DKStyle *style;
 - (void)updateUIForStyle;
 - (void)updateStylePreview;
 
@@ -310,12 +311,6 @@
 
 @end
 
-@interface NSImage (ImageResources)
-
-+ (NSImage *)imageNamed:(NSImageName)name fromBundleForClass:(Class)aClass;
-
-@end
-
 //! tab indexes for main tab view
 typedef NS_ENUM(NSInteger, DKInspectorTabs) {
 	kDKInspectorStrokeTab = 0,
@@ -367,20 +362,6 @@ typedef NS_ENUM(NSInteger, DKParameterItemsTags) {
 	kDKRoughStrokeParameterItemsTag = 150
 };
 
-extern NSString *kDKTableRowInternalDragPasteboardType;
+extern NSPasteboardType kDKTableRowInternalDragPasteboardType;
 
-// utility categories that help manage the user interface
 
-@interface NSMenu (GCAdditions)
-
-- (void)disableItemsWithTag:(int)tag;
-- (void)uncheckAllItems;
-
-@end
-
-@interface NSView (TagEnablingAdditions)
-
-- (void)setSubviewsWithTag:(NSInteger)tag hidden:(BOOL)hide;
-- (void)setSubviewsWithTag:(NSInteger)tag enabled:(BOOL)enable;
-
-@end

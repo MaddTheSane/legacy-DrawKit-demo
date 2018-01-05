@@ -9,7 +9,7 @@
 #ifndef DrawDemoKit_Bridge_h
 #define DrawDemoKit_Bridge_h
 
-#import "GCSStyleInspector.h"
+#import "GCFoundationAdditions.h"
 #import "GCSObjectInspector.h"
 #import "GCSLayersPaletteController.h"
 #import "GCSStyleManagerDialog.h"
@@ -21,6 +21,8 @@
 #import "GCSGradientWell.h"
 #import "GCSTableView.h"
 #import "GCSWindowMenu.h"
+#import "GCSDashEditor.h"
+#import "WTSGradientControl.h"
 
 #import "GCSMiniCircularSlider.h"
 #import "GCSMiniControlCluster.h"

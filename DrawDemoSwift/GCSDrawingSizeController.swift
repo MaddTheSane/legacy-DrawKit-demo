@@ -89,9 +89,9 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	}
 	
 	@IBAction func gridDivsAction(_ sender: AnyObject?) {
-		let newDivs: UInt = {
+		let newDivs: Int = {
 			if let newInt = sender?.integerValue {
-				return UInt(newInt)
+				return newInt
 			}
 			return 1
 		}()
@@ -101,13 +101,13 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 			let span = grid.spanDistance / unitConversionFactor
 			let majs = grid.majors
 			
-			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: span, divisions: newDivs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: span, divisions: newDivs, majors: majs, rulerSteps: gridRulerStepsTextField.integerValue)
 		}
 		
 		if sender === gridDivsSpinControl {
-			gridDivsTextField.integerValue = Int(newDivs)
+			gridDivsTextField.integerValue = newDivs
 		} else {
-			gridDivsSpinControl.integerValue = Int(newDivs)
+			gridDivsSpinControl.integerValue = newDivs
 		}
 	}
 	
@@ -123,7 +123,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 			let span = grid.spanDistance / unitConversionFactor
 			let divs = grid.divisions
 			
-			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: span, divisions: divs, majors: UInt(newInt), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: span, divisions: divs, majors: newInt, rulerSteps: gridRulerStepsTextField.integerValue)
 		}
 		
 		if sender === gridMajorsSpinControl {
@@ -145,7 +145,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 				return CGFloat(dv)
 			}()
 			
-			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: spanVal, divisions: divs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing.drawingUnits, span: spanVal, divisions: divs, majors: majs, rulerSteps: gridRulerStepsTextField.integerValue)
 		}
 	}
 	
@@ -158,7 +158,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 		}()
 		
 		if livePreview, let grid = drawing?.gridLayer {
-			grid.rulerSteps = UInt(newSteps)
+			grid.rulerSteps = newSteps
 		}
 		
 		if sender === gridRulerStepsSpinControl {
@@ -230,7 +230,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 			let majs = grid.majors
 			let span = grid.spanDistance / oldUCF
 			
-			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: span, divisions: divs, majors: majs, rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+			grid.setDistanceForUnitSpan(unitConversionFactor, drawingUnits: drawing!.drawingUnits, span: span, divisions: divs, majors: majs, rulerSteps: gridRulerStepsTextField.integerValue)
 		}
 	}
 	
@@ -310,7 +310,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 				let divs = gridDivsTextField.integerValue
 				let majs = gridMajorsTextField.integerValue
 				
-				grid.setDistanceForUnitSpan(span, drawingUnits: DKDrawingUnits(unitsComboBox.stringValue), span: 1, divisions: UInt(divs), majors: UInt(majs), rulerSteps: UInt(gridRulerStepsTextField.integerValue))
+				grid.setDistanceForUnitSpan(span, drawingUnits: DKDrawingUnits(unitsComboBox.stringValue), span: 1, divisions: divs, majors: majs, rulerSteps: gridRulerStepsTextField.integerValue)
 				
 				if tweakMarginsCheckbox.state == .on {
 					grid.tweakDrawingMargins()
@@ -324,7 +324,7 @@ class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 			// restore saved grid settings
 			
 			if let grid = drawing?.gridLayer {
-				grid.setDistanceForUnitSpan(savedSpan, drawingUnits: savedUnits!, span: 1, divisions: UInt(savedDivs), majors: UInt(savedMajors), rulerSteps: 2)
+				grid.setDistanceForUnitSpan(savedSpan, drawingUnits: savedUnits!, span: 1, divisions: savedDivs, majors: savedMajors, rulerSteps: 2)
 				
 				grid.setGridThemeColour(savedGridColour!)
 			}
