@@ -118,6 +118,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	@IBOutlet weak var strokeLineCapSelector: NSSegmentedControl!
 	@IBOutlet weak var strokeRoughnessSlider: NSSlider!
 	
+	@IBOutlet weak var fillTypeTabView: NSTabView!
 	@IBOutlet weak var fillControlsTabView: NSView!
 	@IBOutlet weak var fillGradientControlBar: WTSGradientControl!
 	@IBOutlet weak var fillGradientAddButton: NSButton!
@@ -496,6 +497,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		} else {
 			fillControlsTabView.setSubviewsWithTag(ItemsTag.zigZag.rawValue, hidden: true)
 		}
+		fillTypeTabView.selectTabViewItem(at: tab.rawValue)
 	}
 	
 	func updateSettings(forHatch hatch: DKHatching) {
@@ -653,7 +655,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		menu.removeAllItems()
 		
 		for filter in filt {
-			let item = menu.addItem(withTitle: CIFilter.localizedName(forFilterName: filter)!, action: nil, keyEquivalent: "")
+			let item = menu.addItem(withTitle: CIFilter.localizedName(forFilterName: filter) ?? filter, action: nil, keyEquivalent: "")
 			item.representedObject = filter
 		}
 	}

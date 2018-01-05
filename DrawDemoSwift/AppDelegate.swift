@@ -79,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		// note that the onus is on the style inspector to set this action and reset it correctly when appropriate.
 
-		styleInspector?.textChangeFontAction(sender)
+		styleInspector?.textChangeFontAction(sender as! NSFontManager)
 	}
 
 	@IBAction func changeAttributes(_ sender: Any?) {

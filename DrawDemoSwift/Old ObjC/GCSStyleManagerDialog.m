@@ -112,7 +112,7 @@
 #pragma unused(sender)
 	// warn the user of the consequences, then remove everything from the registry except the defaults
 
-	NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Really Remove All Styles From Registry?", mSelectedStyle.name]
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Really Remove All Styles From Registry?"
 									 defaultButton:@"Clear"
 								   alternateButton:@"Cancel"
 									   otherButton:nil

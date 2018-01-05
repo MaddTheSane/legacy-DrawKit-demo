@@ -28,6 +28,7 @@
                 <outlet property="fillGradientRemoveButton" destination="3271" id="3279"/>
                 <outlet property="fillPatternImagePreview" destination="404" id="2041"/>
                 <outlet property="fillShadowCheckbox" destination="3260" id="3281"/>
+                <outlet property="fillTypeTabView" destination="40" id="qO7-sA-SpK"/>
                 <outlet property="fillZZAmp" destination="3258" id="3283"/>
                 <outlet property="fillZZLength" destination="3259" id="3282"/>
                 <outlet property="fillZZSpread" destination="3257" id="3284"/>
