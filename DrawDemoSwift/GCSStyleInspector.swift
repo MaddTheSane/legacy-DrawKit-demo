@@ -685,15 +685,15 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from stroke widgets:
 	
-	@IBAction func strokeColourAction(_ sender: Any!) {
+	@IBAction func strokeColourAction(_ sender: Any?) {
 		(selectedRendererRef as? DKStroke)?.colour = (sender as AnyObject).color
 	}
 	
-	@IBAction func strokeWidthAction(_ sender: Any!) {
+	@IBAction func strokeWidthAction(_ sender: Any?) {
 		(selectedRendererRef as? DKStroke)?.width = (sender as AnyObject).objectValue as! CGFloat
 	}
 	
-	@IBAction func strokeShadowCheckboxAction(_ sender: Any!) {
+	@IBAction func strokeShadowCheckboxAction(_ sender: Any?) {
 		if let sender2 = sender as? NSButton {
 			(selectedRendererRef as? DKStroke)?.shadow = sender2.state == .on ? DKStyle.defaultShadow() : nil
 		}
@@ -722,7 +722,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func strokePathScaleAction(_ sender: Any!) {
+	@IBAction func strokePathScaleAction(_ sender: Any?) {
 		if let sender = sender as AnyObject?,
 			let scaleVal2 = sender.objectValue,
 			let scaleVal = scaleVal2 as? CGFloat {
@@ -730,7 +730,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func strokeArrowStartMenuAction(_ sender: Any!) {
+	@IBAction func strokeArrowStartMenuAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let selItem = send.selectedItem,
 			let tag = selItem?.tag,
@@ -740,7 +740,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKArrowStroke).arrowHeadAtStart = kind
 	}
 	
-	@IBAction func strokeArrowEndMenuAction(_ sender: Any!) {
+	@IBAction func strokeArrowEndMenuAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let selItem = send.selectedItem,
 			let tag = selItem?.tag,
@@ -750,7 +750,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKArrowStroke).arrowHeadAtEnd = kind
 	}
 	
-	@IBAction func strokeArrowShowDimensionAction(_ sender: Any!) {
+	@IBAction func strokeArrowShowDimensionAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let selItem = send.selectedItem,
 			let tag = selItem?.tag,
@@ -761,7 +761,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKArrowStroke).dimensioningLineOptions = lineOpts
 	}
 	
-	@IBAction func strokeTrimLengthAction(_ sender: Any!) {
+	@IBAction func strokeTrimLengthAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -770,7 +770,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKStroke).trimLength = fv
 	}
 	
-	@IBAction func strokeZigZagLengthAction(_ sender: Any!) {
+	@IBAction func strokeZigZagLengthAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -779,7 +779,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKZigZagStroke).wavelength = fv
 	}
 	
-	@IBAction func strokeZigZagAmplitudeAction(_ sender: Any!) {
+	@IBAction func strokeZigZagAmplitudeAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -788,7 +788,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKZigZagStroke).amplitude = fv
 	}
 	
-	@IBAction func strokeZigZagSpreadAction(_ sender: Any!) {
+	@IBAction func strokeZigZagSpreadAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -797,7 +797,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKZigZagStroke).spread = fv
 	}
 	
-	@IBAction func strokeLineJoinStyleAction(_ sender: Any!) {
+	@IBAction func strokeLineJoinStyleAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.selectedSegment,
 			let ljs = NSBezierPath.LineJoinStyle(rawValue: UInt(fv2)) else {
@@ -806,7 +806,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKStroke).lineJoinStyle = ljs
 	}
 	
-	@IBAction func strokeLineCapStyleAction(_ sender: Any!) {
+	@IBAction func strokeLineCapStyleAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.selectedSegment,
 			let ljs = NSBezierPath.LineCapStyle(rawValue: UInt(fv2)) else {
@@ -815,7 +815,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKStroke).lineCapStyle = ljs
 	}
 	
-	@IBAction func strokeRoughnessAction(_ sender: Any!) {
+	@IBAction func strokeRoughnessAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -827,7 +827,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from fill widgets
 	
-	@IBAction func fillColourAction(_ sender: Any!) {
+	@IBAction func fillColourAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let color = sender.color else {
 			return
@@ -835,13 +835,13 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKFill).colour = color
 	}
 	
-	@IBAction func fillShadowCheckboxAction(_ sender: Any!) {
+	@IBAction func fillShadowCheckboxAction(_ sender: Any?) {
 		if let sender2 = sender as? NSButton {
 			(selectedRendererRef as? DKFill)?.shadow = sender2.state == .on ? DKStyle.defaultShadow() : nil
 		}
 	}
 	
-	@IBAction func fillGradientAction(_ sender: Any!) {
+	@IBAction func fillGradientAction(_ sender: Any?) {
 		//	LogEvent_(kInfoEvent, @"gradient change from %@", sender );
 		
 		mIsChangingGradient = true
@@ -856,13 +856,13 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		mIsChangingGradient = false
 	}
 	
-	@IBAction func fillRemoveGradientAction(_ sender: Any!) {
+	@IBAction func fillRemoveGradientAction(_ sender: Any?) {
 		//#pragma unused(sender)
 		LogEvent(.infoEvent, "removing gradient from fill")
 		(selectedRendererRef as! DKFill).gradient = nil
 	}
 	
-	@IBAction func fillAddGradientAction(_ sender: Any!) {
+	@IBAction func fillAddGradientAction(_ sender: Any?) {
 		if let fill = selectedRendererRef as? DKFill {
 			fill.colour = .clear
 			
@@ -872,7 +872,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func fillGradientAngleAction(_ sender: Any!) {
+	@IBAction func fillGradientAngleAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -882,7 +882,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		gradient?.angleInDegrees = fv
 	}
 	
-	@IBAction func fillGradientRelativeToObjectAction(_ sender: Any!) {
+	@IBAction func fillGradientRelativeToObjectAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let stat2: NSControl.StateValue? = sender.state,
 			let stat = stat2 else {
@@ -891,7 +891,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKFill).tracksObjectAngle = stat == .on
 	}
 	
-	@IBAction func fillPatternPasteImageAction(_ sender: Any!) {
+	@IBAction func fillPatternPasteImageAction(_ sender: Any?) {
 		let pb = NSPasteboard.general
 		
 		if NSImage.canInit(with: pb) {
@@ -902,7 +902,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func fillZigZagLengthAction(_ sender: Any!) {
+	@IBAction func fillZigZagLengthAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -912,7 +912,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKZigZagFill).wavelength = fv
 	}
 	
-	@IBAction func fillZigZagAmplitudeAction(_ sender: Any!) {
+	@IBAction func fillZigZagAmplitudeAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -922,7 +922,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		(selectedRendererRef as! DKZigZagFill).amplitude = fv
 	}
 	
-	@IBAction func fillZigZagSpreadAction(_ sender: Any!) {
+	@IBAction func fillZigZagSpreadAction(_ sender: Any?) {
 		guard let send = sender as AnyObject?,
 			let fv2 = send.objectValue,
 			let fv = fv2 as? CGFloat else {
@@ -936,12 +936,12 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	// MARK: - actions from style registry widgets:
 	
 	/// Open the script editing dialog.
-	@IBAction func scriptButtonAction(_ sender: Any!) {
+	@IBAction func scriptButtonAction(_ sender: Any?) {
 		scriptEditController.runAsSheet(inParentWindow: window!, modalDelegate: self);
 	}
 	
 	
-	@IBAction func libraryMenuAction(_ sender: Any!) {
+	@IBAction func libraryMenuAction(_ sender: Any?) {
 		let tag: Int
 		if let sender = sender as AnyObject?,
 			let tag2 = sender.tag {
@@ -980,7 +980,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 	
 	/// set the style for the objects in the selection to the menu item style
-	@IBAction func libraryItemAction(_ sender: Any!) {
+	@IBAction func libraryItemAction(_ sender: Any?) {
 		LogEvent(.infoEvent, "library style = \(((sender as AnyObject?)!.representedObject!)!)")
 		
 		if let selection = selectedObjectForCurrentTarget() as? [DKDrawableObject],
@@ -1000,7 +1000,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func sharedStyleCheckboxAction(_ sender: Any!) {
+	@IBAction func sharedStyleCheckboxAction(_ sender: Any?) {
 		if !(style?.locked ?? true) {
 			if let sender = sender as AnyObject?,
 				let stat2: NSControl.StateValue? = sender.state,
@@ -1010,7 +1010,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func styleNameAction(_ sender: Any!) {
+	@IBAction func styleNameAction(_ sender: Any?) {
 		if !(style?.locked ?? true) {
 			if let aSend = sender as AnyObject?, let nameVal: String = aSend.stringValue {
 				style?.name = nameVal
@@ -1027,7 +1027,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	/// Makes a copy (mutable) of the current style and applies it to the objects in the selection. This gives us a useful
 	/// starting point for making a new style.
-	@IBAction func cloneStyleAction(_ sender: Any!) {
+	@IBAction func cloneStyleAction(_ sender: Any?) {
 		let clone = style!.mutableCopy() as! DKStyle
 		
 		// give it a new name:
@@ -1050,7 +1050,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 	
 	/// unlocks a locked style for editing. If the style is registered, posts a stern warning
-	@IBAction func unlockStyleAction(_ sender: Any!) {
+	@IBAction func unlockStyleAction(_ sender: Any?) {
 		let senderValue: Int = {
 			if let sender = sender as AnyObject?,
 				let intVal2 = sender.objectValue,
@@ -1090,7 +1090,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from general style widgets:
 	
-	@IBAction func addRendererElementAction(_ sender: Any!) {
+	@IBAction func addRendererElementAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 		let selItem = sender.selectedItem,
 			let selItem2 = selItem?.tag,
@@ -1151,7 +1151,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		currentDocument?.undoManager?.setActionName(NSLocalizedString("Add Style Component", comment: ""))
 	}
 	
-	@IBAction func removeRendererElementAction(_ sender: Any!) {
+	@IBAction func removeRendererElementAction(_ sender: Any?) {
 		guard let sel = outlineView.item(atRow: outlineView.selectedRow) as? DKStyle, sel !== style else {
 			return
 		}
@@ -1179,7 +1179,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	/// Duplicates the selected renderer within its current parent group. If the root style is selected,
 	/// does nothing.
-	@IBAction func duplicateRendererElementAction(_ sender: Any!) {
+	@IBAction func duplicateRendererElementAction(_ sender: Any?) {
 		
 		guard let sel = outlineView.item(atRow: outlineView.selectedRow) as? DKStyle, sel !== style else {
 			NSSound.beep()
@@ -1191,7 +1191,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		currentDocument?.undoManager?.setActionName(NSLocalizedString("Duplicate Style Component", comment: ""))
 	}
 	
-	@IBAction func copyRendererElementAction(_ sender: Any!) {
+	@IBAction func copyRendererElementAction(_ sender: Any?) {
 		// ensure the copy is of a component and not the whole thing
 		
 		guard let sel = outlineView.item(atRow: outlineView.selectedRow) as? DKStyle, sel !== style else {
@@ -1202,7 +1202,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		sel.copy(to: NSPasteboard.general)
 	}
 	
-	@IBAction func pasteRendererElementAction(_ sender: Any!) {
+	@IBAction func pasteRendererElementAction(_ sender: Any?) {
 		if let rend = DKRasterizer(from: NSPasteboard.general) {
 			addAndSelectNewRenderer(rend)
 			currentDocument?.undoManager?.setActionName(NSLocalizedString("Paste Style Component", comment: ""))
@@ -1211,7 +1211,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func removeTextAttributesAction(_ sender: Any!) {
+	@IBAction func removeTextAttributesAction(_ sender: Any?) {
 		if let style = style, !style.locked, style.hasTextAttributes {
 			style.removeTextAttributes()
 			currentDocument?.undoManager?.setActionName(NSLocalizedString("Remove Text Attributes", comment: ""))
@@ -1220,7 +1220,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from image adornment widgets:
 	
-	@IBAction func imageFileButtonAction(_ sender: Any!) {
+	@IBAction func imageFileButtonAction(_ sender: Any?) {
 		let op = NSOpenPanel()
 		
 		op.allowsMultipleSelection = false
@@ -1240,11 +1240,11 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func imageWellAction(_ sender: Any!) {
+	@IBAction func imageWellAction(_ sender: Any?) {
 		//Currently blank...
 	}
 	
-	@IBAction func imageIdentifierAction(_ sender: Any!) {
+	@IBAction func imageIdentifierAction(_ sender: Any?) {
 		if let sender = sender as AnyObject?,
 			let str: String = sender.stringValue,
 			let imgAd = selectedRendererRef as? DKImageAdornment {
@@ -1252,7 +1252,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func imageOpacityAction(_ sender: Any!) {
+	@IBAction func imageOpacityAction(_ sender: Any?) {
 		if let imgAd = selectedRendererRef as? DKImageAdornment,
 			let sender = sender as AnyObject?,
 			let aFl2 = sender.objectValue,
@@ -1261,7 +1261,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func imageScaleAction(_ sender: Any!) {
+	@IBAction func imageScaleAction(_ sender: Any?) {
 		if let imgAd = selectedRendererRef as? DKImageAdornment,
 			let sender = sender as AnyObject?,
 			let aFl2 = sender.objectValue,
@@ -1270,7 +1270,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func imageAngleAction(_ sender: Any!) {
+	@IBAction func imageAngleAction(_ sender: Any?) {
 		if let imgAd = selectedRendererRef as? DKImageAdornment,
 			let sender = sender as AnyObject?,
 			let aFl2 = sender.objectValue,
@@ -1287,7 +1287,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func imageClipToPathAction(_ sender: Any!) {
+	@IBAction func imageClipToPathAction(_ sender: Any?) {
 		//	((DKImageAdornment *)mSelectedRendererRef).clipping = [sender intValue];
 		guard let sender = sender as AnyObject?,
 			let imgAd = selectedRendererRef as? DKImageAdornment,
@@ -1302,7 +1302,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from hatch widgets
 	
-	@IBAction func hatchColourWellAction(_ sender: Any!) {
+	@IBAction func hatchColourWellAction(_ sender: Any?) {
 		guard let hatching = selectedRendererRef as? DKHatching,
 			let sender = sender as AnyObject?,
 			let color = sender.color else {
@@ -1311,7 +1311,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		hatching.colour = color
 	}
 	
-	@IBAction func hatchSpacingAction(_ sender: Any!) {
+	@IBAction func hatchSpacingAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let hatching = selectedRendererRef as? DKHatching,
 			let inVal2 = sender.objectValue,
@@ -1321,7 +1321,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		hatching.spacing = inVal
 	}
 	
-	@IBAction func hatchLineWidthAction(_ sender: Any!) {
+	@IBAction func hatchLineWidthAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let hatching = selectedRendererRef as? DKHatching,
 			let inVal2 = sender.objectValue,
@@ -1331,7 +1331,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		hatching.width = inVal
 	}
 	
-	@IBAction func hatchAngleAction(_ sender: Any!) {
+	@IBAction func hatchAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let hatching = selectedRendererRef as? DKHatching,
 			let inVal2 = sender.objectValue,
@@ -1341,7 +1341,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		hatching.angleInDegrees = inVal
 	}
 	
-	@IBAction func hatchRelativeAngleAction(_ sender: Any!) {
+	@IBAction func hatchRelativeAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let hatching = selectedRendererRef as? DKHatching,
 			let controlState: NSControl.StateValue = sender.state else {
@@ -1350,7 +1350,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		hatching.angleIsRelativeToObject = controlState == .on
 	}
 	
-	@IBAction func hatchDashMenuAction(_ sender: Any!) {
+	@IBAction func hatchDashMenuAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let si = sender.selectedItem, let tag = si?.tag,
 			let hatching = selectedRendererRef as? DKHatching else {
@@ -1377,7 +1377,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func hatchLeadInAction(_ sender: Any!) {
+	@IBAction func hatchLeadInAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let hatching = selectedRendererRef as? DKHatching,
 			let inVal2 = sender.objectValue,
@@ -1397,7 +1397,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func filterClipToPathAction(_ sender: Any!) {
+	@IBAction func filterClipToPathAction(_ sender: Any?) {
 		if let crr = selectedRendererRef as? DKCIFilterRastGroup,
 			let sender = sender as AnyObject?,
 			let objVal2 = sender.objectValue,
@@ -1409,7 +1409,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from text adornment widgets
 	
-	@IBAction func textLabelAction(_ sender: Any!) {
+	@IBAction func textLabelAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let adorn = selectedRendererRef as? DKTextAdornment,
 			let inVal2: String = sender.stringValue else {
@@ -1419,7 +1419,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.setLabel(inVal2)
 	}
 	
-	@IBAction func textLayoutAction(_ sender: Any!) {
+	@IBAction func textLayoutAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let si = sender.selectedItem, let tag = si?.tag,
 			let adorn = selectedRendererRef as? DKTextAdornment else {
@@ -1429,7 +1429,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.layoutMode = DKTextLayoutMode(rawValue: tag)
 	}
 	
-	@IBAction func textAlignmentMenuAction(_ sender: Any!) {
+	@IBAction func textAlignmentMenuAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let si = sender.selectedItem, let tag = si?.tag,
 			let adorn = selectedRendererRef as? DKTextAdornment,
@@ -1440,7 +1440,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.alignment = mode
 	}
 	
-	@IBAction func textPlacementMenuAction(_ sender: Any!) {
+	@IBAction func textPlacementMenuAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let si = sender.selectedItem, let tag = si?.tag,
 			let adorn = selectedRendererRef as? DKTextAdornment,
@@ -1451,7 +1451,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.verticalAlignment = mode
 	}
 	
-	@IBAction func textWrapLinesAction(_ sender: Any!) {
+	@IBAction func textWrapLinesAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let adorn = selectedRendererRef as? DKTextAdornment,
 			let inVal2: NSControl.StateValue = sender.state else {
@@ -1461,7 +1461,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.wrapsLines = inVal2 == .on
 	}
 	
-	@IBAction func textClipToPathAction(_ sender: Any!) {
+	@IBAction func textClipToPathAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let adorn = selectedRendererRef as? DKTextAdornment,
 			let inVal2: NSControl.StateValue = sender.state else {
@@ -1471,7 +1471,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.appliesObjectAngle = inVal2 == .on
 	}
 	
-	@IBAction func textRelativeAngleAction(_ sender: Any!) {
+	@IBAction func textRelativeAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let adorn = selectedRendererRef as? DKTextAdornment,
 			let inVal2: NSControl.StateValue = sender.state else {
@@ -1481,7 +1481,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.appliesObjectAngle = inVal2 == .on
 	}
 	
-	@IBAction func textAngleAction(_ sender: Any!) {
+	@IBAction func textAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let adorn = selectedRendererRef as? DKTextAdornment,
 			let inVal2 = sender.objectValue,
@@ -1492,11 +1492,11 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.angleInDegrees = inVal
 	}
 	
-	@IBAction func textFontButtonAction(_ sender: Any!) {
+	@IBAction func textFontButtonAction(_ sender: Any?) {
 		NSFontManager.shared.orderFrontFontPanel(sender)
 	}
 	
-	@IBAction func textColourAction(_ sender: Any!) {
+	@IBAction func textColourAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let adorn = selectedRendererRef as? DKTextAdornment,
 			let inVal2 = sender.color else {
@@ -1516,7 +1516,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		adorn.font = newFont
 	}
 	
-	@IBAction func textFlowInsetAction(_ sender: Any!) {
+	@IBAction func textFlowInsetAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let adorn = selectedRendererRef as? DKTextAdornment,
 			let inVal2 = sender.objectValue,
@@ -1555,7 +1555,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from path decaorator widgets:
 	
-	@IBAction func pathDecoratorIntervalAction(_ sender: Any!) {
+	@IBAction func pathDecoratorIntervalAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKPathDecorator,
 			let inVal2 = sender.objectValue,
@@ -1566,7 +1566,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.interval = inVal
 	}
 	
-	@IBAction func pathDecoratorScaleAction(_ sender: Any!) {
+	@IBAction func pathDecoratorScaleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKPathDecorator,
 			let inVal2 = sender.objectValue,
@@ -1577,7 +1577,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.scale = inVal
 	}
 	
-	@IBAction func pathDecoratorPasteObjectAction(_ sender: Any!) {
+	@IBAction func pathDecoratorPasteObjectAction(_ sender: Any?) {
 		let pb = NSPasteboard.general
 		
 		// allow PDF data to be pasted as an image
@@ -1588,7 +1588,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		}
 	}
 	
-	@IBAction func pathDecoratorPathNormalAction(_ sender: Any!) {
+	@IBAction func pathDecoratorPathNormalAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKPathDecorator,
 			let controlState: NSControl.StateValue = sender.state else {
@@ -1598,7 +1598,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.normalToPath = controlState == .on
 	}
 	
-	@IBAction func pathDecoratorLeaderDistanceAction(_ sender: Any!) {
+	@IBAction func pathDecoratorLeaderDistanceAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKPathDecorator,
 			let inVal2 = sender.objectValue,
@@ -1609,7 +1609,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.leaderDistance = inVal
 	}
 	
-	@IBAction func pathDecoratorAltPatternAction(_ sender: Any!) {
+	@IBAction func pathDecoratorAltPatternAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKFillPattern,
 			let inVal2 = sender.objectValue,
@@ -1620,7 +1620,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.patternAlternateOffset = NSSize(width: 0, height: inVal)
 	}
 	
-	@IBAction func pathDecoratorRampProportionAction(_ sender: Any!) {
+	@IBAction func pathDecoratorRampProportionAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKPathDecorator,
 			let inVal2 = sender.objectValue,
@@ -1632,7 +1632,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 
 	}
 	
-	@IBAction func pathDecoratorAngleAction(_ sender: Any!) {
+	@IBAction func pathDecoratorAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKFillPattern,
 			let inVal2 = sender.objectValue,
@@ -1643,7 +1643,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.angleInDegrees = inVal
 	}
 	
-	@IBAction func pathDecoratorRelativeAngleAction(_ sender: Any!) {
+	@IBAction func pathDecoratorRelativeAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKFillPattern,
 			let controlState: NSControl.StateValue = sender.state else {
@@ -1653,7 +1653,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 
 	}
 	
-	@IBAction func pathDecoratorMotifAngleAction(_ sender: Any!) {
+	@IBAction func pathDecoratorMotifAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKFillPattern,
 			let inVal2 = sender.objectValue,
@@ -1664,7 +1664,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.motifAngleInDegrees = inVal
 	}
 	
-	@IBAction func pathDecoratorMotifRelativeAngleAction(_ sender: Any!) {
+	@IBAction func pathDecoratorMotifRelativeAngleAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let fill = selectedRendererRef as? DKFillPattern,
 			let controlState: NSControl.StateValue = sender.state else {
@@ -1676,7 +1676,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	
 	// MARK: - actions from blend effect widgets:
 	
-	@IBAction func blendModeAction(_ sender: Any!) {
+	@IBAction func blendModeAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let si = sender.selectedItem, let tag = si?.tag,
 			let blend = selectedRendererRef as? DKQuartzBlendRastGroup else {
@@ -1685,7 +1685,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		blend.blendMode = CGBlendMode(rawValue: CGBlendMode.RawValue(tag))!
 	}
 	
-	@IBAction func blendGroupAlphaAction(_ sender: Any!) {
+	@IBAction func blendGroupAlphaAction(_ sender: Any?) {
 		guard let sender = sender as AnyObject?,
 			let blend = selectedRendererRef as? DKQuartzBlendRastGroup,
 			let inVal2 = sender.objectValue,
@@ -1696,7 +1696,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		blend.alpha = inVal
 	}
 	
-	@IBAction func blendGroupImagePasteAction(_ sender: Any!) {
+	@IBAction func blendGroupImagePasteAction(_ sender: Any?) {
 		let pb = NSPasteboard.general
 		
 		if NSImage.canInit(with: pb),
@@ -1712,7 +1712,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	// shadow actions make copies because shadow properties are not directly under KVO, but
 	// -setShadow: is, so the actions are still undoable.
 
-	@IBAction func shadowAngleAction(_ sender: Any!) {
+	@IBAction func shadowAngleAction(_ sender: Any?) {
 		guard let fill = selectedRendererRef as? DKFill,
 			let shad = fill.shadow?.copy() as? NSShadow,
 			let sender = sender as AnyObject?,
@@ -1725,7 +1725,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.shadow = shad
 	}
 	
-	@IBAction func shadowDistanceAction(_ sender: Any!) {
+	@IBAction func shadowDistanceAction(_ sender: Any?) {
 		guard let fill = selectedRendererRef as? DKFill,
 			let shad = fill.shadow?.copy() as? NSShadow,
 			let sender = sender as AnyObject?,
@@ -1738,7 +1738,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.shadow = shad
 	}
 	
-	@IBAction func shadowBlurRadiusAction(_ sender: Any!) {
+	@IBAction func shadowBlurRadiusAction(_ sender: Any?) {
 		guard let fill = selectedRendererRef as? DKFill,
 			let shad = fill.shadow?.copy() as? NSShadow,
 			let sender = sender as AnyObject?,
@@ -1751,7 +1751,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fill.shadow = shad
 	}
 	
-	@IBAction func shadowColourAction(_ sender: Any!) {
+	@IBAction func shadowColourAction(_ sender: Any?) {
 		guard let fill = selectedRendererRef as? DKFill,
 			let shad = fill.shadow?.copy() as? NSShadow,
 			let sender = sender as AnyObject?,
@@ -1871,7 +1871,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 
 	// MARK: - As a GCDashEditorDelegate delegate
-	func dashDidChange(_ sender: Any!) {
+	func dashDidChange(_ sender: Any?) {
 		// where Obj-C code is simpler than Swift:
 		if let dash2 = (sender as AnyObject?)?.dash, let dash1 = dash2 {
 			if let selRenRef = selectedRendererRef as? DKDashable {

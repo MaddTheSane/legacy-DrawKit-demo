@@ -63,9 +63,8 @@
 
 	NSImage *swatchImage = [[NSImage alloc] initWithSize:size];
 	NSRect box = NSMakeRect(0.0, 0.0, size.width, size.height);
-	[swatchImage setFlipped:YES];
 
-	[swatchImage lockFocus];
+	[swatchImage lockFocusFlipped:YES];
 	[[self gradient] fillRect:box];
 	[swatchImage unlockFocus];
 

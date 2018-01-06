@@ -47,11 +47,11 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 	
 	@IBOutlet weak var lockIconImageWell: NSImageView!
 	
-	var sel: DKDrawableObject?
-	var convertCoordinates = true
+	private var selected: DKDrawableObject?
+	private var convertCoordinates = true
 
 	private func updateTab(at tab: SelectedItems, withSelection sel: [DKDrawableObject]?) {
-		self.sel = nil
+		selected = nil
 		
 		switch tab {
 		case .none:
@@ -64,8 +64,8 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 			updateGroupTab(withObject: sel!.last as? DKShapeGroup)
 			
 		case .single:
-			self.sel = sel!.last
-			updateSingleItemTab(with: self.sel!)
+			selected = sel!.last
+			updateSingleItemTab(with: selected!)
 		}
 	}
 	
@@ -137,14 +137,14 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 	
 	
 	@objc private func objectChanged(_ note: Notification!) {
-		if (note.object as AnyObject?) === sel {
-			updateSingleItemTab(with: sel!)
+		if (note.object as AnyObject?) === selected {
+			updateSingleItemTab(with: selected!)
 		}
 	}
 	
 	@objc private func styleChanged(_ note: Notification!) {
-		if (note.object as AnyObject?) === sel?.style {
-			updateSingleItemTab(with: sel!)
+		if (note.object as AnyObject?) === selected?.style {
+			updateSingleItemTab(with: selected!)
 		}
 	}
 
@@ -167,22 +167,22 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 		
 		switch tag {
 		case .string:
-			sel?.set("", forKey: key)
+			selected?.set("", forKey: key)
 			
 		case .integer:
-			sel?.set(Int(), forKey: key)
+			selected?.set(Int(), forKey: key)
 			
 		case .float:
-			sel?.set(CGFloat(), forKey: key)
+			selected?.set(CGFloat(), forKey: key)
 		}
 	}
 	
 	@IBAction func removeMetaItemAction(_ sender: Any?) {
 		let selRow = metaTableView.selectedRow
-		let keys = sel!.userInfo.keys.sorted()
+		let keys = selected!.userInfo.keys.sorted()
 		let oldKey = keys[selRow]
 		
-		sel!.removeMetadata(forKey: oldKey)
+		selected!.removeMetadata(forKey: oldKey)
 		metaTableView.reloadData()
 	}
 	
@@ -193,12 +193,12 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 	
 	@IBAction func changeCoordinatesAction(_ sender: Any?) {
 		convertCoordinates = (sender as AnyObject).selectedCell()?.tag == 0
-		updateSingleItemTab(with: sel!)
+		updateSingleItemTab(with: selected!)
 	}
 	
 	
 	@IBAction func changeLocationAction(_ sender: Any?) {
-		guard let mSel = sel else {
+		guard let mSel = selected else {
 			return
 		}
 		var loc = NSPoint(x: genInfoLocationXField.doubleValue, y: genInfoLocationYField.doubleValue)
@@ -212,7 +212,7 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 	}
 	
 	@IBAction func changeSizeAction(_ sender: Any?) {
-		guard let sel = self.sel else {
+		guard let sel = self.selected else {
 			return
 		}
 		var size = NSSize(width: genInfoWidthField.doubleValue, height: genInfoHeightField.doubleValue)
@@ -232,7 +232,7 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 		if let sender = sender as AnyObject?,
 			let scaleVal2 = sender.objectValue,
 			let scaleVal = scaleVal2 as? CGFloat,
-			let sel = sel {
+			let sel = selected {
 			let radians = scaleVal * .pi
 			sel.angle = radians
 			(sel.drawing.undoManager as AnyObject?)?.setActionName(NSLocalizedString("Set Object Angle", comment: "undo for angle object"))
@@ -254,10 +254,10 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 		let oc = selection?.count ?? 0
 		
 		if oc == 0 {
-			sel = nil
+			selected = nil
 			tab = .none
 		} else if oc > 1 {
-			sel = nil
+			selected = nil
 			tab = .multiple
 		} else {
 			tab = .single
@@ -285,11 +285,11 @@ class GCSObjectInspector: DKDrawkitInspectorBase {
 // MARK: - As part of NSTableDataSource Protocol
 extension GCSObjectInspector: NSTableViewDataSource, NSTableViewDelegate {
 	func numberOfRows(in tableView: NSTableView) -> Int {
-		return sel?.metadataKeys?.count ?? 0
+		return selected?.metadataKeys?.count ?? 0
 	}
 	
 	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row rowIndex: Int) -> Any? {
-		guard let mSel = sel else {
+		guard let mSel = selected else {
 			return nil
 		}
 
@@ -304,7 +304,7 @@ extension GCSObjectInspector: NSTableViewDataSource, NSTableViewDelegate {
 	}
 	
 	func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row rowIndex: Int) {
-		guard let mSel = sel else {
+		guard let mSel = selected else {
 			return
 		}
 		
@@ -322,6 +322,6 @@ extension GCSObjectInspector: NSTableViewDataSource, NSTableViewDelegate {
 	}
 	
 	func tableView(_ tableView: NSTableView, shouldEdit tableColumn: NSTableColumn?, row: Int) -> Bool {
-		return !(sel?.locked ?? true)
+		return !(selected?.locked ?? true)
 	}
 }

@@ -428,8 +428,7 @@
 		//	LogEvent_(kInfoEvent,  @"rect C = {%f, %f - %f, %f}", c.origin.x, c.origin.y, c.size.width, c.size.height );
 		newImage = [[NSImage alloc] initWithSize:c.size];
 
-		[newImage setFlipped:YES];
-		[newImage lockFocus];
+		[newImage lockFocusFlipped:YES];
 		[stopImg drawInRect:b fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:0.5];
 		[poofImage drawInRect:a fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
 
