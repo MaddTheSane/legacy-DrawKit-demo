@@ -65,7 +65,7 @@
 #pragma mark -
 
 @protocol GCSDashEditorDelegate <GCSBasicDialogDelegate>
-
+@optional
 - (void)dashDidChange:(id)sender;
 
 @end

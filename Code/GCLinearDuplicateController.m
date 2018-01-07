@@ -51,7 +51,7 @@
 	[self conditionallyEnableOKButton];
 }
 
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(sheet, contextInfo)
 	if (returnCode == NSOKButton) {

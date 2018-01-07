@@ -2056,7 +2056,7 @@ extension GCSStyleInspector: NSOutlineViewDataSource {
 		
 		mDragItem = rows.first as? DKRasterizer
 		
-		if mDragItem == style {
+		if mDragItem === style {
 			return false
 		}
 		

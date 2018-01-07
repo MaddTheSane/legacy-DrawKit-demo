@@ -272,12 +272,10 @@ class GCSColourPickerView: NSView {
 		}
 	}
 	
-	/*
-- (BOOL)isFlipped
-{
-return YES;
-}
-*/
+	override var isFlipped: Bool {
+		return true
+	}
+	
 	override func mouseDown(with event: NSEvent) {
 		if showsInfo {
 			let wn = window!.windowNumber

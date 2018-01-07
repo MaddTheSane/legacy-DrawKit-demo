@@ -45,7 +45,7 @@
 #pragma unused(sender)
 }
 
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(returnCode)
 	NSString *context = (__bridge NSString *)contextInfo;
@@ -66,7 +66,7 @@
 	}
 }
 
-- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+- (void)alertDidEnd:(NSAlert *)alert returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo
 {
 #pragma unused(alert)
 	if (returnCode == NSAlertDefaultReturn) {

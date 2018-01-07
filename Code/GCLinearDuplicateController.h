@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "GCBasicDialogController.h"
 
 @protocol LinearDuplicationDelegate;
 
-@interface GCLinearDuplicateController : NSWindowController {
+@interface GCLinearDuplicateController : NSWindowController <GCBasicDialogDelegate> {
 	IBOutlet NSTextField *mNumberOfCopiesTextField;
 	IBOutlet NSTextField *mXOffsetTextField;
 	IBOutlet NSTextField *mYOffsetTextField;
@@ -25,7 +26,7 @@
 - (IBAction)cancelAction:(id)sender;
 
 - (void)beginLinearDuplicationDialog:(NSWindow *)parentWindow linearDelegate:(id<LinearDuplicationDelegate>)delegate;
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo;
 
 - (void)conditionallyEnableOKButton;
 

@@ -1,10 +1,11 @@
 /* GCPolarDuplicateController */
 
 #import <Cocoa/Cocoa.h>
+#import "GCBasicDialogController.h"
 
 @protocol PolarDuplicationDelegate;
 
-@interface GCPolarDuplicateController : NSWindowController {
+@interface GCPolarDuplicateController : NSWindowController <GCBasicDialogDelegate> {
 	IBOutlet NSTextField *mAngleIncrementTextField;
 	IBOutlet NSTextField *mCentreXTextField;
 	IBOutlet NSTextField *mCentreYTextField;
@@ -27,7 +28,7 @@
 - (IBAction)autoFitAction:(id)sender;
 
 - (void)beginPolarDuplicationDialog:(NSWindow *)parentWindow polarDelegate:(id<PolarDuplicationDelegate>)delegate;
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void *)contextInfo;
 
 - (void)conditionallyEnableOKButton;
 

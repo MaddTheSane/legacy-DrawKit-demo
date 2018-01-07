@@ -14,6 +14,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+
+@protocol GCBasicDialogDelegate;
+
 /**
  
  Basic controller handles dialogs with OK, Cancel and one primary item.
@@ -32,7 +35,7 @@
 }
 
 - (NSModalResponse)runModal;
-- (void)runAsSheetInParentWindow:(NSWindow *)parent modalDelegate:(id)delegate;
+- (void)runAsSheetInParentWindow:(NSWindow *)parent modalDelegate:(id<GCBasicDialogDelegate>)delegate;
 
 @property (readonly, strong) id primaryItem;
 
@@ -42,3 +45,7 @@
 
 @end
 
+@protocol GCBasicDialogDelegate <NSObject>
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void*)contextInfo;
+
+@end

@@ -17,11 +17,6 @@
 
 #import <DKDrawKit/DKStrokeDash.h>
 
-@interface NSObject (SDEMethod)
-- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
-
-@end
-
 @implementation GCDashEditor
 #pragma mark As a GCDashEditor
 - (void)openDashEditorInParentWindow:(NSWindow *)pw modalDelegate:(id)del

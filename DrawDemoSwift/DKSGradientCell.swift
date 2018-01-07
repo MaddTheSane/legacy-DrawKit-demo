@@ -68,9 +68,8 @@ class DKSGradientCell: NSImageCell {
 	open func makeCacheImage(with size: NSSize) -> NSImage {
 		let swatchImage = NSImage(size: size)
 		let box = NSRect(origin: .zero, size: size)
-		//swatchImage.setFlipped(true)
 		
-		swatchImage.lockFocus()
+		swatchImage.lockFocusFlipped(true)
 		gradient?.fill(box)
 		swatchImage.unlockFocus()
 		
