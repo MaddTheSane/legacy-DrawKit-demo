@@ -163,7 +163,9 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 		if let data = data, data.count > 0 {
 			do {
 				try data.write(to: url)
-			} catch _ {}
+			} catch {
+				presentError(error)
+			}
 		}
 	}
 	
