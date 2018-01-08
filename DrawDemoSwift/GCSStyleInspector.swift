@@ -821,7 +821,8 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 			let fv = fv2 as? CGFloat else {
 				return
 		}
-		(selectedRendererRef as! DKRoughStroke).roughness = fv
+		//(selectedRendererRef as? DKArrowStroke)?.rough = fv
+		(selectedRendererRef as? DKRoughStroke)?.roughness = fv
 	}
 	
 	
@@ -1152,7 +1153,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 	
 	@IBAction func removeRendererElementAction(_ sender: Any?) {
-		guard let sel = outlineView.item(atRow: outlineView.selectedRow) as? DKStyle, sel !== style else {
+		guard let sel = outlineView.item(atRow: outlineView.selectedRow) as? DKRasterizer, sel !== style else {
 			return
 		}
 		
