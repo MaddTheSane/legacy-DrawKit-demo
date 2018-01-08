@@ -15,7 +15,7 @@
 #import <DKDrawKit/DKGradient.h>
 
 //! Pasteboard Support
-@interface DKGradient (GCGradientPasteboard)
+@interface DKGradient (GCGradientPasteboard) <NSPasteboardWriting, NSPasteboardReading>
 
 //! An NSArray containing the pasteboard types that DKGradient can read.
 @property (class, readonly, copy) NSArray<NSPasteboardType> *readablePasteboardTypes;
@@ -52,10 +52,10 @@
 @end
 
 // Gradient Library Keys
-extern NSString *GCGradientInfoKey;
-extern NSString *GCGradientsKey;
+extern NSString * const GCGradientInfoKey;
+extern NSString * const GCGradientsKey;
 
 // Pasteboard and file types
-extern NSString *const GPGradientPasteboardType;
-extern NSString *const GPGradientLibPasteboardType;
-extern NSString *const GradientFileExtension;
+extern NSPasteboardType const GPGradientPasteboardType;
+extern NSPasteboardType const GPGradientLibPasteboardType;
+extern NSString * const GradientFileExtension;

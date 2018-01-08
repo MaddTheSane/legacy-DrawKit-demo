@@ -1874,7 +1874,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	// MARK: - As a GCDashEditorDelegate delegate
 	func dashDidChange(_ sender: Any?) {
 		// where Obj-C code is simpler than Swift:
-		if let dash2 = (sender as AnyObject?)?.dash, let dash1 = dash2 {
+		if let dash2: DKStrokeDash? = (sender as AnyObject?)?.dash, let dash1 = dash2 {
 			if let selRenRef = selectedRendererRef as? DKDashable {
 				selRenRef.dash = dash1
 			}

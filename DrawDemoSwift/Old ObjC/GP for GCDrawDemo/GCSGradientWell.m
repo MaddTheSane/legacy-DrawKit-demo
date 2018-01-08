@@ -178,9 +178,9 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 #pragma unused(sender)
 	NSPasteboard *pboard = [NSPasteboard generalPasteboard];
 	DKGradient *grad = self.gradient;
-	[pboard declareTypes:@[NSPDFPboardType] owner:grad];
-	[grad writeType:NSPDFPboardType toPasteboard:[NSPasteboard generalPasteboard]];
-	[grad writeType:NSTIFFPboardType toPasteboard:[NSPasteboard generalPasteboard]];
+	[pboard declareTypes:@[NSPasteboardTypePDF] owner:grad];
+	[grad writeType:NSPasteboardTypePDF toPasteboard:[NSPasteboard generalPasteboard]];
+	[grad writeType:NSPasteboardTypeTIFF toPasteboard:[NSPasteboard generalPasteboard]];
 }
 
 - (IBAction)copyBorderedImage:(id)sender
@@ -188,9 +188,9 @@ static GCSGradientWell *sCurrentActiveWell = nil;
 #pragma unused(sender)
 	NSPasteboard *pboard = [NSPasteboard generalPasteboard];
 	DKGradient *grad = self.gradient;
-	[pboard declareTypes:@[NSTIFFPboardType] owner:grad];
+	[pboard declareTypes:@[NSPasteboardTypeTIFF] owner:grad];
 	NSImage *image = [grad swatchImageWithSize:NSMakeSize(128.0f, 128.0f) withBorder:YES];
-	[pboard setData:image.TIFFRepresentation forType:NSTIFFPboardType];
+	[pboard setData:image.TIFFRepresentation forType:NSPasteboardTypeTIFF];
 }
 
 - (IBAction)paste:(id)sender
