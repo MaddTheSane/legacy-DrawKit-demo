@@ -68,6 +68,7 @@ typedef NS_ENUM(NSInteger, DKControlInfoWindowMode) {
 
 + (NSColor *)miniControlThemeColor:(DKControlThemeElement)themeElementID withAlpha:(CGFloat)alpha;
 
+- (instancetype)init UNAVAILABLE_ATTRIBUTE;
 - (instancetype)initWithBounds:(NSRect)rect inCluster:(GCSMiniControlCluster *)clust NS_DESIGNATED_INITIALIZER;
 @property (weak) GCSMiniControlCluster *cluster;
 @property (readonly, strong) NSView *view;
