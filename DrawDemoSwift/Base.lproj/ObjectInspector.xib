@@ -115,7 +115,7 @@
                                             <tabViewItems>
                                                 <tabViewItem label="Geometry" identifier="1" id="24">
                                                     <view key="view" id="25">
-                                                        <rect key="frame" x="10" y="25" width="210" height="265"/>
+                                                        <rect key="frame" x="10" y="29" width="210" height="261"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textField verticalHuggingPriority="750" id="45">
@@ -337,7 +337,7 @@
                                                                 </textFieldCell>
                                                             </textField>
                                                             <imageView id="180">
-                                                                <rect key="frame" x="7" y="240" width="17" height="19"/>
+                                                                <rect key="frame" x="7" y="236" width="17" height="19"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSLockUnlockedTemplate" id="181"/>
                                                             </imageView>
@@ -410,10 +410,10 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </tableHeaderView>
                                                             </scrollView>
-                                                            <button imageHugsTitle="YES" id="31">
+                                                            <button verticalHuggingPriority="750" imageHugsTitle="YES" id="31">
                                                                 <rect key="frame" x="41" y="5" width="32" height="22"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="149">
+                                                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="149">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
@@ -424,8 +424,8 @@
                                                             <popUpButton imageHugsTitle="YES" id="84">
                                                                 <rect key="frame" x="10" y="5" width="32" height="22"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="86" id="150">
-                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="86" id="150">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                     <menu key="menu" title="OtherViews" id="85">
                                                                         <items>

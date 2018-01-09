@@ -267,7 +267,6 @@
 		5523ED1D1FE8D66300639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Preferences.strings; sourceTree = "<group>"; };
 		5523ED1F1FE8D66900639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StyleInspector.strings; sourceTree = "<group>"; };
 		5523ED211FE8D67800639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/StyleManager.strings; sourceTree = "<group>"; };
-		5523ED231FE8D67E00639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ToolPalette.strings; sourceTree = "<group>"; };
 		5523ED251FE8D68600639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DKGraphicInspector.strings; sourceTree = "<group>"; };
 		5523ED271FE8D68D00639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Drawingsize.strings; sourceTree = "<group>"; };
 		5523ED291FE8D69000639846 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GCSDrawDemoDocument.strings; sourceTree = "<group>"; };
@@ -293,7 +292,6 @@
 		55C9690A1FE3367B009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Preferences.xib; sourceTree = "<group>"; };
 		55C9690D1FE33680009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StyleInspector.xib; sourceTree = "<group>"; };
 		55C969101FE33684009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StyleManager.xib; sourceTree = "<group>"; };
-		55C969131FE33688009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		55C969161FE33693009AD729 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		55C969191FE337A2009AD729 /* GCSOutlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSOutlineView.swift; sourceTree = "<group>"; };
 		55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSDrawDemoDocument.swift; sourceTree = "<group>"; };
@@ -346,6 +344,7 @@
 		55C969B91FE37325009AD729 /* LogEventSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEventSwift.h; sourceTree = "<group>"; };
 		55C969BA1FE37334009AD729 /* LogEventSwift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEventSwift.m; sourceTree = "<group>"; };
 		55EAFE4520001C5600761661 /* GCSObjectInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSObjectInspector.swift; sourceTree = "<group>"; };
+		55EAFE55200463DE00761661 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		55EFF2221FDE8DE0007A4610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "DrawDemoDocument+ShortestRoute.swift"; sourceTree = "<group>"; };
 		55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "DrawDemoDocument+TimelineLayout.swift"; sourceTree = "<group>"; };
@@ -1183,8 +1182,7 @@
 		55C969141FE33688009AD729 /* ToolPalette.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				55C969131FE33688009AD729 /* Base */,
-				5523ED231FE8D67E00639846 /* en */,
+				55EAFE55200463DE00761661 /* en */,
 			);
 			name = ToolPalette.xib;
 			sourceTree = "<group>";

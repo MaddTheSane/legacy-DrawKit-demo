@@ -6,7 +6,6 @@
 #import "GCSTableView.h"
 #import "GCSBasicDialogController.h"
 
-@class DKStyle;
 @class GCSTableView;
 
 @interface GCSStyleManagerDialog : NSWindowController <NSTableViewDataSource, NSTableViewDelegate, DKStyleRegistryDelegate, GCSBasicDialogDelegate> {
@@ -33,7 +32,7 @@
 - (IBAction)saveStylesToFileAction:(id)sender;
 - (IBAction)loadStylesFromFileAction:(id)sender;
 
-@property (readonly, copy) DKStyleRegistry *styles;
+@property (readonly, strong) DKStyleRegistry *styles;
 - (void)populateMatrixWithStyleInCategory:(NSString *)cat;
 - (void)updateUIForStyle:(DKStyle *)style;
 - (void)updateUIForCategory:(NSString *)category;

@@ -16,6 +16,7 @@ import DKDrawKit
 import DKDrawKit.DKStyle
 import DKDrawKit.DKDrawkitInspectorBase
 import DKDrawKit.DKDashable
+import DKDrawKit.DKRasterizer
 import CoreImage.CIFilter
 
 private let DKTableRowInternalDrag: NSPasteboard.PasteboardType = NSPasteboard.PasteboardType(rawValue: "kDKTableRowInternalDragPasteboardType")
@@ -1901,7 +1902,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		} else if action == #selector(GCSStyleInspector.pasteRendererElementAction(_:)) {
 			// permitted if the pasteboard contains a renderer & style unlocked
 
-			let pbtype = NSPasteboard.general.availableType(from: [.dkRasterizerPasteboardType])
+			let pbtype = NSPasteboard.general.availableType(from: [.dkRasterizer])
 			
 			enable = pbtype != nil && style?.locked == false
 		} else if action == #selector(GCSStyleInspector.libraryItemAction(_:)) {
