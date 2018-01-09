@@ -62,9 +62,6 @@
 /* Class = "NSTextFieldCell"; title = "No Selection"; ObjectID = "148"; */
 "148.title" = "No Selection";
 
-/* Class = "NSButtonCell"; title = "Button"; ObjectID = "149"; */
-"149.title" = "Button";
-
 /* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "151"; */
 "151.title" = "Width:";
 
