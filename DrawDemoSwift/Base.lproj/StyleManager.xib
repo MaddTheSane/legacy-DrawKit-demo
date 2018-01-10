@@ -8,16 +8,16 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="GCSStyleManagerDialog" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mAddCategoryButton" destination="16" id="103"/>
-                <outlet property="mDeleteCategoryButton" destination="17" id="104"/>
-                <outlet property="mDeleteStyleButton" destination="146" id="152"/>
-                <outlet property="mKeyChangeDialogController" destination="165" id="166"/>
-                <outlet property="mPreviewImageWell" destination="122" id="126"/>
-                <outlet property="mStyleBrowserList" destination="136" id="143"/>
-                <outlet property="mStyleCategoryList" destination="12" id="105"/>
-                <outlet property="mStyleIconMatrix" destination="68" id="106"/>
-                <outlet property="mStyleListTabView" destination="127" id="132"/>
-                <outlet property="mStyleNameTextField" destination="159" id="163"/>
+                <outlet property="addCategoryButton" destination="16" id="103"/>
+                <outlet property="deleteCategoryButton" destination="17" id="104"/>
+                <outlet property="deleteStyleButton" destination="146" id="152"/>
+                <outlet property="keyChangeDialogController" destination="165" id="166"/>
+                <outlet property="previewImageWell" destination="122" id="126"/>
+                <outlet property="styleBrowserList" destination="136" id="143"/>
+                <outlet property="styleCategoryList" destination="12" id="105"/>
+                <outlet property="styleIconMatrix" destination="68" id="106"/>
+                <outlet property="styleListTabView" destination="127" id="132"/>
+                <outlet property="styleNameTextField" destination="159" id="163"/>
                 <outlet property="window" destination="7" id="51"/>
             </connections>
         </customObject>
@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" id="txK-3Y-xfK">
                             <rect key="frame" x="1" y="0.0" width="190" height="269"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="16" headerView="117" id="12" customClass="GCSTableView" customModule="DrawDemoSwift" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="190" height="246"/>
@@ -153,7 +153,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <clipView key="contentView" autoresizesSubviews="NO" id="eWq-fJ-yTZ">
                                                 <rect key="frame" x="1" y="1" width="262" height="231"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="68">
                                                         <rect key="frame" x="0.0" y="0.0" width="244" height="230"/>
