@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GCSStyleManagerDialog">
+        <customObject id="-2" userLabel="File's Owner" customClass="GCSStyleManagerDialog" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
                 <outlet property="mAddCategoryButton" destination="16" id="103"/>
                 <outlet property="mDeleteCategoryButton" destination="17" id="104"/>
@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" id="txK-3Y-xfK">
                             <rect key="frame" x="1" y="0.0" width="190" height="269"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="16" headerView="117" id="12" customClass="GCSTableView" customModule="DrawDemoSwift" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="190" height="246"/>
@@ -153,7 +153,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <clipView key="contentView" autoresizesSubviews="NO" id="eWq-fJ-yTZ">
                                                 <rect key="frame" x="1" y="1" width="262" height="231"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="68">
                                                         <rect key="frame" x="0.0" y="0.0" width="244" height="230"/>

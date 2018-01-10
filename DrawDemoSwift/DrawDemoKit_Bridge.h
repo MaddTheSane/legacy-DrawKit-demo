@@ -11,7 +11,6 @@
 
 #import "GCFoundationAdditions.h"
 #import "GCSLayersPaletteController.h"
-#import "GCSStyleManagerDialog.h"
 #import "GCSBasicDialogController.h"
 #import "GCSPolarDuplicateController.h"
 #import "GCSExportOptionsController.h"

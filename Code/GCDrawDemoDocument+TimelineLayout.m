@@ -58,7 +58,6 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 	// first locate the candidate objects:
 
 	NSMutableArray *tlObjects;
-	NSEnumerator *iter = [layer.availableObjects objectEnumerator];
 	static CGFloat lowestEdge = -10000;
 
 	tlObjects = [NSMutableArray array];
@@ -98,7 +97,7 @@ static NSComparisonResult metaDataSortFunction(id a, id b, void *context)
 	// now lay out the labels. This iterates in reverse since labels extend to the right (i.e into the future) so the non-crossing
 	// criterion is simply met by performing the layout right to left.
 
-	iter = [tlObjects reverseObjectEnumerator];
+	NSEnumerator *iter = [tlObjects reverseObjectEnumerator];
 
 	// we need the grid to locate objects in time and space
 
