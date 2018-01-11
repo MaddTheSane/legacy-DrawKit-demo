@@ -403,8 +403,6 @@
 		NSImage *newImage;
 		NSRect a, b, c;
 
-		[poofImage setFlipped:YES];
-
 		// compute size of composited image. stopImg will be centred under the hotspot
 
 		a.size = poofImage.size;
@@ -429,8 +427,8 @@
 		newImage = [[NSImage alloc] initWithSize:c.size];
 
 		[newImage lockFocusFlipped:YES];
-		[stopImg drawInRect:b fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:0.5];
-		[poofImage drawInRect:a fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0];
+		[stopImg drawInRect:b fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:0.5 respectFlipped:YES hints:nil];
+		[poofImage drawInRect:a fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
 
 		/*
 		[[NSColor redColor] set];

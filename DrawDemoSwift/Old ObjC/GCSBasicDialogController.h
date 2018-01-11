@@ -14,6 +14,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol GCSBasicDialogDelegate;
 
 /**
@@ -37,13 +39,15 @@
 
 @property (readonly, strong) id primaryItem;
 
-- (IBAction)ok:(id)sender;
-- (IBAction)cancel:(id)sender;
-- (IBAction)primaryItemAction:(id)sender;
+- (IBAction)ok:(nullable id)sender;
+- (IBAction)cancel:(nullable id)sender;
+- (IBAction)primaryItemAction:(nullable id)sender;
 
 @end
 
 @protocol GCSBasicDialogDelegate <NSObject>
-- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(void*)contextInfo;
+- (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(nullable void*)contextInfo;
 
 @end
+
+NS_ASSUME_NONNULL_END

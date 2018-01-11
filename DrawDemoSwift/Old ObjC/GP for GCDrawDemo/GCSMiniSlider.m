@@ -91,14 +91,14 @@
 	if (self != nil) {
 		//mKnobImage = [[NSImage imageNamed:@"smallBlueKnob"] retain];
 
-		mKnobImage = [NSImage imageNamed:@"smallBlueKnob" fromBundleForClass:[self class]];
+		mKnobImage = [NSImage imageNamed:@"smallBlueKnob"];
 
 		NSAssert(!mShowTicks, @"Expected init to zero");
 
 		if (mKnobImage == nil) {
 			return nil;
 		}
-		[mKnobImage setFlipped:YES];
+		//[mKnobImage setFlipped:YES];
 	}
 	return self;
 }

@@ -1764,7 +1764,10 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 
 	// MARK: - modal sheet callback - called by selector, otherwise private
-	func sheetDidEnd(_ sheet: NSWindow!, returnCode: NSApplication.ModalResponse, contextInfo: UnsafeMutableRawPointer!) {
+	func sheetDidEnd(_ sheet: NSWindow, returnCode: NSApplication.ModalResponse, contextInfo: UnsafeMutableRawPointer?) {
+		guard let contextInfo = contextInfo else {
+			return
+		}
 		if Unmanaged<GCSDashEditor>.fromOpaque(contextInfo).takeUnretainedValue() === dashEditController {
 			if returnCode == .OK {
 				if let dashRenderRef = selectedRendererRef as? DKDashable {

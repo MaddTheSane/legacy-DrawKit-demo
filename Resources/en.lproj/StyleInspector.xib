@@ -155,8 +155,8 @@
                                     <popUpButton toolTip="Adds a new renderer to the style" imageHugsTitle="YES" id="3216">
                                         <rect key="frame" x="11" y="7" width="37" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="3226" id="3217">
-                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="3219" id="3217">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="3218">
                                                 <items>
@@ -269,8 +269,8 @@
                                     <popUpButton toolTip="Show other actions" imageHugsTitle="YES" id="359">
                                         <rect key="frame" x="94" y="7" width="37" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <popUpButtonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="363" id="3153">
-                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" pullsDown="YES" preferredEdge="maxY" selectedItem="363" id="3153">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="menu"/>
                                             <menu key="menu" title="OtherViews" id="360">
                                                 <items>
@@ -299,10 +299,10 @@
                                             </menu>
                                         </popUpButtonCell>
                                     </popUpButton>
-                                    <button toolTip="Deletes a renderer from the style" imageHugsTitle="YES" id="107">
+                                    <button toolTip="Deletes a renderer from the style" verticalHuggingPriority="750" imageHugsTitle="YES" id="107">
                                         <rect key="frame" x="47" y="7" width="37" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="below" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3152">
+                                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="below" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3152">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -1082,10 +1082,10 @@
                                                         <action selector="cloneStyleAction:" target="-2" id="124"/>
                                                     </connections>
                                                 </button>
-                                                <button toolTip="Add To Library" tag="-1" imageHugsTitle="YES" id="125">
+                                                <button toolTip="Add To Library" verticalHuggingPriority="750" tag="-1" imageHugsTitle="YES" id="125">
                                                     <rect key="frame" x="3" y="9" width="26" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" tag="-1" imageScaling="proportionallyDown" inset="2" id="3078">
+                                                    <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" tag="-1" imageScaling="proportionallyDown" inset="2" id="3078">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
@@ -1093,10 +1093,10 @@
                                                         <action selector="libraryMenuAction:" target="-2" id="129"/>
                                                     </connections>
                                                 </button>
-                                                <button toolTip="Remove From Library" tag="-4" imageHugsTitle="YES" id="126">
+                                                <button toolTip="Remove From Library" verticalHuggingPriority="750" tag="-4" imageHugsTitle="YES" id="126">
                                                     <rect key="frame" x="29" y="9" width="26" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" tag="-4" imageScaling="proportionallyDown" inset="2" id="3079">
+                                                    <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" tag="-4" imageScaling="proportionallyDown" inset="2" id="3079">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
