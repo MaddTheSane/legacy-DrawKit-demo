@@ -19,8 +19,6 @@ import DKDrawKit.DKDashable
 import DKDrawKit.DKRasterizer
 import CoreImage.CIFilter
 
-private let DKTableRowInternalDrag: NSPasteboard.PasteboardType = NSPasteboard.PasteboardType(rawValue: "kDKTableRowInternalDragPasteboardType")
-
 private let classOutlineColumnIdentifier = NSUserInterfaceItemIdentifier("class")
 private let enabledOutlineColumnIdentifier = NSUserInterfaceItemIdentifier("enabled")
 
@@ -1842,7 +1840,7 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 		fillGradientControlBar.action = #selector(GCSStyleInspector.fillGradientAction(_:))
 
 		outlineView.delegate = self
-		outlineView.registerForDraggedTypes([DKTableRowInternalDrag])
+		outlineView.registerForDraggedTypes([.dkTableRowInternalDrag])
 		outlineView.setDraggingSourceOperationMask(.every, forLocal: true)
 		outlineView.verticalMotionCanBeginDrag = true
 		
@@ -1918,8 +1916,9 @@ class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashE
 	}
 }
 
-// MARK: - As part of NSOutlineViewDataSource Protocol
-extension GCSStyleInspector: NSOutlineViewDataSource {
+// MARK: -
+extension GCSStyleInspector: NSOutlineViewDataSource, NSOutlineViewDelegate {
+	// MARK: As part of NSOutlineViewDataSource Protocol
 	func outlineView(_ olv: NSOutlineView, acceptDrop info: NSDraggingInfo, item targetItem: Any?, childIndex: Int) -> Bool {
 		// the item being moved is already stored as mDragItem, so simply move it to the new place
 		let group: DKRastGroup?
@@ -2064,14 +2063,13 @@ extension GCSStyleInspector: NSOutlineViewDataSource {
 		
 		// just write dummy data to the pboard - it's all internal so we just keep a reference to the item being moved
 
-		pasteboard.declareTypes([.dkTableRowInternalDragPasteboardType], owner: self)
-		pasteboard.setData(Data(), forType: .dkTableRowInternalDragPasteboardType)
+		pasteboard.declareTypes([.dkTableRowInternalDrag], owner: self)
+		pasteboard.setData(Data(), forType: .dkTableRowInternalDrag)
 		return true
 	}
-}
 
-// MARK: - As an NSOutlineView delegate
-extension GCSStyleInspector: NSOutlineViewDelegate {
+	// MARK: - As an NSOutlineView delegate
+	
 	func outlineViewSelectionDidChange(_ notification: Notification) {
 		// select the appropriate tab for the selected item and set up its contents
 

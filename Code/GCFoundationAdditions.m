@@ -16,6 +16,10 @@
 #import <DKDrawKit/LogEvent.h>
 #import <DKDrawKit/NSShadow+Scaling.h>
 
+#pragma mark Contants (Non-localized)
+NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPasteboardType";
+
+#pragma mark -
 @implementation NSImage (ImageResources)
 
 + (NSImage *)imageNamed:(NSString *)name fromBundleForClass:(Class) class

@@ -35,5 +35,3 @@
 - (IBAction)exportAction:(id)sender;
 
 @end
-
-extern NSPasteboardType kDKTableRowInternalDragPasteboardType;

@@ -6,10 +6,6 @@
 #import <DKDrawKit/DKDrawingView.h>
 #import <DKDrawKit/LogEvent.h>
 
-#pragma mark Contants (Non-localized)
-NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPasteboardType";
-
-#pragma mark -
 @implementation GCLayersPaletteController
 #pragma mark As a GCLayersPaletteController
 - (void)setDrawing:(DKDrawing *)drawing
