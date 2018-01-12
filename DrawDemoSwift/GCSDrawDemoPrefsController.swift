@@ -10,7 +10,7 @@ import Cocoa
 import DKDrawKit.DKObjectDrawingLayer
 import DKDrawKit.DKBSPObjectStorage
 
-class GCSDrawDemoPrefsController: NSWindowController {
+final class GCSDrawDemoPrefsController: NSWindowController {
 	@IBOutlet weak var qualityThrottlingCheckbox: NSButton!
 	@IBOutlet weak var undoSelectionsCheckbox: NSButton!
 	@IBOutlet weak var storageTypeCheckbox: NSButton!

@@ -10,7 +10,7 @@ import Cocoa
 import DKDrawKit.DKDrawkitInspectorBase
 import DKDrawKit.DKStyle
 
-class GCSToolPalette: DKDrawkitInspectorBase {
+final class GCSToolPalette: DKDrawkitInspectorBase {
 	@IBOutlet weak var toolMatrix: NSMatrix!
 	@IBOutlet weak var stylePopUpButton: NSPopUpButton!
 	@IBOutlet weak var stylePreviewView: NSImageView!

@@ -14,7 +14,7 @@ import Cocoa
 	func performExport(type: GCSExportFileTypes, withOptions options: [NSBitmapImageRep.PropertyKey: Any])
 }
 
-class GCSExportOptionsController: NSObject {
+final class GCSExportOptionsController: NSObject {
 	@IBOutlet var exportAccessoryView: NSView!
 	@IBOutlet weak var exportFormatPopUpButton: NSPopUpButton!
 	@IBOutlet weak var exportResolutionPopUpButton: NSPopUpButton!

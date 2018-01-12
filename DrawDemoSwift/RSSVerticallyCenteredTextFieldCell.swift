@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class RSSVerticallyCenteredTextFieldCell: NSTextFieldCell {
+final class RSSVerticallyCenteredTextFieldCell: NSTextFieldCell {
 	private var isEditingOrSelecting = false
 
 	override func drawingRect(forBounds rect: NSRect) -> NSRect {

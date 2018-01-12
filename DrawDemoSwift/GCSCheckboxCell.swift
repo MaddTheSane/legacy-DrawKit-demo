@@ -8,8 +8,7 @@
 
 import Cocoa
 
-class GCSCheckboxCell: NSButtonCell {
-	
+final class GCSCheckboxCell: NSButtonCell {
 	override func trackMouse(with event: NSEvent, in cellFrame: NSRect, of controlView: NSView, untilMouseUp flag: Bool) -> Bool {
 		isHighlighted = true
 		controlView.setNeedsDisplay(cellFrame)

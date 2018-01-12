@@ -10,7 +10,7 @@ import Cocoa
 import DKDrawKit.DKStyle
 import DKDrawKit.DKStyleRegistry
 
-class GCSStyleManagerDialog : NSWindowController, DKStyleRegistryDelegate {
+final class GCSStyleManagerDialog : NSWindowController, DKStyleRegistryDelegate {
 	@IBOutlet weak var addCategoryButton: NSButton!
 	@IBOutlet weak var deleteCategoryButton: NSButton!
 	@IBOutlet weak var styleCategoryList: GCSTableView!

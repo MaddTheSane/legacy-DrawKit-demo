@@ -17,7 +17,7 @@ import DKDrawKit.DKDrawkitInspectorBase
 
 private let selectionColourInterfaceIdentifier = NSUserInterfaceItemIdentifier("selectionColour")
 
-class GCSLayersPaletteController : DKDrawkitInspectorBase, GCSColourCellHack {
+final class GCSLayersPaletteController : DKDrawkitInspectorBase, GCSColourCellHack {
 	@IBOutlet weak var layersTable: NSTableView!
 	@IBOutlet weak var autoActivateCheckbox: NSButton!
 	private var temporaryColour: NSColor?

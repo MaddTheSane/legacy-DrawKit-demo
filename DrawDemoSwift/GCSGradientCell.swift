@@ -29,7 +29,7 @@ private let kSweepControlsClusterID = "kSweepControlsClusterID";
 // MARK: Static Vars
 private var sMFlags: UInt = 0
 
-class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
+final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 	/// internal "partcodes" for where a mouse hit occurred
 	enum HitPart: Int {
 		case none = 0

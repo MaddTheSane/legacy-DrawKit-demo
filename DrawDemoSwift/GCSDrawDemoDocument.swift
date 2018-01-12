@@ -11,7 +11,7 @@ import DKDrawKit
 import DKDrawKit.DKDrawing.Export
 import DrawKitSwift
 
-class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExportControllerDelegate, GCSLinearDuplicationDelegate {
+final class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExportControllerDelegate, GCSLinearDuplicationDelegate {
 	
 	@IBOutlet weak var toolNamePanelController: GCSBasicDialogController?
 	@IBOutlet weak var polarDuplicateController: GCSPolarDuplicateController?

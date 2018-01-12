@@ -14,7 +14,7 @@ import DrawKitSwift
 
 let metadataKeyIdentifier = NSUserInterfaceItemIdentifier("key")
 
-class GCSObjectInspector: DKDrawkitInspectorBase {
+final class GCSObjectInspector: DKDrawkitInspectorBase {
 	private enum SelectedItems: Int {
 		case none = 0
 		case multiple = 1

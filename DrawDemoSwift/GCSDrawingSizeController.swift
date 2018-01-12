@@ -16,7 +16,7 @@ import DrawKitSwift
 
 private let units: [(name: DKDrawingUnits, factor: CGFloat)] = [(.pixels, 1), (.picas, 12), (.inches, 72.0), (.millimetres, 2.8346456692913), (.centimetres, 28.346456692913), (.metres, 2834.6456692913), (.kilometres, 28346.456692913)]
 
-class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
+final class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate {
 	@IBOutlet weak var bottomMarginTextField: NSTextField!
 	@IBOutlet weak var gridDivsTextField: NSTextField!
 	@IBOutlet weak var gridMajorsTextField: NSTextField!

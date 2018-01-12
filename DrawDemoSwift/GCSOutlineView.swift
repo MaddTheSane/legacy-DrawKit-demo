@@ -10,7 +10,7 @@ import Cocoa
 import DKDrawKit.DKGradient
 import DKDrawKit.DKGradient.UISupport
 
-class GCSOutlineView: NSOutlineView {
+final class GCSOutlineView: NSOutlineView {
 	override func highlightSelection(inClipRect clipRect: NSRect) {
 		super.highlightSelection(inClipRect: clipRect)
 		

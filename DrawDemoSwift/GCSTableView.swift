@@ -10,7 +10,7 @@ import Cocoa
 import DKDrawKit.DKGradient.UISupport
 import DKDrawKit.DKAdditions.NSColor
 
-class GCSTableView: NSTableView {
+final class GCSTableView: NSTableView {
 	// MARK: As an NSTableView
 	
 	override func textDidEndEditing(_ notification: Notification) {
@@ -98,7 +98,7 @@ class GCSTableView: NSTableView {
 }
 
 /// declare a custom NSCell class for drawing a colour in a table's column
-class GCSColourCell : NSCell {
+final class GCSColourCell : NSCell {
 	// MARK: As a GCColourCell
 	
 	@objc @NSCopying var colorValue: NSColor? {

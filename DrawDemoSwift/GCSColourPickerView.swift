@@ -19,7 +19,7 @@ private var ROWS: Int {
 }
 
 
-class GCSColourPickerView: NSView {
+final class GCSColourPickerView: NSView {
 	@objc(DKSColourPickerMode)
 	enum Mode: Int {
 		case swatches = 0

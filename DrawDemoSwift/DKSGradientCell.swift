@@ -52,7 +52,7 @@ class DKSGradientCell: NSImageCell {
 	}
 	
 	@discardableResult
-	open func cachedImage(for size: NSSize) -> NSImage! {
+	final func cachedImage(for size: NSSize) -> NSImage! {
 		var img = self.image
 		if img == nil {
 			let img2 = makeCacheImage(with: size)
@@ -65,7 +65,7 @@ class DKSGradientCell: NSImageCell {
 
 	/// creates an image of the current gradient for rendering in this cell as a cache. Note that the swatch method
 	/// of the gradient itself does not include the chequered background.
-	open func makeCacheImage(with size: NSSize) -> NSImage {
+	final func makeCacheImage(with size: NSSize) -> NSImage {
 		let swatchImage = NSImage(size: size)
 		let box = NSRect(origin: .zero, size: size)
 		
@@ -78,13 +78,13 @@ class DKSGradientCell: NSImageCell {
 	
 	// MARK: -
 	@objc(gradientDidChange:)
-	func gradientDidChange(notification note: Notification) {
+	final func gradientDidChange(notification note: Notification) {
 		invalidateCache()
 		gradient?.setUpKVOForObserver(self)
 	}
 	
 	@objc(gradientWillChange:)
-	func gradientWillChange(notification note: Notification) {
+	final func gradientWillChange(notification note: Notification) {
 		gradient?.tearDownKVO(forObserver: self)
 	}
 	
@@ -109,7 +109,7 @@ class DKSGradientCell: NSImageCell {
 		}
 	}
 	
-	override func draw(withFrame cellFrame: NSRect, in controlView: NSView) {
+	final override func draw(withFrame cellFrame: NSRect, in controlView: NSView) {
 		super.draw(withFrame: cellFrame, in: controlView)
 		
 		if let cv = controlView as? GCSGradientWell {

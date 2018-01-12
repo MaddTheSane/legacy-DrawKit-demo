@@ -22,7 +22,7 @@ import CoreImage.CIFilter
 private let classOutlineColumnIdentifier = NSUserInterfaceItemIdentifier("class")
 private let enabledOutlineColumnIdentifier = NSUserInterfaceItemIdentifier("enabled")
 
-class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashEditViewDelegate, GCSBasicDialogDelegate {
+final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GCSDashEditViewDelegate, GCSBasicDialogDelegate {
 	/// tab indexes for main tab view
 	enum Tab: Int {
 		case stroke = 0

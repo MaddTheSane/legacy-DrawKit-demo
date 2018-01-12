@@ -12,7 +12,7 @@ import DKDrawKit.LogEvent
 let defaultQualityModulationFlag = "GCDrawDemo_defaultQualityModulationFlag"
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var userToolMenu: NSMenu!
 	private var styleInspector: GCSStyleInspector?
 	private var toolPalette: GCSToolPalette?
