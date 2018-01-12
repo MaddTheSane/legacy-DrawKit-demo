@@ -220,10 +220,7 @@ class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GCSExpor
 		// convert the units
 
 		let grid = drawing.gridLayer!
-		var drawingOffset = NSSize.zero
-		
-		drawingOffset.width = grid.quartzDistance(forGridDistance: offset.width)
-		drawingOffset.height = grid.quartzDistance(forGridDistance: offset.height)
+		let drawingOffset = NSSize(width: grid.quartzDistance(forGridDistance: offset.width), height: grid.quartzDistance(forGridDistance: offset.height))
 		
 		let newCopies = odl.linearDuplicate(target, offset: drawingOffset, numberOfCopies: copies)
 

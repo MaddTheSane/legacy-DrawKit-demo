@@ -181,10 +181,7 @@ class GCSColourCell : NSCell {
 		
 		// pop up the colour picker
 		
-		var loc = NSPoint.zero
-		
-		loc.x = cellFrame.minX + 6
-		loc.y = cellFrame.maxY - 5
+		var loc = NSPoint(x: cellFrame.minX + 6, y: cellFrame.maxY - 5)
 		
 		loc = controlView.convert(loc, to: nil)
 		

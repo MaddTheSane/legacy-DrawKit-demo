@@ -174,10 +174,7 @@ class GCSColourPickerView: NSView {
 		let mr = br.size.width / 2
 		
 		let angle = (1.0 - hue) * 2 * .pi
-		var p = NSPoint()
-		p.x = cp.x + (cos(angle) * sat * mr);
-		p.y = cp.y + (sin(angle) * sat * mr);
-		
+		let p = NSPoint(x: cp.x + (cos(angle) * sat * mr), y: cp.y + (sin(angle) * sat * mr))
 		
 		return p
 	}
