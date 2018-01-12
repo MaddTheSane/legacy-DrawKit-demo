@@ -2041,7 +2041,7 @@ extension GCSStyleInspector: NSOutlineViewDataSource, NSOutlineViewDelegate {
 	}
 	
 	func outlineView(_ olv: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-		LogEvent(.infoEvent, "proposing drop on \((item as! CustomStringConvertible).description), childIndex = \(index)")
+		LogEvent(.infoEvent, "proposing drop on \((item as? CustomStringConvertible)?.description ?? "<nil>"), childIndex = \(index)")
 		if let item = item as? DKRastGroup {
 			if index == NSOutlineViewDropOnItemIndex {
 				olv.setDropItem(item, dropChildIndex: 0)

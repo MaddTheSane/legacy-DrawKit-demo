@@ -14,22 +14,22 @@
 
 #import <Cocoa/Cocoa.h>
 
+/** @brief This works exactly like an NSColorWell, and is intended to pose as that class.
+
+ This works exactly like an NSColorWell, and is intended to pose as that class.
+
+ The point is to get notified on all activates and deactivates so WTGradientControl can simulate
+ its color well behaviour correctly.
+ */
 @interface GCSpecialColorWell : NSColorWell
 
 + (void)deactivateCurrentWell;
 
 @end
 
-extern NSString *kDKColorWellWillActivate;
-extern NSString *kDKColorWellDidActivate;
-extern NSString *kDKColorWellWillDeactivate;
-extern NSString *kDKColorWellDidDeactivate;
+extern NSNotificationName kDKColorWellWillActivate;
+extern NSNotificationName kDKColorWellDidActivate;
+extern NSNotificationName kDKColorWellWillDeactivate;
+extern NSNotificationName kDKColorWellDidDeactivate;
 
-/*
 
-This works exactly like an NSColorWell, and is intended to pose as that class.
-
-The point is to get notified on all activates and deactivates so WTGradientControl can simulate
-its color well behaviour correctly.
-
-*/
