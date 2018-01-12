@@ -361,7 +361,3 @@ typedef NS_ENUM(NSInteger, DKParameterItemsTags) {
 	kDKShadowParameterItemsTag = 149,
 	kDKRoughStrokeParameterItemsTag = 150
 };
-
-extern NSPasteboardType kDKTableRowInternalDragPasteboardType;
-
-

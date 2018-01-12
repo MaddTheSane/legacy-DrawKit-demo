@@ -20,7 +20,7 @@
 
 @end
 
-extern NSPasteboardType kDKTableRowInternalDragPasteboardType NS_SWIFT_NAME(dkTableRowInternalDrag);
+extern NSPasteboardType const kDKTableRowInternalDragPasteboardType NS_SWIFT_NAME(dkTableRowInternalDrag);
 
 // utility categories that help manage the user interface
 

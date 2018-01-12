@@ -20,5 +20,3 @@
 
 - (void)setTemporaryColour:(NSColor *)aColour forTableView:(NSTableView *)tView row:(NSInteger)row;
 @end
-
-extern NSString *kDKTableRowInternalDragPasteboardType;

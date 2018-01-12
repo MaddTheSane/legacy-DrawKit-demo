@@ -132,7 +132,7 @@ class GCSLayersPaletteController : DKDrawkitInspectorBase, GCSColourCellHack {
 		// set the cell type of the colours column to GCColourCell
 
 		let cc = GCSColourCell()
-		layersTable.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier("selectionColour"))?.dataCell = cc
+		layersTable.tableColumn(withIdentifier: selectionColourInterfaceIdentifier)?.dataCell = cc
 		
 		// subscribe to active layer notifications so the table can be kept in synch
 
@@ -254,7 +254,7 @@ extension GCSLayersPaletteController: NSTableViewDataSource, NSTableViewDelegate
 		// hack - if a temporary colour is set for the requested row and column, return it instead of getting it from the drawing.
 		// this permits the cutsom cells that display this colour in the table to update "live" without having to change the data model
 		// which is potentially very expensive.
-		if row == temporaryColourRow, let temporaryColor = temporaryColour, tableColumn?.identifier == NSUserInterfaceItemIdentifier("selectionColour") {
+		if row == temporaryColourRow, let temporaryColor = temporaryColour, tableColumn?.identifier == selectionColourInterfaceIdentifier {
 			val = temporaryColor
 		}
 		

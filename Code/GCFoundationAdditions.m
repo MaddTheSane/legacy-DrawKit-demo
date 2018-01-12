@@ -17,7 +17,7 @@
 #import <DKDrawKit/NSShadow+Scaling.h>
 
 #pragma mark Contants (Non-localized)
-NSString *kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPasteboardType";
+NSString *const kDKTableRowInternalDragPasteboardType = @"kDKTableRowInternalDragPasteboardType";
 
 #pragma mark -
 @implementation NSImage (ImageResources)

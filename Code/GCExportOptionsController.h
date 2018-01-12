@@ -65,5 +65,5 @@ static const GCExportFileTypes NSPDFFileType API_DEPRECATED_WITH_REPLACEMENT("GC
 
 // additional keys for option properties not used by Cocoa
 
-extern NSString *kGCIncludeGridInExportedFile; // BOOL property
-extern NSString *kGCExportedFileURL;		   // NSURL property
+extern NSString *const kGCIncludeGridInExportedFile; // BOOL property
+extern NSString *const kGCExportedFileURL;		   // NSURL property

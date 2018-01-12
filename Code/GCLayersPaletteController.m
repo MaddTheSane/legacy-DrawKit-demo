@@ -5,6 +5,7 @@
 #import <DKDrawKit/DKViewController.h>
 #import <DKDrawKit/DKDrawingView.h>
 #import <DKDrawKit/LogEvent.h>
+#import "GCFoundationAdditions.h"
 
 @implementation GCLayersPaletteController
 #pragma mark As a GCLayersPaletteController

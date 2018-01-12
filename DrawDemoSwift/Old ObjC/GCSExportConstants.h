@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, GCSExportFileTypes) {
 
 // additional keys for option properties not used by Cocoa
 
-extern NSBitmapImageRepPropertyKey kGCIncludeGridInExportedFile; // BOOL property
-extern NSBitmapImageRepPropertyKey kGCExportedFileURL;		   // NSURL property
+extern NSBitmapImageRepPropertyKey const kGCIncludeGridInExportedFile; // BOOL property
+extern NSBitmapImageRepPropertyKey const kGCExportedFileURL;		   // NSURL property
 
 NS_ASSUME_NONNULL_END

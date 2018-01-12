@@ -12,7 +12,7 @@
 #import "GCFoundationAdditions.h"
 #import "GCSBasicDialogController.h"
 #import "GCSPolarDuplicateController.h"
-#import "GCSExportOptionsController.h"
+#import "GCSExportConstants.h"
 #import "GCSLinearDuplicateController.h"
 #import "GCSMiniControl.h"
 #import "GCSGradientWell.h"
