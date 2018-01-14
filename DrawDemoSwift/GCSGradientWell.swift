@@ -376,7 +376,6 @@ class GCSGradientWell: NSControl, NSDraggingSource {
 	}
 	
 	override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-		let sourceDragMask = sender.draggingSourceOperationMask()
 		let pboard = sender.draggingPasteboard()
 
 		if (sender.draggingSource() as AnyObject?) !== self {

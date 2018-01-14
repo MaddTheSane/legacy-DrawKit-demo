@@ -69,7 +69,8 @@ extension DrawDemoDocument {
 		// next, remove all the existing leader lines (we recreate them as we lay out the labels). Note - this will not work when
 		// reloading the drawing from a file, as the style object is not literally the same. TO DO: fix this.
 		
-		if let leaderLines = layer.objectsWith(self.leaderLineStyle), leaderLines.count > 0 {
+		let leaderLines = layer.objectsWith(self.leaderLineStyle)
+		if leaderLines.count > 0 {
 			layer.removeObjects(in: leaderLines)
 		}
 
@@ -195,7 +196,7 @@ extension DrawDemoDocument {
 	
 	/// Return an L-shaped path from `p1` to `p2`. The path extends vertically, then horizontally.
 	func leaderLine(from p1: NSPoint, to p2: NSPoint) -> DKDrawablePath {
-		let leader = DKDrawablePath(bezierPath: leaderLinePath(from: p1, to: p2))!
+		let leader = DKDrawablePath(bezierPath: leaderLinePath(from: p1, to: p2))
 		
 		leader.style = leaderLineStyle
 		return leader

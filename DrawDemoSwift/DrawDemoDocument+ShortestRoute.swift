@@ -102,13 +102,13 @@ extension DrawDemoDocument: DKRouteFinderProgressDelegate {
 		})
 	}
 	
-	func routeFinder(_ rf: DKRouteFinder!, progressHasReached value: CGFloat) {
+	func routeFinder(_ rf: DKRouteFinder, progressHasReached value: CGFloat) {
 		guard value >= 1 else {
 			return
 		}
 		
 		autoreleasepool() {
-			let points = rf.shortestRoute()!
+			let points = rf.shortestRoute()
 			let path = self.path(with: points)
 			
 			//NSLog(@"making path for value: %.4f (length %f)", value, [rf pathLength] );
@@ -130,7 +130,7 @@ extension DrawDemoDocument: DKRouteFinderProgressDelegate {
 				layer?.removeObject(routePath)
 			}
 			
-			layer?.addObject(path)
+			layer?.addObject(path!)
 			
 			NSApp.mainWindow?.displayIfNeeded()
 		}

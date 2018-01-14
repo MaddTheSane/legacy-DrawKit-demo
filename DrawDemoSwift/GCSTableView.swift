@@ -34,7 +34,7 @@ final class GCSTableView: NSTableView {
 		if rows.contains(selectedRow) {
 			let sr = rect(ofRow: selectedRow)
 			
-			let aqua = DKGradient.sourceListSelected()!
+			let aqua = DKGradient.sourceListSelected()
 			aqua.angleInDegrees = -90
 			aqua.fill(sr)
 			NSColor.black.set()

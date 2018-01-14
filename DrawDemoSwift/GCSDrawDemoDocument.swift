@@ -172,7 +172,11 @@ final class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GC
 	/// callback from dialog. Locate the selection and use the object drawing layer method to do the deed. Note - centre is passed
 	/// in grid coordinates so needs converting to the drawing, and the angle is in degrees and needs converting to radians.
 	func doPolarDuplicateCopies(_ copies: Int, centre cp: NSPoint, incAngle angle: CGFloat, rotateCopies rotCopies: Bool) {
-		guard let odl = drawing.activeLayer(of: DKObjectDrawingLayer.self), let target = odl.selectedAvailableObjects, target.count > 0 else {
+		guard let odl = drawing.activeLayer(of: DKObjectDrawingLayer.self) else {
+			return
+		}
+		let target = odl.selectedAvailableObjects
+		guard target.count > 0 else {
 			return
 		}
 		
@@ -214,7 +218,11 @@ final class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GC
 	
 	// MARK: - As a LinearDuplication delegate
 	func doLinearDuplicateCopies(_ copies: Int, offset: NSSize) {
-		guard let odl = drawing.activeLayer(of: DKObjectDrawingLayer.self), let target = odl.selectedAvailableObjects, target.count > 0 else {
+		guard let odl = drawing.activeLayer(of: DKObjectDrawingLayer.self) else {
+			return
+		}
+		let target = odl.selectedAvailableObjects
+		guard target.count > 0 else {
 			return
 		}
 		// convert the units

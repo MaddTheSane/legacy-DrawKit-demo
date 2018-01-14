@@ -458,7 +458,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 			tab = .gradient
 		}
 		
-		fillColourWell.color = fill.colour
+		fillColourWell.color = fill.colour ?? .white
 		fillControlsTabView.setSubviewsWithTag(ItemsTag.shadow.rawValue, enabled: fill.shadow != nil)
 		
 		if let fs = fill.shadow {
@@ -635,7 +635,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 	}
 	
 	private func populateMenu(withDashes menu: NSMenu) {
-		let dashes = DKStrokeDash.registeredDashes!
+		let dashes = DKStrokeDash.registeredDashes
 		var k = 1
 		
 		for dash in dashes {
@@ -666,7 +666,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 		if let dashRenderRef = selectedRendererRef as? DKDashable {
 			savedDash = dashRenderRef.dash
 			
-			let dash = dashRenderRef.dash.copy() as! DKStrokeDash
+			let dash = dashRenderRef.dash?.copy() as? DKStrokeDash
 			dashEditController.dash = dash
 			// as long as the current renderer supports these methods, the dash editor will work:
 
@@ -898,7 +898,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 			let image = NSImage(pasteboard: pb)!
 			(selectedRendererRef as? DKFill)?.colour = NSColor(patternImage: image)
 			fillPatternImagePreview.image = image
-			LogEvent(.infoEvent, "color space name: \((selectedRendererRef as! DKFill).colour.colorSpaceName)")
+			LogEvent(.infoEvent, "color space name: \((selectedRendererRef as! DKFill).colour!.colorSpaceName)")
 		}
 	}
 	
@@ -1932,7 +1932,7 @@ extension GCSStyleInspector: NSOutlineViewDataSource, NSOutlineViewDelegate {
 			group = style
 		}
 		
-		let srcIndex = group?.renderList.index(of: mDragItem!) ?? NSNotFound
+		let srcIndex = group?.renderList?.index(of: mDragItem!) ?? NSNotFound
 		
 		if srcIndex != NSNotFound {
 			// moving within the same group it already belongs to
@@ -1957,8 +1957,8 @@ extension GCSStyleInspector: NSOutlineViewDataSource, NSOutlineViewDelegate {
 			// moving to another group in the hierarchy
 
 			style?.notifyClientsBeforeChange()
-			mDragItem?.container?.removeRenderer(mDragItem)
-			group?.addRenderer(mDragItem)
+			mDragItem?.container?.removeRenderer(mDragItem!)
+			group?.addRenderer(mDragItem!)
 			group?.moveRenderer(at: (group?.countOfRenderList ?? 1) - 1, to: childIndex)
 			style?.notifyClientsAfterChange()
 

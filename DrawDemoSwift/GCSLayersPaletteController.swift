@@ -43,7 +43,7 @@ final class GCSLayersPaletteController : DKDrawkitInspectorBase, GCSColourCellHa
 	}
 	
 	@IBAction func addLayerButtonAction(_ sender: Any?) {
-		let layer = DKObjectDrawingLayer()!
+		let layer = DKObjectDrawingLayer()
 		drawing?.addLayer(layer, andActivateIt: true)
 		
 		let action = "\(NSLocalizedString("Add Layer", comment: "")) “\(layer.layerName)”"
