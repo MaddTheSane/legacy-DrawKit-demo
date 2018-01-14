@@ -836,7 +836,7 @@
                                                                 <rect key="frame" x="10" y="25" width="212" height="201"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <customView id="3273" customClass="WTSGradientControl">
+                                                                    <customView id="3273" customClass="WTSGradientControl" customModule="DrawDemoSwift" customModuleProvider="target">
                                                                         <rect key="frame" x="5" y="150" width="201" height="32"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     </customView>
@@ -2365,7 +2365,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" id="M3H-70-O5k">
                             <rect key="frame" x="1" y="1" width="292" height="77"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="375">
                                     <rect key="frame" x="0.0" y="0.0" width="292" height="77"/>

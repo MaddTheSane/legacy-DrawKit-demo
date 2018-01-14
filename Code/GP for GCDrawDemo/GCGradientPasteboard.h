@@ -15,7 +15,7 @@
 #import <DKDrawKit/DKGradient.h>
 
 //! Pasteboard Support
-@interface DKGradient (GCGradientPasteboard) <NSPasteboardWriting, NSPasteboardReading>
+@interface DKGradient (GCGradientPasteboard)
 
 //! An NSArray containing the pasteboard types that DKGradient can read.
 @property (class, readonly, copy) NSArray<NSPasteboardType> *readablePasteboardTypes;
@@ -34,7 +34,7 @@
 + (DKGradient *)gradientWithPlist:(NSDictionary *)plist;
 
 - (BOOL)writeToPasteboard:(NSPasteboard *)pboard;
-- (BOOL)writeType:(NSString *)type toPasteboard:(NSPasteboard *)pboard;
+- (BOOL)writeType:(NSPasteboardType)type toPasteboard:(NSPasteboard *)pboard;
 
 @property (readonly, copy) NSData *pdf;
 @property (readonly, copy) NSData *eps;
@@ -56,6 +56,6 @@ extern NSString * const GCGradientInfoKey;
 extern NSString * const GCGradientsKey;
 
 // Pasteboard and file types
-extern NSPasteboardType const GPGradientPasteboardType;
+extern NSPasteboardType const GPGradientPasteboardType NS_SWIFT_NAME(gpGradient);
 extern NSPasteboardType const GPGradientLibPasteboardType;
 extern NSString * const GradientFileExtension;

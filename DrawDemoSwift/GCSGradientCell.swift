@@ -147,23 +147,23 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 	/// sets up the mini controls' bounds from the cellFrame. Each one is individually calculated as appropriate. Note
 	/// that some types, notably the circular slider, position themselves centrally in their bounds so this method need
 	/// not bother with that.
-	func setMiniControlBounds(cellFrame cellframe: NSRect, for mode: DKSGradientWellMode) {
+	func setMiniControlBounds(cellFrame cellframe: NSRect, for mode: GCSGradientWell.Mode) {
 		let cframe = cellframe.insetBy(dx: 20, dy: 20)
 		miniControls?.view = self.controlView
 		
 		// linear:
 
 		switch mode {
-		case .angleMode:
+		case .angle:
 			setMiniControlBounds(cframe, identifier: kLinearAngleControlID)
 			
-		case .radialMode:
+		case .radial:
 			// radial controls likewise just need the entire frame:
 
 			setMiniControlBounds(cellframe, identifier: kRadialStartControlID)
 			setMiniControlBounds(cellframe, identifier: kRadialStartControlID)
 
-		case .sweepMode:
+		case .sweep:
 			// sweep controls:
 
 			setMiniControlBounds(cframe, identifier: kSweepAngleControlID)
@@ -190,19 +190,19 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 	}
 	
 	/// given the mode which is set by the owning GCGradientWell, this draws the controls in the appropriate cluster.
-	func drawMiniControls(for mode: DKSGradientWellMode) {
+	func drawMiniControls(for mode: GCSGradientWell.Mode) {
 		controlCluster(for: mode)?.draw()
 	}
 	
-	func controlCluster(for mode: DKSGradientWellMode) -> GCSMiniControlCluster? {
+	func controlCluster(for mode: GCSGradientWell.Mode) -> GCSMiniControlCluster? {
 		switch mode {
-		case .angleMode:
+		case .angle:
 			return miniControls?.control(forKey: kLinearControlsClusterID) as? GCSMiniControlCluster
 			
-		case .radialMode:
+		case .radial:
 			return miniControls?.control(forKey: kRadialControlsClusterID) as? GCSMiniControlCluster
 
-		case .sweepMode:
+		case .sweep:
 			return miniControls?.control(forKey: kSweepControlsClusterID) as? GCSMiniControlCluster
 
 		default:
@@ -215,16 +215,16 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 	}
 	
 	/// sets the minicontrol values in `mode` cluster to match the current gradient
-	func updateMiniControls(for mode: DKSGradientWellMode) {
+	func updateMiniControls(for mode: GCSGradientWell.Mode) {
 		updatingControls = true
 		
 		switch mode {
-		case .angleMode:
+		case .angle:
 			if let gradAngle = gradient?.angle {
 				miniControl(forIdentifier: kLinearAngleControlID)?.value = gradAngle
 			}
 			
-		case .radialMode:
+		case .radial:
 			LogEvent(.stateEvent, "setting up radial controls")
 			guard var rc = miniControls?.control(forKey: kRadialStartControlID) as? GCSMiniRadialControl2,
 			let gradient = self.gradient else {
@@ -242,7 +242,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 			rc.radius = gradient.radialEndingRadius * controlBoundsRect.size.width
 			rc.tabColor = gradient.color(atValue: 1)
 			
-		case .sweepMode:
+		case .sweep:
 			// sweep controls:
 
 			guard let rc = miniControls?.control(forKey: kSweepCentreControlID) as? GCSMiniRadialControls,
@@ -536,7 +536,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 			
 			return seg
 		} else {
-		return val
+			return val
 		}
 	}
 }

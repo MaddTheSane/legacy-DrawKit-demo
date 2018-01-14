@@ -45,14 +45,11 @@
 		55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */; };
 		55C9691E1FE33EB1009AD729 /* WTPlistKeyValueCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58D0040C7526A6009B85CC /* WTPlistKeyValueCoding.m */; };
 		55C969201FE33FDB009AD729 /* DKSGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */; };
-		55C969831FE34099009AD729 /* GCSGradientPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969291FE34099009AD729 /* GCSGradientPasteboard.m */; };
 		55C969861FE34099009AD729 /* GCSMiniRadialControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */; };
-		55C969871FE34099009AD729 /* WTSGradientControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969301FE34099009AD729 /* WTSGradientControl.m */; };
 		55C969891FE34099009AD729 /* GCSMiniControlCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969331FE34099009AD729 /* GCSMiniControlCluster.m */; };
 		55C9698D1FE34099009AD729 /* GCSMiniRadialControl2.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693A1FE34099009AD729 /* GCSMiniRadialControl2.m */; };
 		55C9698F1FE34099009AD729 /* GCSWindowMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693E1FE34099009AD729 /* GCSWindowMenu.m */; };
 		55C969901FE34099009AD729 /* GCSSpecialColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */; };
-		55C969941FE34099009AD729 /* GCSGradientWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9694E1FE34099009AD729 /* GCSGradientWell.m */; };
 		55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969511FE34099009AD729 /* GCSMiniCircularSlider.m */; };
 		55C969971FE34099009AD729 /* GCSExportConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969521FE34099009AD729 /* GCSExportConstants.m */; };
 		55C9699C1FE34099009AD729 /* GCSDashEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9695F1FE34099009AD729 /* GCSDashEditor.m */; };
@@ -69,10 +66,13 @@
 		55C969B71FE3553C009AD729 /* GCSDrawDemoPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */; };
 		55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969BA1FE37334009AD729 /* LogEventSwift.m */; };
 		55D8DB601FFEDCA500ECB542 /* GCFoundationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9697A1FE34099009AD729 /* GCFoundationAdditions.m */; };
+		55E701CD20093F6000511343 /* WTSGradientControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E701CC20093F6000511343 /* WTSGradientControl.swift */; };
+		55E701D02009403C00511343 /* GCSGradientWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E701CF2009403C00511343 /* GCSGradientWell.swift */; };
 		55EAFE4620001C5600761661 /* GCSObjectInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAFE4520001C5600761661 /* GCSObjectInspector.swift */; };
 		55EAFE5C2004CA5C00761661 /* GCSStyleManagerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAFE5B2004CA5C00761661 /* GCSStyleManagerDialog.swift */; };
 		55EBA4822006B37C003C5E85 /* GCSLayersPaletteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBA4812006B37C003C5E85 /* GCSLayersPaletteController.swift */; };
 		55EFF2231FDE8DE0007A4610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EFF2221FDE8DE0007A4610 /* Assets.xcassets */; };
+		55F918F8200981BD005EAC77 /* GCGradientPasteboard.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58CFEA0C7526A6009B85CC /* GCGradientPasteboard.m */; };
 		55FD3DBD1FE734AE003705D0 /* DrawDemoDocument+ShortestRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */; };
 		55FD3DC01FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
@@ -297,25 +297,19 @@
 		55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSDrawDemoDocument.swift; sourceTree = "<group>"; };
 		55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DKSGradientCell.swift; sourceTree = "<group>"; };
 		55C969281FE34099009AD729 /* GCSMiniSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniSlider.m; sourceTree = "<group>"; };
-		55C969291FE34099009AD729 /* GCSGradientPasteboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSGradientPasteboard.m; sourceTree = "<group>"; };
 		55C9692C1FE34099009AD729 /* GCSSpecialColorWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSSpecialColorWell.h; sourceTree = "<group>"; };
 		55C9692D1FE34099009AD729 /* GCSWindowMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSWindowMenu.h; sourceTree = "<group>"; };
 		55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniRadialControls.m; sourceTree = "<group>"; };
-		55C969301FE34099009AD729 /* WTSGradientControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSGradientControl.m; sourceTree = "<group>"; };
 		55C969331FE34099009AD729 /* GCSMiniControlCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControlCluster.m; sourceTree = "<group>"; };
 		55C969341FE34099009AD729 /* GCSMiniControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControl.m; sourceTree = "<group>"; };
 		55C969381FE34099009AD729 /* GCSMiniCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniCircularSlider.h; sourceTree = "<group>"; };
 		55C9693A1FE34099009AD729 /* GCSMiniRadialControl2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniRadialControl2.m; sourceTree = "<group>"; };
-		55C9693B1FE34099009AD729 /* GCSGradientWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSGradientWell.h; sourceTree = "<group>"; };
 		55C9693E1FE34099009AD729 /* GCSWindowMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSWindowMenu.m; sourceTree = "<group>"; };
 		55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSSpecialColorWell.m; sourceTree = "<group>"; };
 		55C969411FE34099009AD729 /* GCSMiniSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniSlider.h; sourceTree = "<group>"; };
-		55C969421FE34099009AD729 /* GCSGradientPasteboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSGradientPasteboard.h; sourceTree = "<group>"; };
-		55C969461FE34099009AD729 /* WTSGradientControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSGradientControl.h; sourceTree = "<group>"; };
 		55C969471FE34099009AD729 /* GCSMiniRadialControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniRadialControls.h; sourceTree = "<group>"; };
 		55C9694B1FE34099009AD729 /* GCSMiniControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniControl.h; sourceTree = "<group>"; };
 		55C9694C1FE34099009AD729 /* GCSMiniControlCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniControlCluster.h; sourceTree = "<group>"; };
-		55C9694E1FE34099009AD729 /* GCSGradientWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSGradientWell.m; sourceTree = "<group>"; };
 		55C9694F1FE34099009AD729 /* GCSMiniRadialControl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniRadialControl2.h; sourceTree = "<group>"; };
 		55C969511FE34099009AD729 /* GCSMiniCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniCircularSlider.m; sourceTree = "<group>"; };
 		55C969521FE34099009AD729 /* GCSExportConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSExportConstants.m; sourceTree = "<group>"; };
@@ -339,6 +333,8 @@
 		55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawDemoKit_Bridge.h; sourceTree = "<group>"; };
 		55C969B91FE37325009AD729 /* LogEventSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEventSwift.h; sourceTree = "<group>"; };
 		55C969BA1FE37334009AD729 /* LogEventSwift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEventSwift.m; sourceTree = "<group>"; };
+		55E701CC20093F6000511343 /* WTSGradientControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTSGradientControl.swift; sourceTree = "<group>"; };
+		55E701CF2009403C00511343 /* GCSGradientWell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSGradientWell.swift; sourceTree = "<group>"; };
 		55EAFE4520001C5600761661 /* GCSObjectInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSObjectInspector.swift; sourceTree = "<group>"; };
 		55EAFE55200463DE00761661 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		55EAFE5B2004CA5C00761661 /* GCSStyleManagerDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSStyleManagerDialog.swift; sourceTree = "<group>"; };
@@ -621,6 +617,8 @@
 				559B4F7A1FFDBB710000156A /* GCSStyleInspector.swift */,
 				5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */,
 				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
+				55E701CF2009403C00511343 /* GCSGradientWell.swift */,
+				55E701CC20093F6000511343 /* WTSGradientControl.swift */,
 				5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */,
 				55EAFE5B2004CA5C00761661 /* GCSStyleManagerDialog.swift */,
 				5523ED131FE89DBB00639846 /* GCSToolPalette.swift */,
@@ -689,10 +687,6 @@
 			children = (
 				55C969B31FE35360009AD729 /* GCSGradientPanel.h */,
 				55C969B41FE35361009AD729 /* GCSGradientPanel.m */,
-				55C969421FE34099009AD729 /* GCSGradientPasteboard.h */,
-				55C969291FE34099009AD729 /* GCSGradientPasteboard.m */,
-				55C9693B1FE34099009AD729 /* GCSGradientWell.h */,
-				55C9694E1FE34099009AD729 /* GCSGradientWell.m */,
 				55C969381FE34099009AD729 /* GCSMiniCircularSlider.h */,
 				55C969511FE34099009AD729 /* GCSMiniCircularSlider.m */,
 				55C9694B1FE34099009AD729 /* GCSMiniControl.h */,
@@ -709,8 +703,6 @@
 				55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */,
 				55C9692D1FE34099009AD729 /* GCSWindowMenu.h */,
 				55C9693E1FE34099009AD729 /* GCSWindowMenu.m */,
-				55C969461FE34099009AD729 /* WTSGradientControl.h */,
-				55C969301FE34099009AD729 /* WTSGradientControl.m */,
 			);
 			path = "GP for GCDrawDemo";
 			sourceTree = "<group>";
@@ -938,7 +930,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55C969871FE34099009AD729 /* WTSGradientControl.m in Sources */,
 				55C969AA1FE34099009AD729 /* GCFoundationAdditions.m in Sources */,
 				55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */,
 				55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */,
@@ -947,8 +938,8 @@
 				55C969861FE34099009AD729 /* GCSMiniRadialControls.m in Sources */,
 				55EAFE4620001C5600761661 /* GCSObjectInspector.swift in Sources */,
 				55C969AF1FE348F3009AD729 /* NSFolderManagerAdditions.m in Sources */,
+				55F918F8200981BD005EAC77 /* GCGradientPasteboard.m in Sources */,
 				55C969AE1FE348DA009AD729 /* NSBezierPath+GCAdditions.m in Sources */,
-				55C969941FE34099009AD729 /* GCSGradientWell.m in Sources */,
 				55FD3DC01FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift in Sources */,
 				55FD3DBD1FE734AE003705D0 /* DrawDemoDocument+ShortestRoute.swift in Sources */,
 				5523ED141FE89DBB00639846 /* GCSToolPalette.swift in Sources */,
@@ -957,13 +948,14 @@
 				55C9699C1FE34099009AD729 /* GCSDashEditor.m in Sources */,
 				559B4F7B1FFDBB710000156A /* GCSStyleInspector.swift in Sources */,
 				559B4F711FFC3D980000156A /* GCSExportOptionsController.swift in Sources */,
-				55C969831FE34099009AD729 /* GCSGradientPasteboard.m in Sources */,
+				55E701D02009403C00511343 /* GCSGradientWell.swift in Sources */,
 				55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */,
 				55C969971FE34099009AD729 /* GCSExportConstants.m in Sources */,
 				55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */,
 				5540CEAA1FEE590B0053C233 /* GCSCheckboxCell.swift in Sources */,
 				55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */,
 				55C9691A1FE337A2009AD729 /* GCSOutlineView.swift in Sources */,
+				55E701CD20093F6000511343 /* WTSGradientControl.swift in Sources */,
 				55C969891FE34099009AD729 /* GCSMiniControlCluster.m in Sources */,
 				55C969AB1FE34099009AD729 /* GCSBasicDialogController.m in Sources */,
 				55C9698D1FE34099009AD729 /* GCSMiniRadialControl2.m in Sources */,
@@ -1401,6 +1393,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -1484,6 +1477,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
