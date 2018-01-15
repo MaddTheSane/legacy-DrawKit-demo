@@ -17,6 +17,7 @@
 		5540CEAA1FEE590B0053C233 /* GCSCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */; };
 		554B512A1FF8A416001E5B09 /* GCSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B51291FF8A416001E5B09 /* GCSTableView.swift */; };
 		554B514D1FFAC6EE001E5B09 /* DKQLPlug.qlgenerator in Embed QuickLook PlugIn */ = {isa = PBXBuildFile; fileRef = 554B514B1FFAC6DD001E5B09 /* DKQLPlug.qlgenerator */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5569BBA4200D58A300DA0804 /* GCSWindowMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5569BBA3200D58A300DA0804 /* GCSWindowMenu.swift */; };
 		55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */; };
 		559B4F711FFC3D980000156A /* GCSExportOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */; };
 		559B4F7B1FFDBB710000156A /* GCSStyleInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559B4F7A1FFDBB710000156A /* GCSStyleInspector.swift */; };
@@ -48,7 +49,6 @@
 		55C969861FE34099009AD729 /* GCSMiniRadialControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */; };
 		55C969891FE34099009AD729 /* GCSMiniControlCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969331FE34099009AD729 /* GCSMiniControlCluster.m */; };
 		55C9698D1FE34099009AD729 /* GCSMiniRadialControl2.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693A1FE34099009AD729 /* GCSMiniRadialControl2.m */; };
-		55C9698F1FE34099009AD729 /* GCSWindowMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693E1FE34099009AD729 /* GCSWindowMenu.m */; };
 		55C969901FE34099009AD729 /* GCSSpecialColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */; };
 		55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969511FE34099009AD729 /* GCSMiniCircularSlider.m */; };
 		55C969971FE34099009AD729 /* GCSExportConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969521FE34099009AD729 /* GCSExportConstants.m */; };
@@ -275,6 +275,7 @@
 		5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSCheckboxCell.swift; sourceTree = "<group>"; };
 		554B51291FF8A416001E5B09 /* GCSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSTableView.swift; sourceTree = "<group>"; };
 		554B51461FFAC6DD001E5B09 /* DKQLPlug.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DKQLPlug.xcodeproj; path = DrawKit/DKQLPlug/DKQLPlug.xcodeproj; sourceTree = "<group>"; };
+		5569BBA3200D58A300DA0804 /* GCSWindowMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSWindowMenu.swift; sourceTree = "<group>"; };
 		55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSColourPickerView.swift; sourceTree = "<group>"; };
 		559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSExportOptionsController.swift; sourceTree = "<group>"; };
 		559B4F7A1FFDBB710000156A /* GCSStyleInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSStyleInspector.swift; sourceTree = "<group>"; };
@@ -298,13 +299,11 @@
 		55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DKSGradientCell.swift; sourceTree = "<group>"; };
 		55C969281FE34099009AD729 /* GCSMiniSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniSlider.m; sourceTree = "<group>"; };
 		55C9692C1FE34099009AD729 /* GCSSpecialColorWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSSpecialColorWell.h; sourceTree = "<group>"; };
-		55C9692D1FE34099009AD729 /* GCSWindowMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSWindowMenu.h; sourceTree = "<group>"; };
 		55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniRadialControls.m; sourceTree = "<group>"; };
 		55C969331FE34099009AD729 /* GCSMiniControlCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControlCluster.m; sourceTree = "<group>"; };
 		55C969341FE34099009AD729 /* GCSMiniControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniControl.m; sourceTree = "<group>"; };
 		55C969381FE34099009AD729 /* GCSMiniCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniCircularSlider.h; sourceTree = "<group>"; };
 		55C9693A1FE34099009AD729 /* GCSMiniRadialControl2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniRadialControl2.m; sourceTree = "<group>"; };
-		55C9693E1FE34099009AD729 /* GCSWindowMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSWindowMenu.m; sourceTree = "<group>"; };
 		55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSSpecialColorWell.m; sourceTree = "<group>"; };
 		55C969411FE34099009AD729 /* GCSMiniSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniSlider.h; sourceTree = "<group>"; };
 		55C969471FE34099009AD729 /* GCSMiniRadialControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSMiniRadialControls.h; sourceTree = "<group>"; };
@@ -634,6 +633,7 @@
 				55C969BA1FE37334009AD729 /* LogEventSwift.m */,
 				5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */,
 				55E701CC20093F6000511343 /* WTSGradientControl.swift */,
+				5569BBA3200D58A300DA0804 /* GCSWindowMenu.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -709,8 +709,6 @@
 				55C969281FE34099009AD729 /* GCSMiniSlider.m */,
 				55C9692C1FE34099009AD729 /* GCSSpecialColorWell.h */,
 				55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */,
-				55C9692D1FE34099009AD729 /* GCSWindowMenu.h */,
-				55C9693E1FE34099009AD729 /* GCSWindowMenu.m */,
 			);
 			path = "GP for GCDrawDemo";
 			sourceTree = "<group>";
@@ -939,10 +937,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C969AA1FE34099009AD729 /* GCFoundationAdditions.m in Sources */,
+				5569BBA4200D58A300DA0804 /* GCSWindowMenu.swift in Sources */,
 				55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */,
 				55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */,
 				5523ED301FE9F59C00639846 /* GCSGradientCell.swift in Sources */,
-				55C9698F1FE34099009AD729 /* GCSWindowMenu.m in Sources */,
 				55C969861FE34099009AD729 /* GCSMiniRadialControls.m in Sources */,
 				55EAFE4620001C5600761661 /* GCSObjectInspector.swift in Sources */,
 				55C969AF1FE348F3009AD729 /* NSFolderManagerAdditions.m in Sources */,

@@ -16,7 +16,6 @@
 #import "GCSLinearDuplicateController.h"
 #import "GCSMiniControl.h"
 #import "GCSTableView.h"
-#import "GCSWindowMenu.h"
 #import "GCSDashEditor.h"
 #import "GCGradientPasteboard.h"
 #import "NSFolderManagerAdditions.h"
