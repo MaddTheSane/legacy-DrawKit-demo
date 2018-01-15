@@ -15,7 +15,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface GCSWindowMenu : NSWindow {
-	NSView *mMainViewRef;
+	__unsafe_unretained NSView *mMainViewRef;
 }
 
 + (void)popUpWindowMenu:(GCSWindowMenu *)menu withEvent:(NSEvent *)event forView:(NSView *)view;
@@ -27,7 +27,7 @@
 - (void)trackWithEvent:(NSEvent *)event;
 
 - (void)setMainView:(NSView *)aView sizeToFit:(BOOL)stf;
-@property (readonly, strong) NSView *mainView;
+@property (readonly, unsafe_unretained) NSView *mainView;
 
 // private stuff:
 
