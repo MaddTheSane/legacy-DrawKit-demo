@@ -471,7 +471,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 - (NSArray *)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
-	NSString *path = [fm writeContents:[self.gradient fileRepresentation] toUniqueFile:@"untitled gradient.gradient" inDirectory:dropDestination.path];
+	NSString *path = [fm writeContents:[self.gradient fileRepresentation] toUniqueFile:[@"untitled gradient" stringByAppendingPathExtension:GradientFileExtension] inDirectory:dropDestination.path];
 
 	if (path)
 		return @[path.lastPathComponent];

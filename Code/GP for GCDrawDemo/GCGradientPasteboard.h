@@ -14,6 +14,8 @@
 
 #import <DKDrawKit/DKGradient.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 //! Pasteboard Support
 @interface DKGradient (GCGradientPasteboard)
 
@@ -28,12 +30,38 @@
 
 // Pasteboard Support
 
+/** @brief checks if the pastebaord contains data we can use to create a gradient.
+ @param pboard The pasteboard to check.
+ @return \c YES if can initialize, \c NO otherwise.
+ */
 + (BOOL)canInitalizeFromPasteboard:(NSPasteboard *)pboard;
 @property (class) NSSize pasteboardImageSize;
-+ (DKGradient *)gradientWithPasteboard:(NSPasteboard *)pboard;
-+ (DKGradient *)gradientWithPlist:(NSDictionary *)plist;
 
+/** @brief Returns a gradient created from pasteboard data, if valid.
+ @param pboard The pasteboard to read.
+ @return A gradient object, or \c nil if there was no suitable data on the pasteboard.
+ */
++ (nullable DKGradient *)gradientWithPasteboard:(NSPasteboard *)pboard;
+
+/** @brief Returns a gradient created from plist data, if valid.
+ @param plist A dictionary with plist representation of the gradient object.
+ @return A gradient object, or \c nil if the plist was invalid.
+ */
++ (nullable DKGradient *)gradientWithPlist:(NSDictionary *)plist;
+
+/** @brief Writes the gradient to the pasteboard.
+ 
+ Also writes a TIFF image version for export.
+ @param pboard The pasteboard to write to.
+ @return \c YES if the data was written OK, \c NO otherwise.
+ */
 - (BOOL)writeToPasteboard:(NSPasteboard *)pboard;
+
+/** @brief Places data of the requested type on the given pasteboard.
+ @param type The data type to write.
+ @param pboard The pasteboard to write it to.
+ @return \c YES if the type could be written, \c NO otherwise.
+ */
 - (BOOL)writeType:(NSPasteboardType)type toPasteboard:(NSPasteboard *)pboard;
 
 @property (readonly, copy) NSData *pdf;
@@ -41,12 +69,41 @@
 
 // File interface
 
+/** @brief create a gradient object from a gradient file
+ @param path The path to the file.
+ @return The gradient object, or \c nil if the file could not be read.
+ */
 + (DKGradient *)gradientWithContentsOfFile:(NSString *)path;
+
+/** @brief Write the gradient object to a gradient file.
+ @param path The path to the file.
+ @param flag \c YES to write via a safe save, \c NO to write directly.
+ @return \c YES if the file was written succesfully, \c NO otherwise.
+ */
 - (BOOL)writeToFile:(NSString *)path atomically:(BOOL)flag;
+
+/** @brief Write the gradient object to a gradient file.
+ @param path The file URL to save to.
+ @param writeOptionsMask The options to pass to NSFileWrapper.
+ @return \c YES if the file was written succesfully, \c NO otherwise.
+ */
+- (BOOL)writeToURL:(NSURL *)path options:(NSFileWrapperWritingOptions)writeOptionsMask error:(NSError * __autoreleasing *)errorPtr;
+
+/** @brief File representation of the gradient.
+ @return A data object containing the file representation of the gradient.
+ */
 @property (readonly, copy) NSData *fileRepresentation;
+
+/** @brief file wrapper representation of the gradient.
+ 
+ a file wrapper object containing the file representation of the gradient
+ */
 @property (readonly, strong) NSFileWrapper *fileWrapperRepresentation;
 @property (readonly, copy) NSDictionary *plistRepresentation;
 
+/** @brief Writes the gradient file representation to the pasteboard.
+ @param pboard The pasteboard to write to.
+ */
 - (BOOL)writeFileToPasteboard:(NSPasteboard *)pboard;
 
 @end
@@ -57,5 +114,7 @@ extern NSString * const GCGradientsKey;
 
 // Pasteboard and file types
 extern NSPasteboardType const GPGradientPasteboardType NS_SWIFT_NAME(gpGradient);
-extern NSPasteboardType const GPGradientLibPasteboardType;
+extern NSPasteboardType const GPGradientLibPasteboardType NS_SWIFT_NAME(gpGradientLib);
 extern NSString * const GradientFileExtension;
+
+NS_ASSUME_NONNULL_END

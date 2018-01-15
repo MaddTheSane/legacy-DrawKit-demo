@@ -48,13 +48,13 @@ final class WTSGradientControl: GCSGradientWell {
 		
 		switch st {
 		case .inactive, .normal:
-			DKGradient.aquaNormal().fill(rect2)
+			DKGradient.aquaNormal.fill(rect2)
 			
 		case .pressed:
-			DKGradient.aquaPressed().fill(rect2)
+			DKGradient.aquaPressed.fill(rect2)
 			
 		case .selected:
-			DKGradient.aquaSelected().fill(rect2)
+			DKGradient.aquaSelected.fill(rect2)
 			
 		default:
 			break

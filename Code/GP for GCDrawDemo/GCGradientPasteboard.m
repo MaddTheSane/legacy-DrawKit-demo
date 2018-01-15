@@ -29,12 +29,12 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 + (NSArray *)readablePasteboardTypes
 {
 	static NSArray *types = nil;
-
-	if (types == nil) {
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
 		types = @[GPGradientPasteboardType,
 				  NSFileContentsPboardType,
 				  (NSString*)kUTTypeFileURL];
-	}
+	});
 
 	return types;
 }
@@ -42,27 +42,15 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 + (NSArray *)writablePasteboardTypes
 {
 	static NSArray *types = nil;
-	if (types == nil) {
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
 		types = @[ GPGradientPasteboardType ];
-	}
+	});
 
 	return types;
 }
 
 #pragma mark -
-///*********************************************************************************************************************
-///
-/// method:			canInitalizeFromPasteboard:
-/// scope:			public class method
-/// overrides:
-/// description:	checksif the pastebaord containsdata we can use to create a gradient
-///
-/// parameters:		<pboard> the pasteboard to check
-/// result:			YES if can initialize, NO otherwise
-///
-/// notes:
-///
-///********************************************************************************************************************
 
 + (BOOL)canInitalizeFromPasteboard:(NSPasteboard *)pboard
 {
@@ -94,20 +82,6 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	return sGradientPasteboardImageSize;
 }
 
-///*********************************************************************************************************************
-///
-/// method:			gradientWithPasteboard:
-/// scope:			public class method
-/// overrides:
-/// description:	returns a gradient created from pasteboard data if valid
-///
-/// parameters:		<pboard> the pasteboard to read
-/// result:			a gradient object, or nil if there was no suitable data on the pasteboard
-///
-/// notes:
-///
-///********************************************************************************************************************
-
 + (DKGradient *)gradientWithPasteboard:(NSPasteboard *)pboard
 {
 	NSString *bestType = [pboard availableTypeFromArray:[self readablePasteboardTypes]];
@@ -134,39 +108,12 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	return nil;
 }
 
-///*********************************************************************************************************************
-///
-/// method:			gradientWithPlist:
-/// scope:			public class method
-/// overrides:
-/// description:	returns a gradient created from plist data if valid
-///
-/// parameters:		<plist> a dictionary with plist representation of the gradient object
-/// result:			a gradient object, or nil if the plist was invalid
-///
-/// notes:
-///
-///********************************************************************************************************************
-
 + (DKGradient *)gradientWithPlist:(NSDictionary *)plist
 {
 	return [plist unarchiveFromPropertyListFormat];
 }
 
 #pragma mark -
-///*********************************************************************************************************************
-///
-/// method:			writeToPasteboard:
-/// scope:			public instance method
-/// overrides:
-/// description:	writes the gradient to the pasteboard
-///
-/// parameters:		<pboard> the pasteboard to write to
-/// result:			YES if the data was written OK, NO otherwise
-///
-/// notes:			also writes a TIFF image version for export
-///
-///********************************************************************************************************************
 
 - (BOOL)writeToPasteboard:(NSPasteboard *)pboard
 {
@@ -177,21 +124,6 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	[self writeType:NSPasteboardTypeTIFF toPasteboard:pboard];
 	return YES;
 }
-
-///*********************************************************************************************************************
-///
-/// method:			writeType:toPasteboard:
-/// scope:			public instance method
-/// overrides:
-/// description:	places data of the requested type on the given pasteboard
-///
-/// parameters:		<type> the data type to write
-///					<pboard> the pasteboard to write it to
-/// result:			YES if the type could be written, NO otherwise
-///
-/// notes:
-///
-///********************************************************************************************************************
 
 - (BOOL)writeType:(NSString *)type toPasteboard:(NSPasteboard *)pboard
 {
@@ -270,19 +202,6 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 }
 
 #pragma mark -
-///*********************************************************************************************************************
-///
-/// method:			gradientWithContentsOfFile:
-/// scope:			public class method
-/// overrides:
-/// description:	create a gradient object from a gradient file
-///
-/// parameters:		<path> the path to the file
-/// result:			the gradient object, or nil if the file could not be read
-///
-/// notes:
-///
-///********************************************************************************************************************
 
 + (DKGradient *)gradientWithContentsOfFile:(NSString *)path
 {
@@ -290,69 +209,32 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	return [dict unarchiveFromPropertyListFormat];
 }
 
-///*********************************************************************************************************************
-///
-/// method:			writeToFile:atomically:
-/// scope:			public instance method
-/// overrides:
-/// description:	write the gradient object to a gradient file
-///
-/// parameters:		<path> the path to the file
-///					<flag> YES to write via a safe save, NO to write directly
-/// result:			YES if the file was written succesfully, NO otherwise
-///
-/// notes:
-///
-///********************************************************************************************************************
-
 - (BOOL)writeToFile:(NSString *)path atomically:(BOOL)flag
 {
-	return [[self fileWrapperRepresentation] writeToFile:path atomically:flag updateFilenames:YES];
+	return [self writeToURL:[NSURL fileURLWithPath:path] options:NSFileWrapperWritingWithNameUpdating | (flag ? NSFileWrapperWritingAtomic : 0) error:NULL];
 }
 
-///*********************************************************************************************************************
-///
-/// method:			fileRepresentation
-/// scope:			public instance method
-/// overrides:
-/// description:	file representation of the gradient
-///
-/// parameters:		none
-/// result:			a data object containing the file representation of the gradient
-///
-/// notes:
-///
-///********************************************************************************************************************
+- (BOOL)writeToURL:(NSURL *)path options:(NSFileWrapperWritingOptions)writeOptionsMask error:(NSError * _Nullable __autoreleasing * _Nullable)errorPtr
+{
+	return [[self fileWrapperRepresentation] writeToURL:path options:writeOptionsMask originalContentsURL:nil error:errorPtr];
+}
 
 - (NSData *)fileRepresentation
 {
-	return [NSPropertyListSerialization dataFromPropertyList:[self plistRepresentation]
+	return [NSPropertyListSerialization dataWithPropertyList:[self plistRepresentation]
 													  format:NSPropertyListXMLFormat_v1_0
-											errorDescription:nil];
+													 options:0
+													   error:nil];
 }
-
-///*********************************************************************************************************************
-///
-/// method:			fileWrapperRepresentation
-/// scope:			public instance method
-/// overrides:
-/// description:	file wrapper representation of the gradient
-///
-/// parameters:		none
-/// result:			a file wrapper object containing the file representation of the gradient
-///
-/// notes:
-///
-///********************************************************************************************************************
 
 - (NSFileWrapper *)fileWrapperRepresentation
 {
 	NSFileWrapper *wrap = [[NSFileWrapper alloc] initRegularFileWithContents:[self fileRepresentation]];
-	wrap.preferredFilename = @"untitled gradient.gradient";
+	wrap.preferredFilename = [@"untitled gradient" stringByAppendingPathExtension:GradientFileExtension];
 
 	NSDictionary *attributes = @{NSFileExtensionHidden: @YES,
 								 NSFileType: NSFileTypeRegular,
-								 NSFilePosixPermissions: @420UL/* <--- 0644 octal (-wrr) -> 420 decimal*/};
+								 NSFilePosixPermissions: @420/* <--- 0644 octal (-wrr) -> 420 decimal*/};
 
 	wrap.fileAttributes = attributes;
 
@@ -365,20 +247,6 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 }
 
 #pragma mark -
-
-///*********************************************************************************************************************
-///
-/// method:			writeFileToPasteboard:
-/// scope:			public instance method
-/// overrides:
-/// description:	writes the gradient file representation to the pasteboard
-///
-/// parameters:		<pboard> the pasteboard to write to
-/// result:			none
-///
-/// notes:
-///
-///********************************************************************************************************************
 
 - (BOOL)writeFileToPasteboard:(NSPasteboard *)pboard
 {
@@ -401,7 +269,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 		//	LogEvent_(kReactiveEvent, @"creating temporary file for filenames pasteboard");
 
 		NSFileManager *fm = [NSFileManager defaultManager];
-		NSString *path = [fm writeContents:[self fileRepresentation] toUniqueTemporaryFile:@"untitled gradient.gradient"];
+		NSString *path = [fm writeContents:[self fileRepresentation] toUniqueTemporaryFile:[@"untitled gradient" stringByAppendingPathExtension:GradientFileExtension]];
 
 		if (path)
 			[pboard setPropertyList:@[[NSURL fileURLWithPath:path]] forType:(NSString*)kUTTypeFileURL];

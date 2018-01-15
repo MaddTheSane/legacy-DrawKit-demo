@@ -430,7 +430,7 @@ class GCSGradientWell: NSControl, NSDraggingSource {
 	// MARK: - As part of NSNibAwaking Protocol
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		var newPBs = DKGradient.readablePasteboardTypes!
+		var newPBs = DKGradient.readablePasteboardTypes
 		newPBs.append(.color)
 		registerForDraggedTypes(newPBs)
 	}

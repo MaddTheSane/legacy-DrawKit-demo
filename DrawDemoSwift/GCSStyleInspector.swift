@@ -551,7 +551,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 	}
 	
 	private func updateSettings(forTextLabel tlr: DKTextAdornment) {
-		textLabelTextField.stringValue = tlr.string ?? ""
+		textLabelTextField.stringValue = tlr.string
 		textLayoutPopUpButton.selectItem(withTag: tlr.layoutMode.rawValue)
 		textAlignmentPopUpButton.selectItem(withTag: Int(tlr.alignment.rawValue))
 		textWrapLinesCheckbox.state = tlr.wrapsLines ? .on : .off
@@ -561,11 +561,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 		textLabelPlacementPopUpButton.selectItem(withTag: tlr.verticalAlignment.rawValue)
 		flowedTextInsetSlider.objectValue = tlr.flowedTextPathInset
 		
-		if let tlrClr = tlr.colour {
-			textColourWell.color = tlrClr
-		} else {
-			textColourWell.color = NSColor.black
-		}
+		textColourWell.color = tlr.colour
 		
 		// disable items not relevant to path text if that mode is set
 

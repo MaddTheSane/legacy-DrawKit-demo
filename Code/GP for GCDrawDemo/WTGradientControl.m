@@ -128,7 +128,7 @@
 {
 	DKColorStop *stop = [self stopAtPoint:point];
 	if (stop) {
-		stop.color = color;
+		stop.color = color ?: [NSColor whiteColor];
 		[self syncGradientToControlSettings];
 	} else {
 		CGFloat gPos = [self relativeXWithPoint:point];
