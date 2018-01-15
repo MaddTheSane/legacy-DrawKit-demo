@@ -19,8 +19,10 @@
 
 		LogEvent_(kReactiveEvent, @"index of active layer = %ld", (long)row);
 
-		[mLayersTable selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
-		[mLayersTable scrollRowToVisible:row];
+		if (row != NSNotFound) {
+			[mLayersTable selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+			[mLayersTable scrollRowToVisible:row];
+		}
 	}
 }
 
