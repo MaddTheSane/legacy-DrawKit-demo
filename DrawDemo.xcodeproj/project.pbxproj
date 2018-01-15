@@ -607,39 +607,47 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5569BBA2200D54EE00DA0804 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
+				55C968C21FE33509009AD729 /* AppDelegate.swift */,
+				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
+				55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */,
+				55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */,
+				5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */,
+				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
+				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
+				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
+				550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */,
+				559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */,
+				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
+				55E701CF2009403C00511343 /* GCSGradientWell.swift */,
+				55EBA4812006B37C003C5E85 /* GCSLayersPaletteController.swift */,
+				55EAFE4520001C5600761661 /* GCSObjectInspector.swift */,
+				55C969191FE337A2009AD729 /* GCSOutlineView.swift */,
+				559B4F7A1FFDBB710000156A /* GCSStyleInspector.swift */,
+				55EAFE5B2004CA5C00761661 /* GCSStyleManagerDialog.swift */,
+				554B51291FF8A416001E5B09 /* GCSTableView.swift */,
+				5523ED131FE89DBB00639846 /* GCSToolPalette.swift */,
+				55C969B91FE37325009AD729 /* LogEventSwift.h */,
+				55C969BA1FE37334009AD729 /* LogEventSwift.m */,
+				5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */,
+				55E701CC20093F6000511343 /* WTSGradientControl.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
 		55C968C11FE33509009AD729 /* DrawDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				5569BBA2200D54EE00DA0804 /* Source */,
 				55C969211FE34099009AD729 /* Old ObjC */,
-				55C968C21FE33509009AD729 /* AppDelegate.swift */,
-				55EBA4812006B37C003C5E85 /* GCSLayersPaletteController.swift */,
-				55EAFE4520001C5600761661 /* GCSObjectInspector.swift */,
-				559B4F7A1FFDBB710000156A /* GCSStyleInspector.swift */,
-				5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */,
-				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
-				55E701CF2009403C00511343 /* GCSGradientWell.swift */,
-				55E701CC20093F6000511343 /* WTSGradientControl.swift */,
-				5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */,
-				55EAFE5B2004CA5C00761661 /* GCSStyleManagerDialog.swift */,
-				5523ED131FE89DBB00639846 /* GCSToolPalette.swift */,
-				550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */,
-				559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */,
-				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
-				55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */,
-				55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */,
-				55C969191FE337A2009AD729 /* GCSOutlineView.swift */,
-				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
-				554B51291FF8A416001E5B09 /* GCSTableView.swift */,
-				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
-				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
-				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
-				55C969B91FE37325009AD729 /* LogEventSwift.h */,
-				55C969BA1FE37334009AD729 /* LogEventSwift.m */,
+				55C968DB1FE335E3009AD729 /* Interfaces */,
 				55C968C41FE33509009AD729 /* Assets.xcassets */,
 				55C968C91FE33509009AD729 /* Info.plist */,
 				55C969171FE33693009AD729 /* Credits.rtf */,
 				55C968F61FE33644009AD729 /* InfoPlist.strings */,
-				55C968DB1FE335E3009AD729 /* Interfaces */,
 			);
 			path = DrawDemoSwift;
 			sourceTree = "<group>";
