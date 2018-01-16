@@ -1,3 +1,6 @@
 /* Localized versions of Info.plist keys */
 
 NSHumanReadableCopyright = "© 2008 Graham Cox, Apptree";
+
+"net.apptree.drawing" = "DrawKit Drawing";
+"net.apptree.xmldrawing" = "DrawKit XML Drawing";

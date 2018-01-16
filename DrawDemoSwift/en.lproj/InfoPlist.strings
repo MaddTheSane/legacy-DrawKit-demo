@@ -1,3 +1,6 @@
 /* Localized versions of Info.plist keys */
 
-NSHumanReadableCopyright = "© 2008 Graham Cox, Apptree";
+NSHumanReadableCopyright = "© 2008 Graham Cox, Apptree; 2017-2018 C.W. “Madd the Sane” Betts";
+
+"net.apptree.drawing" = "DrawKit Drawing";
+"net.apptree.xmldrawing" = "DrawKit XML Drawing";
