@@ -58,7 +58,7 @@ class GCSWindowMenu : NSWindow {
 
 		menu1.fade(withTimeInterval: shift ? 1.5 : 0.15)
 		
-		//	LogEvent_(kReactiveEvent, @"pop-up complete");
+		LogEvent(.reactiveEvent, "pop-up complete")
 	}
 	
 	// MARK: -
@@ -105,9 +105,9 @@ class GCSWindowMenu : NSWindow {
 		//[self setAcceptsMouseMovedEvents:YES];
 		mainView?.mouseDown(with: transmogrify(event)!)
 		
-		var theEvent: NSEvent? = nil;
-		var keepOn = true;
-		var invertedTracking = false;
+		var theEvent: NSEvent? = nil
+		var keepOn = true
+		var invertedTracking = false
 
 		var mask: NSEvent.EventTypeMask = [.leftMouseUp, .leftMouseDragged,
 										   .rightMouseUp, .rightMouseDragged,
@@ -170,7 +170,7 @@ class GCSWindowMenu : NSWindow {
 		discardEvents(matching: .any, before: theEvent)
 
 		//[NSEvent stopPeriodicEvents];
-		//	LogEvent_(kReactiveEvent, @"ending tracking...");
+		LogEvent(.reactiveEvent, "ending tracking...")
 	}
 	
 	// MARK: -

@@ -62,12 +62,12 @@ extension DrawDemoDocument: DKRouteFinderProgressDelegate {
 	
 	/// given an array of `NSPoint` values, construct a path object having those points.
 	@objc(pathWithPoints:)
-	func path(with points: [NSValue]) -> DKDrawablePath? {
+	func path(with points: [NSValue]) -> DKDrawablePath {
 		return path(with: points.map({$0.pointValue}))
 	}
 	
 	/// given an array of `NSPoint`s, construct a path object having those points.
-	func path(with points: [NSPoint]) -> DKDrawablePath? {
+	func path(with points: [NSPoint]) -> DKDrawablePath {
 		var points2 = points
 		let path = NSBezierPath()
 		
@@ -122,7 +122,7 @@ extension DrawDemoDocument: DKRouteFinderProgressDelegate {
 			}
 			
 			let routeStyle = DKStyle(fillColour: nil, strokeColour: lineColour, strokeWidth: 3)
-			path?.style = routeStyle
+			path.style = routeStyle
 			
 			let layer = drawing.activeLayer(of: DKObjectOwnerLayer.self)
 			
@@ -130,7 +130,7 @@ extension DrawDemoDocument: DKRouteFinderProgressDelegate {
 				layer?.removeObject(routePath)
 			}
 			
-			layer?.addObject(path!)
+			layer?.addObject(path)
 			
 			NSApp.mainWindow?.displayIfNeeded()
 		}
