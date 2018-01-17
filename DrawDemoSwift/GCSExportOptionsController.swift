@@ -9,8 +9,7 @@
 import Cocoa
 
 
-@objc protocol GCSExportControllerDelegate: NSObjectProtocol {
-	@objc(performExportType:withOptions:)
+protocol GCSExportControllerDelegate: NSObjectProtocol {
 	func performExport(type: GCSExportFileTypes, withOptions options: [NSBitmapImageRep.PropertyKey: Any])
 }
 
@@ -60,7 +59,7 @@ final class GCSExportOptionsController: NSObject {
 			
 			self.optionsDict[.gcExportedFileURL] = sp.url
 			
-			LogEvent(.fileEvent, "export controller completed (OK), type = \(self.mFileType.rawValue), dict = \(self.optionsDict)")
+			LogEvent(.fileEvent, "export controller completed (OK), type = \(self.mFileType.rawValue), dict = \(self.optionsDict as NSDictionary)")
 			
 			delegate.performExport(type: self.mFileType, withOptions: self.optionsDict)
 		}
