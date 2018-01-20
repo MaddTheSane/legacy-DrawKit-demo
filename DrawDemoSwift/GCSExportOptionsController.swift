@@ -165,7 +165,7 @@ final class GCSExportOptionsController: NSObject {
 		}
 		
 		// set controls in options to match current dict state
-		jpegQualitySlider.floatValue = (optionsDict[.compressionFactor] as? Float) ?? 0
+		jpegQualitySlider.floatValue = (optionsDict[.compressionFactor] as? Float) ?? 0.67
 		jpegProgressiveCheckbox.state = ((optionsDict[.progressive] as? Bool) ?? false) ? .on : .off
 		pngInterlaceCheckbox.state = ((optionsDict[.interlaced] as? Bool) ?? false) ? .on : .off
 		tiffCompressionTypePopUpButton.selectItem(withTag: (optionsDict[.compressionMethod] as? Int) ?? 0)
