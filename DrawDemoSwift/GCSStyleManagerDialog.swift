@@ -147,9 +147,11 @@ final class GCSStyleManagerDialog : NSWindowController, DKStyleRegistryDelegate 
 	func populateMatrixWithStyle(inCategory cat: DKCategoryName) {
 		let obj = styles.objects(inCategory: cat)
 		
-		for cols in 0 ..< styleIconMatrix.numberOfColumns {
-			styleIconMatrix.removeColumn(cols)
-		}
+		var cols2 = 0
+		repeat {
+			styleIconMatrix.removeColumn(cols2)
+			cols2 += 1
+		} while cols2 < styleIconMatrix.numberOfColumns
 		
 		let num = obj.count
 		let cols = 4
@@ -325,7 +327,7 @@ extension GCSStyleManagerDialog: NSTableViewDataSource, NSTableViewDelegate {
 			} else {
 				return nil
 			}
-		} else if aTableColumn === styleBrowserList {
+		} else if aTableView === styleBrowserList {
 			let sortedKeys = styles.allSortedKeys(inCategory: selectedCategory!)
 			let key = sortedKeys[rowIndex]
 			
@@ -395,8 +397,8 @@ extension GCSStyleManagerDialog: NSTableViewDataSource, NSTableViewDelegate {
 	}
 }
 
-let styleCategoryListNameIdentifier = NSUserInterfaceItemIdentifier("catName")
-let styleCategoryListKeyIdentifier = NSUserInterfaceItemIdentifier("keyInCat")
-let styleBrowserListNameIdentifier = NSUserInterfaceItemIdentifier("name")
-let styleBrowserListImageIdentifier = NSUserInterfaceItemIdentifier("image")
+private let styleCategoryListNameIdentifier = NSUserInterfaceItemIdentifier("catName")
+private let styleCategoryListKeyIdentifier = NSUserInterfaceItemIdentifier("keyInCat")
+private let styleBrowserListNameIdentifier = NSUserInterfaceItemIdentifier("name")
+private let styleBrowserListImageIdentifier = NSUserInterfaceItemIdentifier("image")
 

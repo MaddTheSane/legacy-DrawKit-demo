@@ -289,7 +289,6 @@ final class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate
 		unitsComboBox.numberOfVisibleItems = units.count
 	}
 	
-	@objc(sheetDidEnd:returnCode:contextInfo:)
 	func sheetDidEnd(_ sheet: NSWindow, returnCode: NSApplication.ModalResponse, contextInfo: UnsafeMutableRawPointer?) {
 		if returnCode == NSApplication.ModalResponse.OK {
 			// apply the settings to the drawing.
