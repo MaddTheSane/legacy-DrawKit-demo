@@ -130,11 +130,11 @@ Gw
                 </subviews>
             </view>
         </window>
-        <customObject id="67" userLabel="GCSBasicDialogController" customClass="GCSBasicDialogController">
+        <customObject id="67" customClass="GCSBasicDialogController" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mCancel" destination="64" id="246"/>
-                <outlet property="mOK" destination="63" id="245"/>
-                <outlet property="mPrimaryItem" destination="62" id="247"/>
+                <outlet property="cancelButton" destination="64" id="246"/>
+                <outlet property="okButton" destination="63" id="245"/>
+                <outlet property="primaryItem" destination="62" id="247"/>
                 <outlet property="window" destination="60" id="68"/>
             </connections>
         </customObject>

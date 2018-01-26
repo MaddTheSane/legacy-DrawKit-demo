@@ -2427,11 +2427,11 @@ Gw
                 </subviews>
             </view>
         </window>
-        <customObject id="3174" customClass="GCSBasicDialogController">
+        <customObject id="3174" customClass="GCSBasicDialogController" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mCancel" destination="377" id="3175"/>
-                <outlet property="mOK" destination="376" id="3176"/>
-                <outlet property="mPrimaryItem" destination="375" id="3184"/>
+                <outlet property="cancelButton" destination="377" id="3175"/>
+                <outlet property="okButton" destination="376" id="3176"/>
+                <outlet property="primaryItem" destination="375" id="3184"/>
                 <outlet property="window" destination="372" id="3181"/>
             </connections>
         </customObject>

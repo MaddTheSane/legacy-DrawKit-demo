@@ -16,35 +16,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GCSBasicDialogDelegate;
-
-/**
- Basic controller handles dialogs with OK, Cancel and one primary item.
- 
- When running as a sheet, modal delegate should implement:
- 
- - (void)		sheetDidEnd:(NSWindow*) sheet returnCode:(NSInteger) returnCode  contextInfo:(void*) contextInfo;
- 
- */
-@interface GCSBasicDialogController : NSWindowController {
-	IBOutlet NSButton *mOK;
-	IBOutlet NSButton *mCancel;
-	IBOutlet NSTextField *mPrimaryItem;
-
-	BOOL mRunningAsSheet;
-}
-
-- (NSModalResponse)runModal;
-- (void)runAsSheetInParentWindow:(NSWindow *)parent modalDelegate:(id<GCSBasicDialogDelegate>)delegate;
-
-@property (readonly, strong) id primaryItem;
-
-- (IBAction)ok:(nullable id)sender;
-- (IBAction)cancel:(nullable id)sender;
-- (IBAction)primaryItemAction:(nullable id)sender;
-
-@end
-
 @protocol GCSBasicDialogDelegate <NSObject>
 - (void)sheetDidEnd:(NSWindow*)sheet returnCode:(NSModalResponse)returnCode contextInfo:(nullable void*)contextInfo;
 
