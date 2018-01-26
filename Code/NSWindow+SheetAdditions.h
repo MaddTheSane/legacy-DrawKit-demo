@@ -6,7 +6,7 @@
  */
 @interface NSWindow (SheetAdditions)
 
-- (void)beginSheet:(NSWindow *)sheet modalDelegate:(id)modalDelegate didEndSelector:(SEL)didEndSelector contextInfo:(void *)contextInfo;
-- (void)beginSheetModalForWindow:(NSWindow *)docWindow modalDelegate:(id)modalDelegate didEndSelector:(SEL)didEndSelector contextInfo:(void *)contextInfo;
+- (void)beginSheet:(NSWindow *)sheet modalDelegate:(id)modalDelegate didEndSelector:(SEL)didEndSelector contextInfo:(void *)contextInfo DEPRECATED_ATTRIBUTE;
+- (void)beginSheetModalForWindow:(NSWindow *)docWindow modalDelegate:(id)modalDelegate didEndSelector:(SEL)didEndSelector contextInfo:(void *)contextInfo DEPRECATED_ATTRIBUTE;
 
 @end

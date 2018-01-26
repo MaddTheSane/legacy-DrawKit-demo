@@ -10,7 +10,7 @@ import Cocoa
 import DKDrawKit.DKRouteFinder
 import DKDrawKit.DKDrawablePath
 import DKDrawKit.DKDrawableObject
-import DKDrawKit.DKDrawablePath
+import DrawKitSwift
 
 private var routePath: DKDrawablePath?
 private var origRoutePath: DKDrawablePath?
