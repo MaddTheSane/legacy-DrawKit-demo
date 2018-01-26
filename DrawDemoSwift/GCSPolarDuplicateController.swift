@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol GCSPolarDuplicationDelegate: NSObjectProtocol {
+protocol GCSPolarDuplicationDelegate: NSObjectProtocol {
 	func doPolarDuplicateCopies(_ copies: Int, centre cp: NSPoint, incAngle angle: CGFloat, rotateCopies rotCopies: Bool)
 	func doAutoPolarDuplicate(withCentre cp: NSPoint)
 	var countOfItemsInSelection: Int { get }
@@ -99,7 +99,7 @@ class GCSPolarDuplicateController: NSWindowController {
 		conditionallyEnableOKButton()
 	}
 	
-	func conditionallyEnableOKButton() {
+	private func conditionallyEnableOKButton() {
 		if centreXTextField.stringValue == "" || centreYTextField.stringValue == "" {
 			okButton.isEnabled = false
 		} else {

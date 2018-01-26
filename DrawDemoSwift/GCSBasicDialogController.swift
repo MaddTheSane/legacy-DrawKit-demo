@@ -23,7 +23,6 @@ class GCSBasicDialogController: NSWindowController {
 	
 	private var mRunningAsSheet = false
 	private weak var parentWindow: NSWindow?
-
 	
 	func runModal() -> NSApplication.ModalResponse {
 		mRunningAsSheet = false
@@ -45,7 +44,6 @@ class GCSBasicDialogController: NSWindowController {
 		}
 	}
 
-	//completionHandler
 	@available(*, deprecated)
 	func runAsSheet(inParentWindow parent: NSWindow, modalDelegate delegate: GCSBasicDialogDelegate) {
 		
@@ -77,5 +75,4 @@ class GCSBasicDialogController: NSWindowController {
 	@IBAction func primaryItemAction(_ sender: Any?) {
 		
 	}
-
 }

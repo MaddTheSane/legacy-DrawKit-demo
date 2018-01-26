@@ -894,7 +894,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 			let image = NSImage(pasteboard: pb)!
 			(selectedRendererRef as? DKFill)?.colour = NSColor(patternImage: image)
 			fillPatternImagePreview.image = image
-			LogEvent(.infoEvent, "color space name: \((selectedRendererRef as! DKFill).colour!.colorSpaceName)")
+			LogEvent(.infoEvent, "color space name: \((selectedRendererRef as? DKFill)?.colour?.colorSpaceName.rawValue ?? "Unknown")")
 		}
 	}
 	
@@ -933,14 +933,27 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 	
 	/// Open the script editing dialog.
 	@IBAction func scriptButtonAction(_ sender: Any?) {
+		/*
+		scriptEditController.runAsSheet(inParentWindow: window!) { (returnCode) in
+			if returnCode == .OK {
+				if let dashRenderRef = self.selectedRendererRef as? DKDashable {
+					dashRenderRef.dash = self.dashEditController.dash
+				}
+			} else {
+				if let dashRenderRef = self.selectedRendererRef as? DKDashable {
+					dashRenderRef.dash = self.savedDash
+				}
+			}
+		}
+		*/
+		
 		scriptEditController.runAsSheet(inParentWindow: window!, modalDelegate: self);
 	}
 	
 	
 	@IBAction func libraryMenuAction(_ sender: Any?) {
 		let tag: Int
-		if let sender = sender as AnyObject?,
-			let tag2 = sender.tag {
+		if let tag2: Int = (sender as AnyObject?)?.tag {
 			tag = tag2
 		} else {
 			tag = 0
