@@ -65,8 +65,8 @@ final class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate
 		
 		if let grid = drawing.gridLayer {
 			savedSpan = grid.spanDistance
-			savedDivs = Int(grid.divisions)
-			savedMajors = Int(grid.majors)
+			savedDivs = grid.divisions
+			savedMajors = grid.majors
 			savedGridColour = grid.spanColour
 			savedUnits = drawing.drawingUnits
 		}

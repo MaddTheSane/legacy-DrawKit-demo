@@ -190,7 +190,6 @@ extension DrawDemoDocument {
 			// one more to check against next time
 			
 			indx += 1
-
 		}
 	}
 	
