@@ -322,27 +322,27 @@ Gw
                 </subviews>
             </view>
         </window>
-        <customObject id="96" userLabel="GCSPolarDuplicateController" customClass="GCSPolarDuplicateController">
+        <customObject id="96" customClass="GCSPolarDuplicateController" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mAngleIncrementTextField" destination="92" id="251"/>
-                <outlet property="mAutoFitCircleCheckbox" destination="120" id="253"/>
-                <outlet property="mCancelButton" destination="83" id="301"/>
-                <outlet property="mCentreXTextField" destination="87" id="249"/>
-                <outlet property="mCentreYTextField" destination="89" id="250"/>
-                <outlet property="mCopiesTextField" destination="84" id="248"/>
-                <outlet property="mManualSettingsBox" destination="276" id="302"/>
-                <outlet property="mOKButton" destination="82" id="300"/>
-                <outlet property="mRotateCopiesCheckbox" destination="94" id="252"/>
+                <outlet property="angleIncrementTextField" destination="92" id="251"/>
+                <outlet property="autoFitCircleCheckbox" destination="120" id="253"/>
+                <outlet property="cancelButton" destination="83" id="301"/>
+                <outlet property="centreXTextField" destination="87" id="249"/>
+                <outlet property="centreYTextField" destination="89" id="250"/>
+                <outlet property="copiesTextField" destination="84" id="248"/>
+                <outlet property="manualSettingsBox" destination="276" id="302"/>
+                <outlet property="okButton" destination="82" id="300"/>
+                <outlet property="rotateCopiesCheckbox" destination="94" id="252"/>
                 <outlet property="window" destination="80" id="97"/>
             </connections>
         </customObject>
-        <customObject id="325" customClass="GCSLinearDuplicateController">
+        <customObject id="325" customClass="GCSLinearDuplicateController" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mNumberOfCopiesTextField" destination="333" id="349"/>
-                <outlet property="mOKButton" destination="328" id="352"/>
-                <outlet property="mXOffsetTextField" destination="339" id="350"/>
-                <outlet property="mYOffsetTextField" destination="342" id="351"/>
+                <outlet property="numberOfCopiesTextField" destination="333" id="349"/>
+                <outlet property="okButton" destination="328" id="352"/>
                 <outlet property="window" destination="326" id="348"/>
+                <outlet property="xOffsetTextField" destination="339" id="350"/>
+                <outlet property="yOffsetTextField" destination="342" id="351"/>
             </connections>
         </customObject>
         <window title="Linear Duplicate" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="326" userLabel="Linear Dupe" customClass="NSPanel">

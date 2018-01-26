@@ -74,11 +74,11 @@ final class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GC
 	// MARK: -
 	
 	@IBAction func polarDuplicate(_ sender: Any?) {
-		polarDuplicateController?.beginPolarDuplicationDialog(windowForSheet, polarDelegate: self)
+		polarDuplicateController?.beginPolarDuplicationDialog(windowForSheet!, polarDelegate: self)
 	}
 	
 	@IBAction func linearDuplicate(_ sender: Any?) {
-		linearDuplicateController?.beginLinearDuplicationDialog(windowForSheet, linearDelegate: self)
+		linearDuplicateController?.beginLinearDuplicationDialog(windowForSheet!, linearDelegate: self)
 	}
 	
 	@IBAction func openDrawingSizePanel(_ sender: Any?) {

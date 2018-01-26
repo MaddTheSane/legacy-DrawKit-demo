@@ -11,9 +11,7 @@
 
 #import "GCFoundationAdditions.h"
 #import "GCSBasicDialogController.h"
-#import "GCSPolarDuplicateController.h"
 #import "GCSExportConstants.h"
-#import "GCSLinearDuplicateController.h"
 #import "GCSMiniControl.h"
 #import "GCSTableView.h"
 #import "GCSDashEditor.h"
