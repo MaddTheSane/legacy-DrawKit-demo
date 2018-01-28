@@ -27,14 +27,14 @@
 	NSRect mPhaseHandle;
 }
 
-@property (nonatomic, strong) DKStrokeDash *dash;
+@property (nonatomic, strong, nullable) DKStrokeDash *dash;
 
 @property CGFloat lineWidth;
 @property NSLineCapStyle lineCapStyle;
 @property NSLineJoinStyle lineJoinStyle;
-@property (nonatomic, strong) NSColor *lineColour;
+@property (nonatomic, strong, nonnull) NSColor *lineColour;
 
-@property (weak) id<GCSDashEditViewDelegate> delegate;
+@property (weak, nullable) id<GCSDashEditViewDelegate> delegate;
 
 //! calculates where the handle rects are given the current dash
 - (void)calcHandles;
@@ -49,7 +49,7 @@
 
 @protocol GCSDashEditViewDelegate <NSObject>
 
-- (void)dashDidChange:(id)sender;
+- (void)dashDidChange:(nullable id)sender;
 
 @end
 

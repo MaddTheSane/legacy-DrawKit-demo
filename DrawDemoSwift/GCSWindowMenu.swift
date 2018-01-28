@@ -235,7 +235,7 @@ class GCSWindowMenu : NSWindow {
 	}
 	
 	/// Timer callback.
-	/// - param timer: The timer.
+	/// - parameter timer: The timer.
 	///
 	/// when complete, the timer is automatically discarded and the window closed & released
 	@objc private func timerFadeCallback(_ timer: Timer) {
