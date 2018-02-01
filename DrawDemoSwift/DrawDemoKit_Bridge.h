@@ -18,6 +18,7 @@
 #import "GCGradientPasteboard.h"
 #import "NSFolderManagerAdditions.h"
 #import "GCSSpecialColorWell.h"
+#import "GCSDashEditView.h"
 
 #import "GCSMiniCircularSlider.h"
 #import "GCSMiniControlCluster.h"

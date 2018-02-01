@@ -13,59 +13,10 @@
 ///**********************************************************************************************************************************
 
 #import <Cocoa/Cocoa.h>
-#import <DKDrawKit/DKStrokeDash.h>
-#import "GCSDashEditView.h"
 #import "GCSBasicDialogController.h"
-
-@class DKStrokeDash;
-@class GCSDashEditView;
-@protocol GCSDashEditorDelegate;
-
-@interface GCSDashEditor : NSWindowController <GCSDashEditViewDelegate> {
-	IBOutlet NSTextField *mDashMarkTextField1;
-	IBOutlet NSTextField *mDashSpaceTextField1;
-	IBOutlet NSTextField *mDashMarkTextField2;
-	IBOutlet NSTextField *mDashSpaceTextField2;
-	IBOutlet NSTextField *mDashMarkTextField3;
-	IBOutlet NSTextField *mDashSpaceTextField3;
-	IBOutlet NSTextField *mDashMarkTextField4;
-	IBOutlet NSTextField *mDashSpaceTextField4;
-	IBOutlet NSMatrix *mDashCountButtonMatrix;
-	IBOutlet NSButton *mDashScaleCheckbox;
-	IBOutlet GCSDashEditView *mDashPreviewEditView;
-	IBOutlet NSButton *mPreviewCheckbox;
-	IBOutlet NSSlider *mPhaseSlider;
-	DKStrokeDash *mDash;
-	NSTextField *mEF[8];
-	__weak id<GCSDashEditorDelegate> mDelegateRef;
-}
-
-- (void)openDashEditorInParentWindow:(NSWindow *)pw modalDelegate:(id<GCSDashEditorDelegate>)del;
-- (void)updateForDash;
-@property (nonatomic, strong) DKStrokeDash *dash;
-
-@property CGFloat lineWidth;
-@property NSLineCapStyle lineCapStyle;
-@property NSLineJoinStyle lineJoinStyle;
-@property (strong) NSColor *lineColour;
-
-//! The relevant number of fields.
-@property NSInteger dashCount;
-- (void)notifyDelegate;
-
-- (IBAction)ok:(id)sender;
-- (IBAction)cancel:(id)sender;
-- (IBAction)dashValueAction:(id)sender;
-- (IBAction)dashScaleCheckboxAction:(id)sender;
-- (IBAction)dashCountMatrixAction:(id)sender;
-- (IBAction)dashPhaseSliderAction:(id)sender;
-
-@end
-
-#pragma mark -
 
 @protocol GCSDashEditorDelegate <GCSBasicDialogDelegate>
 @optional
-- (void)dashDidChange:(id)sender;
+- (void)dashDidChange:(nullable id)sender;
 
 @end

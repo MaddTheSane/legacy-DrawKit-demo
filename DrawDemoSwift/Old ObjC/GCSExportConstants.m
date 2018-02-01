@@ -7,6 +7,7 @@
 //
 
 #import "GCSExportConstants.h"
+#import "DrawDemoSwift-Swift.h"
 
 NSString *const kGCIncludeGridInExportedFile = @"kGCIncludeGridInExportedFile";
 NSString *const kGCExportedFileURL = @"kGCExportedFileURL";

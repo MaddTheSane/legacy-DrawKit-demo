@@ -2333,20 +2333,20 @@ Gw
                 <outlet property="delegate" destination="315" id="317"/>
             </connections>
         </window>
-        <customObject id="315" userLabel="GCDashEditor" customClass="GCSDashEditor">
+        <customObject id="315" userLabel="GCDashEditor" customClass="GCSDashEditor" customModule="DrawDemoSwift" customModuleProvider="target">
             <connections>
-                <outlet property="mDashCountButtonMatrix" destination="304" id="1457"/>
-                <outlet property="mDashMarkTextField1" destination="288" id="1458"/>
-                <outlet property="mDashMarkTextField2" destination="292" id="1459"/>
-                <outlet property="mDashMarkTextField3" destination="296" id="1460"/>
-                <outlet property="mDashMarkTextField4" destination="300" id="1461"/>
-                <outlet property="mDashPreviewEditView" destination="312" id="1462"/>
-                <outlet property="mDashScaleCheckbox" destination="311" id="1463"/>
-                <outlet property="mDashSpaceTextField1" destination="290" id="1464"/>
-                <outlet property="mDashSpaceTextField2" destination="294" id="1465"/>
-                <outlet property="mDashSpaceTextField3" destination="298" id="1466"/>
-                <outlet property="mDashSpaceTextField4" destination="302" id="1467"/>
-                <outlet property="mPreviewCheckbox" destination="342" id="1456"/>
+                <outlet property="dashCountButtonMatrix" destination="304" id="1457"/>
+                <outlet property="dashMarkTextField1" destination="288" id="1458"/>
+                <outlet property="dashMarkTextField2" destination="292" id="1459"/>
+                <outlet property="dashMarkTextField3" destination="296" id="1460"/>
+                <outlet property="dashMarkTextField4" destination="300" id="1461"/>
+                <outlet property="dashPreviewEditView" destination="312" id="1462"/>
+                <outlet property="dashScaleCheckbox" destination="311" id="1463"/>
+                <outlet property="dashSpaceTextField1" destination="290" id="1464"/>
+                <outlet property="dashSpaceTextField2" destination="294" id="1465"/>
+                <outlet property="dashSpaceTextField3" destination="298" id="1466"/>
+                <outlet property="dashSpaceTextField4" destination="302" id="1467"/>
+                <outlet property="previewCheckbox" destination="342" id="1456"/>
                 <outlet property="window" destination="283" id="316"/>
             </connections>
         </customObject>
