@@ -607,19 +607,16 @@
 		5569BBA2200D54EE00DA0804 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				55E38A75202646CD0050F120 /* GP for DrawDemoSwift */,
 				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
 				55C968C21FE33509009AD729 /* AppDelegate.swift */,
-				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
 				5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */,
-				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
 				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
 				55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */,
 				55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */,
 				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
 				550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */,
 				559B4F701FFC3D980000156A /* GCSExportOptionsController.swift */,
-				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
-				55E701CF2009403C00511343 /* GCSGradientWell.swift */,
 				55EBA4812006B37C003C5E85 /* GCSLayersPaletteController.swift */,
 				55EAFE4520001C5600761661 /* GCSObjectInspector.swift */,
 				55C969191FE337A2009AD729 /* GCSOutlineView.swift */,
@@ -630,8 +627,6 @@
 				55C969B91FE37325009AD729 /* LogEventSwift.h */,
 				55C969BA1FE37334009AD729 /* LogEventSwift.m */,
 				5540CEA61FEE50230053C233 /* RSSVerticallyCenteredTextFieldCell.swift */,
-				55E701CC20093F6000511343 /* WTSGradientControl.swift */,
-				5569BBA3200D58A300DA0804 /* GCSWindowMenu.swift */,
 				559B1D0B201AE15B0048EE0D /* GCSPolarDuplicateController.swift */,
 				559B1D11201B0B7F0048EE0D /* GCSLinearDuplicateController.swift */,
 				559B1D13201B10400048EE0D /* GCSBasicDialogController.swift */,
@@ -707,6 +702,19 @@
 				55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */,
 			);
 			path = "GP for GCDrawDemo";
+			sourceTree = "<group>";
+		};
+		55E38A75202646CD0050F120 /* GP for DrawDemoSwift */ = {
+			isa = PBXGroup;
+			children = (
+				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
+				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
+				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
+				55E701CF2009403C00511343 /* GCSGradientWell.swift */,
+				5569BBA3200D58A300DA0804 /* GCSWindowMenu.swift */,
+				55E701CC20093F6000511343 /* WTSGradientControl.swift */,
+			);
+			path = "GP for DrawDemoSwift";
 			sourceTree = "<group>";
 		};
 		AA89A4560D7E03B90092F050 /* Products */ = {
