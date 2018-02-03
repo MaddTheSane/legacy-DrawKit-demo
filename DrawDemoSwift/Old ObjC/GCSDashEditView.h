@@ -15,43 +15,8 @@
 #import <Cocoa/Cocoa.h>
 #import <DKDrawKit/DKStrokeDash.h>
 
-@protocol GCSDashEditViewDelegate;
-
-@interface GCSDashEditView : NSView {
-	DKStrokeDash *mDash;
-	NSMutableArray *mHandles;
-	NSBezierPath *mPath;
-	NSInteger mSelected;
-	__weak id<GCSDashEditViewDelegate> mDelegateRef;
-	NSColor *mLineColour;
-	NSRect mPhaseHandle;
-}
-
-@property (nonatomic, strong, nullable) DKStrokeDash *dash;
-
-@property CGFloat lineWidth;
-@property NSLineCapStyle lineCapStyle;
-@property NSLineJoinStyle lineJoinStyle;
-@property (nonatomic, strong, nonnull) NSColor *lineColour;
-
-@property (weak, nullable) id<GCSDashEditViewDelegate> delegate;
-
-//! calculates where the handle rects are given the current dash
-- (void)calcHandles;
-
-- (NSInteger)mouseInHandle:(NSPoint)mp;
-- (void)drawHandles;
-
-//! sets the dash element indexed by mSelected to the right size for the given mouse point
-- (void)calcDashForPoint:(NSPoint)mp;
-
-@end
-
 @protocol GCSDashEditViewDelegate <NSObject>
 
 - (void)dashDidChange:(nullable id)sender;
 
 @end
-
-#define kDKStandardHandleRectSize (NSMakeSize(8, 8))
-#define kDKDashEditInset 8

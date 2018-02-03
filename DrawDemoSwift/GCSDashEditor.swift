@@ -22,7 +22,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 	@IBOutlet weak var dashScaleCheckbox: NSButton!
 	@IBOutlet weak var dashPreviewEditView: GCSDashEditView!
 	@IBOutlet weak var previewCheckbox: NSButton!
-	@IBOutlet weak var phaseSlider: NSSlider!
+	@IBOutlet weak var phaseSlider: NSSlider?
 	private weak var mDelegateRef: GCSDashEditorDelegate? = nil
 	
 	
@@ -81,7 +81,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 		dashPreviewEditView.dash = dash
 		dashCount = dash?.count ?? 1
 		dashScaleCheckbox.state = (dash?.scalesToLineWidth ?? false) ? .on : .off
-		phaseSlider.objectValue = dash?.phase ?? 1
+		phaseSlider?.objectValue = dash?.phase ?? 1
 	}
 	
 	var dash: DKStrokeDash? {
@@ -155,7 +155,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 			}
 			
 			dashCountButtonMatrix.selectCell(atRow: 0, column: (c - 1) / 2)
-			phaseSlider.maxValue = Double(dash?.length ?? 1)
+			phaseSlider?.maxValue = Double(dash?.length ?? 1)
 		}
 	}
 	
@@ -190,7 +190,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 		
 		dash?.setDashPattern(d, count: count)
 		notifyDelegate()
-		phaseSlider.maxValue = Double(dash!.length)
+		phaseSlider?.maxValue = Double(dash!.length)
 		dashPreviewEditView.needsDisplay = true
 	}
 	
@@ -233,7 +233,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 		super.awakeFromNib()
 		
 		previewCheckbox.integerValue = 1;
-		phaseSlider.isHidden = true
+		phaseSlider?.isHidden = true
 		dashPreviewEditView.delegate = self;
 		updateForDash()
 	}
