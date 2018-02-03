@@ -8,6 +8,7 @@
 
 import Cocoa
 import DKDrawKit.DKStrokeDash
+import DrawKitSwift
 
 class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 	@IBOutlet weak var dashMarkTextField1: NSTextField!
@@ -126,12 +127,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 	/// The relevant number of fields.
 	var dashCount: Int {
 		get {
-			var count = 0
-			var d = [CGFloat](repeating: 1, count: 8)
-			
-			dash?.getPattern(&d, count: &count)
-			
-			return count
+			return dash?.pattern.count ?? 0
 		}
 		set(c) {
 			var count = 0
@@ -140,7 +136,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 			dash?.getPattern(&d, count: &count)
 			
 			if count != c {
-				dash?.setDashPattern(d, count: c)
+				dash?.setPattern(d, count: c)
 				count = c
 			}
 			
@@ -188,7 +184,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 			}
 		}
 		
-		dash?.setDashPattern(d, count: count)
+		dash?.setPattern(d, count: count)
 		notifyDelegate()
 		phaseSlider?.maxValue = Double(dash!.length)
 		dashPreviewEditView.needsDisplay = true

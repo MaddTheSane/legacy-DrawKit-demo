@@ -9,6 +9,7 @@
 import Cocoa
 import DKDrawKit.DKStrokeDash
 import DKDrawKit.LogEvent
+import DrawKitSwift
 
 private var kDKStandardHandleRectSize: NSSize {
 	return NSSize(width: 8, height: 8)
@@ -170,12 +171,10 @@ class GCSDashEditView : NSView {
 			phase = max(0, (mp.x - fixedAmount) / scale)
 			dash?.phase = phase
 		} else {
-			var d = [CGFloat](repeating: 1, count: 8)
-			var c = 0
+			var d = dash?.pattern ?? [CGFloat](repeating: 1, count: 8)
 			fixedAmount += phase;
-			dash?.getPattern(&d, count: &c)
 			// sanity check the value of selected:
-			guard selected >= 0 && selected < c else {
+			guard selected >= 0 && selected < d.count else {
 				return
 			}
 			
@@ -191,7 +190,7 @@ class GCSDashEditView : NSView {
 				d[selected] = 0
 			}
 			
-			dash?.setDashPattern(d, count: c)
+			dash?.pattern = d
 		}
 		
 		// inform delegate
