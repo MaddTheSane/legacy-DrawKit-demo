@@ -64,8 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)writeType:(NSPasteboardType)type toPasteboard:(NSPasteboard *)pboard;
 
-@property (readonly, copy) NSData *pdf;
-@property (readonly, copy) NSData *eps;
+@property (readonly, copy, nullable) NSData *pdf;
+@property (readonly, copy, nullable) NSData *eps;
 
 // File interface
 
