@@ -32,7 +32,7 @@ final class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GC
 	}
 
 	override class var autosavesInPlace: Bool {
-		return false
+		return true
 	}
 	
 	func askUserForToolName() -> String? {

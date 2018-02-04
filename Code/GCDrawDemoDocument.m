@@ -171,6 +171,11 @@ static BOOL sDefaultQualityMod = NO;
 
 #pragma mark -
 #pragma mark As an NSDocument
++ (BOOL)autosavesInPlace
+{
+	return YES;
+}
+
 - (NSString *)windowNibName
 {
 	// Override returning the nib file name of the document
