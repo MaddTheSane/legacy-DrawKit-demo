@@ -152,7 +152,7 @@
 
 // general state management:
 
-@property (strong) DKStyle *style;
+@property (nonatomic, strong) DKStyle *style;
 - (void)updateUIForStyle;
 - (void)updateStylePreview;
 

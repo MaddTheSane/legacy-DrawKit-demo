@@ -46,10 +46,7 @@
 	}
 }
 
-- (DKStyle *)style
-{
-	return mStyle;
-}
+@synthesize style=mStyle;
 
 - (void)updateUIForStyle
 {
@@ -557,17 +554,17 @@
 #pragma mark -
 - (void)openDashEditor
 {
-	mSavedDash = [(id)mSelectedRendererRef dash]; // in case the editor is doing live preview
+	mSavedDash = [(id<DKDashable>)mSelectedRendererRef dash]; // in case the editor is doing live preview
 
-	DKStrokeDash *dash = [[(id)mSelectedRendererRef dash] copy];
+	DKStrokeDash *dash = [[(id<DKDashable>)mSelectedRendererRef dash] copy];
 	mDashEditController.dash = dash;
 
 	// as long as the current renderer supports these methods, the dash editor will work:
 
-	mDashEditController.lineWidth = [(id)mSelectedRendererRef width];
-	mDashEditController.lineCapStyle = [(id)mSelectedRendererRef lineCapStyle];
-	mDashEditController.lineJoinStyle = [(id)mSelectedRendererRef lineJoinStyle];
-	mDashEditController.lineColour = [(id)mSelectedRendererRef colour];
+	mDashEditController.lineWidth = [(id<DKDashable>)mSelectedRendererRef width];
+	mDashEditController.lineCapStyle = [(id<DKDashable>)mSelectedRendererRef lineCapStyle];
+	mDashEditController.lineJoinStyle = [(id<DKDashable>)mSelectedRendererRef lineJoinStyle];
+	mDashEditController.lineColour = [(id<DKDashable>)mSelectedRendererRef colour];
 
 	[mDashEditController openDashEditorInParentWindow:self.window modalDelegate:self];
 }
@@ -575,12 +572,12 @@
 #pragma mark -
 - (IBAction)strokeColourAction:(id)sender
 {
-	((DKStroke *)mSelectedRendererRef).colour = [sender color];
+	((id<DKDashable>)mSelectedRendererRef).colour = [sender color];
 }
 
 - (IBAction)strokeWidthAction:(id)sender
 {
-	((DKStroke *)mSelectedRendererRef).width = [sender floatValue];
+	((id<DKDashable>)mSelectedRendererRef).width = [sender floatValue];
 }
 
 - (IBAction)strokeShadowCheckboxAction:(id)sender
@@ -603,7 +600,7 @@
 		// menu's attributed object is the dash itself
 
 		DKStrokeDash *dash = [sender selectedItem].representedObject;
-		((DKStroke *)mSelectedRendererRef).dash = dash;
+		((id<DKDashable>)mSelectedRendererRef).dash = dash;
 	}
 }
 
