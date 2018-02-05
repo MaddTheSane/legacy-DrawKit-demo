@@ -14,8 +14,6 @@ private var kDKDefaultWindowMenuSize: NSRect {
 }
 
 class GCSWindowMenu : NSWindow {
-	private var fadeStartTime = Date().timeIntervalSinceReferenceDate
-	
 	/// Pops up a custom popup menu, tracks it, then hides it again with a fadeout.
 	/// - parameter menu: The custom popup window to display.
 	/// - parameter event: The event to start the display with (usually from a mouse down).
@@ -54,7 +52,7 @@ class GCSWindowMenu : NSWindow {
 		
 		// all done, tear down
 		
-		let shift = false; //(([[NSApp currentEvent] modifierFlags] & NSShiftKeyMask) != 0);
+		let shift = NSApp.currentEvent?.modifierFlags.contains(.shift) ?? false
 
 		menu1.fade(withTimeInterval: shift ? 1.5 : 0.15)
 		
@@ -214,41 +212,12 @@ class GCSWindowMenu : NSWindow {
 		// retain ourselves so that the timer can run long after the window's owner has said goodbye.
 		
 		if isVisible {
-			fadeStartTime = Date.timeIntervalSinceReferenceDate
-			
-			Timer.scheduledTimer(withTimeInterval: 1 / 30, repeats: true, block: { (timer) in
-				let total = t
-				let elapsed = Date.timeIntervalSinceReferenceDate - self.fadeStartTime
-				
-				let fade: CGFloat = CGFloat(1 - elapsed / total)
-				
-				self.alphaValue = fade
-				
-				if elapsed > total {
-					timer.invalidate()
-					self.orderOut(self)
-				}
+			NSAnimationContext.runAnimationGroup({ (aniCtx) in
+				aniCtx.duration = t
+				self.alphaValue = 0
+			}, completionHandler: {
+				self.orderOut(self)
 			})
-			
-			//Timer.scheduledTimer(timeInterval: 1 / 30.0, target: self, selector: #selector(GCSWindowMenu.timerFadeCallback(_:)), userInfo: t, repeats: true)
-		}
-	}
-	
-	/// Timer callback.
-	/// - parameter timer: The timer.
-	///
-	/// when complete, the timer is automatically discarded and the window closed & released
-	@objc private func timerFadeCallback(_ timer: Timer) {
-		let total = timer.userInfo as! TimeInterval
-		let elapsed = Date.timeIntervalSinceReferenceDate - fadeStartTime
-		
-		let fade: CGFloat = CGFloat(1 - elapsed / total)
-		
-		alphaValue = fade
-		
-		if elapsed > total {
-			timer.invalidate()
-			orderOut(self)
 		}
 	}
 	
@@ -290,17 +259,17 @@ extension NSEvent {
 	/// Is `true` if the event is a mouse event of any kind.
 	fileprivate var isMouseEventType: Bool {
 		get {
-		let t = self.type
-		
-		return (t == .leftMouseDown ||
-			t == .leftMouseUp ||
-			t == .rightMouseDown ||
-			t == .rightMouseUp ||
-			t == .leftMouseDragged ||
-			t == .rightMouseDragged ||
-			t == .otherMouseDown ||
-			t == .otherMouseUp ||
-			t == .otherMouseDragged)
+			let t = self.type
+			
+			return (t == .leftMouseDown ||
+				t == .leftMouseUp ||
+				t == .rightMouseDown ||
+				t == .rightMouseUp ||
+				t == .leftMouseDragged ||
+				t == .rightMouseDragged ||
+				t == .otherMouseDown ||
+				t == .otherMouseUp ||
+				t == .otherMouseDragged)
 		}
 	}
 }
