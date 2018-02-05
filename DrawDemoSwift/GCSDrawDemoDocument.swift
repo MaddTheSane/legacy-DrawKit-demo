@@ -99,7 +99,7 @@ final class DrawDemoDocument: DKDrawingDocument, GCSPolarDuplicationDelegate, GC
 	}
 	
 	// MARK: - As an DKDrawingDocument
-	override var drawing: DKDrawing! {
+	override var drawing: DKDrawing {
 		didSet {
 			drawing.dynamicQualityModulationEnabled = DrawDemoDocument.defaultQualityModulation
 		}
