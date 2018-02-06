@@ -13,7 +13,6 @@
 ///**********************************************************************************************************************************
 
 #import <Cocoa/Cocoa.h>
-#import <DKDrawKit/DKStrokeDash.h>
 
 @protocol GCSDashEditViewDelegate <NSObject>
 

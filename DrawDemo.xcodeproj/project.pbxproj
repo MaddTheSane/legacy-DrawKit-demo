@@ -253,11 +253,11 @@
 		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2A37F4ACFDCFA73011CA2CEA /* GCDrawDemoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDrawDemoDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* GCDrawDemoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDrawDemoDocument.h; sourceTree = "<group>"; };
-		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Code/main.m; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A37F4BAFDCFA73011CA2CEA /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawDemo_Prefix.pch; path = Code/DrawDemo_Prefix.pch; sourceTree = "<group>"; };
+		32DBCF750370BD2300C91783 /* DrawDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawDemo_Prefix.pch; sourceTree = "<group>"; };
 		550616EF1FE48FCF00C5EE66 /* GCSDrawingSizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSDrawingSizeController.swift; sourceTree = "<group>"; };
 		551B08541FDF5650008AE439 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5523ED131FE89DBB00639846 /* GCSToolPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSToolPalette.swift; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 		AA7431F00D8101720013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StyleManager.xib; sourceTree = "<group>"; };
 		AA7431F30D8101790013CA82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ToolPalette.xib; sourceTree = "<group>"; };
 		AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DrawDemo.xcconfig; sourceTree = "<group>"; };
-		AA8073650DA49912005BCAA0 /* DrawDemoInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DrawDemoInfo.plist; sourceTree = "<group>"; };
+		AA8073650DA49912005BCAA0 /* DrawDemoInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DrawDemoInfo.plist; sourceTree = SOURCE_ROOT; };
 		AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DrawKit.xcodeproj; path = DrawKit/DrawKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		BF2866260E26ED05001CD43F /* GCExportOptionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCExportOptionsController.h; sourceTree = "<group>"; };
 		BF2866270E26ED05001CD43F /* GCExportOptionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCExportOptionsController.m; sourceTree = "<group>"; };
@@ -489,12 +489,9 @@
 			isa = PBXGroup;
 			children = (
 				AA80733D0DA4951B005BCAA0 /* DrawDemo.xcconfig */,
-				AA8073650DA49912005BCAA0 /* DrawDemoInfo.plist */,
 				554B51461FFAC6DD001E5B09 /* DKQLPlug.xcodeproj */,
 				AA89A4550D7E03B90092F050 /* DrawKit.xcodeproj */,
-				2A37F4ABFDCFA73011CA2CEA /* Classes */,
-				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
-				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				555E3F8A202A165D00B14228 /* GCDrawDemo */,
 				55C968C11FE33509009AD729 /* DrawDemoSwift */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
@@ -564,11 +561,13 @@
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
+			path = Code;
 			sourceTree = "<group>";
 		};
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA8073650DA49912005BCAA0 /* DrawDemoInfo.plist */,
 				55EFF2221FDE8DE0007A4610 /* Assets.xcassets */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
 				AA7431D20D80FF3D0013CA82 /* DKGraphicInspector.xib */,
@@ -602,6 +601,16 @@
 				554B514B1FFAC6DD001E5B09 /* DKQLPlug.qlgenerator */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		555E3F8A202A165D00B14228 /* GCDrawDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+			);
+			name = GCDrawDemo;
 			sourceTree = "<group>";
 		};
 		5569BBA2200D54EE00DA0804 /* Source */ = {
@@ -670,7 +679,6 @@
 		55C969211FE34099009AD729 /* Old ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				55C969271FE34099009AD729 /* GP for GCDrawDemo */,
 				55C969651FE34099009AD729 /* GCSBasicDialogController.h */,
 				55C969701FE34099009AD729 /* GCSDashEditor.h */,
 				55C9697E1FE34099009AD729 /* GCSDashEditView.h */,
@@ -681,11 +689,15 @@
 			path = "Old ObjC";
 			sourceTree = "<group>";
 		};
-		55C969271FE34099009AD729 /* GP for GCDrawDemo */ = {
+		55E38A75202646CD0050F120 /* GP for DrawDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
+				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
+				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
 				55C969B31FE35360009AD729 /* GCSGradientPanel.h */,
 				55C969B41FE35361009AD729 /* GCSGradientPanel.m */,
+				55E701CF2009403C00511343 /* GCSGradientWell.swift */,
 				55C969381FE34099009AD729 /* GCSMiniCircularSlider.h */,
 				55C969511FE34099009AD729 /* GCSMiniCircularSlider.m */,
 				55C9694B1FE34099009AD729 /* GCSMiniControl.h */,
@@ -700,17 +712,6 @@
 				55C969281FE34099009AD729 /* GCSMiniSlider.m */,
 				55C9692C1FE34099009AD729 /* GCSSpecialColorWell.h */,
 				55C9693F1FE34099009AD729 /* GCSSpecialColorWell.m */,
-			);
-			path = "GP for GCDrawDemo";
-			sourceTree = "<group>";
-		};
-		55E38A75202646CD0050F120 /* GP for DrawDemoSwift */ = {
-			isa = PBXGroup;
-			children = (
-				55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */,
-				55801B911FEF1C32003BD17C /* GCSColourPickerView.swift */,
-				5523ED2F1FE9F59C00639846 /* GCSGradientCell.swift */,
-				55E701CF2009403C00511343 /* GCSGradientWell.swift */,
 				5569BBA3200D58A300DA0804 /* GCSWindowMenu.swift */,
 				55E701CC20093F6000511343 /* WTSGradientControl.swift */,
 			);
