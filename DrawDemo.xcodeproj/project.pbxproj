@@ -46,7 +46,7 @@
 		55C969121FE33688009AD729 /* ToolPalette.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C969141FE33688009AD729 /* ToolPalette.xib */; };
 		55C969151FE33693009AD729 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 55C969171FE33693009AD729 /* Credits.rtf */; };
 		55C9691A1FE337A2009AD729 /* GCSOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C969191FE337A2009AD729 /* GCSOutlineView.swift */; };
-		55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */; };
+		55C9691C1FE33C2D009AD729 /* DrawDemoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9691B1FE33C2D009AD729 /* DrawDemoDocument.swift */; };
 		55C9691E1FE33EB1009AD729 /* WTPlistKeyValueCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58D0040C7526A6009B85CC /* WTPlistKeyValueCoding.m */; };
 		55C969201FE33FDB009AD729 /* DKSGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */; };
 		55C969861FE34099009AD729 /* GCSMiniRadialControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9692F1FE34099009AD729 /* GCSMiniRadialControls.m */; };
@@ -298,7 +298,7 @@
 		55C969101FE33684009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StyleManager.xib; sourceTree = "<group>"; };
 		55C969161FE33693009AD729 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		55C969191FE337A2009AD729 /* GCSOutlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSOutlineView.swift; sourceTree = "<group>"; };
-		55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSDrawDemoDocument.swift; sourceTree = "<group>"; };
+		55C9691B1FE33C2D009AD729 /* DrawDemoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DrawDemoDocument.swift; sourceTree = "<group>"; };
 		55C9691F1FE33FDB009AD729 /* DKSGradientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DKSGradientCell.swift; sourceTree = "<group>"; };
 		55C969281FE34099009AD729 /* GCSMiniSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSMiniSlider.m; sourceTree = "<group>"; };
 		55C9692C1FE34099009AD729 /* GCSSpecialColorWell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSSpecialColorWell.h; sourceTree = "<group>"; };
@@ -620,7 +620,7 @@
 				55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */,
 				55C968C21FE33509009AD729 /* AppDelegate.swift */,
 				5540CEA91FEE590B0053C233 /* GCSCheckboxCell.swift */,
-				55C9691B1FE33C2D009AD729 /* GCSDrawDemoDocument.swift */,
+				55C9691B1FE33C2D009AD729 /* DrawDemoDocument.swift */,
 				55FD3DBC1FE734AD003705D0 /* DrawDemoDocument+ShortestRoute.swift */,
 				55FD3DBF1FE745C0003705D0 /* DrawDemoDocument+TimelineLayout.swift */,
 				55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */,
@@ -943,7 +943,7 @@
 			files = (
 				55C969AA1FE34099009AD729 /* GCFoundationAdditions.m in Sources */,
 				5569BBA4200D58A300DA0804 /* GCSWindowMenu.swift in Sources */,
-				55C9691C1FE33C2D009AD729 /* GCSDrawDemoDocument.swift in Sources */,
+				55C9691C1FE33C2D009AD729 /* DrawDemoDocument.swift in Sources */,
 				55C969961FE34099009AD729 /* GCSMiniCircularSlider.m in Sources */,
 				5523ED301FE9F59C00639846 /* GCSGradientCell.swift in Sources */,
 				559B1D0C201AE15B0048EE0D /* GCSPolarDuplicateController.swift in Sources */,
