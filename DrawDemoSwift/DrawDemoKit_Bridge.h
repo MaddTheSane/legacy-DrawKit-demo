@@ -14,10 +14,11 @@
 #import "GCSExportConstants.h"
 #import "GCSMiniControl.h"
 #import "GCSTableView.h"
-#import "GCSDashEditor.h"
 #import "GCGradientPasteboard.h"
 #import "NSFolderManagerAdditions.h"
 #import "GCSSpecialColorWell.h"
+
+#import "GCSDashEditor.h"
 #import "GCSDashEditView.h"
 
 #import "GCSMiniCircularSlider.h"
