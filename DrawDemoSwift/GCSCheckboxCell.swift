@@ -31,7 +31,7 @@ final class GCSCheckboxCell: NSButtonCell {
 				let p = controlView.convert(newEvt.locationInWindow, from: nil)
 				isIn = NSPointInRect(p, cellFrame);
 
-				if (isIn != wasIn) {
+				if isIn != wasIn {
 					self.isHighlighted = isIn;
 					controlView.setNeedsDisplay(cellFrame)
 					wasIn = isIn;

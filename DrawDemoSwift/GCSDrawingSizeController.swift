@@ -54,7 +54,6 @@ final class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate
 	var savedPaperColour: NSColor?
 	private weak var parent: NSWindow?
 	
-	@objc(beginDrawingSizeDialog:withDrawing:)
 	func beginDrawingSizeDialog(_ parent: NSWindow, with drawing: DKDrawing) {
 		self.drawing = drawing
 		unitConversionFactor = drawing.unitToPointsConversionFactor
