@@ -214,7 +214,7 @@ class GCSWindowMenu : NSWindow {
 		if isVisible {
 			NSAnimationContext.runAnimationGroup({ (aniCtx) in
 				aniCtx.duration = t
-				self.alphaValue = 0
+				self.animator().alphaValue = 0
 			}, completionHandler: {
 				self.orderOut(self)
 			})
