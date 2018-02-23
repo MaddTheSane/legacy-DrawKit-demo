@@ -44,13 +44,13 @@ class GCSGradientWell: NSControl, NSDraggingSource {
 
 	var gradient: DKGradient? {
 		get {
-			return (cell as? GCSGradientCell)?.gradient
+			return (cell as? DKSGradientCell)?.gradient
 		}
 		set {
 			if gradient !== newValue {
-				(cell as? GCSGradientCell)?.gradient = newValue
+				(cell as? DKSGradientCell)?.gradient = newValue
 				needsDisplay = true
-				//[self syncGradientToControlSettings];
+				syncGradientToControlSettings()
 			}
 		}
 	}

@@ -844,11 +844,13 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 		
 		// copy needed to force KVO to flag the change of gradient in the fill
 
-		var grad: DKGradient = (sender as AnyObject).gradient!!
-		grad = grad.copy() as! DKGradient
-		
-		(selectedRendererRef as! DKFill).gradient = grad
-		
+		if var grad: DKGradient = (sender as? WTSGradientControl)?.gradient {
+			grad = grad.copy() as! DKGradient
+			
+			(selectedRendererRef as! DKFill).gradient = grad
+		} else {
+			NSSound.beep()
+		}
 		mIsChangingGradient = false
 	}
 	
