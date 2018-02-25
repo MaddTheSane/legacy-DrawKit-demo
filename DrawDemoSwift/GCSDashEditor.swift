@@ -62,7 +62,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 	
 	func open(inParentWindow pw: NSWindow, modalDelegate del: GCSDashEditorDelegate) {
 		if dash == nil {
-			dash = DKStrokeDash.`default`()
+			dash = DKStrokeDash()
 		}
 		
 		parentWindow = pw
@@ -155,7 +155,7 @@ class GCSDashEditor: NSWindowController, GCSDashEditViewDelegate {
 		}
 	}
 	
-	func notifyDelegate() {
+	private func notifyDelegate() {
 		if previewCheckbox.state == .on {
 			mDelegateRef?.dashDidChange?(self)
 		}
