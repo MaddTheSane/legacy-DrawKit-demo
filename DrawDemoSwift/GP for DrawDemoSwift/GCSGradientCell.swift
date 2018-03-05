@@ -113,7 +113,7 @@ final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 				seg = 0
 			}
 			
-			//[[self gradient] setNumberOfAngularSegments:seg];
+            //[[self gradient] setNumberOfAngularSegments:seg];
 
 		case kRadialStartControlID, kSweepCentreControlID:
 			let rc = ctrl as! GCMiniRadialControls
@@ -251,7 +251,7 @@ final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 			}
 			rc.centre = gradient.mapPoint(gradient.radialStartingPoint, to: controlBoundsRect)
 			
-			let seg = 100 //[[self gradient] numberOfAngularSegments];
+            let seg = 100 //[[self gradient] numberOfAngularSegments];
 			var v = CGFloat(seg) / 50.0
 			
 			if seg < 4 {
@@ -269,14 +269,12 @@ final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 	}
 	
 	// MARK: -
-	func proxyIconRect(inCellFrame rect:NSRect) -> NSRect {
+	func proxyIconRect(inCellFrame rect: NSRect) -> NSRect {
 		let br = rect.insetBy(dx: 8, dy: 9)
-		let ficon = NSImage(named: NSImage.Name(rawValue: "fileiconsmall"))
+		let ficon = #imageLiteral(resourceName: "fileiconsmall")
 		var ir = NSRect()
 
-		if let ficon = ficon {
-			ir.size = ficon.size
-		}
+		ir.size = ficon.size
 		ir.origin.x = br.maxX - ir.size.width
 		ir.origin.y = br.maxY - ir.size.height
 		
@@ -308,8 +306,8 @@ final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 				
 				// if proxy icon flag set, draw it
 
-				if control.displaysProxyIcon,
-					let ficon = NSImage(named: NSImage.Name(rawValue: "fileiconsmall")) {
+				if control.displaysProxyIcon {
+					let ficon = #imageLiteral(resourceName: "fileiconsmall")
 					ficon.draw(in: proxyIconRect(inCellFrame: cellFrame), from: .zero, operation: .sourceAtop, fraction: 0.8)
 				}
 			}
