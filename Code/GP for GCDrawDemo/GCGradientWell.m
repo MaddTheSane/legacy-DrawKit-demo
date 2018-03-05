@@ -220,7 +220,9 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	globalLoc.y = NSMidY(cf);
 
 	globalLoc = [self convertPoint:globalLoc toView:nil];
-	globalLoc = [self.window convertBaseToScreen:globalLoc];
+	cf.origin = globalLoc;
+	cf.size = NSMakeSize(1, 1);
+	globalLoc = [self.window convertRectToScreen:cf].origin;
 
 	NSShowAnimationEffect(NSAnimationEffectDisappearingItemDefault, globalLoc, NSZeroSize, nil, nil, nil);
 }
@@ -408,9 +410,9 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	return NSDragOperationNone;
 }
 
-- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal
+- (NSDragOperation)draggingSession:(NSDraggingSession *)session sourceOperationMaskForDraggingContext:(NSDraggingContext)context
 {
-#pragma unused(isLocal)
+#pragma unused(context, session)
 	return NSDragOperationGeneric;
 }
 

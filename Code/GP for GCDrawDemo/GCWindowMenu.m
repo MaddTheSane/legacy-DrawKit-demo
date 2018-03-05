@@ -70,7 +70,10 @@
 	if (menu == nil)
 		menu = [GCWindowMenu windowMenu];
 
-	loc = [view.window convertBaseToScreen:loc];
+	NSRect tmpRect;
+	tmpRect.origin = loc;
+	tmpRect.size = NSMakeSize(1, 1);
+	loc = [view.window convertRectToScreen:tmpRect].origin;
 	[menu setFrameTopLeftPoint:loc];
 
 	// show the "menu"
@@ -376,10 +379,15 @@ static NSTimeInterval sFadeStartTime = 0.0;
 - (NSEvent *)transmogrify:(NSEvent *)event
 {
 	if ((event.window != self) && [event isMouseEventType]) {
-		NSPoint glob = [event.window convertBaseToScreen:event.locationInWindow];
+		NSSize temp1Size = NSMakeSize(1, 1);
+		NSRect tmpRect;
+		tmpRect.size = temp1Size;
+		tmpRect.origin = event.locationInWindow;
+		NSRect glob = [event.window convertRectToScreen:tmpRect];
+		NSPoint newGlob = [self convertRectFromScreen:glob].origin;
 
 		return [NSEvent mouseEventWithType:event.type
-								  location:[self convertScreenToBase:glob]
+								  location:newGlob
 							 modifierFlags:event.modifierFlags
 								 timestamp:event.timestamp
 							  windowNumber:self.windowNumber
