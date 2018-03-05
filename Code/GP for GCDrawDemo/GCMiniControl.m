@@ -75,15 +75,6 @@
 
 #pragma mark -
 @synthesize bounds=mBounds;
-- (void)setBounds:(NSRect)rect
-{
-	mBounds = rect;
-}
-
-- (NSRect)bounds
-{
-	return mBounds;
-}
 
 - (void)draw
 {

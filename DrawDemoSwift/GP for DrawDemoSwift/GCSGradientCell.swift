@@ -29,7 +29,7 @@ private let kSweepControlsClusterID = "kSweepControlsClusterID";
 // MARK: Static Vars
 private var sMFlags: UInt = 0
 
-final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
+final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 	/// internal "partcodes" for where a mouse hit occurred
 	enum HitPart: Int {
 		case none = 0
@@ -38,7 +38,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 		case other = 999
 	}
 	var controlBoundsRect = NSRect.zero
-	var miniControls: GCSMiniControlCluster?
+	var miniControls: GCMiniControlCluster?
 	var updatingControls = false
 	private var hitPart = HitPart.none
 
@@ -48,58 +48,58 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 	/// container for the lower level clusters. Each subcluster contains a group of mini controls, one for each of the
 	/// gradient modes/types.
 	func setupMiniControls() {
-		guard let mMiniControls = GCSMiniControlCluster(bounds: .zero, in: nil) else {
+		guard let mMiniControls = GCMiniControlCluster(bounds: .zero, in: nil) else {
 			fatalError()
 		}
 		miniControls = mMiniControls
 		mMiniControls.delegate = self
 		mMiniControls.forceVisible(false)
 	
-		var mcc: GCSMiniControlCluster?
-		var mini: GCSMiniControl?
+		var mcc: GCMiniControlCluster?
+		var mini: GCMiniControl?
 		
 		// first contains circular slider for linear gradient angle
-		mcc = GCSMiniControlCluster(bounds: .zero, in: mMiniControls)
+		mcc = GCMiniControlCluster(bounds: .zero, in: mMiniControls)
 		mcc?.identifier = kLinearControlsClusterID
 		
-		mini = GCSMiniCircularSlider(bounds: .zero, in: mcc)
+		mini = GCMiniCircularSlider(bounds: .zero, in: mcc)
 		mini?.identifier = kLinearAngleControlID
 		
 		// second has twin radial controls
 
-		mcc = GCSMiniControlCluster(bounds: .zero, in: mMiniControls)
+		mcc = GCMiniControlCluster(bounds: .zero, in: mMiniControls)
 		mcc?.identifier = kRadialControlsClusterID
 		
 		// allow shift key to move both minicontrols together:
 
 		mcc?.setLinkControlPart(kDKRadial2HitIris, modifierKeyMask: .shift)
 		
-		mini = GCSMiniRadialControl2(bounds: .zero, in: mcc)
+		mini = GCMiniRadialControl2(bounds: .zero, in: mcc)
 		mini?.identifier = kRadialEndControlID
 		
-		mini = GCSMiniRadialControl2(bounds: .zero, in: mcc)
+		mini = GCMiniRadialControl2(bounds: .zero, in: mcc)
 		mini?.identifier = kRadialStartControlID
 
 		// third has circular slider + single radial control + straight slider
 		// n.b. order is important as controls overlap. hit testing is done in reverse order to
 		// that here, which is the drawing order.
 
-		mcc = GCSMiniControlCluster(bounds: .zero, in: mMiniControls)
+		mcc = GCMiniControlCluster(bounds: .zero, in: mMiniControls)
 		mcc?.identifier = kSweepControlsClusterID
 		
-		mini = GCSMiniCircularSlider(bounds: .zero, in: mcc)
+		mini = GCMiniCircularSlider(bounds: .zero, in: mcc)
 		mini?.identifier = kSweepAngleControlID
 		
-		mini = GCSMiniSlider(bounds: .zero, in: mcc)
+		mini = GCMiniSlider(bounds: .zero, in: mcc)
 		mini?.identifier = kSweepSegmentsControlID
 		mini?.setInfoWindowMode(.miniControlInfoWindowCentred)
 		mini?.setInfoWindowFormat("0")
 		
-		mini = GCSMiniRadialControls(bounds: .zero, in: mcc)
+		mini = GCMiniRadialControls(bounds: .zero, in: mcc)
 		mini?.identifier = kSweepCentreControlID
 	}
 	
-	func setControlledAttribute(from ctrl: GCSMiniControl) {
+	func setControlledAttribute(from ctrl: GCMiniControl) {
 		let ident = ctrl.identifier!
 		
 		switch ident {
@@ -116,7 +116,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 			//[[self gradient] setNumberOfAngularSegments:seg];
 
 		case kRadialStartControlID, kSweepCentreControlID:
-			let rc = ctrl as! GCSMiniRadialControls
+			let rc = ctrl as! GCMiniRadialControls
 			
 			LogEvent(.stateEvent, "setting starting radius: \(rc.radius)")
 
@@ -127,7 +127,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 			}
 			
 		case kRadialEndControlID:
-			let rc = ctrl as! GCSMiniRadialControls
+			let rc = ctrl as! GCMiniRadialControls
 			
 			LogEvent(.stateEvent, "setting ending radius: \(rc.radius)")
 
@@ -194,23 +194,23 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 		controlCluster(for: mode)?.draw()
 	}
 	
-	func controlCluster(for mode: GCSGradientWell.Mode) -> GCSMiniControlCluster? {
+	func controlCluster(for mode: GCSGradientWell.Mode) -> GCMiniControlCluster? {
 		switch mode {
 		case .angle:
-			return miniControls?.control(forKey: kLinearControlsClusterID) as? GCSMiniControlCluster
+			return miniControls?.control(forKey: kLinearControlsClusterID) as? GCMiniControlCluster
 			
 		case .radial:
-			return miniControls?.control(forKey: kRadialControlsClusterID) as? GCSMiniControlCluster
+			return miniControls?.control(forKey: kRadialControlsClusterID) as? GCMiniControlCluster
 
 		case .sweep:
-			return miniControls?.control(forKey: kSweepControlsClusterID) as? GCSMiniControlCluster
+			return miniControls?.control(forKey: kSweepControlsClusterID) as? GCMiniControlCluster
 
 		default:
 			return nil
 		}
 	}
 	
-	func miniControl(forIdentifier key: String) -> GCSMiniControl? {
+	func miniControl(forIdentifier key: String) -> GCMiniControl? {
 		return miniControls?.control(forKey: key)
 	}
 	
@@ -226,7 +226,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 			
 		case .radial:
 			LogEvent(.stateEvent, "setting up radial controls")
-			guard var rc = miniControls?.control(forKey: kRadialStartControlID) as? GCSMiniRadialControl2,
+			guard var rc = miniControls?.control(forKey: kRadialStartControlID) as? GCMiniRadialControl2,
 			let gradient = self.gradient else {
 				break
 			}
@@ -236,7 +236,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 			rc.radius = gradient.radialStartingRadius * controlBoundsRect.size.width
 			rc.tabColor = gradient.color(atValue: 0)
 			
-			rc = miniControls!.control(forKey: kRadialEndControlID) as! GCSMiniRadialControl2
+			rc = miniControls!.control(forKey: kRadialEndControlID) as! GCMiniRadialControl2
 			
 			rc.centre = gradient.mapPoint(gradient.radialEndingPoint, to: controlBoundsRect)
 			rc.radius = gradient.radialEndingRadius * controlBoundsRect.size.width
@@ -245,7 +245,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 		case .sweep:
 			// sweep controls:
 
-			guard let rc = miniControls?.control(forKey: kSweepCentreControlID) as? GCSMiniRadialControls,
+			guard let rc = miniControls?.control(forKey: kSweepCentreControlID) as? GCMiniRadialControls,
 			let gradient = self.gradient else {
 				break
 			}
@@ -445,7 +445,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 	
 	/// delegate method called for a change in any mini-control value. route the result to the appropriate
 	/// setting. Note - no need to call for redisplay, that has been done.
-	func miniControl(_ mc: GCSMiniControl!, didChangeValue newValue: Any!) {
+	func miniControl(_ mc: GCMiniControl!, didChangeValue newValue: Any!) {
 		if !updatingControls {
 			LogEvent(.infoEvent, "miniControl ‘\(mc.identifier)’ didChangeValue ‘\(newValue)’")
 			
@@ -457,7 +457,7 @@ final class GCSGradientCell: DKSGradientCell, GCSMiniControlDelegate {
 		}
 	}
 	
-	func miniControlWillUpdateInfoWindow(_ mc: GCSMiniControl!, withValue val: CGFloat) -> CGFloat {
+	func miniControlWillUpdateInfoWindow(_ mc: GCMiniControl!, withValue val: CGFloat) -> CGFloat {
 		if mc.identifier == kSweepSegmentsControlID {
 			var seg = mc.value * 50
 			if seg < 4 {

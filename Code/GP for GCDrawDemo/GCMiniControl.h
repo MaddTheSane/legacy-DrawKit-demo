@@ -13,7 +13,7 @@
 
 //! standard "partcodes" returned by hitTest method
 //! subclasses can define their own using any other values
-typedef NSInteger GCControlHitTest NS_TYPED_EXTENSIBLE_ENUM;
+typedef NSInteger GCControlHitTest;
 NS_ENUM(GCControlHitTest){
 	kDKMiniControlNoPart = 0,
 	kDKMiniControlEntireControl = -1};

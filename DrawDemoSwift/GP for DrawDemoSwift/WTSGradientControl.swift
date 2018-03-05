@@ -292,7 +292,7 @@ final class WTSGradientControl: GCSGradientWell {
 			if let mSelectedStopRef = selectedStop {
 				// order here is important: deactivate external well before setting panel's colour:
 
-				GCSSpecialColorWell.deactivateCurrentWell()
+				GCSpecialColorWell.deactivateCurrentWell()
 				
 				NSColorPanel.shared.color = mSelectedStopRef.color
 				NSColorPanel.shared.setTarget(self)

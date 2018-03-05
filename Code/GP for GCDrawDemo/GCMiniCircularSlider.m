@@ -107,12 +107,12 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 
 	// draw the knob
 
-	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:self.cluster.alpha];
+	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositingOperationSourceAtop fraction:self.cluster.alpha];
 }
 
 - (void)flagsChanged:(NSEventModifierFlags)flags
 {
-	BOOL shift = (flags & NSShiftKeyMask) != 0;
+	BOOL shift = (flags & NSEventModifierFlagShift) != 0;
 	self.showTickMarks = shift;
 }
 
@@ -156,7 +156,7 @@ static const CGFloat sConstrainAngle = 0.261799387799; // 15 degrees
 
 	// constrain angle if shift down
 
-	BOOL shift = (flags & NSShiftKeyMask) != 0;
+	BOOL shift = (flags & NSEventModifierFlagShift) != 0;
 
 	if (shift) {
 		CGFloat rem = fmod(angle, sConstrainAngle);

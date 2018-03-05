@@ -12,19 +12,19 @@
 #import "GCFoundationAdditions.h"
 #import "GCSBasicDialogController.h"
 #import "GCSExportConstants.h"
-#import "GCSMiniControl.h"
 #import "GCSTableView.h"
 #import "GCGradientPasteboard.h"
 #import "NSFolderManagerAdditions.h"
-#import "GCSSpecialColorWell.h"
+#import "GCSpecialColorWell.h"
 
 #import "GCSDashEditor.h"
 #import "GCSDashEditView.h"
 
-#import "GCSMiniCircularSlider.h"
-#import "GCSMiniControlCluster.h"
-#import "GCSMiniRadialControl2.h"
-#import "GCSMiniRadialControls.h"
+#import "GCMiniControl.h"
+#import "GCMiniCircularSlider.h"
+#import "GCMiniControlCluster.h"
+#import "GCMiniRadialControl2.h"
+#import "GCMiniRadialControls.h"
 
 //#import "NSBezierPath+GCAdditions.h"
 

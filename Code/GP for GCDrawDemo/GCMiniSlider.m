@@ -70,7 +70,7 @@
 
 	// position and draw the knob
 
-	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:self.cluster.alpha];
+	[mKnobImage drawInRect:[self knobRect] fromRect:NSZeroRect operation:NSCompositingOperationSourceAtop fraction:self.cluster.alpha];
 }
 
 - (GCControlHitTest)hitTestPoint:(NSPoint)p

@@ -141,7 +141,7 @@
 }
 
 #pragma mark -
-- (void)setLinkControlPart:(int)partcode modifierKeyMask:(NSEventModifierFlags)mask
+- (void)setLinkControlPart:(GCControlHitTest)partcode modifierKeyMask:(NSEventModifierFlags)mask
 {
 	// this allows certain special behaviours when modifier keys are pressed for mouse operations on the cluster.
 	// If the partcode is detected as being hit and the modifier flags match mask, all controls in the cluster will
