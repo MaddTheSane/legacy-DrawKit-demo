@@ -8,6 +8,7 @@
 
 import Cocoa
 import DKDrawKit.DKGradientExtensions
+import DKDrawKit.DKSweptAngleGradient
 
 
 // MARK: Contants (Non-localized)
@@ -113,7 +114,9 @@ final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 				seg = 0
 			}
 			
-            //[[self gradient] setNumberOfAngularSegments:seg];
+			if let angularGradient = self.gradient as? DKSweptAngleGradient {
+				angularGradient.numberOfAngularSegments = seg
+			}
 
 		case kRadialStartControlID, kSweepCentreControlID:
 			let rc = ctrl as! GCMiniRadialControls
@@ -251,7 +254,7 @@ final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 			}
 			rc.centre = gradient.mapPoint(gradient.radialStartingPoint, to: controlBoundsRect)
 			
-            let seg = 100 //[[self gradient] numberOfAngularSegments];
+			let seg = (self.gradient as? DKSweptAngleGradient)?.numberOfAngularSegments ?? 100
 			var v = CGFloat(seg) / 50.0
 			
 			if seg < 4 {
