@@ -10,6 +10,7 @@
 
 #import "NSFolderManagerAdditions.h"
 #import "WTPlistKeyValueCoding.h"
+#import "GCGradientView.h"
 #import <DKDrawKit/LogEvent.h>
 
 #pragma mark Contants (Non-localized)
@@ -148,9 +149,9 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	} else if ([@"com.adobe.encapsulated-postscript" isEqualToString:type]) {
 		NSData *eps = [self eps];
 		result = [pboard setData:eps forType:@"com.adobe.encapsulated-postscript"];
-	} else if ([NSFilesPromisePboardType isEqualToString:type]) {
+    } else if ([NSFilesPromisePboardType isEqualToString:type]) {
 		result = [pboard setPropertyList:@[GradientFileExtension]
-								 forType:NSFilesPromisePboardType];
+                                 forType:NSFilesPromisePboardType];
 	} else if ([(NSString*)kUTTypeFileURL isEqualToString:type]) {
 		// we do not have a file already in existence, so we wish to handle this
 		// type lazily to delay file creation until actually requested
@@ -165,40 +166,32 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 #pragma mark -
 - (NSData *)pdf
 {
-	// return gradient as PDF data
-
 	NSRect fr;
 
 	fr.origin = NSZeroPoint;
 	fr.size = sGradientPasteboardImageSize;
 
-	//GCGradientView*		gv = [[GCGradientView alloc] initWithFrame:fr];
-	//[gv setGradient:self];
+	GCGradientView*		gv = [[GCGradientView alloc] initWithFrame:fr];
+	[gv setGradient:self];
 
-	//NSData* pdf = [gv dataWithPDFInsideRect:fr];
+	NSData* pdf = [gv dataWithPDFInsideRect:fr];
 
-	//[gv release];
-
-	return nil; //pdf;
+	return pdf;
 }
 
 - (NSData *)eps
 {
-	// return gradient as EPS data
-
 	NSRect fr;
 
 	fr.origin = NSZeroPoint;
 	fr.size = sGradientPasteboardImageSize;
 
-	//GCGradientView*		gv = [[GCGradientView alloc] initWithFrame:fr];
-	//[gv setGradient:self];
+	GCGradientView*		gv = [[GCGradientView alloc] initWithFrame:fr];
+	[gv setGradient:self];
 
-	//NSData* eps = [gv dataWithEPSInsideRect:fr];
+	NSData* eps = [gv dataWithEPSInsideRect:fr];
 
-	//[gv release];
-
-	return nil; //eps;
+	return eps;
 }
 
 #pragma mark -
@@ -254,7 +247,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	[self writeType:NSFileContentsPboardType toPasteboard:pboard]; // <-- very important that this is first
 	[self writeType:GPGradientPasteboardType toPasteboard:pboard];
 	[self writeType:NSPasteboardTypePDF toPasteboard:pboard];
-	[self writeType:NSFilesPromisePboardType toPasteboard:pboard]; // <--- may create temporary or real file if requested
+    [self writeType:NSFilesPromisePboardType toPasteboard:pboard]; // <--- may create temporary or real file if requested
 	//[self writeType:(NSString*)kUTTypeFileURL toPasteboard:pboard];		// <--- may create temporary file if requested
 
 	//	LogEvent_(kReactiveEvent, @"pboard types written = %@", [pboard types]);

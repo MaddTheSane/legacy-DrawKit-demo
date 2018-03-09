@@ -8,14 +8,13 @@
 
 #import <AppKit/AppKit.h>
 
-@class GCGradient;
+@class DKGradient;
 
 @interface GCGradientView : NSView {
-	GCGradient *_gradient;
+	DKGradient *_gradient;
 }
 
-- (void)setGradient:(GCGradient *)grad;
-- (GCGradient *)gradient;
+@property (nonatomic, retain) DKGradient *gradient;
 
 @end
 
@@ -25,13 +24,13 @@
 // list view used to provide similar feature for exporting library images
 
 @interface GCGradientListView : NSView {
-	NSArray *_list;
+	NSArray<DKGradient*> *_list;
 	NSSize _cellSize;
 	NSSize _cellSpacing;
 }
 
-- (void)setGradientList:(NSArray *)list;
-- (void)setCellSize:(NSSize)size;
+@property (retain) NSArray<DKGradient *> *gradientList;
+@property NSSize cellSize;
 
 @end
 

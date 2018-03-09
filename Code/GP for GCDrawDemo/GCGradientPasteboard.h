@@ -64,7 +64,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)writeType:(NSPasteboardType)type toPasteboard:(NSPasteboard *)pboard;
 
+/** @brief Return gradient as PDF data.
+ */
 @property (readonly, copy, nullable) NSData *pdf;
+
+/** @brief Return gradient as EPS data.
+ */
 @property (readonly, copy, nullable) NSData *eps;
 
 // File interface

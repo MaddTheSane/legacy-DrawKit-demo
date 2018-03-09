@@ -72,7 +72,7 @@ class GCSGradientWell: NSControl, NSDraggingSource {
 		} else {
 			gradient?.writeFile(to: NSPasteboard(name: .dragPboard))
 		}
-		//[self dragStandardSwatchGradient:self.gradient slideBack:YES event:theEvent]
+		dragStandardSwatchGradient(gradient!, slideBack: true, event: theEvent)
 	}
 	
 	

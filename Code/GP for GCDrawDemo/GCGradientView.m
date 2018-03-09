@@ -7,7 +7,7 @@
 //
 
 #import "GCGradientView.h"
-#import "GCGradient.h"
+#import <DKDrawKit/DKGradient.h>
 
 @implementation GCGradientView
 
@@ -16,15 +16,9 @@
 	self = [super initWithFrame:frame];
 
 	if (self) {
-		[self setGradient:[GCGradient defaultGradient]];
+		[self setGradient:[DKGradient defaultGradient]];
 	}
 	return self;
-}
-
-- (void)dealloc
-{
-	[_gradient release];
-	[super dealloc];
 }
 
 - (BOOL)isFlipped
@@ -34,21 +28,17 @@
 
 - (void)drawRect:(NSRect)rect
 {
+#pragma unused(rect)
 	[[self gradient] fillRect:[self bounds]];
 }
 
-- (void)setGradient:(GCGradient *)grad
+- (void)setGradient:(DKGradient *)grad
 {
-	[grad retain];
-	[_gradient release];
 	_gradient = grad;
 	[self setNeedsDisplay:YES];
 }
 
-- (GCGradient *)gradient
-{
-	return _gradient;
-}
+@synthesize gradient=_gradient;
 
 @end
 
@@ -66,12 +56,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[_list release];
-	[super dealloc];
-}
-
 - (BOOL)isFlipped
 {
 	return YES;
@@ -79,11 +63,12 @@
 
 - (void)drawRect:(NSRect)rect
 {
+#pragma unused(rect)
 	// render each gradient in the list in a row/column matrix arrangement
 
 	NSRect r = [self bounds];
-	int rows, cols, j, k, i;
-	GCGradient *grad;
+	NSInteger rows, cols;
+	DKGradient *grad;
 	NSRect gr;
 
 	cols = MAX(1, NSWidth(r) / (_cellSize.width + _cellSpacing.width));
@@ -93,11 +78,11 @@
 	gr.origin.y = _cellSpacing.height;
 	gr.size = _cellSize;
 
-	for (j = 0; j < rows; ++j) {
-		for (k = 0; k < cols; ++k) {
-			i = (j * cols) + k;
+	for (NSInteger j = 0; j < rows; ++j) {
+		for (NSInteger k = 0; k < cols; ++k) {
+			NSInteger i = (j * cols) + k;
 
-			if (i >= 0 && i < [_list count]) {
+			if (i >= 0 && i < (NSInteger)[_list count]) {
 				grad = [_list objectAtIndex:i];
 				[grad fillRect:gr];
 			}
@@ -110,16 +95,7 @@
 	}
 }
 
-- (void)setGradientList:(NSArray *)list
-{
-	[list retain];
-	[_list release];
-	_list = list;
-}
-
-- (void)setCellSize:(NSSize)size
-{
-	_cellSize = size;
-}
+@synthesize gradientList=_list;
+@synthesize cellSize=_cellSize;
 
 @end

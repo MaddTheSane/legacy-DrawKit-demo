@@ -64,6 +64,8 @@
 		55C969B71FE3553C009AD729 /* GCSDrawDemoPrefsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C969B61FE3553C009AD729 /* GCSDrawDemoPrefsController.swift */; };
 		55C969BB1FE37334009AD729 /* LogEventSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C969BA1FE37334009AD729 /* LogEventSwift.m */; };
 		55D8DB601FFEDCA500ECB542 /* GCFoundationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C9697A1FE34099009AD729 /* GCFoundationAdditions.m */; };
+		55E10CD220531038004FF2EE /* GCGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E10CD120531037004FF2EE /* GCGradientView.m */; };
+		55E10CD32053115B004FF2EE /* GCGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E10CD120531037004FF2EE /* GCGradientView.m */; };
 		55E38A5720239BB80050F120 /* GCSDashEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E38A5620239BB80050F120 /* GCSDashEditView.swift */; };
 		55E38A5A20239BDF0050F120 /* GCSDashEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E38A5920239BDF0050F120 /* GCSDashEditor.swift */; };
 		55E701CD20093F6000511343 /* WTSGradientControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E701CC20093F6000511343 /* WTSGradientControl.swift */; };
@@ -314,6 +316,8 @@
 		55C969B81FE3557F009AD729 /* DrawDemoKit_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawDemoKit_Bridge.h; sourceTree = "<group>"; };
 		55C969B91FE37325009AD729 /* LogEventSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogEventSwift.h; sourceTree = "<group>"; };
 		55C969BA1FE37334009AD729 /* LogEventSwift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogEventSwift.m; sourceTree = "<group>"; };
+		55E10CCF20531037004FF2EE /* GCGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCGradientView.h; sourceTree = "<group>"; };
+		55E10CD120531037004FF2EE /* GCGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCGradientView.m; sourceTree = "<group>"; };
 		55E38A5620239BB80050F120 /* GCSDashEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSDashEditView.swift; sourceTree = "<group>"; };
 		55E38A5920239BDF0050F120 /* GCSDashEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSDashEditor.swift; sourceTree = "<group>"; };
 		55E701CC20093F6000511343 /* WTSGradientControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTSGradientControl.swift; sourceTree = "<group>"; };
@@ -703,6 +707,8 @@
 		BF58CFE00C7526A6009B85CC /* GP for GCDrawDemo */ = {
 			isa = PBXGroup;
 			children = (
+				55E10CCF20531037004FF2EE /* GCGradientView.h */,
+				55E10CD120531037004FF2EE /* GCGradientView.m */,
 				BF58CFE10C7526A6009B85CC /* DKGradientCell.h */,
 				BF58CFE20C7526A6009B85CC /* DKGradientCell.m */,
 				BF58CFE30C7526A6009B85CC /* GCColourPickerView.h */,
@@ -940,6 +946,7 @@
 				55801B921FEF1C32003BD17C /* GCSColourPickerView.swift in Sources */,
 				5540CEAA1FEE590B0053C233 /* GCSCheckboxCell.swift in Sources */,
 				55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */,
+				55E10CD32053115B004FF2EE /* GCGradientView.m in Sources */,
 				55C9691A1FE337A2009AD729 /* GCSOutlineView.swift in Sources */,
 				55E38A5720239BB80050F120 /* GCSDashEditView.swift in Sources */,
 				55E701CD20093F6000511343 /* WTSGradientControl.swift in Sources */,
@@ -976,6 +983,7 @@
 				BFF071670C3FAE8D008D427F /* GCDrawDemoDocument+TimelineLayout.m in Sources */,
 				BFF08D5D0C583808008D427F /* GCLayersPaletteController.m in Sources */,
 				BFF08EC60C58CE4A008D427F /* GCStyleManagerDialog.m in Sources */,
+				55E10CD220531038004FF2EE /* GCGradientView.m in Sources */,
 				BFF090960C5C4ECF008D427F /* GCCheckboxCell.m in Sources */,
 				BFF090B50C5C53C6008D427F /* GCTableView.m in Sources */,
 				BF58D0060C7526A6009B85CC /* DKGradientCell.m in Sources */,
