@@ -163,7 +163,7 @@ final class GCSStyleManagerDialog : NSWindowController, DKStyleRegistryDelegate 
 		var x = 0
 		var y = 0
 
-		LogEvent(.reactiveEvent, "setting up matrix for '\(cat)' (\(num) items)")
+		LogEvent(.reactiveEvent, "setting up matrix for ‘\(cat.rawValue)’ (\(num) items)")
 		
 		styleIconMatrix.renewRows(rows, columns: cols)
 		styleIconMatrix.sizeToCells()
