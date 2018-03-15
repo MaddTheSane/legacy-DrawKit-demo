@@ -311,7 +311,7 @@ final class GCSGradientCell: DKSGradientCell, GCMiniControlDelegate {
 
 				if control.displaysProxyIcon {
 					let ficon = #imageLiteral(resourceName: "fileiconsmall")
-					ficon.draw(in: proxyIconRect(inCellFrame: cellFrame), from: .zero, operation: .sourceAtop, fraction: 0.8)
+					ficon.draw(in: proxyIconRect(inCellFrame: cellFrame), from: .zero, operation: .sourceAtop, fraction: 0.8, respectFlipped: true, hints: nil)
 				}
 			}
 		}

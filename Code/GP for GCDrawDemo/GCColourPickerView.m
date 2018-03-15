@@ -70,8 +70,6 @@
 
 	if (specImage == nil) {
 		specImage = [[NSBundle bundleForClass:[self class]] imageForResource:@"NSColorWheelImage"];
-
-		[specImage setFlipped:YES];
 	}
 
 	// clip to a circle fitting bounds
@@ -86,7 +84,7 @@
 	}
 
 	[NSGraphicsContext currentContext].imageInterpolation = NSImageInterpolationHigh;
-	[specImage drawInRect:rect fromRect:rect operation:NSCompositeCopy fraction:self.brightness];
+	[specImage drawInRect:rect fromRect:rect operation:NSCompositeCopy fraction:self.brightness respectFlipped:YES hints:nil];
 
 	// draw the current colour location
 

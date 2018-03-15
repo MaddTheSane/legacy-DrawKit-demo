@@ -112,7 +112,7 @@ final class GCSColourPickerView: NSView {
 		}
 		
 		NSGraphicsContext.current?.imageInterpolation = .high
-		specImage.draw(in: rect, from: rect, operation: .copy, fraction: brightness)
+		specImage.draw(in: rect, from: rect, operation: .copy, fraction: brightness, respectFlipped: true, hints: nil)
 		
 		// draw the current colour location
 		let mr = rectForSpectrumPoint(sel)

@@ -155,7 +155,8 @@ final class GCSColourCell : NSCell {
 
 			let img = #imageLiteral(resourceName: "menu_triangle")
 			let mp = NSPoint(x: cellFrame.maxX - 18, y: cellFrame.maxY - 13)
-			img.draw(at: mp, from: .zero, operation: .sourceAtop, fraction: 1)
+			let imgDraw = NSRect(origin: mp, size: img.size)
+			img.draw(in: imgDraw, from: .zero, operation: .sourceAtop, fraction: 1, respectFlipped: true, hints: nil)
 		}
 	}
 

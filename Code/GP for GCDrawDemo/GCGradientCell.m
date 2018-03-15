@@ -297,8 +297,7 @@ static NSInteger sMFlags = 0;
 
 			if ([control displaysProxyIcon]) {
 				NSImage *ficon = [NSImage imageNamed:@"fileiconsmall"];
-				[ficon setFlipped:YES];
-				[ficon drawInRect:[self proxyIconRectInCellFrame:cellFrame] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:0.8];
+				[ficon drawInRect:[self proxyIconRectInCellFrame:cellFrame] fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:0.8 respectFlipped:YES hints:nil];
 			}
 		}
 	}

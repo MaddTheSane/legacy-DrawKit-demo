@@ -98,15 +98,7 @@
 	[(NSControl *)mControlView updateCellInside:self];
 }
 
-- (NSColor *)colorValue
-{
-	return mColour;
-}
-
-- (void)setState:(BOOL)state
-{
-	mHighlighted = state;
-}
+@synthesize colorValue = mColour;
 
 - (IBAction)colourChangeFromPicker:(id)sender
 {
@@ -135,7 +127,7 @@
 	if ([self colorValue] != nil) {
 		NSRect r;
 
-		if (mHighlighted)
+		if ([self state] == NSControlStateValueOn)
 			[[NSColor darkGrayColor] set];
 		else
 			[[NSColor whiteColor] set];
@@ -156,9 +148,11 @@
 		NSImage *img = [NSImage imageNamed:@"menu_triangle"];
 
 		if (img != nil) {
-			[img setFlipped:YES];
 			NSPoint mp = NSMakePoint(NSMaxX(theFrame) - 18, NSMaxY(theFrame) - 13);
-			[img drawAtPoint:mp fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:1.0];
+			NSRect imgDraw;
+			imgDraw.origin = mp;
+			imgDraw.size = img.size;
+			[img drawInRect:imgDraw fromRect:NSZeroRect operation:NSCompositeSourceAtop fraction:1.0 respectFlipped:YES hints:nil];
 		}
 	}
 }

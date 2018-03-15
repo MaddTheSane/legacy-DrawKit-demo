@@ -9,13 +9,11 @@
 
 @interface GCColourCell : NSCell {
 	NSColor *mColour;
-	BOOL mHighlighted;
 	NSRect mFrame;
 	NSView *mControlView;
 }
 
-@property (copy) NSColor *colorValue;
-- (void)setState:(BOOL)state;
+@property (nonatomic, copy) NSColor *colorValue;
 
 @end
 
