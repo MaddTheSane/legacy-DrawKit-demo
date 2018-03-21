@@ -117,16 +117,17 @@ final class GCSColourCell : NSCell {
 	
 	/// hack - call the table's dataSource to temporarily set a colour that will be returned to the table when we update here - this
 	/// allows the cell to update live even though the cell is shared with all the other cells in the column.
-	@IBAction func colourChangeFromPicker(_ sender: NSColorWell?) {
-		if let cview = controlView as? NSTableView {
+	@IBAction func colourChangeFromPicker(_ sender: Any?) {
+		if let cview = controlView as? NSTableView,
+			let sender = sender as? NSColorWell {
 			let ds = (cview.dataSource as? NSTableViewDataSource & GCSColourCellHack)
 			let rows = cview.rows(in: frame)
 			
-			ds?.setTemporaryColour(sender!.color, for: cview, row: rows.location)
+			ds?.setTemporaryColour(sender.color, for: cview, row: rows.location)
 			
 			// force a reload of the row which will grab the temp colour and update the cell
 
-			controlView?.setNeedsDisplay(frame)
+			cview.setNeedsDisplay(frame)
 		}
 	}
 	
