@@ -18,6 +18,7 @@
 NSString *const GPGradientPasteboardType = @"GPGradientPasteboardType";
 NSString *const GPGradientLibPasteboardType = @"GPGradientLibPasteboardType";
 NSString *const GradientFileExtension = @"gradient";
+NSString *const GPGradientFileUTI = @"net.apptree.gcdrawdemo.gradients";
 
 NSString * const GCGradientInfoKey = @"info";
 NSString * const GCGradientsKey = @"gradients";
@@ -32,7 +33,8 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	static NSArray *types = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		types = @[GPGradientPasteboardType,
+		types = @[GPGradientFileUTI,
+				  GPGradientPasteboardType,
 				  NSFileContentsPboardType,
 				  (NSString*)kUTTypeFileURL];
 	});
@@ -45,7 +47,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	static NSArray *types = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		types = @[ GPGradientPasteboardType ];
+		types = @[ GPGradientFileUTI, GPGradientPasteboardType ];
 	});
 
 	return types;
@@ -93,6 +95,14 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	if ([GPGradientPasteboardType isEqualToString:bestType]) {
 		NSData *data = [pboard dataForType:GPGradientPasteboardType];
 		return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+	} else if ([GPGradientFileUTI isEqualToString:bestType]) {
+		NSData *data = [pboard dataForType:GPGradientFileUTI];
+		NSDictionary *plist = [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:NULL];
+		id val = [plist unarchiveFromPropertyListFormat];
+		if ([val isKindOfClass:[DKGradient class]]) {
+			return val;
+		}
+		return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 	} else if ([(NSString*)kUTTypeFileURL isEqualToString:bestType]) {
 		NSArray *files = [pboard propertyListForType:(NSString*)kUTTypeFileURL];
 		// Can't handle more than one.
@@ -103,7 +113,10 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 		if ([filePath.pathExtension isEqualToString:GradientFileExtension]) {
 			NSDictionary *dict = [NSDictionary dictionaryWithContentsOfURL:filePath];
 			id val = [dict unarchiveFromPropertyListFormat];
-			return val;
+			if ([val isKindOfClass:[DKGradient class]]) {
+				return val;
+			}
+			return [NSKeyedUnarchiver unarchiveObjectWithFile:[filePath path]];
 		}
 	}
 	return nil;
@@ -118,7 +131,8 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 
 - (BOOL)writeToPasteboard:(NSPasteboard *)pboard
 {
-	[pboard declareTypes:@[GPGradientPasteboardType] owner:self];
+	[pboard declareTypes:@[GPGradientPasteboardType, GPGradientFileUTI] owner:self];
+	[self writeType:GPGradientFileUTI toPasteboard:pboard];
 	[self writeType:GPGradientPasteboardType toPasteboard:pboard];
 	[self writeType:NSPasteboardTypePDF toPasteboard:pboard];
 	//[self writeType:@"com.adobe.encapsulated-postscript" toPasteboard:pboard];
@@ -140,6 +154,9 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	if ([GPGradientPasteboardType isEqualToString:type]) {
 		NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
 		result = [pboard setData:data forType:GPGradientPasteboardType];
+	} else if ([GPGradientFileUTI isEqualToString:type]) {
+		NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
+		result = [pboard setData:data forType:GPGradientFileUTI];
 	} else if ([NSPasteboardTypeTIFF isEqualToString:type]) {
 		NSImage *image = [self swatchImageWithSize:sGradientPasteboardImageSize withBorder:NO];
 		result = [pboard setData:image.TIFFRepresentation forType:NSPasteboardTypeTIFF];
@@ -171,7 +188,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	fr.origin = NSZeroPoint;
 	fr.size = sGradientPasteboardImageSize;
 
-	GCGradientView*		gv = [[GCGradientView alloc] initWithFrame:fr];
+	GCGradientView* gv = [[GCGradientView alloc] initWithFrame:fr];
 	[gv setGradient:self];
 
 	NSData* pdf = [gv dataWithPDFInsideRect:fr];
@@ -186,7 +203,7 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 	fr.origin = NSZeroPoint;
 	fr.size = sGradientPasteboardImageSize;
 
-	GCGradientView*		gv = [[GCGradientView alloc] initWithFrame:fr];
+	GCGradientView* gv = [[GCGradientView alloc] initWithFrame:fr];
 	[gv setGradient:self];
 
 	NSData* eps = [gv dataWithEPSInsideRect:fr];
@@ -199,7 +216,12 @@ static NSSize sGradientPasteboardImageSize = {256.0, 256.0};
 + (DKGradient *)gradientWithContentsOfFile:(NSString *)path
 {
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-	return [dict unarchiveFromPropertyListFormat];
+	id tmp = [dict unarchiveFromPropertyListFormat];
+	
+	if ([tmp isKindOfClass:[DKGradient class]]) {
+		return tmp;
+	}
+	return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
 
 - (BOOL)writeToFile:(NSString *)path atomically:(BOOL)flag

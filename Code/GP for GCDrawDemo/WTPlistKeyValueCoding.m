@@ -246,8 +246,10 @@ WTKeyValueEncodeObject(id val)
 
 - (void)encodeConditionalObject:(nullable id)object forKey:(NSString *)key
 {
+#pragma unused(key)
+	// TODO: better implementation!!!
 	if (object) {
-		self[key] = object;
+		//self[key] = object;
 	}
 }
 

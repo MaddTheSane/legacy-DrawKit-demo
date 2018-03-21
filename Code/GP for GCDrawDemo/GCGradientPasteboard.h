@@ -121,5 +121,6 @@ extern NSString * const GCGradientsKey;
 extern NSPasteboardType const GPGradientPasteboardType NS_SWIFT_NAME(gpGradient);
 extern NSPasteboardType const GPGradientLibPasteboardType NS_SWIFT_NAME(gpGradientLib);
 extern NSString * const GradientFileExtension;
+extern NSString *const GPGradientFileUTI;
 
 NS_ASSUME_NONNULL_END

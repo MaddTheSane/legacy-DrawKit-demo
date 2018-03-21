@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -30,15 +30,15 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleGetInfoString</key>
-	<string>${VISIBLE_VERSION_NUMBER}VERSION_POSTFIX_</string>
+	<string>$(VISIBLE_VERSION_NUMBER)VERSION_POSTFIX_</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -46,7 +46,7 @@
 	<key>CFBundleSignature</key>
 	<string>DKDA</string>
 	<key>CFBundleVersion</key>
-	<string>${VISIBLE_VERSION_NUMBER} VERSION_POSTFIX_</string>
+	<string>$(VISIBLE_VERSION_NUMBER) VERSION_POSTFIX_</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSMainNibFile</key>
@@ -91,6 +91,27 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>xmldrawing</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>DrawDemo Gradient</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.apptree.gcdrawdemo.gradients</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.nspboard-type</key>
+				<array>
+					<string>GPGradientPasteboardType</string>
+				</array>
+				<key>public.filename-extension</key>
+				<array>
+					<string>gradient</string>
 				</array>
 			</dict>
 		</dict>

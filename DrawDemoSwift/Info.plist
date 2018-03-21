@@ -94,6 +94,27 @@
 				</array>
 			</dict>
 		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>DrawDemo Gradient</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.apptree.gcdrawdemo.gradients</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.nspboard-type</key>
+				<array>
+					<string>GPGradientPasteboardType</string>
+				</array>
+				<key>public.filename-extension</key>
+				<array>
+					<string>gradient</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>
