@@ -9,7 +9,7 @@
 import Cocoa
 import DKDrawKit.LogEvent
 
-let defaultQualityModulationFlag = "GCDrawDemo_defaultQualityModulationFlag"
+private let defaultQualityModulationFlag = "GCDrawDemo_defaultQualityModulationFlag"
 
 @NSApplicationMain
 final class AppDelegate: NSObject, NSApplicationDelegate {
