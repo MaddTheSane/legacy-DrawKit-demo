@@ -1801,7 +1801,7 @@ final class GCSStyleInspector: DKDrawkitInspectorBase, GCSDashEditorDelegate, GC
 				// multiple selection - if all the selected objects share the same style, we should proceeed as for
 				// a single selection. Otherwise just switch to th emulti-selection tab.
 				
-				let styles = selection.map({$0.style}).flatMap({$0})
+				let styles = selection.map({$0.style}).compactMap({$0})
 				// are the styles all the same?
 				var prevStyle: DKStyle? = nil
 				var same = true

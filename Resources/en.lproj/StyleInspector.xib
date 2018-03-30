@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -344,7 +344,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
-                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="mini" inset="2" id="243" customClass="GCCheckboxCell">
+                                                            <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="left" controlSize="mini" inset="2" id="243" customClass="GCCheckboxCell">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="cellTitle"/>
                                                             </buttonCell>
@@ -424,7 +424,7 @@
                                                 <button imageHugsTitle="YES" id="38">
                                                     <rect key="frame" x="9" y="216" width="72" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Shadow" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3055">
+                                                    <buttonCell key="cell" type="check" title="Shadow" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3055">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -819,7 +819,7 @@
                                                                     <button imageHugsTitle="YES" id="3260">
                                                                         <rect key="frame" x="60" y="152" width="22" height="18"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="3262">
+                                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="left" controlSize="small" state="on" inset="2" id="3262">
                                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                         </buttonCell>
@@ -908,7 +908,7 @@
                                                                     <button imageHugsTitle="YES" id="3308">
                                                                         <rect key="frame" x="22" y="84" width="169" height="18"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                        <buttonCell key="cell" type="check" title="Angle relative to object" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="3309">
+                                                                        <buttonCell key="cell" type="check" title="Angle relative to object" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="3309">
                                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                         </buttonCell>
@@ -1017,7 +1017,7 @@
                                                 <button toolTip="Selects whether the style can be shared among multiple objects" imageHugsTitle="YES" id="61">
                                                     <rect key="frame" x="0.0" y="223" width="124" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Sharable Style" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3072">
+                                                    <buttonCell key="cell" type="check" title="Sharable Style" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3072">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1093,8 +1093,8 @@
                                                         <action selector="libraryMenuAction:" target="-2" id="129"/>
                                                     </connections>
                                                 </button>
-                                                <button toolTip="Remove From Library" verticalHuggingPriority="750" tag="-4" imageHugsTitle="YES" id="126">
-                                                    <rect key="frame" x="29" y="9" width="26" height="19"/>
+                                                <button toolTip="Remove From Library" verticalHuggingPriority="750" misplaced="YES" tag="-4" imageHugsTitle="YES" id="126">
+                                                    <rect key="frame" x="28" y="9" width="26" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <buttonCell key="cell" type="smallSquare" title="Button" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" tag="-4" imageScaling="proportionallyDown" inset="2" id="3079">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1107,7 +1107,7 @@
                                                 <button toolTip="Locked styles can't be accidentally edited" imageHugsTitle="YES" id="371">
                                                     <rect key="frame" x="1" y="36" width="63" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Locked" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3080">
+                                                    <buttonCell key="cell" type="check" title="Locked" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3080">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1193,7 +1193,7 @@
                                                 <button imageHugsTitle="YES" id="183">
                                                     <rect key="frame" x="10" y="32" width="84" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Clip to Path" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3088">
+                                                    <buttonCell key="cell" type="check" title="Clip to Path" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3088">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1321,7 +1321,7 @@
                                                 <button imageHugsTitle="YES" id="260">
                                                     <rect key="frame" x="10" y="9" width="100" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Clip to Path" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3099">
+                                                    <buttonCell key="cell" type="check" title="Clip to Path" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3099">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1372,7 +1372,7 @@
                                                 <button imageHugsTitle="YES" id="146">
                                                     <rect key="frame" x="6" y="88" width="160" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Wrap Lines" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3105">
+                                                    <buttonCell key="cell" type="check" title="Wrap Lines" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3105">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1383,7 +1383,7 @@
                                                 <button imageHugsTitle="YES" id="147">
                                                     <rect key="frame" x="6" y="68" width="160" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Clip to Path" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3106">
+                                                    <buttonCell key="cell" type="check" title="Clip to Path" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3106">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1458,7 +1458,7 @@
                                                 <button imageHugsTitle="YES" id="264">
                                                     <rect key="frame" x="6" y="48" width="160" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Angle Relative to Object" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3112">
+                                                    <buttonCell key="cell" type="check" title="Angle Relative to Object" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3112">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1764,7 +1764,7 @@
                                                 <button imageHugsTitle="YES" id="3210">
                                                     <rect key="frame" x="11" y="26" width="146" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Angle relative to object" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="3211">
+                                                    <buttonCell key="cell" type="check" title="Angle relative to object" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="3211">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1866,7 +1866,7 @@
                                                 <button tag="146" imageHugsTitle="YES" id="432">
                                                     <rect key="frame" x="1" y="126" width="177" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Rotate to path curvature" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3137">
+                                                    <buttonCell key="cell" type="check" title="Rotate to path curvature" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3137">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1935,7 +1935,7 @@
                                                 <button tag="147" imageHugsTitle="YES" id="3328">
                                                     <rect key="frame" x="1" y="126" width="226" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Pattern angle relative to object" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="3329">
+                                                    <buttonCell key="cell" type="check" title="Pattern angle relative to object" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="3329">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -1965,7 +1965,7 @@
                                                 <button tag="147" imageHugsTitle="YES" id="3353">
                                                     <rect key="frame" x="1" y="106" width="226" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="check" title="Motif angle relative to pattern" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="3354">
+                                                    <buttonCell key="cell" type="check" title="Motif angle relative to pattern" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="3354">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="smallSystem"/>
                                                     </buttonCell>
@@ -2241,31 +2241,31 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         <size key="cellSize" width="63" height="18"/>
                         <size key="intercellSpacing" width="9" height="2"/>
-                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="leading" alignment="left" inset="2" id="3168">
+                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="right" alignment="left" inset="2" id="3168">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <cells>
                             <column>
-                                <buttonCell type="radio" title="1" imagePosition="trailing" alignment="right" controlSize="small" state="on" inset="2" id="307">
+                                <buttonCell type="radio" title="1" imagePosition="right" alignment="right" controlSize="small" state="on" inset="2" id="307">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
                             </column>
                             <column>
-                                <buttonCell type="radio" title="2" imagePosition="trailing" alignment="right" controlSize="small" tag="1" inset="2" id="308">
+                                <buttonCell type="radio" title="2" imagePosition="right" alignment="right" controlSize="small" tag="1" inset="2" id="308">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
                             </column>
                             <column>
-                                <buttonCell type="radio" title="3" imagePosition="trailing" alignment="right" controlSize="small" tag="2" inset="2" id="309">
+                                <buttonCell type="radio" title="3" imagePosition="right" alignment="right" controlSize="small" tag="2" inset="2" id="309">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
                             </column>
                             <column>
-                                <buttonCell type="radio" title="4" imagePosition="trailing" alignment="right" controlSize="small" tag="3" inset="2" id="310">
+                                <buttonCell type="radio" title="4" imagePosition="right" alignment="right" controlSize="small" tag="3" inset="2" id="310">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="smallSystem"/>
                                 </buttonCell>
@@ -2278,7 +2278,7 @@
                     <button imageHugsTitle="YES" id="311">
                         <rect key="frame" x="17" y="111" width="175" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="check" title="Scale to path's stroke weight" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3162">
+                        <buttonCell key="cell" type="check" title="Scale to path's stroke weight" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3162">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -2321,7 +2321,7 @@ Gw
                     <button imageHugsTitle="YES" id="342">
                         <rect key="frame" x="17" y="20" width="86" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="check" title="Preview" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="3165">
+                        <buttonCell key="cell" type="check" title="Preview" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="3165">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -2364,7 +2364,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" id="M3H-70-O5k">
                             <rect key="frame" x="1" y="1" width="292" height="77"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="375">
                                     <rect key="frame" x="0.0" y="0.0" width="292" height="77"/>

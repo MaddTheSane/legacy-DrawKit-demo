@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,7 +38,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" autoresizesSubviews="NO" id="8f4-9H-CrY">
                                     <rect key="frame" x="1" y="1" width="922" height="795"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <customView id="21" customClass="DKDrawingView">
                                             <rect key="frame" x="0.0" y="0.0" width="801" height="610"/>
@@ -230,7 +230,7 @@ Gw
                     <button imageHugsTitle="YES" id="120">
                         <rect key="frame" x="17" y="181" width="256" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="check" title="Fit into a circle automatically" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="315">
+                        <buttonCell key="cell" type="check" title="Fit into a circle automatically" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="315">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="smallSystem"/>
                         </buttonCell>
@@ -257,7 +257,7 @@ Gw
                                 <button imageHugsTitle="YES" id="94">
                                     <rect key="frame" x="15" y="12" width="200" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <buttonCell key="cell" type="check" title="Rotate copies around centre" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="321">
+                                    <buttonCell key="cell" type="check" title="Rotate copies around centre" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="321">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="smallSystem"/>
                                     </buttonCell>
@@ -553,7 +553,7 @@ Gw
                                     <button imageHugsTitle="YES" id="400">
                                         <rect key="frame" x="312" y="7" width="83" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="check" title="Progressive" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="401">
+                                        <buttonCell key="cell" type="check" title="Progressive" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="401">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -572,7 +572,7 @@ Gw
                                     <button imageHugsTitle="YES" id="416">
                                         <rect key="frame" x="312" y="7" width="75" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="check" title="Interlaced" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="417">
+                                        <buttonCell key="cell" type="check" title="Interlaced" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="417">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -618,7 +618,7 @@ Gw
                                     <button imageHugsTitle="YES" id="432">
                                         <rect key="frame" x="312" y="4" width="100" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="check" title="Preserve alpha" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" state="on" inset="2" id="433">
+                                        <buttonCell key="cell" type="check" title="Preserve alpha" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="433">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                         </buttonCell>
@@ -634,7 +634,7 @@ Gw
                 <button imageHugsTitle="YES" id="372">
                     <rect key="frame" x="331" y="49" width="104" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Include grid" bezelStyle="regularSquare" imagePosition="leading" alignment="left" controlSize="small" inset="2" id="373">
+                    <buttonCell key="cell" type="check" title="Include grid" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="373">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
