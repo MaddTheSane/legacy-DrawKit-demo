@@ -42,7 +42,7 @@ NSString *const kGCExportedFileURL = @"kGCExportedFileURL";
 	[sp beginSheetModalForWindow:parent
 			   completionHandler:^(NSModalResponse result) {
 				   [self exportPanelDidEnd:sp returnCode:result contextInfo:NULL];
-				   mSavePanel=nil;
+				   self->mSavePanel=nil;
 			   }];
 }
 
