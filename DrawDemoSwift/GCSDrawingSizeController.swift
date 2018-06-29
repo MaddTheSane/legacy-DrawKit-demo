@@ -256,26 +256,26 @@ final class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate
 		widthTextField.objectValue = size.width / unitConversionFactor
 		heightTextField.objectValue = size.height / unitConversionFactor
 		
-		topMarginTextField.objectValue = drawing.topMargin / unitConversionFactor;
-		leftMarginTextField.objectValue = drawing.leftMargin / unitConversionFactor;
-		rightMarginTextField.objectValue = drawing.rightMargin / unitConversionFactor;
-		bottomMarginTextField.objectValue = drawing.bottomMargin / unitConversionFactor;
+		topMarginTextField.objectValue = drawing.topMargin / unitConversionFactor
+		leftMarginTextField.objectValue = drawing.leftMargin / unitConversionFactor
+		rightMarginTextField.objectValue = drawing.rightMargin / unitConversionFactor
+		bottomMarginTextField.objectValue = drawing.bottomMargin / unitConversionFactor
 		
 		conversionFactorTextField.objectValue = unitConversionFactor
 		conversionFactorSpinControl.objectValue = unitConversionFactor
 		paperColourWell.color = drawing.paperColour ?? .white
 
 		if let grid = drawing.gridLayer {
-			gridSpanTextField.objectValue = grid.spanDistance / unitConversionFactor;
-			gridDivsTextField.integerValue = Int(grid.divisions);
-			gridDivsSpinControl.integerValue = Int(grid.divisions);
-			gridMajorsTextField.integerValue = Int(grid.majors);
-			gridMajorsSpinControl.integerValue = Int(grid.majors);
+			gridSpanTextField.objectValue = grid.spanDistance / unitConversionFactor
+			gridDivsTextField.integerValue = grid.divisions
+			gridDivsSpinControl.integerValue = grid.divisions
+			gridMajorsTextField.integerValue = grid.majors
+			gridMajorsSpinControl.integerValue = grid.majors
 			gridThemeColourWell.color = grid.spanColour;
 			gridPrintCheckbox.state = grid.shouldDrawToPrinter ? .on : .off
-			gridAbbrevUnitsText.stringValue = drawing.abbreviatedDrawingUnits;
-			gridRulerStepsTextField.integerValue = Int(grid.rulerSteps);
-			gridRulerStepsSpinControl.integerValue = Int(grid.rulerSteps);
+			gridAbbrevUnitsText.stringValue = drawing.abbreviatedDrawingUnits
+			gridRulerStepsTextField.integerValue = grid.rulerSteps
+			gridRulerStepsSpinControl.integerValue = grid.rulerSteps
 
 			gridPreviewCheckbox.state = livePreview ? .on : .off
 		}
@@ -289,7 +289,7 @@ final class GCSDrawingSizeController: NSWindowController, GCSBasicDialogDelegate
 	}
 	
 	func sheetDidEnd(_ sheet: NSWindow, returnCode: NSApplication.ModalResponse, contextInfo: UnsafeMutableRawPointer?) {
-		if returnCode == NSApplication.ModalResponse.OK {
+		if returnCode == .OK {
 			// apply the settings to the drawing.
 			
 			let dwgSize = NSSize(width: ((widthTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor, height: ((heightTextField.objectValue as? NSNumber as? CGFloat ) ?? 0) * unitConversionFactor)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -691,11 +691,11 @@
                                                     <tabViewItems>
                                                         <tabViewItem label="Solid" identifier="1" id="3252">
                                                             <view key="view" id="3253">
-                                                                <rect key="frame" x="10" y="25" width="212" height="201"/>
+                                                                <rect key="frame" x="10" y="29" width="212" height="197"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <colorWell id="3261">
-                                                                        <rect key="frame" x="145" y="171" width="44" height="23"/>
+                                                                        <rect key="frame" x="145" y="167" width="44" height="23"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <connections>
@@ -703,7 +703,7 @@
                                                                         </connections>
                                                                     </colorWell>
                                                                     <slider verticalHuggingPriority="750" tag="145" id="3259">
-                                                                        <rect key="frame" x="63" y="63" width="138" height="17"/>
+                                                                        <rect key="frame" x="63" y="59" width="138" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                         <sliderCell key="cell" controlSize="small" continuous="YES" state="on" alignment="left" minValue="1" maxValue="100" doubleValue="10" tickMarkPosition="below" numberOfTickMarks="11" sliderType="linear" id="3263">
                                                                             <font key="font" metaFont="smallSystem"/>
@@ -713,7 +713,7 @@
                                                                         </connections>
                                                                     </slider>
                                                                     <slider verticalHuggingPriority="750" tag="145" id="3258">
-                                                                        <rect key="frame" x="63" y="38" width="138" height="17"/>
+                                                                        <rect key="frame" x="63" y="34" width="138" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                         <sliderCell key="cell" controlSize="small" continuous="YES" state="on" alignment="left" minValue="1" maxValue="100" doubleValue="5" tickMarkPosition="below" numberOfTickMarks="11" sliderType="linear" id="3264">
                                                                             <font key="font" metaFont="smallSystem"/>
@@ -723,7 +723,7 @@
                                                                         </connections>
                                                                     </slider>
                                                                     <slider verticalHuggingPriority="750" tag="145" id="3257">
-                                                                        <rect key="frame" x="63" y="13" width="138" height="17"/>
+                                                                        <rect key="frame" x="63" y="9" width="138" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                         <sliderCell key="cell" controlSize="small" continuous="YES" state="on" alignment="left" maxValue="20" doubleValue="0.5" tickMarkPosition="below" numberOfTickMarks="11" sliderType="linear" id="3265">
                                                                             <font key="font" metaFont="smallSystem"/>
@@ -733,7 +733,7 @@
                                                                         </connections>
                                                                     </slider>
                                                                     <textField verticalHuggingPriority="750" tag="145" id="3256">
-                                                                        <rect key="frame" x="14" y="70" width="38" height="14"/>
+                                                                        <rect key="frame" x="14" y="66" width="38" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="wave:" id="3266">
                                                                             <font key="font" metaFont="smallSystem"/>
@@ -742,7 +742,7 @@
                                                                         </textFieldCell>
                                                                     </textField>
                                                                     <textField verticalHuggingPriority="750" tag="145" id="3255">
-                                                                        <rect key="frame" x="14" y="45" width="38" height="14"/>
+                                                                        <rect key="frame" x="14" y="41" width="38" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ampl.:" id="3267">
                                                                             <font key="font" metaFont="smallSystem"/>
@@ -751,7 +751,7 @@
                                                                         </textFieldCell>
                                                                     </textField>
                                                                     <textField verticalHuggingPriority="750" tag="145" id="3254">
-                                                                        <rect key="frame" x="14" y="20" width="44" height="14"/>
+                                                                        <rect key="frame" x="14" y="16" width="44" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="spread:" id="3268">
                                                                             <font key="font" metaFont="smallSystem"/>
@@ -808,7 +808,7 @@
                                                                         </view>
                                                                     </box>
                                                                     <textField verticalHuggingPriority="750" id="3428">
-                                                                        <rect key="frame" x="60" y="176" width="71" height="14"/>
+                                                                        <rect key="frame" x="60" y="172" width="71" height="14"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Fill Colour:" id="3429">
                                                                             <font key="font" metaFont="smallSystem"/>
@@ -817,7 +817,7 @@
                                                                         </textFieldCell>
                                                                     </textField>
                                                                     <button imageHugsTitle="YES" id="3260">
-                                                                        <rect key="frame" x="60" y="152" width="22" height="18"/>
+                                                                        <rect key="frame" x="60" y="148" width="22" height="18"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="left" controlSize="small" state="on" inset="2" id="3262">
                                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2364,7 +2364,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <clipView key="contentView" id="M3H-70-O5k">
                             <rect key="frame" x="1" y="1" width="292" height="77"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="375">
                                     <rect key="frame" x="0.0" y="0.0" width="292" height="77"/>

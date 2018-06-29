@@ -88,7 +88,7 @@ final class GCSExportOptionsController: NSObject {
 
 	@IBAction func formatIncludeGridAction(_ sender: Any?) {
 		let newGrid: Bool = {
-			if let newState = (sender as? NSButton)?.state {
+			if let newState: NSControl.StateValue = (sender as AnyObject?)?.state {
 				return newState == .on
 			}
 			
@@ -112,7 +112,7 @@ final class GCSExportOptionsController: NSObject {
 
 	@IBAction func jpegProgressiveAction(_ sender: Any?) {
 		let newGrid: Bool = {
-			if let newState = (sender as? NSButton)?.state {
+			if let newState: NSControl.StateValue = (sender as AnyObject?)?.state {
 				return newState == .on
 			}
 			
