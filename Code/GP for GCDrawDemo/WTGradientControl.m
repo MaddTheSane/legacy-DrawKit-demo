@@ -838,7 +838,7 @@
 	pboard = [sender draggingPasteboard];
 
 	if ([DKGradient canInitalizeFromPasteboard:pboard] ||
-		[pboard.types containsObject:NSColorPboardType]) {
+		[pboard.types containsObject:NSPasteboardTypeColor]) {
 		if (sourceDragMask & NSDragOperationGeneric) {
 			return NSDragOperationGeneric;
 		}
@@ -860,7 +860,7 @@
 		DKGradient *aGradient = [DKGradient gradientWithPasteboard:pboard];
 		if (aGradient)
 			[self setGradient:aGradient];
-	} else if ([pboard.types containsObject:NSColorPboardType]) {
+	} else if ([pboard.types containsObject:NSPasteboardTypeColor]) {
 		NSColor *color = [NSColor colorFromPasteboard:pboard];
 		NSPoint pt = [sender draggingLocation];
 		pt = [self convertPoint:pt fromView:nil];
@@ -893,8 +893,7 @@
 {
 	[[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
 
-	[self registerForDraggedTypes:[DKGradient readablePasteboardTypes]];
-	[self registerForDraggedTypes:@[NSColorPboardType]];
+	[self registerForDraggedTypes:[[DKGradient readablePasteboardTypes] arrayByAddingObject:NSPasteboardTypeColor]];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(colorWellActivation:) name:kDKColorWellWillActivate object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(externalStopChange:) name:kDKNotificationGradientDidAddColorStop object:nil];

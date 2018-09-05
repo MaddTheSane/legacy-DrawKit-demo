@@ -400,7 +400,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 	pboard = [sender draggingPasteboard];
 
 	if ([DKGradient canInitalizeFromPasteboard:pboard] ||
-		[pboard.types containsObject:NSColorPboardType])
+		[pboard.types containsObject:NSPasteboardTypeColor])
 
 	{
 		if (sourceDragMask & NSDragOperationGeneric) {
@@ -430,7 +430,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 			if (gradient)
 				self.gradient = gradient;
 
-		} else if ([pboard.types containsObject:NSColorPboardType]) {
+		} else if ([pboard.types containsObject:NSPasteboardTypeColor]) {
 
 			NSColor *colour = [NSColor colorFromPasteboard:pboard];
 			DKGradient *grad = [self.gradient gradientByColorizingWithColor:colour];
@@ -499,8 +499,7 @@ static GCGradientWell *sCurrentActiveWell = nil;
 #pragma mark As part of NSNibAwaking Protocol
 - (void)awakeFromNib
 {
-	[self registerForDraggedTypes:[DKGradient readablePasteboardTypes]];
-	[self registerForDraggedTypes:@[NSColorPboardType]];
+	[self registerForDraggedTypes:[[DKGradient readablePasteboardTypes] arrayByAddingObject:NSPasteboardTypeColor]];
 }
 
 @end
