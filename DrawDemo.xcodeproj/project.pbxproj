@@ -33,7 +33,6 @@
 		55C6BB2F204DCB4D001AE7E5 /* GCMiniSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58CFF80C7526A6009B85CC /* GCMiniSlider.m */; };
 		55C6BB30204DCB5E001AE7E5 /* GCSpecialColorWell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58CFFA0C7526A6009B85CC /* GCSpecialColorWell.m */; };
 		55C968C31FE33509009AD729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C968C21FE33509009AD729 /* AppDelegate.swift */; };
-		55C968C51FE33509009AD729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C968C41FE33509009AD729 /* Assets.xcassets */; };
 		55C968D01FE3351C009AD729 /* DKDrawKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; };
 		55C968D11FE3351C009AD729 /* DKDrawKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA89A45E0D7E03B90092F050 /* DKDrawKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55C968D41FE3351C009AD729 /* DrawKitSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFF2141FDE4970007A4610 /* DrawKitSwift.framework */; };
@@ -286,7 +285,6 @@
 		559B4F7A1FFDBB710000156A /* GCSStyleInspector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GCSStyleInspector.swift; sourceTree = "<group>"; };
 		55C968C01FE33509009AD729 /* DrawDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C968C21FE33509009AD729 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55C968C41FE33509009AD729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55C968C91FE33509009AD729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55C968F51FE33644009AD729 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		55C968F81FE3365D009AD729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DKGraphicInspector.xib; sourceTree = "<group>"; };
@@ -641,7 +639,6 @@
 				5569BBA2200D54EE00DA0804 /* Source */,
 				55C969211FE34099009AD729 /* Old ObjC */,
 				55C968DB1FE335E3009AD729 /* Interfaces */,
-				55C968C41FE33509009AD729 /* Assets.xcassets */,
 				55C968C91FE33509009AD729 /* Info.plist */,
 				55C969171FE33693009AD729 /* Credits.rtf */,
 				55C968F61FE33644009AD729 /* InfoPlist.strings */,
@@ -873,7 +870,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55C968C51FE33509009AD729 /* Assets.xcassets in Resources */,
 				55C968FA1FE33663009AD729 /* Drawingsize.xib in Resources */,
 				55C968F71FE3365D009AD729 /* DKGraphicInspector.xib in Resources */,
 				55C969091FE3367B009AD729 /* Preferences.xib in Resources */,
